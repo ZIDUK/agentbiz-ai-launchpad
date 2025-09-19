@@ -30,32 +30,26 @@ const Header = () => {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a 
-            href="https://ai.koombea.com/" 
-            target="_blank"
-            rel="noopener noreferrer"
+          <button 
+            onClick={() => scrollToSection("hero")} 
             className="text-2xl font-bold text-foreground hover:opacity-80 transition-opacity"
           >
             Agent<span className="gradient-text">Biz</span>
-          </a>
+          </button>
 
           <nav className="hidden md:flex items-center space-x-8">
-            <a 
-              href="https://ai.koombea.com/services" 
-              target="_blank"
-              rel="noopener noreferrer"
+            <button 
+              onClick={() => scrollToSection("solutions")} 
               className="btn-ghost"
             >
               Services
-            </a>
-            <a 
-              href="https://ai.koombea.com/blog" 
-              target="_blank"
-              rel="noopener noreferrer"
+            </button>
+            <button 
+              onClick={() => scrollToSection("blog")} 
               className="btn-ghost"
             >
               Blog
-            </a>
+            </button>
             <button 
               onClick={() => scrollToSection("workflow")} 
               className="btn-ghost"
