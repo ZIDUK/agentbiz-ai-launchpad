@@ -1,4 +1,4 @@
-import { Star, Settings, Plug, Rocket, Shield, Microscope } from "lucide-react";
+import { Star, Settings, Plug, Rocket, Shield, Microscope, Brain, BarChart, Users, Cpu, Database, TrendingUp } from "lucide-react";
 
 const solutions = [
   {
@@ -12,11 +12,20 @@ const solutions = [
   },
   {
     icon: Settings,
-    title: "Custom Agent Solutions", 
+    title: "Custom AI Solutions", 
     items: [
-      "Custom model creation (Generative AI, LLMs).",
+      "Custom model creation (Generative AI, LLMs, Computer Vision).",
       "AI-powered automation tools to optimize workflows.",
       "End-to-end agent development and deployment."
+    ]
+  },
+  {
+    icon: Brain,
+    title: "AI Digital Transformation",
+    items: [
+      "Modernize workflows with AI-powered automation.",
+      "Enable AI-driven decision-making with machine learning insights.",
+      "Transform traditional processes into intelligent systems."
     ]
   },
   {
@@ -25,16 +34,25 @@ const solutions = [
     items: [
       "Seamlessly integrate AI into existing IT infrastructure.",
       "Connect AI with CRM, ERP, and other business tools.",
-      "Cloud integration (AWS, Google Cloud)."
+      "Cloud integration (AWS, Google Cloud, Azure)."
     ]
   },
   {
     icon: Rocket,
-    title: "Agent-Powered Products",
+    title: "AI-Powered Product Development",
     items: [
       "Build AI-first digital products for competitive advantage.",
-      "Implement agent-powered features in SaaS.",
-      "Personalization and intelligent virtual assistants."
+      "Implement conversational AI and virtual assistants.",
+      "Personalization and intelligent automation in SaaS."
+    ]
+  },
+  {
+    icon: Database,
+    title: "Data Science & Analytics",
+    items: [
+      "Leverage big data and predictive analytics for strategic decisions.",
+      "Sentiment analysis and AI-driven business intelligence.",
+      "Custom dashboards with real-time insights and KPIs."
     ]
   },
   {
@@ -54,8 +72,70 @@ const solutions = [
       "Identify performance, security, and cost issues.",
       "Provide a roadmap for immediate improvements."
     ]
+  },
+  {
+    icon: Cpu,
+    title: "Industry-Specific AI Solutions",
+    items: [
+      "Finance: Fraud detection, risk analysis, automated trading.",
+      "Healthcare: AI diagnostics, medical image processing.",
+      "Retail: Personalization, inventory optimization, demand forecasting."
+    ]
   }
 ];
+
+const Industries = () => {
+  const industries = [
+    {
+      icon: TrendingUp,
+      name: "Finance & FinTech",
+      services: ["Fraud detection & risk analysis", "AI-driven financial automation", "Personalized customer service chatbots"]
+    },
+    {
+      icon: Users,
+      name: "Retail & eCommerce", 
+      services: ["Personalization engines", "Inventory optimization", "Customer behavior analytics"]
+    },
+    {
+      icon: Shield,
+      name: "Healthcare & MedTech",
+      services: ["AI-powered diagnostics", "Medical image processing", "Patient outcome predictions"]
+    },
+    {
+      icon: BarChart,
+      name: "Logistics & Supply Chain",
+      services: ["Route optimization", "Demand forecasting", "Intelligent automation workflows"]
+    }
+  ];
+
+  return (
+    <div className="mt-20 pt-16 border-t border-border">
+      <h3 className="text-2xl font-bold text-center text-foreground mb-12">
+        Industries We <span className="gradient-text">Transform</span>
+      </h3>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {industries.map((industry, index) => {
+          const IconComponent = industry.icon;
+          return (
+            <div key={index} className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <IconComponent className="text-primary" size={32} />
+              </div>
+              <h4 className="font-semibold text-foreground mb-3">{industry.name}</h4>
+              <ul className="space-y-2">
+                {industry.services.map((service, serviceIndex) => (
+                  <li key={serviceIndex} className="text-sm text-secondary leading-relaxed">
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 const Solutions = () => {
   return (
@@ -90,6 +170,8 @@ const Solutions = () => {
             );
           })}
         </div>
+
+        <Industries />
       </div>
     </section>
   );
