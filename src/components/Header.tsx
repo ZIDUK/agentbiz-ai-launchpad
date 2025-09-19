@@ -51,6 +51,12 @@ const Header = () => {
               Workflow
             </button>
             <button 
+              onClick={() => scrollToSection("career")} 
+              className="btn-ghost"
+            >
+              Career
+            </button>
+            <button 
               onClick={() => scrollToSection("contact")} 
               className="btn-ghost"
             >

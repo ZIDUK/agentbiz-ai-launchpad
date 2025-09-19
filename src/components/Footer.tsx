@@ -52,6 +52,14 @@ const Footer = () => {
               </li>
               <li>
                 <button 
+                  onClick={() => scrollToSection("career")}
+                  className="text-secondary hover:text-primary transition-colors"
+                >
+                  Career
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => scrollToSection("contact")}
                   className="text-secondary hover:text-primary transition-colors"
                 >
