@@ -22,17 +22,35 @@ const Hero = () => {
     >
       <div className="container max-w-5xl relative z-10">
         <h1 className="text-display mb-6">
-          Transform Your Operations.{" "}
+          Transformative Custom{" "}
           <span className="gradient-text">
-            Maximize ROI with Strategic AI Agents.
+            AI Development
           </span>
         </h1>
         
+        <div className="text-xl font-semibold mb-6 text-white">
+          2× the Speed & Cost Savings - Guaranteed!
+        </div>
+        
         <p className="text-lead mb-8 max-w-4xl mx-auto">
-          We are your strategic partner in AI adoption. We design, build, and deploy custom 
-          artificial intelligence agents that automate critical processes, unlock data value, 
-          and drive unprecedented operational efficiency.
+          AI-first solutions — agentic AI, integrated systems, and product-grade apps that 
+          accelerate digital transformation.
         </p>
+        
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold mb-8 text-white">
+            Trusted by teams shipping <span className="gradient-text">software since 2007</span>
+          </h2>
+          
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
+            <div className="text-white font-semibold">Impact</div>
+            <div className="text-white font-semibold">ACT</div>
+            <div className="text-white font-semibold">T.Rowe Price</div>
+            <div className="text-white font-semibold">EOS</div>
+            <div className="text-white font-semibold">Schneider Electric</div>
+            <div className="text-white font-semibold">TD Bank</div>
+          </div>
+        </div>
         
         <Button 
           onClick={scrollToContact}

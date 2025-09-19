@@ -1,85 +1,74 @@
-import { Star, Settings, Plug, Rocket, Shield, Microscope, Brain, BarChart, Users, Cpu, Database, TrendingUp } from "lucide-react";
+import { Star, Settings, Plug, Rocket, Shield, Microscope, Brain, BarChart, Users, Cpu, Database, TrendingUp, Lightbulb, Zap, Bot, Target, Cog } from "lucide-react";
 
 const solutions = [
   {
-    icon: Star,
-    title: "AI Strategy & Consultation",
+    icon: Lightbulb,
+    title: "AI Strategy Consultation",
     items: [
-      "Develop a custom AI roadmap aligned with business goals.",
-      "Identify high-impact AI opportunities to drive business.",
-      "AI solution design, implementation, and deployment."
+      "Develop a custom AI roadmap aligned with business goals",
+      "Identify high-impact AI opportunities to drive innovation",
+      "Generative AI, neural networks, and automation for content creation",
+      "AI consulting services and business process assessment"
     ]
   },
   {
-    icon: Settings,
-    title: "Custom AI Solutions", 
+    icon: Cog,
+    title: "Custom AI Solutions",
     items: [
-      "Custom model creation (Generative AI, LLMs, Computer Vision).",
-      "AI-powered automation tools to optimize workflows.",
-      "End-to-end agent development and deployment."
+      "AI model creation and development (ML, NLP, Computer Vision)",
+      "Generative AI and Large Language Models (LLMs)",
+      "AI solution design, implementation, and deployment",
+      "Custom solutions tailored to business challenges"
+    ]
+  },
+  {
+    icon: Zap,
+    title: "AI Digital Transformation",
+    items: [
+      "Modernize workflows with AI-powered automation",
+      "AI-driven decision-making with machine learning insights",
+      "Inventory management and workflow optimization",
+      "Business performance improvement through AI"
+    ]
+  },
+  {
+    icon: Bot,
+    title: "AI Integration Services",
+    items: [
+      "Seamlessly integrate AI into existing IT ecosystems",
+      "Connect AI with CRM, ERP, Service Cloud systems",
+      "Business Intelligence tools using scalable AI platform",
+      "Legacy system modernization with AI capabilities"
+    ]
+  },
+  {
+    icon: Target,
+    title: "AI Maintenance & Support",
+    items: [
+      "Continuous monitoring, updates, and optimization",
+      "Ensure AI solutions remain secure and compliant",
+      "Customer service process optimization through automation",
+      "Ongoing support for evolving business needs"
+    ]
+  },
+  {
+    icon: BarChart,
+    title: "Data Science & Analytics",
+    items: [
+      "Leverage big data and predictive analytics",
+      "Generative AI and sentiment analysis",
+      "AI-driven business intelligence for strategic decisions",
+      "Data-driven decisions and future outcome predictions"
     ]
   },
   {
     icon: Brain,
-    title: "AI Digital Transformation",
-    items: [
-      "Modernize workflows with AI-powered automation.",
-      "Enable AI-driven decision-making with machine learning insights.",
-      "Transform traditional processes into intelligent systems."
-    ]
-  },
-  {
-    icon: Plug,
-    title: "AI Integration Services",
-    items: [
-      "Seamlessly integrate AI into existing IT infrastructure.",
-      "Connect AI with CRM, ERP, and other business tools.",
-      "Cloud integration (AWS, Google Cloud, Azure)."
-    ]
-  },
-  {
-    icon: Rocket,
     title: "AI-Powered Product Development",
     items: [
-      "Build AI-first digital products for competitive advantage.",
-      "Implement conversational AI and virtual assistants.",
-      "Personalization and intelligent automation in SaaS."
-    ]
-  },
-  {
-    icon: Database,
-    title: "Data Science & Analytics",
-    items: [
-      "Leverage big data and predictive analytics for strategic decisions.",
-      "Sentiment analysis and AI-driven business intelligence.",
-      "Custom dashboards with real-time insights and KPIs."
-    ]
-  },
-  {
-    icon: Shield,
-    title: "AI Maintenance & Support",
-    items: [
-      "Continuous monitoring, updates, and optimization.",
-      "Ensure AI solutions remain secure and compliant.",
-      "Ongoing support to keep AI models adaptable."
-    ]
-  },
-  {
-    icon: Microscope,
-    title: "AI Agent Audit & Fix",
-    items: [
-      "Expert review of your existing AI agents.",
-      "Identify performance, security, and cost issues.",
-      "Provide a roadmap for immediate improvements."
-    ]
-  },
-  {
-    icon: Cpu,
-    title: "Industry-Specific AI Solutions",
-    items: [
-      "Finance: Fraud detection, risk analysis, automated trading.",
-      "Healthcare: AI diagnostics, medical image processing.",
-      "Retail: Personalization, inventory optimization, demand forecasting."
+      "Build AI-first digital products for competitive advantage",
+      "Image recognition and intelligent decision-making",
+      "Conversational AI and virtual assistants",
+      "AI-powered automation and personalization in SaaS/mobile apps"
     ]
   }
 ];
@@ -141,9 +130,25 @@ const Solutions = () => {
   return (
     <section id="solutions" className="section">
       <div className="container">
-        <h2 className="text-headline text-center mb-16">
-          Our AI Services and <span className="gradient-text">Solutions</span>
+        <h2 className="text-headline text-center mb-6">
+          Artificial Intelligence <span className="gradient-text">Services and Solutions</span> for Business Growth
         </h2>
+        
+        <p className="text-lead mb-8 max-w-4xl mx-auto text-center">
+          Koombea AI delivers custom AI solutions that empower businesses to innovate, automate, and scale efficiently.
+        </p>
+        
+        <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 mb-16 text-center">
+          <h3 className="text-2xl font-bold mb-4">Transform Your Business with <span className="gradient-text">Artificial Intelligence</span></h3>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            The AI revolution is here—businesses that leverage AI services gain a competitive advantage, streamlining workflows, 
+            improving productivity, and enhancing decision-making. AI solutions help organizations harness AI for predictive 
+            analytics and AI-powered automation to stay ahead.
+          </p>
+          <div className="mt-6 text-sm font-semibold text-primary">
+            <span className="bg-primary/10 px-4 py-2 rounded-full">17+ Years of Software & AI Expertise</span>
+          </div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => {
