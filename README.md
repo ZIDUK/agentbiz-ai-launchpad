@@ -1,73 +1,157 @@
-# Welcome to your Lovable project
+# 🚀 AgentBiz AI - Sitio Web Corporativo
 
-## Project info
+> **Sitio web profesional para consultoría y desarrollo de IA**  
+> Transformative Custom AI Development - 2× the Speed & Cost Savings - Guaranteed!
 
-**URL**: https://lovable.dev/projects/e3edb82f-95ca-4071-be81-172e0099000f
+## 🌐 Sitio Web en Vivo
 
-## How can I edit this code?
+- **🌍 Sitio Principal**: [https://agentbiz.io](https://agentbiz.io)
+- **⚙️ Panel Admin**: [https://agentbiz.io/admin](https://agentbiz.io/admin)
+- **📱 Responsive**: Optimizado para móviles y desktop
 
-There are several ways of editing your application.
+## 🎯 ¿Qué es AgentBiz AI?
 
-**Use Lovable**
+AgentBiz AI es una plataforma web corporativa que combina:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e3edb82f-95ca-4071-be81-172e0099000f) and start prompting.
+- **🏠 Landing Page** - Para atraer clientes potenciales
+- **⚙️ Panel de Administración** - Para gestionar leads, candidatos y operaciones
+- **📊 Dashboard** - Métricas y analytics en tiempo real
+- **📞 Sistema de Contacto** - Integración con Calendly para citas
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tecnologías Utilizadas
 
-**Use your preferred IDE**
+### Frontend
+- **React 18** - Framework principal
+- **TypeScript** - Tipado estático
+- **Vite 5** - Build tool y dev server
+- **Tailwind CSS** - Estilos y diseño
+- **shadcn/ui** - Componentes de UI
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Herramientas
+- **React Router** - Navegación
+- **TanStack Query** - Gestión de estado
+- **React Hook Form** - Formularios
+- **Lucide React** - Iconos
+- **Recharts** - Gráficos
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Despliegue
+- **GitHub Pages** - Hosting estático
+- **GitHub Actions** - CI/CD automático
+- **Dominio Personalizado** - agentbiz.io
 
-Follow these steps:
+## 🚀 Desarrollo Local
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Requisitos
+- **Node.js 20.19+** (especificado en `.nvmrc`)
+- **npm** como gestor de paquetes
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Instalación
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/ZIDUK/agentbiz-ai-launchpad.git
+cd agentbiz-ai-launchpad
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 2. Instalar dependencias
+npm install
+
+# 3. Ejecutar en modo desarrollo
 npm run dev
+
+# 4. Abrir en el navegador
+# http://localhost:5173
 ```
 
-**Edit a file directly in GitHub**
+### Comandos Disponibles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Desarrollo
+npm run dev          # Servidor de desarrollo
+npm run build        # Construir para producción
+npm run preview      # Previsualizar build local
+npm run lint         # Verificar código
 
-**Use GitHub Codespaces**
+# Usar versión correcta de Node.js
+nvm use              # Si tienes nvm instalado
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Estructura del Proyecto
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # Componentes reutilizables
+│   ├── admin/          # Panel de administración
+│   ├── ui/             # Componentes de UI (shadcn)
+│   └── ...             # Componentes de páginas
+├── pages/              # Páginas principales
+│   ├── Index.tsx       # Landing page
+│   ├── Admin.tsx       # Panel admin
+│   └── NotFound.tsx    # Página 404
+├── hooks/              # Custom hooks
+├── lib/                # Utilidades
+└── assets/             # Imágenes y recursos
+```
 
-This project is built with:
+## 🎨 Características del Diseño
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **🌙 Tema Oscuro** - Diseño profesional moderno
+- **🎨 Gradientes** - Azul a púrpura para branding
+- **📱 Responsive** - Adaptable a todos los dispositivos
+- **⚡ Animaciones** - Transiciones suaves
+- **♿ Accesible** - Cumple estándares de accesibilidad
 
-## How can I deploy this project?
+## 🔧 Configuración para Despliegue
 
-Simply open [Lovable](https://lovable.dev/projects/e3edb82f-95ca-4071-be81-172e0099000f) and click on Share -> Publish.
+### GitHub Pages
+El proyecto está configurado para desplegarse automáticamente en GitHub Pages:
 
-## Can I connect a custom domain to my Lovable project?
+1. **Habilitar GitHub Pages**:
+   - Ve a `Settings` > `Pages`
+   - Selecciona `GitHub Actions` como fuente
 
-Yes, you can!
+2. **Despliegue Automático**:
+   - Push a `main` → Despliegue automático
+   - Pull Request → Preview automático
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Dominio Personalizado
+- **Configurado**: `agentbiz.io`
+- **Base path**: `/` (raíz del dominio)
+- **SSL**: Automático con GitHub Pages
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📊 Funcionalidades
+
+### Landing Page
+- **Hero Section** - Presentación principal
+- **Servicios** - 7 categorías de servicios de IA
+- **Industrias** - 4 sectores objetivo
+- **Workflow** - Proceso de trabajo
+- **Contacto** - Integración con Calendly
+
+### Panel de Administración
+- **Dashboard** - Métricas y KPIs
+- **Gestión de Candidatos** - Sistema de reclutamiento
+- **Gestión de Leads** - CRM básico
+- **Analytics** - Reportes y estadísticas
+- **Configuración** - Ajustes del sistema
+
+## 🤝 Contribuir
+
+1. **Fork** el repositorio
+2. **Crear** una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. **Commit** tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
+5. **Abrir** un Pull Request
+
+## 📝 Licencia
+
+Este proyecto es privado y pertenece a AgentBiz AI.
+
+## 🆘 Soporte
+
+Para soporte técnico o consultas:
+- **Email**: [contacto@agentbiz.io](mailto:contacto@agentbiz.io)
+- **Sitio Web**: [https://agentbiz.io](https://agentbiz.io)
+
+---
+
+**Desarrollado con ❤️ para AgentBiz AI**

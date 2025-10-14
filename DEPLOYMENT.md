@@ -1,115 +1,164 @@
-# 🚀 Despliegue en GitHub Pages - AgentBiz AI
+# 🚀 Guía de Despliegue - AgentBiz AI
 
-## Configuración Completada
+> **Guía completa para desplegar el sitio web de AgentBiz AI**  
+> Configuración optimizada para GitHub Pages con dominio personalizado
 
-El proyecto está configurado siguiendo la [documentación oficial de Vite para GitHub Pages](https://vitejs.dev/guide/static-deploy.html#github-pages). Aquí están los pasos para completar el despliegue:
+## 🌐 Sitio Web Desplegado
 
-### 1. Requisitos Previos
+- **🌍 Sitio Principal**: [https://agentbiz.io](https://agentbiz.io)
+- **⚙️ Panel Admin**: [https://agentbiz.io/admin](https://agentbiz.io/admin)
+- **📊 GitHub Pages**: [https://ziduk.github.io/agentbiz-ai-launchpad](https://ziduk.github.io/agentbiz-ai-launchpad)
 
-- **Node.js 20.19+** (especificado en `.nvmrc`)
-- **npm** como gestor de paquetes
-- **Repositorio en GitHub** con permisos de Pages
+## ✅ Estado Actual
 
-### 2. Configuración del Repositorio
+**¡El sitio ya está desplegado y funcionando!** 🎉
 
-1. **Habilita GitHub Pages** en tu repositorio:
-   - Ve a `Settings` > `Pages`
-   - En `Source`, selecciona `GitHub Actions`
+- ✅ **Dominio personalizado** configurado (`agentbiz.io`)
+- ✅ **Despliegue automático** con GitHub Actions
+- ✅ **Assets cargando** correctamente
+- ✅ **Rutas funcionando** (incluyendo `/admin`)
+- ✅ **Responsive design** en móviles y desktop
 
-2. **Configura el dominio** (opcional):
-   - Si tienes un dominio personalizado, agrégalo en `Settings` > `Pages` > `Custom domain`
+## 🔧 Configuración Técnica
 
-### 3. Despliegue Automático
-
-El despliegue se ejecutará automáticamente cuando:
-- Hagas push a la rama `main`
-- Crear un Pull Request hacia `main`
-
-### 4. Desarrollo Local
-
-```bash
-# Instalar dependencias
-npm install
-
-# Ejecutar en modo desarrollo
-npm run dev
-
-# Construir para producción
-npm run build
-
-# Previsualizar build local
-npm run preview
-```
-
-### 5. URLs del Sitio
-
-- **Desarrollo local**: `http://localhost:5173`
-- **Preview local**: `http://localhost:4173`
-- **GitHub Pages**: `https://[tu-usuario].github.io/agentbiz-ai-launchpad/`
-
-### 6. Configuración Técnica
-
-#### Archivos Configurados:
-- `vite.config.mjs` - Base path configurado para GitHub Pages (`/agentbiz-ai-launchpad/`)
-- `src/App.tsx` - Router de React sin configuración adicional
-- `.github/workflows/deploy.yml` - Workflow oficial de GitHub Actions
+### Archivos Clave
+- `vite.config.mjs` - Base path `/` para dominio personalizado
+- `src/App.tsx` - Router con `basename="/"`
+- `.github/workflows/deploy.yml` - Workflow de GitHub Actions
 - `public/404.html` - Redirección para SPA routing
-- `index.html` - Script de redirección para GitHub Pages
-- `.nvmrc` - Versión de Node.js especificada
+- `.nvmrc` - Node.js 20.19+
 
-#### Características:
-- ✅ Configuración oficial de Vite para GitHub Pages
-- ✅ Despliegue automático con GitHub Actions
-- ✅ Rutas de React Router funcionan correctamente
-- ✅ Redirección automática para SPA
-- ✅ Optimizado para producción
+### Tecnologías
+- **Vite 5** - Build tool optimizado
+- **React 18** - Framework principal
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Estilos
+- **shadcn/ui** - Componentes
 
-### 7. Verificación
+## 🚀 Desarrollo Local
 
-Después del despliegue, verifica que:
-- [ ] La página principal carga correctamente
-- [ ] Las rutas `/admin` funcionan
-- [ ] Los enlaces internos funcionan
-- [ ] El formulario de contacto (Calendly) se integra correctamente
-- [ ] El diseño es responsive en móviles
-
-### 8. Solución de Problemas
-
-Si encuentras problemas:
-
-1. **Rutas no funcionan**: Verifica que el archivo `404.html` esté en la carpeta `public/`
-2. **Assets no cargan**: Verifica que el `base` en `vite.config.mjs` sea `/agentbiz-ai-launchpad/`
-3. **Build falla**: Verifica que uses Node.js 20.19+ localmente
-4. **Workflow falla**: Verifica que GitHub Pages esté habilitado en `Settings` > `Pages`
-
-### 9. Comandos Útiles
+### Instalación Rápida
 
 ```bash
-# Usar la versión correcta de Node.js (si tienes nvm)
-nvm use
+# 1. Clonar repositorio
+git clone https://github.com/ZIDUK/agentbiz-ai-launchpad.git
+cd agentbiz-ai-launchpad
 
-# Instalar dependencias
+# 2. Instalar dependencias
 npm install
 
-# Desarrollo
+# 3. Ejecutar desarrollo
 npm run dev
-
-# Build y preview
-npm run build
-npm run preview
-
-# Linting
-npm run lint
+# Abre: http://localhost:5173
 ```
 
-### 10. Próximos Pasos
+### Comandos Disponibles
 
-- [ ] Configurar dominio personalizado
-- [ ] Agregar analytics (Google Analytics, etc.)
-- [ ] Configurar SEO meta tags
-- [ ] Implementar sitemap.xml
-- [ ] Configurar robots.txt
+```bash
+npm run dev          # Desarrollo (localhost:5173)
+npm run build        # Construir para producción
+npm run preview      # Preview local (localhost:4173)
+npm run lint         # Verificar código
+```
+
+## 🔄 Despliegue Automático
+
+### ¿Cómo Funciona?
+
+1. **Push a `main`** → GitHub Actions se ejecuta automáticamente
+2. **Build** → Vite construye el proyecto
+3. **Deploy** → Se sube a GitHub Pages
+4. **Live** → Sitio actualizado en `agentbiz.io`
+
+### Monitoreo
+
+- **GitHub Actions**: [Ver workflows](https://github.com/ZIDUK/agentbiz-ai-launchpad/actions)
+- **GitHub Pages**: [Configuración](https://github.com/ZIDUK/agentbiz-ai-launchpad/settings/pages)
+
+## 🛠️ Para Desarrolladores
+
+### Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── admin/          # Panel de administración
+│   ├── ui/             # Componentes shadcn/ui
+│   ├── Hero.tsx        # Sección principal
+│   ├── Solutions.tsx   # Servicios
+│   └── Contact.tsx     # Formulario de contacto
+├── pages/
+│   ├── Index.tsx       # Landing page
+│   ├── Admin.tsx       # Panel admin
+│   └── NotFound.tsx    # 404
+└── assets/             # Imágenes y recursos
+```
+
+### Agregar Nuevas Funcionalidades
+
+1. **Crear componente** en `src/components/`
+2. **Agregar ruta** en `src/App.tsx` si es necesario
+3. **Hacer commit** y push
+4. **Despliegue automático** en unos minutos
+
+### Personalización
+
+- **Colores**: Editar `src/index.css` (variables CSS)
+- **Contenido**: Modificar componentes en `src/components/`
+- **Estilos**: Usar Tailwind CSS o editar CSS personalizado
+
+## 🔍 Solución de Problemas
+
+### Problemas Comunes
+
+| Problema | Solución |
+|----------|----------|
+| Assets no cargan | Verificar `base: '/'` en `vite.config.mjs` |
+| Rutas no funcionan | Verificar `basename="/"` en `App.tsx` |
+| Build falla | Usar Node.js 20.19+ (`nvm use`) |
+| Despliegue falla | Verificar GitHub Pages habilitado |
+
+### Verificación Post-Despliegue
+
+- [ ] Página principal carga correctamente
+- [ ] Panel admin funciona (`/admin`)
+- [ ] Assets (CSS, JS) cargan sin errores
+- [ ] Formulario de contacto (Calendly) funciona
+- [ ] Diseño responsive en móviles
+
+## 📊 URLs Importantes
+
+### Producción
+- **Sitio Principal**: https://agentbiz.io
+- **Admin Panel**: https://agentbiz.io/admin
+- **GitHub Pages**: https://ziduk.github.io/agentbiz-ai-launchpad
+
+### Desarrollo
+- **Local Dev**: http://localhost:5173
+- **Local Preview**: http://localhost:4173
+
+### Repositorio
+- **GitHub**: https://github.com/ZIDUK/agentbiz-ai-launchpad
+- **Actions**: https://github.com/ZIDUK/agentbiz-ai-launchpad/actions
+- **Pages Settings**: https://github.com/ZIDUK/agentbiz-ai-launchpad/settings/pages
+
+## 🎯 Próximos Pasos
+
+### Mejoras Sugeridas
+- [ ] Agregar Google Analytics
+- [ ] Implementar SEO meta tags
+- [ ] Crear sitemap.xml
+- [ ] Agregar robots.txt
+- [ ] Implementar tests automatizados
+
+### Mantenimiento
+- [ ] Actualizar dependencias regularmente
+- [ ] Monitorear performance
+- [ ] Backup de configuraciones
+- [ ] Documentar cambios importantes
 
 ---
 
-**¡Tu sitio web de AgentBiz AI está listo para desplegarse siguiendo las mejores prácticas de Vite! 🎉**
+**¡El sitio web de AgentBiz AI está completamente funcional y desplegado! 🚀**
+
+*Para soporte técnico, contacta al equipo de desarrollo.*
