@@ -4,29 +4,34 @@ import { AdminHeader } from "@/components/admin/AdminHeader";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "@/components/admin/Dashboard";
 import { CandidateManagement } from "@/components/admin/CandidateManagement";
+import { ApplicationsManagement } from "@/components/admin/ApplicationsManagement";
 import { LeadsManagement } from "@/components/admin/LeadsManagement";
 import { Analytics } from "@/components/admin/Analytics";
 import { Settings } from "@/components/admin/Settings";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Admin = () => {
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-background">
-        <AppSidebar />
-        <div className="flex-1 flex flex-col">
-          <AdminHeader />
-          <main className="flex-1 p-6">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/candidates" element={<CandidateManagement />} />
-              <Route path="/leads" element={<LeadsManagement />} />
-              <Route path="/analytics" element={<Analytics />} />
-              <Route path="/settings" element={<Settings />} />
-            </Routes>
-          </main>
+    <ProtectedRoute>
+      <SidebarProvider>
+        <div className="min-h-screen flex w-full bg-background">
+          <AppSidebar />
+          <div className="flex-1 flex flex-col">
+            <AdminHeader />
+            <main className="flex-1 p-6">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/candidates" element={<CandidateManagement />} />
+                <Route path="/applications" element={<ApplicationsManagement />} />
+                <Route path="/leads" element={<LeadsManagement />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="/settings" element={<Settings />} />
+              </Routes>
+            </main>
+          </div>
         </div>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
+    </ProtectedRoute>
   );
 };
 

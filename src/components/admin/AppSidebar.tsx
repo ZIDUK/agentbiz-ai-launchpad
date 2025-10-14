@@ -6,7 +6,8 @@ import {
   Settings as SettingsIcon,
   Home,
   Calendar,
-  FileText
+  FileText,
+  Briefcase
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -24,6 +25,7 @@ import {
 
 const items = [
   { title: "Dashboard", url: "/admin", icon: Home, exact: true },
+  { title: "Aplicaciones", url: "/admin/applications", icon: Briefcase },
   { title: "Candidates", url: "/admin/candidates", icon: UserCheck },
   { title: "Leads", url: "/admin/leads", icon: Users },
   { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },

@@ -3,12 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Clock, DollarSign, Users, Briefcase, FileText, Upload } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MapPin, Clock, DollarSign, Users, Briefcase } from "lucide-react";
+import ApplicationForm from "./ApplicationForm";
 
 const jobPositions = [
   {
@@ -85,153 +81,6 @@ const jobPositions = [
   }
 ];
 
-const ApplicationForm = ({ job, onClose }: { job: any, onClose: () => void }) => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    linkedIn: "",
-    experience: "",
-    coverLetter: "",
-    resume: null as File | null
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Simulate application submission
-    toast({
-      title: "Application Submitted!",
-      description: `Your application for ${job.title} has been received. We'll get back to you within 5 business days.`,
-    });
-    
-    onClose();
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData({ ...formData, resume: e.target.files[0] });
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="firstName">First Name *</Label>
-          <Input
-            id="firstName"
-            required
-            value={formData.firstName}
-            onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-          />
-        </div>
-        <div>
-          <Label htmlFor="lastName">Last Name *</Label>
-          <Input
-            id="lastName" 
-            required
-            value={formData.lastName}
-            onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-          />
-        </div>
-      </div>
-      
-      <div>
-        <Label htmlFor="email">Email *</Label>
-        <Input
-          id="email"
-          type="email"
-          required
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-        />
-      </div>
-      
-      <div>
-        <Label htmlFor="phone">Phone</Label>
-        <Input
-          id="phone"
-          type="tel"
-          value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-        />
-      </div>
-      
-      <div>
-        <Label htmlFor="linkedIn">LinkedIn Profile</Label>
-        <Input
-          id="linkedIn"
-          type="url"
-          placeholder="https://linkedin.com/in/yourprofile"
-          value={formData.linkedIn}
-          onChange={(e) => setFormData({ ...formData, linkedIn: e.target.value })}
-        />
-      </div>
-      
-      <div>
-        <Label htmlFor="experience">Years of Experience *</Label>
-        <Select required onValueChange={(value) => setFormData({ ...formData, experience: value })}>
-          <SelectTrigger>
-            <SelectValue placeholder="Select experience level" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="0-1">0-1 years</SelectItem>
-            <SelectItem value="2-3">2-3 years</SelectItem>
-            <SelectItem value="4-5">4-5 years</SelectItem>
-            <SelectItem value="6-10">6-10 years</SelectItem>
-            <SelectItem value="10+">10+ years</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-      
-      <div>
-        <Label htmlFor="resume">Resume/CV *</Label>
-        <div className="mt-2 border-2 border-dashed border-border rounded-lg p-6 text-center hover:bg-muted/50 transition-colors cursor-pointer">
-          <input
-            id="resume"
-            type="file"
-            accept=".pdf,.doc,.docx"
-            onChange={handleFileChange}
-            className="hidden"
-            required
-          />
-          <label htmlFor="resume" className="cursor-pointer">
-            <Upload className="mx-auto h-12 w-12 text-secondary mb-4" />
-            <p className="text-sm text-secondary">
-              {formData.resume ? formData.resume.name : "Click to upload or drag and drop"}
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">
-              PDF, DOC, DOCX up to 10MB
-            </p>
-          </label>
-        </div>
-      </div>
-      
-      <div>
-        <Label htmlFor="coverLetter">Cover Letter</Label>
-        <Textarea
-          id="coverLetter"
-          placeholder="Tell us why you're interested in this role and what makes you a great fit..."
-          rows={4}
-          value={formData.coverLetter}
-          onChange={(e) => setFormData({ ...formData, coverLetter: e.target.value })}
-        />
-      </div>
-      
-      <div className="flex gap-4 pt-4">
-        <Button type="submit" className="btn-primary flex-1">
-          Submit Application
-        </Button>
-        <Button type="button" variant="outline" onClick={onClose}>
-          Cancel
-        </Button>
-      </div>
-    </form>
-  );
-};
 
 const Career = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
@@ -330,12 +179,12 @@ const Career = () => {
                         Apply Now
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle>Apply for {job.title}</DialogTitle>
                       </DialogHeader>
                       <ApplicationForm 
-                        job={job} 
+                        position={job.title}
                         onClose={() => {
                           const closeButton = document.querySelector('[data-dialog-close]') as HTMLButtonElement;
                           closeButton?.click();

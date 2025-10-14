@@ -3,8 +3,19 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Bell, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 export function AdminHeader() {
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   return (
     <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -25,16 +36,22 @@ export function AdminHeader() {
         
         <div className="flex items-center gap-3">
           <Avatar className="h-8 w-8">
-            <AvatarImage src="/placeholder-avatar.jpg" />
-            <AvatarFallback>JA</AvatarFallback>
+            <AvatarImage src={user?.photoURL || "/placeholder-avatar.jpg"} />
+            <AvatarFallback>
+              {user?.displayName?.charAt(0) || user?.email?.charAt(0) || "A"}
+            </AvatarFallback>
           </Avatar>
           <div className="hidden md:block">
-            <p className="text-sm font-medium text-foreground">Jon Admin</p>
-            <p className="text-xs text-muted-foreground">admin@agentbiz.ai</p>
+            <p className="text-sm font-medium text-foreground">
+              {user?.displayName || "Admin"}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {user?.email || "admin@agentbiz.ai"}
+            </p>
           </div>
         </div>
         
-        <Button variant="ghost" size="sm">
+        <Button variant="ghost" size="sm" onClick={handleLogout}>
           <LogOut className="h-4 w-4" />
         </Button>
       </div>
