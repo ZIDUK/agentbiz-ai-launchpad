@@ -184,7 +184,7 @@ export function ApplicationsManagement() {
                       )}
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {application.appliedAt.toLocaleDateString()}
+                        {application.applied_at.toLocaleDateString()}
                       </span>
                     </div>
                   </div>
