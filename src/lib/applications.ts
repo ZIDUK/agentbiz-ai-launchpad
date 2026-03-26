@@ -40,8 +40,7 @@ export const createApplication = async (
   applicationData: Omit<Application, 'id' | 'applied_at' | 'status'>,
   cvFile: File
 ): Promise<string> => {
-  // Insert application first
-  const { data, error } = await supabase
+  const { data, error } = await (supabase as any)
     .from('applications')
     .insert({
       name: applicationData.name,
@@ -59,11 +58,9 @@ export const createApplication = async (
     throw error;
   }
 
-  // Upload CV
   const cvUrl = await uploadCV(cvFile, data.id);
 
-  // Update with CV URL
-  await supabase
+  await (supabase as any)
     .from('applications')
     .update({ cv_url: cvUrl, cv_file_name: cvFile.name })
     .eq('id', data.id);
@@ -73,7 +70,7 @@ export const createApplication = async (
 
 // Get all applications
 export const getApplications = async (): Promise<Application[]> => {
-  const { data, error } = await supabase
+  const { data, error } = await (supabase as any)
     .from('applications')
     .select('*')
     .order('applied_at', { ascending: false });
@@ -83,7 +80,7 @@ export const getApplications = async (): Promise<Application[]> => {
     throw error;
   }
 
-  return (data || []).map(row => ({
+  return (data || []).map((row: any) => ({
     id: row.id,
     name: row.name,
     email: row.email,
@@ -102,10 +99,8 @@ export const getApplications = async (): Promise<Application[]> => {
 
 // Subscribe to applications in real-time
 export const subscribeToApplications = (callback: (applications: Application[]) => void) => {
-  // Initial fetch
   getApplications().then(callback);
 
-  // Real-time subscription
   const channel = supabase
     .channel('applications-changes')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'applications' }, () => {
@@ -120,7 +115,7 @@ export const subscribeToApplications = (callback: (applications: Application[]) 
 
 // Update application status
 export const updateApplicationStatus = async (id: string, status: Application['status'], notes?: string) => {
-  const { error } = await supabase
+  const { error } = await (supabase as any)
     .from('applications')
     .update({
       status,
@@ -137,7 +132,7 @@ export const updateApplicationStatus = async (id: string, status: Application['s
 
 // Delete application
 export const deleteApplication = async (id: string) => {
-  const { error } = await supabase
+  const { error } = await (supabase as any)
     .from('applications')
     .delete()
     .eq('id', id);
@@ -150,7 +145,7 @@ export const deleteApplication = async (id: string) => {
 
 // Get applications by status
 export const getApplicationsByStatus = async (status: Application['status']): Promise<Application[]> => {
-  const { data, error } = await supabase
+  const { data, error } = await (supabase as any)
     .from('applications')
     .select('*')
     .eq('status', status)
@@ -161,7 +156,7 @@ export const getApplicationsByStatus = async (status: Application['status']): Pr
     throw error;
   }
 
-  return (data || []).map(row => ({
+  return (data || []).map((row: any) => ({
     id: row.id,
     name: row.name,
     email: row.email,

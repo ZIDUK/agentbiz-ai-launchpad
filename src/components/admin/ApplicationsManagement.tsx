@@ -257,7 +257,7 @@ export function ApplicationsManagement() {
                           
                           <div>
                             <label className="text-sm font-medium">Carta de Presentación</label>
-                            <p className="text-sm text-muted-foreground">{selectedApplication.coverLetter || 'No proporcionada'}</p>
+                            <p className="text-sm text-muted-foreground">{selectedApplication.cover_letter || 'No proporcionada'}</p>
                           </div>
                           
                           <div>
