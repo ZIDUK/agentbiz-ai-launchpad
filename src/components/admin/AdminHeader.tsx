@@ -36,14 +36,14 @@ export function AdminHeader() {
         
         <div className="flex items-center gap-3">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user?.photoURL || "/placeholder-avatar.jpg"} />
+            <AvatarImage src={user?.user_metadata?.avatar_url || "/placeholder-avatar.jpg"} />
             <AvatarFallback>
-              {user?.displayName?.charAt(0) || user?.email?.charAt(0) || "A"}
+              {user?.user_metadata?.full_name?.charAt(0) || user?.email?.charAt(0) || "A"}
             </AvatarFallback>
           </Avatar>
           <div className="hidden md:block">
             <p className="text-sm font-medium text-foreground">
-              {user?.displayName || "Admin"}
+              {user?.user_metadata?.full_name || "Admin"}
             </p>
             <p className="text-xs text-muted-foreground">
               {user?.email || "admin@agentbiz.ai"}
