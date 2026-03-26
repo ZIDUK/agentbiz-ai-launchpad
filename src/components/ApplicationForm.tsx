@@ -60,9 +60,9 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
         phone: '',
         position: position || '',
         experience: '',
-        coverLetter: '',
-        cvUrl: '',
-        cvFileName: ''
+        cover_letter: '',
+        cv_url: '',
+        cv_file_name: ''
       });
       setCvFile(null);
       
