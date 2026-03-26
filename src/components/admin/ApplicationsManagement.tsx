@@ -216,7 +216,7 @@ export function ApplicationsManagement() {
                       Descargar CV
                     </Button>
                     <p className="text-xs text-muted-foreground">
-                      {application.cvFileName}
+                      {application.cv_file_name}
                     </p>
                   </div>
                 </div>
