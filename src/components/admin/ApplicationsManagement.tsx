@@ -184,7 +184,7 @@ export function ApplicationsManagement() {
                       )}
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {application.appliedAt.toLocaleDateString()}
+                        {application.applied_at.toLocaleDateString()}
                       </span>
                     </div>
                   </div>
@@ -209,14 +209,14 @@ export function ApplicationsManagement() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => downloadCV(application.cvUrl, application.cvFileName)}
+                      onClick={() => downloadCV(application.cv_url, application.cv_file_name)}
                       className="mb-2"
                     >
                       <Download className="h-4 w-4 mr-1" />
                       Descargar CV
                     </Button>
                     <p className="text-xs text-muted-foreground">
-                      {application.cvFileName}
+                      {application.cv_file_name}
                     </p>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ export function ApplicationsManagement() {
                           
                           <div>
                             <label className="text-sm font-medium">Carta de Presentación</label>
-                            <p className="text-sm text-muted-foreground">{selectedApplication.coverLetter || 'No proporcionada'}</p>
+                            <p className="text-sm text-muted-foreground">{selectedApplication.cover_letter || 'No proporcionada'}</p>
                           </div>
                           
                           <div>

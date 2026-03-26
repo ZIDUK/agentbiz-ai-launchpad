@@ -20,9 +20,9 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
     phone: '',
     position: position || '',
     experience: '',
-    coverLetter: '',
-    cvUrl: '',
-    cvFileName: ''
+    cover_letter: '',
+    cv_url: '',
+    cv_file_name: ''
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -60,9 +60,9 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
         phone: '',
         position: position || '',
         experience: '',
-        coverLetter: '',
-        cvUrl: '',
-        cvFileName: ''
+        cover_letter: '',
+        cv_url: '',
+        cv_file_name: ''
       });
       setCvFile(null);
       
@@ -179,11 +179,11 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="coverLetter">Carta de Presentación</Label>
+            <Label htmlFor="cover_letter">Carta de Presentación</Label>
             <Textarea
-              id="coverLetter"
-              name="coverLetter"
-              value={formData.coverLetter}
+              id="cover_letter"
+              name="cover_letter"
+              value={formData.cover_letter}
               onChange={handleInputChange}
               placeholder="¿Por qué te interesa trabajar con nosotros?"
               rows={4}
