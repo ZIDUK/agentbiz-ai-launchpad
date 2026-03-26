@@ -209,7 +209,7 @@ export function ApplicationsManagement() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => downloadCV(application.cvUrl, application.cvFileName)}
+                      onClick={() => downloadCV(application.cv_url, application.cv_file_name)}
                       className="mb-2"
                     >
                       <Download className="h-4 w-4 mr-1" />
