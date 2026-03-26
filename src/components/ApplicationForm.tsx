@@ -20,9 +20,9 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
     phone: '',
     position: position || '',
     experience: '',
-    coverLetter: '',
-    cvUrl: '',
-    cvFileName: ''
+    cover_letter: '',
+    cv_url: '',
+    cv_file_name: ''
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
