@@ -8,6 +8,7 @@ import IndustriesSection from "@/components/IndustriesSection";
 import Workflow from "@/components/Workflow";
 import ResourcesPreview from "@/components/ResourcesPreview";
 import InsightsPreview from "@/components/InsightsPreview";
+import TrustedBy from "@/components/TrustedBy";
 import Contact from "@/components/Contact";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ const Index = () => {
       <Header />
       <main className="pb-20 md:pb-0">
         <Hero />
+        <TrustedBy />
         <EnterpriseChallenge />
         <StrategicFocus />
         <CoreCapabilities />

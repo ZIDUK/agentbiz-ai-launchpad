@@ -136,3 +136,55 @@ export function getEnterpriseOpsCaseStudy(locale: Locale): CaseStudyContent {
 export function getHealthcareCaseStudy(locale: Locale): CaseStudyContent {
   return locale === "es" ? healthcareEs : healthcareEn;
 }
+
+const fintechEn: CaseStudyContent = {
+  readTime: "7 min read",
+  title: "Loan document intelligence: 50% faster underwriting review",
+  lead: "A regional lender automated loan package review and exception routing with governed document AI — reducing analyst load while keeping compliance sign-off intact.",
+  situation:
+    "Underwriting teams processed 900+ loan packages monthly. Analysts spent 3–4 hours per file collecting documents from email, portals, and legacy systems before credit review could begin.",
+  constraint:
+    "Regulatory requirements mandated full audit trails, human approval on credit decisions, and no automated changes to core banking records without analyst sign-off.",
+  approachItems: [
+    "Document agents extracted and classified income, asset, and identity documents",
+    "Validation rules flagged missing or inconsistent fields before analyst review",
+    "Exception queue with SLA tracking integrated into existing LOS workflow",
+    "Audit logging for every extraction, override, and routing decision",
+  ],
+  resultsMetrics: [
+    { value: "50%", label: "Review cycle reduction" },
+    { value: "36%", label: "Analyst hours saved" },
+    { value: "98.7%", label: "Approved extraction accuracy" },
+    { value: "0", label: "Regulatory findings" },
+  ],
+  ctaTitle: "Explore FinTech AI delivery",
+  ctaBody: "See how we approach governed document workflows in regulated financial environments.",
+};
+
+const fintechEs: CaseStudyContent = {
+  readTime: "7 min de lectura",
+  title: "Inteligencia documental en préstamos: 50% menos tiempo en revisión de underwriting",
+  lead: "Un prestamista regional automatizó la revisión de paquetes de crédito y el enrutamiento de excepciones con IA documental gobernada — reduciendo carga analítica con firma de cumplimiento intacta.",
+  situation:
+    "Equipos de underwriting procesaban más de 900 paquetes de crédito al mes. Los analistas dedicaban 3–4 horas por expediente recopilando documentos de email, portales y sistemas legacy antes de la revisión crediticia.",
+  constraint:
+    "Requisitos regulatorios exigían trazas de auditoría completas, aprobación humana en decisiones de crédito y ningún cambio automático en registros bancarios sin firma del analista.",
+  approachItems: [
+    "Agentes documentales extrajeron y clasificaron documentos de ingresos, activos e identidad",
+    "Reglas de validación marcaron campos faltantes o inconsistentes antes de revisión analítica",
+    "Cola de excepciones con seguimiento SLA integrada al flujo LOS existente",
+    "Logging de auditoría para cada extracción, override y decisión de enrutamiento",
+  ],
+  resultsMetrics: [
+    { value: "50%", label: "Reducción de ciclo de revisión" },
+    { value: "36%", label: "Horas analíticas ahorradas" },
+    { value: "98.7%", label: "Precisión de extracción aprobada" },
+    { value: "0", label: "Hallazgos regulatorios" },
+  ],
+  ctaTitle: "Explore entrega de IA en FinTech",
+  ctaBody: "Vea cómo abordamos flujos documentales gobernados en entornos financieros regulados.",
+};
+
+export function getFintechCaseStudy(locale: Locale): CaseStudyContent {
+  return locale === "es" ? fintechEs : fintechEn;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "@/i18n/useTranslation";
+import ContactForm from "@/components/ContactForm";
 
 const CALENDLY_URL =
   "https://calendly.com/jonapardo92/30min?hide_event_type_details=1&background_color=ffffff&text_color=1a1a1a&primary_color=007bff";
@@ -49,12 +50,19 @@ const Contact = () => {
           <span className="gradient-text">{t("contact.titleHighlight")}</span>
         </h2>
 
-        <p className="text-lead mb-12">{t("contact.subtitle")}</p>
+        <p className="text-lead mb-12 max-w-3xl">{t("contact.subtitle")}</p>
 
-        <div
-          ref={widgetRef}
-          style={{ minWidth: "320px", height: "700px", marginTop: "40px" }}
-        />
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <ContactForm />
+          <div>
+            <p className="text-sm font-semibold text-foreground mb-4">{t("contact.orSchedule")}</p>
+            <div
+              ref={widgetRef}
+              className="rounded-xl border border-border overflow-hidden"
+              style={{ minWidth: "320px", height: "700px" }}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

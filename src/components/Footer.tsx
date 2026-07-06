@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter, Github } from "lucide-react";
 import { useTranslation } from "@/i18n/useTranslation";
+import { siteConfig } from "@/data/site-config";
 
 const Footer = () => {
   const location = useLocation();
@@ -33,6 +34,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-6">{t("footer.company")}</h4>
             <ul className="space-y-3">
+              <li>
+                <Link to="/about" className="text-secondary hover:text-primary transition-colors">
+                  {t("footer.about")}
+                </Link>
+              </li>
               <li>
                 <Link to="/services" className="text-secondary hover:text-primary transition-colors">
                   {t("footer.solutions")}
@@ -114,15 +120,15 @@ const Footer = () => {
           <h4 className="text-lg font-semibold text-foreground mb-4">{t("footer.connect")}</h4>
           <p className="text-secondary mb-4">
             <a
-              href="mailto:hello@agentbiz.ai"
+              href={`mailto:${siteConfig.email}`}
               className="hover:text-primary transition-colors"
             >
-              hello@agentbiz.ai
+              {siteConfig.email}
             </a>
           </p>
           <div className="flex gap-6">
             <a
-              href="https://www.linkedin.com"
+              href={siteConfig.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-secondary hover:text-primary transition-colors"
@@ -131,19 +137,36 @@ const Footer = () => {
               <Linkedin size={24} />
             </a>
             <a
-              href="https://twitter.com"
+              href={siteConfig.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="text-secondary hover:text-primary transition-colors"
-              aria-label="Twitter"
+              aria-label="X (Twitter)"
             >
               <Twitter size={24} />
+            </a>
+            <a
+              href={siteConfig.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={24} />
             </a>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border text-center">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-secondary text-sm">{t("common.rights")}</p>
+          <div className="flex gap-6 text-sm">
+            <Link to="/privacy" className="text-secondary hover:text-primary transition-colors">
+              {t("footer.privacy")}
+            </Link>
+            <Link to="/terms" className="text-secondary hover:text-primary transition-colors">
+              {t("footer.terms")}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

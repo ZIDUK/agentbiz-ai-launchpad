@@ -12,6 +12,7 @@ export const messages = {
     insights: "Insights",
     engagement: "Engagement",
     careers: "Careers",
+    about: "About",
     contact: "Contact",
     bookCall: "Book a Call",
     roiCalculator: "ROI Calculator",
@@ -146,6 +147,42 @@ export const messages = {
     titleHighlight: "Engineering Strategy Call",
     subtitle:
       "Discuss your operational priorities, production AI roadmap, and first workflow for measurable enterprise impact.",
+    orSchedule: "Or schedule directly",
+  },
+  contactForm: {
+    title: "Tell us about your workflow",
+    subtitle: "Not ready to book a call? Share your context and we'll follow up with a tailored assessment.",
+    fullName: "Full name",
+    workEmail: "Work email",
+    company: "Company (optional)",
+    workflow: "Workflow to automate",
+    message: "Additional context (optional)",
+    namePlaceholder: "Jane Smith",
+    emailPlaceholder: "jane@company.com",
+    companyPlaceholder: "Acme Corp",
+    workflowPlaceholder: "e.g. vendor onboarding, prior auth, order exceptions",
+    messagePlaceholder: "Systems involved, volume, timeline...",
+    submit: "Send inquiry",
+    submitting: "Sending...",
+    success: "Inquiry received. We'll be in touch soon.",
+    error: "Could not submit. Please try again or email hello@agentbiz.ai.",
+    validationError: "Please enter your name, email, and workflow.",
+  },
+  cookie: {
+    message: "We use analytics cookies to understand how visitors use our site.",
+    privacyLink: "Privacy Policy",
+    accept: "Accept",
+    decline: "Decline",
+  },
+  about: {
+    eyebrow: "ABOUT",
+    visitAgenticDream: "Visit Agentic Dream →",
+  },
+  trustedBy: {
+    eyebrow: "Built for regulated, high-volume industries",
+  },
+  legal: {
+    updated: "Last updated:",
   },
   sticky: {
     bookCall: "Book a Call",
@@ -158,6 +195,9 @@ export const messages = {
     capabilities: "Capabilities",
     connect: "Connect",
     solutions: "Solutions",
+    about: "About",
+    privacy: "Privacy",
+    terms: "Terms",
     aiOps: "AI Operations Engineering",
     aiAccelerated: "AI-Accelerated Delivery",
     enterpriseApps: "Enterprise AI Applications",
@@ -385,6 +425,7 @@ export const messages = {
     exploreHealthcareBody:
       "See how we approach governed automation in regulated healthcare environments.",
     healthcareIndustry: "Healthcare industry",
+    fintechIndustry: "FinTech industry",
     metricsDisclaimerNda:
       "Client name withheld under NDA. Metrics from production workflow telemetry and operations team time studies.",
     metricsDisclaimerHealthcare:

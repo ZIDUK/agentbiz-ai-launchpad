@@ -82,6 +82,9 @@ const Header = () => {
             <Link to="/careers" className="btn-ghost">
               {t("nav.careers")}
             </Link>
+            <Link to="/about" className="btn-ghost">
+              {t("nav.about")}
+            </Link>
             <button onClick={() => scrollToSection("contact")} className="btn-ghost">
               {t("nav.contact")}
             </button>
@@ -216,6 +219,13 @@ const Header = () => {
                       onClick={() => setMobileOpen(false)}
                     >
                       {t("nav.careers")}
+                    </Link>
+                    <Link
+                      to="/about"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {t("nav.about")}
                     </Link>
                     <button
                       className="block w-full text-left text-sm font-medium py-2"

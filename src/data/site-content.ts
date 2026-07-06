@@ -475,6 +475,16 @@ export const resources: ResourceItem[] = [
     tags: ["Healthcare", "Case Study", "Compliance"],
     href: "/case-studies/healthcare-prior-auth",
   },
+  {
+    slug: "fintech-loan-documents",
+    title: "FinTech Loan Document Intelligence",
+    description:
+      "How a regional lender reduced underwriting review cycles by 50% with governed document AI and analyst oversight.",
+    type: "Case Study",
+    readTime: "7 min read",
+    tags: ["FinTech", "Case Study", "Document AI"],
+    href: "/case-studies/fintech-loan-documents",
+  },
 ];
 
 export function getResourceBySlug(slug: string): ResourceItem | undefined {

@@ -417,4 +417,14 @@ export const resourcesEs: ResourceItem[] = [
     tags: ["Salud", "Caso de estudio", "Cumplimiento"],
     href: "/case-studies/healthcare-prior-auth",
   },
+  {
+    slug: "fintech-loan-documents",
+    title: "Inteligencia documental en préstamos FinTech",
+    description:
+      "Cómo un prestamista regional redujo en un 50% los ciclos de revisión de underwriting con IA documental gobernada y supervisión analítica.",
+    type: "Caso de estudio",
+    readTime: "7 min de lectura",
+    tags: ["FinTech", "Caso de estudio", "IA documental"],
+    href: "/case-studies/fintech-loan-documents",
+  },
 ];

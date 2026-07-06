@@ -6,7 +6,7 @@ export interface ResourceLead {
   email: string;
   company?: string;
   resource_slug: string;
-  source: "resource_download" | "roi_calculator" | "insight_newsletter";
+  source: "resource_download" | "roi_calculator" | "insight_newsletter" | "contact_form";
   metadata?: Record<string, unknown>;
   created_at: Date;
 }
@@ -79,4 +79,26 @@ export const hasUnlockedResource = (slug: string): boolean => {
 
 export const unlockResource = (slug: string): void => {
   localStorage.setItem(`agentbiz_resource_access_${slug}`, "true");
+};
+
+export interface ContactInquiry {
+  name: string;
+  email: string;
+  company?: string;
+  workflow: string;
+  message?: string;
+}
+
+export const createContactInquiry = async (inquiry: ContactInquiry): Promise<string> => {
+  return createResourceLead({
+    name: inquiry.name,
+    email: inquiry.email,
+    company: inquiry.company,
+    resource_slug: "contact-form",
+    source: "contact_form",
+    metadata: {
+      workflow: inquiry.workflow,
+      message: inquiry.message || "",
+    },
+  });
 };

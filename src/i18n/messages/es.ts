@@ -12,6 +12,7 @@ export const messages = {
     insights: "Insights",
     engagement: "Engagement",
     careers: "Carreras",
+    about: "Nosotros",
     contact: "Contacto",
     bookCall: "Agendar llamada",
     roiCalculator: "Calculadora ROI",
@@ -147,6 +148,42 @@ export const messages = {
     titleHighlight: "llamada de estrategia de ingeniería",
     subtitle:
       "Converse sobre sus prioridades operativas, hoja de ruta de IA en producción y primer flujo con impacto enterprise medible.",
+    orSchedule: "O agende directamente",
+  },
+  contactForm: {
+    title: "Cuéntenos sobre su flujo",
+    subtitle: "¿No está listo para agendar? Comparta su contexto y le responderemos con una evaluación a medida.",
+    fullName: "Nombre completo",
+    workEmail: "Email corporativo",
+    company: "Empresa (opcional)",
+    workflow: "Flujo a automatizar",
+    message: "Contexto adicional (opcional)",
+    namePlaceholder: "María García",
+    emailPlaceholder: "maria@empresa.com",
+    companyPlaceholder: "Acme Corp",
+    workflowPlaceholder: "ej. onboarding de proveedores, prior auth, excepciones de órdenes",
+    messagePlaceholder: "Sistemas involucrados, volumen, cronograma...",
+    submit: "Enviar consulta",
+    submitting: "Enviando...",
+    success: "Consulta recibida. Le contactaremos pronto.",
+    error: "No se pudo enviar. Intente de nuevo o escriba a hello@agentbiz.ai.",
+    validationError: "Ingrese su nombre, email y flujo de trabajo.",
+  },
+  cookie: {
+    message: "Usamos cookies de analytics para entender cómo los visitantes usan el sitio.",
+    privacyLink: "Política de privacidad",
+    accept: "Aceptar",
+    decline: "Rechazar",
+  },
+  about: {
+    eyebrow: "NOSOTROS",
+    visitAgenticDream: "Visitar Agentic Dream →",
+  },
+  trustedBy: {
+    eyebrow: "Construido para industrias reguladas y de alto volumen",
+  },
+  legal: {
+    updated: "Última actualización:",
   },
   sticky: {
     bookCall: "Agendar llamada",
@@ -159,6 +196,9 @@ export const messages = {
     capabilities: "Capacidades",
     connect: "Conectar",
     solutions: "Soluciones",
+    about: "Nosotros",
+    privacy: "Privacidad",
+    terms: "Términos",
     aiOps: "Ingeniería de operaciones IA",
     aiAccelerated: "Entrega acelerada con IA",
     enterpriseApps: "Aplicaciones enterprise con IA",
@@ -386,6 +426,7 @@ export const messages = {
     exploreHealthcareBody:
       "Vea cómo abordamos la automatización gobernada en entornos de salud regulados.",
     healthcareIndustry: "Industria salud",
+    fintechIndustry: "Industria FinTech",
     metricsDisclaimerNda:
       "Nombre del cliente reservado bajo NDA. Métricas de telemetría del flujo en producción y estudios de tiempo del equipo de operaciones.",
     metricsDisclaimerHealthcare:
