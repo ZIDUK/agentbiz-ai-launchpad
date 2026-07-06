@@ -68,6 +68,12 @@ const Header = () => {
             <Link to="/resources" className="btn-ghost">
               Resources
             </Link>
+            <Link to="/insights" className="btn-ghost">
+              Insights
+            </Link>
+            <Link to="/engagement" className="btn-ghost">
+              Engagement
+            </Link>
             <Link to="/careers" className="btn-ghost">
               Careers
             </Link>
@@ -166,6 +172,20 @@ const Header = () => {
                       onClick={() => setMobileOpen(false)}
                     >
                       Resources
+                    </Link>
+                    <Link
+                      to="/insights"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Insights
+                    </Link>
+                    <Link
+                      to="/engagement"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Engagement Models
                     </Link>
                     <Link
                       to="/ai-roi-calculator"

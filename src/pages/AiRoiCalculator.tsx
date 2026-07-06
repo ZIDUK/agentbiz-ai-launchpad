@@ -1,17 +1,22 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { createResourceLead } from "@/lib/leads";
 
 const AiRoiCalculator = () => {
   const [teamSize, setTeamSize] = useState(25);
   const [avgCost, setAvgCost] = useState(95000);
   const [repetitivePercent, setRepetitivePercent] = useState(40);
   const [efficiencyGain, setEfficiencyGain] = useState(35);
+  const [leadName, setLeadName] = useState("");
+  const [leadEmail, setLeadEmail] = useState("");
+  const [savingLead, setSavingLead] = useState(false);
 
   const results = useMemo(() => {
     const totalPayroll = teamSize * avgCost;
@@ -28,6 +33,38 @@ const AiRoiCalculator = () => {
       effectiveCapacity: Math.round(teamSize * (efficiencyGain / 100)),
     };
   }, [teamSize, avgCost, repetitivePercent, efficiencyGain]);
+
+  const handleSaveResults = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!leadName.trim() || !leadEmail.trim()) {
+      toast.error("Please enter your name and work email.");
+      return;
+    }
+
+    setSavingLead(true);
+    try {
+      await createResourceLead({
+        name: leadName.trim(),
+        email: leadEmail.trim(),
+        resource_slug: "ai-roi-calculator",
+        source: "roi_calculator",
+        metadata: {
+          teamSize,
+          avgCost,
+          repetitivePercent,
+          efficiencyGain,
+          ...results,
+        },
+      });
+      toast.success("Results saved. We'll follow up with a tailored assessment.");
+    } catch {
+      toast.message("Request noted", {
+        description: "We couldn't save to the database yet, but you can still book a strategy call.",
+      });
+    } finally {
+      setSavingLead(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -148,6 +185,34 @@ const AiRoiCalculator = () => {
                   <Link to="/executive-briefing">Executive briefing</Link>
                 </Button>
               </div>
+
+              <form onSubmit={handleSaveResults} className="card-hover p-6 space-y-4">
+                <p className="text-sm font-semibold text-foreground">Email me these results</p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="space-y-2">
+                    <Label htmlFor="roi-lead-name">Name</Label>
+                    <Input
+                      id="roi-lead-name"
+                      value={leadName}
+                      onChange={(e) => setLeadName(e.target.value)}
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="roi-lead-email">Work email</Label>
+                    <Input
+                      id="roi-lead-email"
+                      type="email"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                </div>
+                <Button type="submit" variant="outline" disabled={savingLead}>
+                  {savingLead ? "Saving..." : "Save & request follow-up"}
+                </Button>
+              </form>
             </div>
           </div>
         </div>

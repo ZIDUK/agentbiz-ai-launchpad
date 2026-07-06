@@ -1,7 +1,8 @@
 import { 
   Settings as SettingsIcon,
   Home,
-  Briefcase
+  Briefcase,
+  Users
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -19,6 +20,7 @@ import {
 
 const items = [
   { title: "Hojas de vida", url: "/admin/applications", icon: Briefcase },
+  { title: "Leads", url: "/admin/leads", icon: Users },
   { title: "Dashboard", url: "/admin", icon: Home, exact: true },
   { title: "Settings", url: "/admin/settings", icon: SettingsIcon },
 ];

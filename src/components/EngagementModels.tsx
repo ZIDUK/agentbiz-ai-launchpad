@@ -20,20 +20,29 @@ const EngagementModels = () => {
           {engagementModels.map((model) => {
             const Icon = model.icon;
             return (
-              <div key={model.title} className="card-hover p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <Link
+                key={model.slug}
+                to={model.href}
+                className="card-hover p-6 block group"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <Icon className="text-primary" size={24} />
                 </div>
-                <h3 className="text-title mb-2 text-foreground">{model.title}</h3>
+                <h3 className="text-title mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {model.title}
+                </h3>
                 <p className="text-secondary text-sm leading-relaxed">{model.description}</p>
-              </div>
+              </Link>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild className="btn-primary">
             <Link to="/#contact">Discuss your engagement model</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link to="/engagement">Compare all models</Link>
           </Button>
         </div>
       </div>

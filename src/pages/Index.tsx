@@ -7,6 +7,7 @@ import EngagementModels from "@/components/EngagementModels";
 import IndustriesSection from "@/components/IndustriesSection";
 import Workflow from "@/components/Workflow";
 import ResourcesPreview from "@/components/ResourcesPreview";
+import InsightsPreview from "@/components/InsightsPreview";
 import Contact from "@/components/Contact";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ const Index = () => {
         <IndustriesSection />
         <Workflow />
         <ResourcesPreview />
+        <InsightsPreview />
         <Contact />
       </main>
       <StickyMobileCTA />

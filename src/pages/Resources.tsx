@@ -66,9 +66,14 @@ const Resources = () => {
               Speak with an engineering lead about your infrastructure, priorities, and first
               production workflow.
             </p>
-            <Button asChild className="btn-primary">
-              <Link to="/#contact">Schedule a strategy call</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild className="btn-primary">
+                <Link to="/#contact">Schedule a strategy call</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link to="/insights">Read insights</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </main>

@@ -4,6 +4,7 @@ import { AppSidebar } from "@/components/admin/AppSidebar";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { Navigate, Routes, Route } from "react-router-dom";
 import { ApplicationsManagement } from "@/components/admin/ApplicationsManagement";
+import { LeadsManagement } from "@/components/admin/LeadsManagement";
 import { Dashboard } from "@/components/admin/Dashboard";
 import { Settings } from "@/components/admin/Settings";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -30,6 +31,7 @@ const Admin = () => {
               <Routes>
                 <Route path="/" element={<Navigate to="/admin/applications" replace />} />
                 <Route path="/applications" element={<ApplicationsManagement />} />
+                <Route path="/leads" element={<LeadsManagement />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/dashboard" element={<Dashboard />} />
               </Routes>

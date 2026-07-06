@@ -31,6 +31,7 @@ export interface ServiceItem {
 }
 
 export interface EngagementModel {
+  slug: string;
   title: string;
   description: string;
   icon: LucideIcon;
@@ -216,34 +217,39 @@ export const softwareServices: ServiceItem[] = [
 
 export const engagementModels: EngagementModel[] = [
   {
+    slug: "project-based-development",
     title: "Project Based Development",
     description: "Software solutions tailored to your specific business requirements.",
     icon: Rocket,
-    href: "/#engagement",
+    href: "/engagement/project-based-development",
   },
   {
+    slug: "managed-services",
     title: "Managed Services Program",
     description: "Monitoring and support to optimize your technology stack.",
     icon: Wrench,
-    href: "/#engagement",
+    href: "/engagement/managed-services",
   },
   {
+    slug: "staff-augmentation",
     title: "Staff Augmentation",
     description: "Skilled professionals integrated into your team to extend capacity.",
     icon: Users,
-    href: "/#engagement",
+    href: "/engagement/staff-augmentation",
   },
   {
+    slug: "software-maintenance",
     title: "Software Maintenance",
     description: "Reliable support for your digital solution's longevity.",
     icon: GitBranch,
-    href: "/#engagement",
+    href: "/engagement/software-maintenance",
   },
   {
+    slug: "rescue-project",
     title: "Rescue Project",
     description: "Turn around failing projects and restore delivery momentum.",
     icon: Zap,
-    href: "/#engagement",
+    href: "/engagement/rescue-project",
   },
 ];
 
@@ -403,7 +409,7 @@ export const coreCapabilities: CoreCapability[] = [
       "Rescue and modernization",
     ],
     icon: Users,
-    href: "/#engagement",
+    href: "/engagement",
   },
 ];
 
@@ -458,6 +464,16 @@ export const resources: ResourceItem[] = [
     readTime: "8 min read",
     tags: ["Case Study", "Operations", "ROI"],
     href: "/case-studies/enterprise-ops-automation",
+  },
+  {
+    slug: "healthcare-prior-auth",
+    title: "Healthcare Prior Authorization Automation",
+    description:
+      "How a regional healthcare organization reduced prior auth turnaround by 38% with HIPAA-aware agent workflows and clinician oversight.",
+    type: "Case Study",
+    readTime: "7 min read",
+    tags: ["Healthcare", "Case Study", "Compliance"],
+    href: "/case-studies/healthcare-prior-auth",
   },
 ];
 

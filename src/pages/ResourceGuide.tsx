@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getResourceBySlug } from "@/data/site-content";
+import ResourceDownloadGate from "@/components/ResourceDownloadGate";
 import NotFound from "@/pages/NotFound";
 
 const roadmapSections = [
@@ -164,15 +165,18 @@ const ResourceGuide = () => {
                 <Button asChild className="btn-primary">
                   <Link to="/#contact">Talk to an Engineering Lead</Link>
                 </Button>
-                {content.downloadPath && (
-                  <Button asChild variant="outline">
-                    <a href={content.downloadPath} download>
-                      <Download className="mr-2 h-4 w-4" />
-                      {content.downloadLabel ?? "Download"}
-                    </a>
-                  </Button>
-                )}
               </div>
+
+              {content.downloadPath && resource && (
+                <div className="mt-6">
+                  <ResourceDownloadGate
+                    resourceSlug={resource.slug}
+                    resourceTitle={resource.title}
+                    downloadPath={content.downloadPath}
+                    downloadLabel={content.downloadLabel ?? "Download"}
+                  />
+                </div>
+              )}
             </section>
           </div>
         </article>
