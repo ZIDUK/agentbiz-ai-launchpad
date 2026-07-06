@@ -33,8 +33,8 @@ const Hero = () => {
         </div>
         
         <p className="text-lead mb-8 max-w-4xl mx-auto">
-          AI-first solutions — agentic AI, integrated systems, and product-grade apps that 
-          accelerate digital transformation.
+          Custom AI development, software engineering, and technology services —
+          agentic AI, integrations, and product-grade apps that accelerate digital transformation.
         </p>
         
         <div className="mt-12">

@@ -1,12 +1,6 @@
 import { 
-  BarChart3, 
-  Users, 
-  UserCheck, 
-  TrendingUp, 
   Settings as SettingsIcon,
   Home,
-  Calendar,
-  FileText,
   Briefcase
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
@@ -24,11 +18,8 @@ import {
 } from "@/components/ui/sidebar";
 
 const items = [
+  { title: "Hojas de vida", url: "/admin/applications", icon: Briefcase },
   { title: "Dashboard", url: "/admin", icon: Home, exact: true },
-  { title: "Aplicaciones", url: "/admin/applications", icon: Briefcase },
-  { title: "Candidates", url: "/admin/candidates", icon: UserCheck },
-  { title: "Leads", url: "/admin/leads", icon: Users },
-  { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/admin/settings", icon: SettingsIcon },
 ];
 

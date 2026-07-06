@@ -1,12 +1,9 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/admin/AppSidebar";
 import { AdminHeader } from "@/components/admin/AdminHeader";
-import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "@/components/admin/Dashboard";
-import { CandidateManagement } from "@/components/admin/CandidateManagement";
+import { Navigate, Routes, Route } from "react-router-dom";
 import { ApplicationsManagement } from "@/components/admin/ApplicationsManagement";
-import { LeadsManagement } from "@/components/admin/LeadsManagement";
-import { Analytics } from "@/components/admin/Analytics";
+import { Dashboard } from "@/components/admin/Dashboard";
 import { Settings } from "@/components/admin/Settings";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
@@ -20,12 +17,10 @@ const Admin = () => {
             <AdminHeader />
             <main className="flex-1 p-6">
               <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/candidates" element={<CandidateManagement />} />
+                <Route path="/" element={<Navigate to="/admin/applications" replace />} />
                 <Route path="/applications" element={<ApplicationsManagement />} />
-                <Route path="/leads" element={<LeadsManagement />} />
-                <Route path="/analytics" element={<Analytics />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </Routes>
             </main>
           </div>
