@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/admin/AppSidebar";
 import { AdminHeader } from "@/components/admin/AdminHeader";
@@ -8,6 +9,16 @@ import { Settings } from "@/components/admin/Settings";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Admin = () => {
+  useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
+
   return (
     <ProtectedRoute>
       <SidebarProvider>

@@ -9,6 +9,11 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Careers from "./pages/Careers";
 import Resources from "./pages/Resources";
 import ResourceGuide from "./pages/ResourceGuide";
+import AiRoiCalculator from "./pages/AiRoiCalculator";
+import ExecutiveBriefing from "./pages/ExecutiveBriefing";
+import Industries from "./pages/Industries";
+import IndustryDetail from "./pages/IndustryDetail";
+import CaseStudy from "./pages/CaseStudy";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +32,11 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:slug" element={<ResourceGuide />} />
+          <Route path="/ai-roi-calculator" element={<AiRoiCalculator />} />
+          <Route path="/executive-briefing" element={<ExecutiveBriefing />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/:slug" element={<IndustryDetail />} />
+          <Route path="/case-studies/enterprise-ops-automation" element={<CaseStudy />} />
           <Route path="/admin/*" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

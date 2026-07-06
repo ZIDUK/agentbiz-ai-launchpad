@@ -42,7 +42,7 @@ const Hero = () => {
             Talk to an Engineering Lead
           </Button>
           <Button asChild variant="outline" className="text-base px-8 py-6 border-border bg-background/40">
-            <Link to="/resources">Explore Enterprise Resources</Link>
+            <Link to="/ai-roi-calculator">Calculate AI ROI</Link>
           </Button>
         </div>
 

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { aiServices, engagementModels, industries, softwareServices } from "@/data/site-content";
+import { aiServices, engagementModels, softwareServices } from "@/data/site-content";
+import { industryDetails } from "@/data/industries-content";
 import { cn } from "@/lib/utils";
 
 type OpenMenu = "services" | "industries" | null;
@@ -181,20 +182,35 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
         <div className="fixed inset-x-0 top-16 lg:top-20 z-[90] border-t border-border bg-card shadow-2xl">
           <div className="container py-6">
             <ul className="mx-auto grid max-w-4xl gap-2 rounded-xl border border-border bg-card p-6 md:grid-cols-3">
-              {industries.map((industry) => {
+              {industryDetails.map((industry) => {
                 const Icon = industry.icon;
                 return (
-                  <li key={industry.name}>
-                    <Link to="/#industries" className={menuLinkClass} onClick={handleNavigate}>
+                  <li key={industry.slug}>
+                    <Link
+                      to={`/industries/${industry.slug}`}
+                      className={menuLinkClass}
+                      onClick={handleNavigate}
+                    >
                       <div className="mb-1 flex items-center gap-2">
                         <Icon className="h-4 w-4 text-primary" />
                         <p className="text-sm font-semibold">{industry.name}</p>
                       </div>
-                      <p className="text-xs text-muted-foreground">{industry.services[0]}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        {industry.headline}
+                      </p>
                     </Link>
                   </li>
                 );
               })}
+              <li className="md:col-span-3">
+                <Link
+                  to="/industries"
+                  className={cn(menuLinkClass, "border border-border text-center")}
+                  onClick={handleNavigate}
+                >
+                  <p className="text-sm font-semibold text-primary">View all industries →</p>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

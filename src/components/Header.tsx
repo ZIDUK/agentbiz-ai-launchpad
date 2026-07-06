@@ -4,7 +4,8 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ServicesMegaMenu } from "@/components/ServicesMegaMenu";
-import { aiServices, industries, softwareServices } from "@/data/site-content";
+import { aiServices, softwareServices } from "@/data/site-content";
+import { industryDetails } from "@/data/industries-content";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -138,14 +139,15 @@ const Header = () => {
                       INDUSTRIES
                     </p>
                     <ul className="space-y-2">
-                      {industries.map((industry) => (
-                        <li key={industry.name}>
-                          <button
+                      {industryDetails.map((industry) => (
+                        <li key={industry.slug}>
+                          <Link
+                            to={`/industries/${industry.slug}`}
                             className="text-sm text-foreground hover:text-primary"
-                            onClick={() => scrollToSection("industries")}
+                            onClick={() => setMobileOpen(false)}
                           >
                             {industry.name}
-                          </button>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -164,6 +166,20 @@ const Header = () => {
                       onClick={() => setMobileOpen(false)}
                     >
                       Resources
+                    </Link>
+                    <Link
+                      to="/ai-roi-calculator"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      ROI Calculator
+                    </Link>
+                    <Link
+                      to="/executive-briefing"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Executive Briefing
                     </Link>
                     <Link
                       to="/careers"

@@ -45,11 +45,66 @@ const roadmapSections = [
   },
 ];
 
+const checklistSections = [
+  {
+    title: "Governance",
+    items: [
+      "Defined data boundaries and approved model providers",
+      "Role-based access and approval workflows documented",
+      "Audit logging for agent actions and human overrides",
+      "Legal/compliance review completed for data handling",
+    ],
+  },
+  {
+    title: "Architecture",
+    items: [
+      "Integration points mapped to systems of record",
+      "Human-in-the-loop escalation paths defined",
+      "Error handling and fallback behavior specified",
+      "Monitoring and alerting for cost, latency, and quality",
+    ],
+  },
+  {
+    title: "Operations",
+    items: [
+      "Baseline KPIs measured before launch (cycle time, error rate, cost)",
+      "Operations owners assigned and trained",
+      "Runbook for exceptions and model updates",
+      "Parallel operation plan during transition",
+    ],
+  },
+  {
+    title: "Scale readiness",
+    items: [
+      "Reusable components identified for adjacent workflows",
+      "Knowledge transfer plan for internal teams",
+      "90-day expansion roadmap with executive sponsor alignment",
+    ],
+  },
+];
+
+const guideContent: Record<
+  string,
+  { sections: { title: string; items: string[] }[]; downloadPath?: string; downloadLabel?: string }
+> = {
+  "enterprise-ai-roadmap": {
+    sections: roadmapSections,
+    downloadPath: "/downloads/enterprise-ai-roadmap.md",
+    downloadLabel: "Download roadmap",
+  },
+  "pilot-to-production-checklist": {
+    sections: checklistSections,
+    downloadPath: "/downloads/pilot-to-production-checklist.md",
+    downloadLabel: "Download checklist",
+  },
+};
+
 const ResourceGuide = () => {
   const { slug } = useParams<{ slug: string }>();
   const resource = slug ? getResourceBySlug(slug) : undefined;
+  const content = slug ? guideContent[slug] : undefined;
 
-  if (!resource) {
+  if (!resource || !content) {
     return <NotFound />;
   }
 
@@ -77,7 +132,7 @@ const ResourceGuide = () => {
           <div className="prose prose-invert max-w-none space-y-10">
             <section>
               <h2 className="text-xl font-semibold text-foreground mb-4">
-                Who this guide is for
+                Who this is for
               </h2>
               <p className="text-secondary leading-relaxed">
                 CTOs, COOs, VP Engineering, and transformation leaders who need a practical path
@@ -85,7 +140,7 @@ const ResourceGuide = () => {
               </p>
             </section>
 
-            {roadmapSections.map((section) => (
+            {content.sections.map((section) => (
               <section key={section.title}>
                 <h2 className="text-xl font-semibold text-foreground mb-4">{section.title}</h2>
                 <ul className="space-y-3">
@@ -102,19 +157,21 @@ const ResourceGuide = () => {
             <section className="card-hover p-8">
               <h2 className="text-xl font-semibold text-foreground mb-3">Next step</h2>
               <p className="text-secondary mb-6">
-                Use this roadmap in your next leadership workshop, then pressure-test it with an
+                Use this in your next leadership workshop, then pressure-test it with an
                 engineering partner who has shipped production AI in enterprise environments.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild className="btn-primary">
                   <Link to="/#contact">Talk to an Engineering Lead</Link>
                 </Button>
-                <Button asChild variant="outline">
-                  <a href="/downloads/enterprise-ai-roadmap.md" download>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download checklist
-                  </a>
-                </Button>
+                {content.downloadPath && (
+                  <Button asChild variant="outline">
+                    <a href={content.downloadPath} download>
+                      <Download className="mr-2 h-4 w-4" />
+                      {content.downloadLabel ?? "Download"}
+                    </a>
+                  </Button>
+                )}
               </div>
             </section>
           </div>

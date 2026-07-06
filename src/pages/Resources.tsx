@@ -50,8 +50,9 @@ const Resources = () => {
                     ))}
                   </div>
                   <Button asChild className="btn-primary">
-                    <Link to={`/resources/${resource.slug}`}>
-                      Read guide <ArrowRight className="ml-2 h-4 w-4" />
+                    <Link to={resource.href ?? `/resources/${resource.slug}`}>
+                      {resource.type === "Case Study" ? "Read case study" : "Read guide"}{" "}
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>

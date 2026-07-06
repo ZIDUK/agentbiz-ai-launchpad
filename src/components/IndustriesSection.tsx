@@ -1,4 +1,5 @@
-import { industries } from "@/data/site-content";
+import { Link } from "react-router-dom";
+import { industryDetails } from "@/data/industries-content";
 
 const IndustriesSection = () => {
   return (
@@ -16,14 +17,20 @@ const IndustriesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {industries.map((industry) => {
+          {industryDetails.map((industry) => {
             const Icon = industry.icon;
             return (
-              <div key={industry.name} className="card-hover p-8">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+              <Link
+                key={industry.slug}
+                to={`/industries/${industry.slug}`}
+                className="card-hover p-8 block group"
+              >
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <Icon className="text-primary" size={28} />
                 </div>
-                <h3 className="text-title mb-4 text-foreground">{industry.name}</h3>
+                <h3 className="text-title mb-4 text-foreground group-hover:text-primary transition-colors">
+                  {industry.name}
+                </h3>
                 <ul className="space-y-2">
                   {industry.services.map((service) => (
                     <li key={service} className="flex items-start text-sm text-secondary">
@@ -32,9 +39,15 @@ const IndustriesSection = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Link>
             );
           })}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link to="/industries" className="text-sm font-semibold text-primary hover:underline">
+            View all industries →
+          </Link>
         </div>
       </div>
     </section>

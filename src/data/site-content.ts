@@ -305,6 +305,7 @@ export interface ResourceItem {
   type: string;
   readTime: string;
   tags: string[];
+  href?: string;
 }
 
 export const enterpriseChallenges: string[] = [
@@ -438,6 +439,25 @@ export const resources: ResourceItem[] = [
     type: "Guide",
     readTime: "15 min read",
     tags: ["Strategy", "Roadmap", "Enterprise"],
+  },
+  {
+    slug: "pilot-to-production-checklist",
+    title: "Pilot to Production Checklist",
+    description:
+      "A governance and operations checklist for approving AI workflows for production — covering architecture, compliance, monitoring, and scale readiness.",
+    type: "Checklist",
+    readTime: "5 min read",
+    tags: ["Governance", "Production", "Checklist"],
+  },
+  {
+    slug: "enterprise-ops-case-study",
+    title: "Enterprise Back-Office Automation",
+    description:
+      "How a mid-market B2B company reduced vendor onboarding cycle time by 67% with governed AI agents integrated into their existing ERP.",
+    type: "Case Study",
+    readTime: "8 min read",
+    tags: ["Case Study", "Operations", "ROI"],
+    href: "/case-studies/enterprise-ops-automation",
   },
 ];
 

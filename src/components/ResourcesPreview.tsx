@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, Calculator, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { resources } from "@/data/site-content";
 
 const ResourcesPreview = () => {
-  const featured = resources[0];
+  const featured = resources.slice(0, 2);
 
   return (
     <section id="resources-preview" className="section">
@@ -19,29 +19,45 @@ const ResourcesPreview = () => {
           </p>
         </div>
 
-        <div className="card-hover p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-            <FileText className="h-7 w-7 text-primary" />
-          </div>
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
-                {featured.type}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {featured.map((resource) => (
+            <div key={resource.slug} className="card-hover p-8 flex flex-col">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 mb-4">
+                <FileText className="h-7 w-7 text-primary" />
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mb-3">
+                {resource.type}
               </span>
-              <span className="text-xs text-muted-foreground">{featured.readTime}</span>
-            </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">{featured.title}</h3>
-            <p className="text-secondary leading-relaxed mb-6">{featured.description}</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button asChild className="btn-primary">
-                <Link to={`/resources/${featured.slug}`}>
-                  Read the guide <ArrowRight className="ml-2 h-4 w-4" />
+              <h3 className="text-xl font-bold text-foreground mb-2">{resource.title}</h3>
+              <p className="text-secondary text-sm leading-relaxed mb-6 flex-1">
+                {resource.description}
+              </p>
+              <Button asChild variant="outline" className="w-fit">
+                <Link to={resource.href ?? `/resources/${resource.slug}`}>
+                  Read more <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline">
-                <Link to="/resources">View all resources</Link>
-              </Button>
             </div>
+          ))}
+        </div>
+
+        <div className="card-hover p-8 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+              <Calculator className="h-6 w-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-bold text-foreground">AI Operations ROI Calculator</h3>
+              <p className="text-sm text-secondary">Model potential savings before your next board review.</p>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button asChild className="btn-primary">
+              <Link to="/ai-roi-calculator">Calculate ROI</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/resources">View all resources</Link>
+            </Button>
           </div>
         </div>
       </div>
