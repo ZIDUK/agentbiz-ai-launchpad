@@ -59,7 +59,7 @@ const Header = () => {
             Agent<span className="gradient-text">Biz</span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-2">
             <ServicesMegaMenu />
             <button onClick={() => scrollToSection("workflow")} className="btn-ghost">
               Process

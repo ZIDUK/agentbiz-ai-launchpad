@@ -1,37 +1,98 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { ChevronDown } from "lucide-react";
 import { aiServices, engagementModels, industries, softwareServices } from "@/data/site-content";
 import { cn } from "@/lib/utils";
 
+type OpenMenu = "services" | "industries" | null;
+
 interface ServicesMegaMenuProps {
   onNavigate?: () => void;
-  className?: string;
 }
 
 const menuLinkClass =
   "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground";
 
-export function ServicesMegaMenu({ onNavigate, className }: ServicesMegaMenuProps) {
-  const handleClick = () => onNavigate?.();
+export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
+  const [openMenu, setOpenMenu] = useState<OpenMenu>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const closeMenu = () => setOpenMenu(null);
+
+  const handleNavigate = () => {
+    closeMenu();
+    onNavigate?.();
+  };
+
+  const toggleMenu = (menu: OpenMenu) => {
+    setOpenMenu((current) => (current === menu ? null : menu));
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu();
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   return (
-    <NavigationMenu className={cn("max-w-none", className)}>
-      <NavigationMenuList className="space-x-1">
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="btn-ghost bg-transparent h-10 px-4 data-[state=open]:bg-muted">
-            Services
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-card">
-            <div className="grid w-[min(92vw,920px)] gap-0 md:grid-cols-[280px_1fr] bg-card">
-              <div className="border-b md:border-b-0 md:border-r border-border p-4 bg-muted">
-                <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
+    <div ref={menuRef} className="relative">
+      <div className="flex items-center gap-1">
+        <button
+          type="button"
+          className={cn(
+            "btn-ghost inline-flex h-10 items-center gap-1 px-4 rounded-md",
+            openMenu === "services" && "bg-muted text-foreground",
+          )}
+          aria-expanded={openMenu === "services"}
+          onClick={() => toggleMenu("services")}
+        >
+          Services
+          <ChevronDown
+            className={cn(
+              "h-3.5 w-3.5 transition-transform duration-200",
+              openMenu === "services" && "rotate-180",
+            )}
+          />
+        </button>
+
+        <button
+          type="button"
+          className={cn(
+            "btn-ghost inline-flex h-10 items-center gap-1 px-4 rounded-md",
+            openMenu === "industries" && "bg-muted text-foreground",
+          )}
+          aria-expanded={openMenu === "industries"}
+          onClick={() => toggleMenu("industries")}
+        >
+          Industries
+          <ChevronDown
+            className={cn(
+              "h-3.5 w-3.5 transition-transform duration-200",
+              openMenu === "industries" && "rotate-180",
+            )}
+          />
+        </button>
+      </div>
+
+      {openMenu === "services" && (
+        <div className="fixed inset-x-0 top-16 lg:top-20 z-[90] border-t border-border bg-card shadow-2xl">
+          <div className="container py-6">
+            <div className="mx-auto grid max-w-7xl gap-0 md:grid-cols-[300px_1fr] overflow-hidden rounded-xl border border-border">
+              <div className="border-b md:border-b-0 md:border-r border-border bg-muted p-6">
+                <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
                   ENGAGEMENT MODELS
                 </p>
                 <ul className="space-y-1">
@@ -39,118 +100,105 @@ export function ServicesMegaMenu({ onNavigate, className }: ServicesMegaMenuProp
                     const Icon = model.icon;
                     return (
                       <li key={model.title}>
-                        <NavigationMenuLink asChild>
-                          <Link to={model.href} className={menuLinkClass} onClick={handleClick}>
-                            <div className="flex gap-3">
-                              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                                <Icon className="h-4 w-4 text-primary" />
-                              </div>
-                              <div>
-                                <p className="text-sm font-semibold text-foreground">{model.title}</p>
-                                <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                                  {model.description}
-                                </p>
-                              </div>
+                        <Link to={model.href} className={menuLinkClass} onClick={handleNavigate}>
+                          <div className="flex gap-3">
+                            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                              <Icon className="h-4 w-4 text-primary" />
                             </div>
-                          </Link>
-                        </NavigationMenuLink>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground">{model.title}</p>
+                              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                                {model.description}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
                       </li>
                     );
                   })}
                 </ul>
               </div>
 
-              <div className="p-4 grid md:grid-cols-2 gap-4 bg-card">
+              <div className="grid gap-6 bg-card p-6 md:grid-cols-2">
                 <div>
-                  <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
+                  <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
                     AI DEVELOPMENT
                   </p>
                   <ul className="space-y-1">
                     {aiServices.map((service) => (
                       <li key={service.slug}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={`/services/${service.slug}`}
-                            className={cn(menuLinkClass, "py-2")}
-                            onClick={handleClick}
-                          >
-                            <p className="text-sm font-medium">{service.title}</p>
-                            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
-                              {service.shortDescription}
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
+                        <Link
+                          to={`/services/${service.slug}`}
+                          className={cn(menuLinkClass, "py-2")}
+                          onClick={handleNavigate}
+                        >
+                          <p className="text-sm font-medium">{service.title}</p>
+                          <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                            {service.shortDescription}
+                          </p>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
+                  <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
                     SOFTWARE DEVELOPMENT
                   </p>
                   <ul className="space-y-1">
                     {softwareServices.map((service) => (
                       <li key={service.slug}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={`/services/${service.slug}`}
-                            className={cn(menuLinkClass, "py-2")}
-                            onClick={handleClick}
-                          >
-                            <p className="text-sm font-medium">{service.title}</p>
-                            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
-                              {service.shortDescription}
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
+                        <Link
+                          to={`/services/${service.slug}`}
+                          className={cn(menuLinkClass, "py-2")}
+                          onClick={handleNavigate}
+                        >
+                          <p className="text-sm font-medium">{service.title}</p>
+                          <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                            {service.shortDescription}
+                          </p>
+                        </Link>
                       </li>
                     ))}
                   </ul>
 
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to="/services"
-                      className={cn(menuLinkClass, "mt-3 border border-border text-center")}
-                      onClick={handleClick}
-                    >
-                      <p className="text-sm font-semibold text-primary">View all services →</p>
-                    </Link>
-                  </NavigationMenuLink>
+                  <Link
+                    to="/services"
+                    className={cn(menuLinkClass, "mt-4 border border-border text-center")}
+                    onClick={handleNavigate}
+                  >
+                    <p className="text-sm font-semibold text-primary">View all services →</p>
+                  </Link>
                 </div>
               </div>
             </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+          </div>
+        </div>
+      )}
 
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="btn-ghost bg-transparent h-10 px-4 data-[state=open]:bg-muted">
-            Industries
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-card">
-            <ul className="grid w-[min(92vw,480px)] gap-1 p-4 md:grid-cols-2 bg-card">
+      {openMenu === "industries" && (
+        <div className="fixed inset-x-0 top-16 lg:top-20 z-[90] border-t border-border bg-card shadow-2xl">
+          <div className="container py-6">
+            <ul className="mx-auto grid max-w-4xl gap-2 rounded-xl border border-border bg-card p-6 md:grid-cols-3">
               {industries.map((industry) => {
                 const Icon = industry.icon;
                 return (
                   <li key={industry.name}>
-                    <NavigationMenuLink asChild>
-                      <Link to="/#industries" className={menuLinkClass} onClick={handleClick}>
-                        <div className="flex items-center gap-2 mb-1">
-                          <Icon className="h-4 w-4 text-primary" />
-                          <p className="text-sm font-semibold">{industry.name}</p>
-                        </div>
-                        <p className="text-xs text-muted-foreground">
-                          {industry.services[0]}
-                        </p>
-                      </Link>
-                    </NavigationMenuLink>
+                    <Link to="/#industries" className={menuLinkClass} onClick={handleNavigate}>
+                      <div className="mb-1 flex items-center gap-2">
+                        <Icon className="h-4 w-4 text-primary" />
+                        <p className="text-sm font-semibold">{industry.name}</p>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{industry.services[0]}</p>
+                    </Link>
                   </li>
                 );
               })}
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
