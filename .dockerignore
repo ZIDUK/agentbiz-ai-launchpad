@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+.git
+.github
+.vscode
+.idea
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage
+*.md
+!docs/DOKPLOY.md
+bun.lock
+supabase/.temp
