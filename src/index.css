@@ -13,6 +13,9 @@
     /* Card & Surface Colors */
     --card: 0 0% 7%;
     --card-foreground: 220 11% 96%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 220 11% 96%;
     
     /* Primary Brand Colors - Blue to Purple Gradient */
     --primary: 212 100% 50%;

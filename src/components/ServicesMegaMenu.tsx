@@ -28,9 +28,9 @@ export function ServicesMegaMenu({ onNavigate, className }: ServicesMegaMenuProp
           <NavigationMenuTrigger className="btn-ghost bg-transparent h-10 px-4 data-[state=open]:bg-muted">
             Services
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <div className="grid w-[min(92vw,920px)] gap-0 md:grid-cols-[280px_1fr]">
-              <div className="border-b md:border-b-0 md:border-r border-border p-4 bg-muted/30">
+          <NavigationMenuContent className="bg-card">
+            <div className="grid w-[min(92vw,920px)] gap-0 md:grid-cols-[280px_1fr] bg-card">
+              <div className="border-b md:border-b-0 md:border-r border-border p-4 bg-muted">
                 <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
                   ENGAGEMENT MODELS
                 </p>
@@ -60,7 +60,7 @@ export function ServicesMegaMenu({ onNavigate, className }: ServicesMegaMenuProp
                 </ul>
               </div>
 
-              <div className="p-4 grid md:grid-cols-2 gap-4">
+              <div className="p-4 grid md:grid-cols-2 gap-4 bg-card">
                 <div>
                   <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
                     AI DEVELOPMENT
@@ -127,8 +127,8 @@ export function ServicesMegaMenu({ onNavigate, className }: ServicesMegaMenuProp
           <NavigationMenuTrigger className="btn-ghost bg-transparent h-10 px-4 data-[state=open]:bg-muted">
             Industries
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[min(92vw,480px)] gap-1 p-4 md:grid-cols-2">
+          <NavigationMenuContent className="bg-card">
+            <ul className="grid w-[min(92vw,480px)] gap-1 p-4 md:grid-cols-2 bg-card">
               {industries.map((industry) => {
                 const Icon = industry.icon;
                 return (
