@@ -9,6 +9,7 @@ export interface ResourceLead {
   source: "resource_download" | "roi_calculator" | "insight_newsletter" | "contact_form";
   metadata?: Record<string, unknown>;
   created_at: Date;
+  crm_synced_at?: Date;
 }
 
 export const createResourceLead = async (
@@ -55,6 +56,7 @@ export const getResourceLeads = async (): Promise<ResourceLead[]> => {
     source: row.source as ResourceLead["source"],
     metadata: row.metadata || {},
     created_at: new Date(row.created_at),
+    crm_synced_at: row.crm_synced_at ? new Date(row.crm_synced_at) : undefined,
   }));
 };
 

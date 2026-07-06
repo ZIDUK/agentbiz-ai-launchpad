@@ -1,0 +1,102 @@
+AgentBiz CRM Integration Setup
+==============================
+
+Syncs marketing leads (resource_leads) and job applications (applications)
+to HubSpot, Pipedrive, or any CRM via webhook (Zapier, Make, n8n).
+
+Architecture
+------------
+1. Visitor submits form → row inserted in Supabase
+2. Supabase Database Webhook → Edge Function crm-sync
+3. Edge Function pushes to CRM + logs result in crm_sync_log
+
+Step 1 — Run migration
+----------------------
+In Supabase SQL Editor, run:
+  supabase/migrations/002_crm_sync.sql
+
+Step 2 — Deploy Edge Function
+-----------------------------
+Install Supabase CLI, then:
+
+  supabase login
+  supabase link --project-ref itfdbhdnlhrkuazkcnit
+  supabase functions deploy crm-sync --no-verify-jwt
+
+Set secrets (choose ONE provider):
+
+  # Option A: Generic webhook (Zapier / Make / n8n) — recommended to start
+  supabase secrets set CRM_PROVIDER=webhook
+  supabase secrets set CRM_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/...
+  supabase secrets set CRM_WEBHOOK_SECRET=your-random-secret
+
+  # Option B: HubSpot (Private App token with crm.objects.contacts.write)
+  supabase secrets set CRM_PROVIDER=hubspot
+  supabase secrets set HUBSPOT_ACCESS_TOKEN=pat-...
+
+  # Option C: Pipedrive
+  supabase secrets set CRM_PROVIDER=pipedrive
+  supabase secrets set PIPEDRIVE_API_TOKEN=...
+  supabase secrets set PIPEDRIVE_PIPELINE_ID=1
+  supabase secrets set PIPEDRIVE_STAGE_ID=1
+
+Always set (auto-injected on Supabase, verify in dashboard):
+  SUPABASE_URL
+  SUPABASE_SERVICE_ROLE_KEY
+
+Optional inbound auth for database webhooks:
+  supabase secrets set CRM_INBOUND_WEBHOOK_SECRET=shared-secret-with-webhook-header
+
+Step 3 — Database Webhooks (Supabase Dashboard)
+-----------------------------------------------
+Database → Webhooks → Create webhook (repeat for each table)
+
+Webhook 1 — resource_leads
+  Table: resource_leads
+  Events: INSERT
+  URL: https://itfdbhdnlhrkuazkcnit.supabase.co/functions/v1/crm-sync
+  Headers: x-agentbiz-webhook-secret: <CRM_INBOUND_WEBHOOK_SECRET if set>
+
+Webhook 2 — applications
+  Table: applications
+  Events: UPDATE
+  Filter: cv_url is not null (or all UPDATEs — function skips rows without cv_url)
+  URL: same as above
+
+Step 4 — Webhook payload (for Zapier/Make)
+------------------------------------------
+POST JSON body example:
+
+{
+  "event": "lead.created",
+  "site": "agentbiz.io",
+  "recordId": "uuid",
+  "source": "contact_form",
+  "contact": { "name": "...", "email": "...", "company": "..." },
+  "lead": {
+    "resourceSlug": "contact-form",
+    "metadata": { "workflow": "...", "message": "..." }
+  },
+  "createdAt": "2026-07-06T..."
+}
+
+Events:
+  lead.created       — downloads, ROI, contact form
+  application.created — careers / CV (after cv_url is saved)
+
+Zapier quick path
+-----------------
+1. Trigger: Webhooks by Zapier → Catch Hook
+2. Copy URL → CRM_WEBHOOK_URL
+3. Action: HubSpot Create Contact OR Pipedrive Create Person/Deal
+4. Map fields from contact.* and lead.metadata.*
+
+Verify
+------
+- Submit test lead on agentbiz.io
+- Check /admin/leads → crm_synced_at column (after migration)
+- Query: select * from crm_sync_log order by created_at desc limit 10;
+
+Disable sync
+------------
+  supabase secrets set CRM_PROVIDER=none

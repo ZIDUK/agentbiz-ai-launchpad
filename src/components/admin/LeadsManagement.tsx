@@ -170,7 +170,18 @@ export function LeadsManagement() {
                         </p>
                       )}
                     </div>
-                    <Badge variant="outline">{sourceLabels[lead.source]}</Badge>
+                    <div className="flex flex-col items-end gap-2">
+                      <Badge variant="outline">{sourceLabels[lead.source]}</Badge>
+                      {lead.crm_synced_at ? (
+                        <Badge className="bg-green-100 text-green-700 border-green-300 text-xs">
+                          CRM synced
+                        </Badge>
+                      ) : (
+                        <Badge variant="secondary" className="text-xs">
+                          CRM pending
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>

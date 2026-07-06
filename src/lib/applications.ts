@@ -14,6 +14,7 @@ export interface Application {
   applied_at: Date;
   reviewed_at?: Date;
   notes?: string;
+  crm_synced_at?: Date;
 }
 
 // Upload CV to Supabase Storage
@@ -94,6 +95,7 @@ export const getApplications = async (): Promise<Application[]> => {
     applied_at: new Date(row.applied_at),
     reviewed_at: row.reviewed_at ? new Date(row.reviewed_at) : undefined,
     notes: row.notes || '',
+    crm_synced_at: row.crm_synced_at ? new Date(row.crm_synced_at) : undefined,
   }));
 };
 
@@ -170,5 +172,6 @@ export const getApplicationsByStatus = async (status: Application['status']): Pr
     applied_at: new Date(row.applied_at),
     reviewed_at: row.reviewed_at ? new Date(row.reviewed_at) : undefined,
     notes: row.notes || '',
+    crm_synced_at: row.crm_synced_at ? new Date(row.crm_synced_at) : undefined,
   }));
 };
