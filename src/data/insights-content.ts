@@ -129,6 +129,68 @@ export const insightArticles: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: "measuring-ai-roi-beyond-pilot",
+    title: "Measuring AI ROI Beyond the Pilot: Metrics Executives Actually Trust",
+    excerpt:
+      "Model accuracy doesn't convince the CFO. Cycle time, cost per transaction, and error rate do. Here's how to baseline and report production AI impact.",
+    readTime: "6 min read",
+    publishedAt: "2026-03-15",
+    tags: ["ROI", "Strategy", "Operations"],
+    sections: [
+      {
+        heading: "Start with operational baselines",
+        paragraphs: [
+          "Before automation, measure the workflow as it runs today: hours per transaction, rework rate, SLA breaches, and fully loaded labor cost. These baselines become the executive dashboard — not token counts or model benchmarks.",
+          "Pick one workflow with visible volume. Document the happy path and the top five exception types. That scope keeps ROI credible and auditable.",
+        ],
+      },
+      {
+        heading: "Metrics that resonate with the board",
+        paragraphs: [
+          "Cycle time reduction, manual hours avoided, cost per case, and quality/error rate are the metrics that survive scrutiny. Tie each to a dollar value using conservative assumptions.",
+          "Report monthly with before/after comparisons. Include human override rates — they prove governance is working, not failing.",
+        ],
+      },
+      {
+        heading: "Avoid vanity metrics",
+        paragraphs: [
+          "Chat sessions, prompts sent, or generic productivity scores rarely justify enterprise investment. If a metric can't connect to P&L or risk reduction, drop it from the executive summary.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "integration-patterns-enterprise-agents",
+    title: "Integration Patterns for Enterprise AI Agents",
+    excerpt:
+      "Agents fail in isolation. Production systems need reliable connections to ERP, CRM, ITSM, and document stores — with retries, idempotency, and audit trails.",
+    readTime: "6 min read",
+    publishedAt: "2026-03-22",
+    tags: ["Architecture", "Integrations", "Agents"],
+    sections: [
+      {
+        heading: "The agent is the orchestrator, not the system of record",
+        paragraphs: [
+          "Agents read, classify, draft, and route. Authoritative data stays in ERP, CRM, or core banking systems. Write operations go through staging tables or APIs with human approval gates.",
+          "This pattern prevents shadow databases and keeps compliance teams comfortable.",
+        ],
+      },
+      {
+        heading: "Patterns that scale",
+        paragraphs: [
+          "Event-driven ingestion from webhooks and message queues. Idempotent handlers so retries don't duplicate records. Dead-letter queues for exceptions. Structured logging with correlation IDs across agent steps.",
+          "Use the same integration standards for workflow two and workflow ten — don't reinvent per project.",
+        ],
+      },
+      {
+        heading: "Security and access",
+        paragraphs: [
+          "Service accounts with least privilege. Secrets in vaults, not prompts. Per-tenant data boundaries for multi-division enterprises. Every external call logged with actor, payload hash, and outcome.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): InsightArticle | undefined {

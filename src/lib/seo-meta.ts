@@ -13,6 +13,7 @@ import {
   getEnterpriseOpsCaseStudy,
   getFintechCaseStudy,
   getHealthcareCaseStudy,
+  getLogisticsCaseStudy,
 } from "@/i18n/content/case-studies";
 
 export interface PageSeoMeta {
@@ -164,6 +165,15 @@ export function resolveSeoMeta(pathname: string, locale: Locale): PageSeoMeta {
 
   if (path === "/case-studies/fintech-loan-documents") {
     const content = getFintechCaseStudy(locale);
+    return {
+      title: withBrand(content.title),
+      description: content.lead,
+      ogType: "article",
+    };
+  }
+
+  if (path === "/case-studies/logistics-exception-handling") {
+    const content = getLogisticsCaseStudy(locale);
     return {
       title: withBrand(content.title),
       description: content.lead,

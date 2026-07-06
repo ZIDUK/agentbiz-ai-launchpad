@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,6 +19,7 @@ interface ApplicationFormProps {
 
 const ApplicationForm = ({ position, positionLabel, onClose }: ApplicationFormProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const jobPositions = useJobPositions();
   const [formData, setFormData] = useState({
     name: "",
@@ -56,24 +58,8 @@ const ApplicationForm = ({ position, positionLabel, onClose }: ApplicationFormPr
     try {
       setLoading(true);
       await createApplication(formData, cvFile);
-      setSubmitted(true);
-
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        position: position || "",
-        experience: "",
-        cover_letter: "",
-        cv_url: "",
-        cv_file_name: "",
-      });
-      setCvFile(null);
-
-      setTimeout(() => {
-        setSubmitted(false);
-        onClose?.();
-      }, 2000);
+      onClose?.();
+      navigate("/thank-you/careers");
     } catch (error) {
       console.error("Error submitting application:", error);
       alert(t("application.submitError"));

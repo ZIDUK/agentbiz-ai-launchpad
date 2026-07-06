@@ -137,6 +137,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/fintech-loan-documents?lang=en" />
   </url>
   <url>
+    <loc>https://agentbiz.io/case-studies/logistics-exception-handling</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=en" />
+  </url>
+  <url>
     <loc>https://agentbiz.io/services/ai-code-review</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -378,5 +387,23 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=en" />
     <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=es" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=en" />
+  </url>
+  <url>
+    <loc>https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=en" />
+  </url>
+  <url>
+    <loc>https://agentbiz.io/insights/integration-patterns-enterprise-agents</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
   </url>
 </urlset>

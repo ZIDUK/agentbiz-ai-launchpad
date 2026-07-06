@@ -427,4 +427,14 @@ export const resourcesEs: ResourceItem[] = [
     tags: ["FinTech", "Caso de estudio", "IA documental"],
     href: "/case-studies/fintech-loan-documents",
   },
+  {
+    slug: "logistics-exception-handling",
+    title: "Automatización de excepciones logísticas",
+    description:
+      "Cómo un operador logístico en Norteamérica redujo en un 45% el tiempo de resolución de excepciones con ops asistida por agentes integrada al TMS existente.",
+    type: "Caso de estudio",
+    readTime: "7 min de lectura",
+    tags: ["Logística", "Caso de estudio", "Operaciones"],
+    href: "/case-studies/logistics-exception-handling",
+  },
 ];

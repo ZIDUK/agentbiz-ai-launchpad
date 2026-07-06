@@ -188,3 +188,55 @@ const fintechEs: CaseStudyContent = {
 export function getFintechCaseStudy(locale: Locale): CaseStudyContent {
   return locale === "es" ? fintechEs : fintechEn;
 }
+
+const logisticsEn: CaseStudyContent = {
+  readTime: "7 min read",
+  title: "Freight exception handling: 45% faster resolution with agent-assisted ops",
+  lead: "A North American logistics operator reduced exception resolution time across customs, delivery, and billing disputes — without replacing their TMS or WMS.",
+  situation:
+    "Dispatch and customer service teams handled 3,500+ monthly exceptions across EDI failures, proof-of-delivery gaps, and accessorial charge disputes. Average resolution took 2.1 days with heavy email coordination between carriers, warehouses, and billing.",
+  constraint:
+    "Operations could not rip-and-replace TMS infrastructure mid-peak season. Every automated action needed human approval for customer-facing commitments and charge adjustments.",
+  approachItems: [
+    "Agents ingested exception events from TMS webhooks and email inboxes",
+    "Classification and data enrichment from BOLs, PODs, and rate confirmations",
+    "Human-in-the-loop queue for disputes above dollar thresholds",
+    "Write-back to TMS notes and billing staging tables with full audit logs",
+  ],
+  resultsMetrics: [
+    { value: "45%", label: "Faster exception resolution" },
+    { value: "33%", label: "Email volume reduction" },
+    { value: "28%", label: "Fewer billing rework cycles" },
+    { value: "100%", label: "Human approval on commitments" },
+  ],
+  ctaTitle: "Explore logistics AI delivery",
+  ctaBody: "See how we automate exception-heavy workflows while keeping operators in control.",
+};
+
+const logisticsEs: CaseStudyContent = {
+  readTime: "7 min de lectura",
+  title: "Manejo de excepciones en freight: 45% más rápido con ops asistida por agentes",
+  lead: "Un operador logístico en Norteamérica redujo el tiempo de resolución de excepciones en aduanas, entrega y disputas de facturación — sin reemplazar su TMS o WMS.",
+  situation:
+    "Equipos de dispatch y servicio al cliente manejaban más de 3,500 excepciones mensuales por fallas EDI, brechas de POD y disputas de cargos accesorios. La resolución promedio tomaba 2.1 días con coordinación intensa por email.",
+  constraint:
+    "Operaciones no podía reemplazar la infraestructura TMS en temporada pico. Cada acción automatizada requería aprobación humana para compromisos con clientes y ajustes de cargo.",
+  approachItems: [
+    "Agentes ingirieron eventos de excepción desde webhooks TMS y bandejas de email",
+    "Clasificación y enriquecimiento desde BOLs, PODs y confirmaciones de tarifa",
+    "Cola human-in-the-loop para disputas sobre umbrales de monto",
+    "Write-back a notas TMS y tablas de staging de facturación con logs de auditoría",
+  ],
+  resultsMetrics: [
+    { value: "45%", label: "Resolución más rápida" },
+    { value: "33%", label: "Reducción de volumen de email" },
+    { value: "28%", label: "Menos ciclos de reproceso de facturación" },
+    { value: "100%", label: "Aprobación humana en compromisos" },
+  ],
+  ctaTitle: "Explore entrega de IA en logística",
+  ctaBody: "Vea cómo automatizamos flujos con excepciones manteniendo a operadores en control.",
+};
+
+export function getLogisticsCaseStudy(locale: Locale): CaseStudyContent {
+  return locale === "es" ? logisticsEs : logisticsEn;
+}

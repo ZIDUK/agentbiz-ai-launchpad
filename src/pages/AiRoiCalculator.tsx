@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,6 +13,7 @@ import { useTranslation } from "@/i18n/useTranslation";
 
 const AiRoiCalculator = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [teamSize, setTeamSize] = useState(25);
   const [avgCost, setAvgCost] = useState(95000);
   const [repetitivePercent, setRepetitivePercent] = useState(40);
@@ -63,7 +64,7 @@ const AiRoiCalculator = () => {
         team_size: teamSize,
         annual_savings: results.annualSavings,
       });
-      toast.success(t("calculator.saved"));
+      navigate("/thank-you/roi");
     } catch {
       toast.message(t("calculator.saveErrorTitle"), {
         description: t("calculator.saveError"),

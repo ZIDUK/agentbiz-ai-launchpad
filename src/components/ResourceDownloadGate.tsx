@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Download, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getResourcePrintPath } from "@/i18n/content/resource-guides";
+import { useLanguage } from "@/i18n/LanguageProvider";
 import { trackEvent } from "@/lib/analytics";
 import {
   createResourceLead,
@@ -29,6 +32,9 @@ const ResourceDownloadGate = ({
   source = "resource_download",
 }: ResourceDownloadGateProps) => {
   const { t } = useTranslation();
+  const { locale } = useLanguage();
+  const navigate = useNavigate();
+  const printPath = getResourcePrintPath(resourceSlug, locale);
   const [unlocked, setUnlocked] = useState(() => hasUnlockedResource(resourceSlug));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -55,13 +61,11 @@ const ResourceDownloadGate = ({
       unlockResource(resourceSlug);
       setUnlocked(true);
       trackEvent("download_resource", { resource_slug: resourceSlug, source });
-      toast.success(t("resourceGate.thankYou"));
+      navigate(`/thank-you/resource?slug=${encodeURIComponent(resourceSlug)}`);
     } catch {
       unlockResource(resourceSlug);
       setUnlocked(true);
-      toast.message(t("resourceGate.fallbackTitle"), {
-        description: t("resourceGate.fallbackBody"),
-      });
+      navigate(`/thank-you/resource?slug=${encodeURIComponent(resourceSlug)}`);
     } finally {
       setSubmitting(false);
     }
@@ -69,12 +73,21 @@ const ResourceDownloadGate = ({
 
   if (unlocked) {
     return (
-      <Button asChild variant="outline">
-        <a href={downloadPath} download>
-          <Download className="mr-2 h-4 w-4" />
-          {downloadLabel ?? t("common.download")}
-        </a>
-      </Button>
+      <div className="flex flex-col sm:flex-row gap-2">
+        <Button asChild variant="outline">
+          <a href={downloadPath} download>
+            <Download className="mr-2 h-4 w-4" />
+            {downloadLabel ?? t("common.download")}
+          </a>
+        </Button>
+        {printPath && (
+          <Button asChild variant="outline">
+            <a href={printPath} target="_blank" rel="noopener noreferrer">
+              {t("resourceGuide.printPdf")}
+            </a>
+          </Button>
+        )}
+      </div>
     );
   }
 

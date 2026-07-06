@@ -485,6 +485,16 @@ export const resources: ResourceItem[] = [
     tags: ["FinTech", "Case Study", "Document AI"],
     href: "/case-studies/fintech-loan-documents",
   },
+  {
+    slug: "logistics-exception-handling",
+    title: "Logistics Exception Handling Automation",
+    description:
+      "How a North American logistics operator cut exception resolution time by 45% with agent-assisted ops integrated into existing TMS workflows.",
+    type: "Case Study",
+    readTime: "7 min read",
+    tags: ["Logistics", "Case Study", "Operations"],
+    href: "/case-studies/logistics-exception-handling",
+  },
 ];
 
 export function getResourceBySlug(slug: string): ResourceItem | undefined {

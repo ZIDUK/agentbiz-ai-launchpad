@@ -235,7 +235,21 @@ export const messages = {
     visitAgenticDream: "Visitar Agentic Dream →",
   },
   trustedBy: {
-    eyebrow: "Construido para industrias reguladas y de alto volumen",
+    eyebrow: "Equipos que confían en nosotros para IA en producción",
+    disclaimer: "Nombres de clientes anonimizados · engagements representativos",
+  },
+  exitIntent: {
+    eyebrow: "Antes de irse",
+    title: "Evite otro piloto de IA muerto",
+    body: "Descargue nuestro Checklist Piloto-a-Producción — los gates de gobernanza e integración que usamos antes de desplegar cualquier flujo.",
+    cta: "Obtener checklist gratis",
+    dismiss: "No gracias",
+  },
+  visitorPaths: {
+    eyebrow: "EMPIECE AQUÍ",
+    title: "Elija su",
+    titleHighlight: "camino",
+    subtitle: "Cada stakeholder necesita un punto de entrada distinto. Elija el que coincide con su rol.",
   },
   faq: {
     eyebrow: "FAQ EJECUTIVO",
@@ -350,6 +364,7 @@ export const messages = {
       "Úselo en su próximo taller de liderazgo y luego valídelo con un partner de ingeniería que haya llevado IA a producción en entornos enterprise.",
     downloadRoadmap: "Descargar hoja de ruta",
     downloadChecklist: "Descargar checklist",
+    printPdf: "Abrir versión lista para PDF",
   },
   industriesPage: {
     eyebrow: "INDUSTRIAS",
@@ -489,6 +504,7 @@ export const messages = {
       "Vea cómo abordamos la automatización gobernada en entornos de salud regulados.",
     healthcareIndustry: "Industria salud",
     fintechIndustry: "Industria FinTech",
+    logisticsIndustry: "Industria logística",
     metricsDisclaimerNda:
       "Nombre del cliente reservado bajo NDA. Métricas de telemetría del flujo en producción y estudios de tiempo del equipo de operaciones.",
     metricsDisclaimerHealthcare:

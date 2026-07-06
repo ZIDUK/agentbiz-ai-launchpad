@@ -123,4 +123,66 @@ export const insightArticlesEs: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: "measuring-ai-roi-beyond-pilot",
+    title: "Medir ROI de IA más allá del piloto: métricas que los ejecutivos confían",
+    excerpt:
+      "La precisión del modelo no convence al CFO. El tiempo de ciclo, costo por transacción y tasa de error sí. Cómo establecer baseline e informar impacto de IA en producción.",
+    readTime: "6 min de lectura",
+    publishedAt: "2026-03-15",
+    tags: ["ROI", "Estrategia", "Operaciones"],
+    sections: [
+      {
+        heading: "Comience con baselines operativos",
+        paragraphs: [
+          "Antes de automatizar, mida el flujo como corre hoy: horas por transacción, tasa de reproceso, incumplimientos de SLA y costo laboral fully loaded. Esos baselines son el dashboard ejecutivo — no conteos de tokens ni benchmarks de modelos.",
+          "Elija un flujo con volumen visible. Documente el happy path y los cinco principales tipos de excepción. Ese alcance mantiene el ROI creíble y auditable.",
+        ],
+      },
+      {
+        heading: "Métricas que resuenan con la junta",
+        paragraphs: [
+          "Reducción de tiempo de ciclo, horas manuales evitadas, costo por caso y tasa de calidad/error son métricas que sobreviven escrutinio. Vincule cada una a un valor en dólares con supuestos conservadores.",
+          "Reporte mensualmente con comparaciones antes/después. Incluya tasas de override humano — demuestran que la gobernanza funciona.",
+        ],
+      },
+      {
+        heading: "Evite métricas vanidad",
+        paragraphs: [
+          "Sesiones de chat, prompts enviados o scores genéricos de productividad rara vez justifican inversión enterprise. Si una métrica no conecta con P&L o reducción de riesgo, sáquela del resumen ejecutivo.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "integration-patterns-enterprise-agents",
+    title: "Patrones de integración para agentes de IA enterprise",
+    excerpt:
+      "Los agentes fallan aislados. Los sistemas en producción necesitan conexiones confiables a ERP, CRM, ITSM y repositorios documentales — con reintentos, idempotencia y trazas de auditoría.",
+    readTime: "6 min de lectura",
+    publishedAt: "2026-03-22",
+    tags: ["Arquitectura", "Integraciones", "Agentes"],
+    sections: [
+      {
+        heading: "El agente orquesta, no es el sistema de registro",
+        paragraphs: [
+          "Los agentes leen, clasifican, redactan y enrutan. Los datos autoritativos permanecen en ERP, CRM o core banking. Las escrituras pasan por tablas de staging o APIs con gates de aprobación humana.",
+          "Este patrón previene bases de datos shadow y mantiene cómodos a los equipos de cumplimiento.",
+        ],
+      },
+      {
+        heading: "Patrones que escalan",
+        paragraphs: [
+          "Ingesta event-driven desde webhooks y colas de mensajes. Handlers idempotentes para que reintentos no dupliquen registros. Dead-letter queues para excepciones. Logging estructurado con correlation IDs entre pasos del agente.",
+          "Use los mismos estándares de integración para el flujo dos y el diez — no reinvente por proyecto.",
+        ],
+      },
+      {
+        heading: "Seguridad y acceso",
+        paragraphs: [
+          "Service accounts con mínimo privilegio. Secretos en vaults, no en prompts. Límites de datos por tenant para empresas multi-división. Cada llamada externa logueada con actor, hash de payload y resultado.",
+        ],
+      },
+    ],
+  },
 ];

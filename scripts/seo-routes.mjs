@@ -31,6 +31,8 @@ export const insightSlugs = [
   "governed-agents-human-in-the-loop",
   "document-workflows-highest-roi-ai",
   "build-vs-buy-enterprise-ai",
+  "measuring-ai-roi-beyond-pilot",
+  "integration-patterns-enterprise-agents",
 ];
 
 export const resourceGuideSlugs = ["enterprise-ai-roadmap", "pilot-to-production-checklist"];
@@ -39,6 +41,7 @@ export const caseStudyPaths = [
   "/case-studies/enterprise-ops-automation",
   "/case-studies/healthcare-prior-auth",
   "/case-studies/fintech-loan-documents",
+  "/case-studies/logistics-exception-handling",
 ];
 
 export function getPublicPaths() {

@@ -185,3 +185,20 @@ export function getResourceDownloadPath(slug: string, locale: Locale): string | 
   if (!entry) return undefined;
   return locale === "es" ? entry.es : entry.en;
 }
+
+export function getResourcePrintPath(slug: string, locale: Locale): string | undefined {
+  const files: Record<string, { en: string; es: string }> = {
+    "enterprise-ai-roadmap": {
+      en: "/downloads/print/enterprise-ai-roadmap.html",
+      es: "/downloads/print/es/enterprise-ai-roadmap.html",
+    },
+    "pilot-to-production-checklist": {
+      en: "/downloads/print/pilot-to-production-checklist.html",
+      es: "/downloads/print/es/pilot-to-production-checklist.html",
+    },
+  };
+
+  const entry = files[slug];
+  if (!entry) return undefined;
+  return locale === "es" ? entry.es : entry.en;
+}

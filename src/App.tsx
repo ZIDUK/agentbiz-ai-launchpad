@@ -27,6 +27,8 @@ const EngagementHub = lazy(() => import("./pages/EngagementHub"));
 const EngagementDetail = lazy(() => import("./pages/EngagementDetail"));
 const Insights = lazy(() => import("./pages/Insights"));
 const InsightArticle = lazy(() => import("./pages/InsightArticle"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
+const LogisticsCaseStudy = lazy(() => import("./pages/LogisticsCaseStudy"));
 const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -61,6 +63,8 @@ const AppRoutes = () => {
           <Route path="/case-studies/enterprise-ops-automation" element={<CaseStudy />} />
           <Route path="/case-studies/healthcare-prior-auth" element={<HealthcareCaseStudy />} />
           <Route path="/case-studies/fintech-loan-documents" element={<FintechCaseStudy />} />
+          <Route path="/case-studies/logistics-exception-handling" element={<LogisticsCaseStudy />} />
+          <Route path="/thank-you/:type" element={<ThankYou />} />
           <Route path="/engagement" element={<EngagementHub />} />
           <Route path="/engagement/:slug" element={<EngagementDetail />} />
           <Route path="/insights" element={<Insights />} />

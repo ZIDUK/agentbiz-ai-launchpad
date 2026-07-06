@@ -1,26 +1,28 @@
 import { useTranslation } from "@/i18n/useTranslation";
 import { useLanguage } from "@/i18n/LanguageProvider";
-import { trustedIndustries } from "@/i18n/content/about";
+import { trustedClients } from "@/i18n/content/about";
 
 const TrustedBy = () => {
   const { t } = useTranslation();
   const { locale } = useLanguage();
-  const industries = trustedIndustries[locale];
+  const clients = trustedClients[locale];
 
   return (
     <section className="py-12 border-y border-border bg-muted/30">
       <div className="container">
-        <p className="text-center text-sm font-semibold tracking-wider text-muted-foreground mb-6 uppercase">
+        <p className="text-center text-sm font-semibold tracking-wider text-muted-foreground mb-2 uppercase">
           {t("trustedBy.eyebrow")}
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {industries.map((industry) => (
-            <span
-              key={industry}
-              className="text-sm font-medium text-secondary/80 hover:text-primary transition-colors"
+        <p className="text-center text-xs text-muted-foreground mb-8">{t("trustedBy.disclaimer")}</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
+          {clients.map((client) => (
+            <div
+              key={client.name}
+              className="flex flex-col items-center gap-1 min-w-[120px] opacity-80 hover:opacity-100 transition-opacity"
             >
-              {industry}
-            </span>
+              <span className="text-sm font-semibold text-foreground tracking-tight">{client.name}</span>
+              <span className="text-[11px] text-muted-foreground">{client.industry}</span>
+            </div>
           ))}
         </div>
       </div>

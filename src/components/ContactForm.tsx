@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { useTranslation } from "@/i18n/useTranslation";
 
 const ContactForm = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -35,12 +37,7 @@ const ContactForm = () => {
         message: message.trim() || undefined,
       });
       trackEvent("contact_form_submit", { workflow: workflow.trim() });
-      toast.success(t("contactForm.success"));
-      setName("");
-      setEmail("");
-      setCompany("");
-      setWorkflow("");
-      setMessage("");
+      navigate("/thank-you/contact");
     } catch {
       toast.error(t("contactForm.error"));
     } finally {

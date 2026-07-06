@@ -234,7 +234,21 @@ export const messages = {
     visitAgenticDream: "Visit Agentic Dream →",
   },
   trustedBy: {
-    eyebrow: "Built for regulated, high-volume industries",
+    eyebrow: "Trusted by teams building production AI",
+    disclaimer: "Client names anonymized · representative engagements",
+  },
+  exitIntent: {
+    eyebrow: "Before you go",
+    title: "Avoid another dead AI pilot",
+    body: "Download our Pilot-to-Production Checklist — the governance and integration gates we use before any workflow ships.",
+    cta: "Get the free checklist",
+    dismiss: "No thanks",
+  },
+  visitorPaths: {
+    eyebrow: "START HERE",
+    title: "Choose your",
+    titleHighlight: "path",
+    subtitle: "Different stakeholders need different entry points. Pick the one that matches your role.",
   },
   faq: {
     eyebrow: "EXECUTIVE FAQ",
@@ -349,6 +363,7 @@ export const messages = {
       "Use this in your next leadership workshop, then pressure-test it with an engineering partner who has shipped production AI in enterprise environments.",
     downloadRoadmap: "Download roadmap",
     downloadChecklist: "Download checklist",
+    printPdf: "Open PDF-ready version",
   },
   industriesPage: {
     eyebrow: "INDUSTRIES",
@@ -488,6 +503,7 @@ export const messages = {
       "See how we approach governed automation in regulated healthcare environments.",
     healthcareIndustry: "Healthcare industry",
     fintechIndustry: "FinTech industry",
+    logisticsIndustry: "Logistics industry",
     metricsDisclaimerNda:
       "Client name withheld under NDA. Metrics from production workflow telemetry and operations team time studies.",
     metricsDisclaimerHealthcare:

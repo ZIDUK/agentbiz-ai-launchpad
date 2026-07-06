@@ -8,6 +8,8 @@ import IndustriesSection from "@/components/IndustriesSection";
 import Workflow from "@/components/Workflow";
 import ResourcesPreview from "@/components/ResourcesPreview";
 import InsightsPreview from "@/components/InsightsPreview";
+import ExitIntentModal from "@/components/ExitIntentModal";
+import VisitorPaths from "@/components/VisitorPaths";
 import TrustedBy from "@/components/TrustedBy";
 import ExecutiveFaq from "@/components/ExecutiveFaq";
 import Contact from "@/components/Contact";
@@ -21,6 +23,7 @@ const Index = () => {
       <main className="pb-20 md:pb-0">
         <Hero />
         <TrustedBy />
+        <VisitorPaths />
         <EnterpriseChallenge />
         <StrategicFocus />
         <CoreCapabilities />
@@ -33,6 +36,7 @@ const Index = () => {
         <Contact />
       </main>
       <StickyMobileCTA />
+      <ExitIntentModal />
       <Footer />
     </div>
   );
