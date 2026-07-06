@@ -44,6 +44,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLocale = useCallback((next: Locale) => {
     localStorage.setItem(LOCALE_STORAGE_KEY, next);
     setLocaleState(next);
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", next);
+    window.history.replaceState({}, "", url);
   }, []);
 
   const value = useMemo(

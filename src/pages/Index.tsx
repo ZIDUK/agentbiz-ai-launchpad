@@ -9,6 +9,7 @@ import Workflow from "@/components/Workflow";
 import ResourcesPreview from "@/components/ResourcesPreview";
 import InsightsPreview from "@/components/InsightsPreview";
 import TrustedBy from "@/components/TrustedBy";
+import ExecutiveFaq from "@/components/ExecutiveFaq";
 import Contact from "@/components/Contact";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Footer from "@/components/Footer";
@@ -28,6 +29,7 @@ const Index = () => {
         <Workflow />
         <ResourcesPreview />
         <InsightsPreview />
+        <ExecutiveFaq />
         <Contact />
       </main>
       <StickyMobileCTA />

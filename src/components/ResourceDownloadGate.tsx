@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useTranslation } from "@/i18n/useTranslation";
+import { trackEvent } from "@/lib/analytics";
 import {
   createResourceLead,
   hasUnlockedResource,
@@ -53,6 +54,7 @@ const ResourceDownloadGate = ({
       });
       unlockResource(resourceSlug);
       setUnlocked(true);
+      trackEvent("download_resource", { resource_slug: resourceSlug, source });
       toast.success(t("resourceGate.thankYou"));
     } catch {
       unlockResource(resourceSlug);

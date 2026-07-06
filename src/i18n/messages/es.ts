@@ -4,6 +4,61 @@ export const messages = {
     description:
       "AgentBiz diseña, construye y escala sistemas de IA en producción para organizaciones enterprise — flujos agentic, integraciones y entrega gobernada del piloto a producción.",
   },
+  seo: {
+    about: {
+      title: "Nosotros | AgentBiz Ingeniería IA Enterprise",
+      description:
+        "Conozca cómo AgentBiz entrega sistemas de IA en producción, flujos agénticos gobernados e ingeniería enterprise para organizaciones reguladas y de alto volumen.",
+    },
+    privacy: {
+      title: "Política de privacidad | AgentBiz",
+      description: "Cómo AgentBiz recopila y usa información en agentbiz.io.",
+    },
+    terms: {
+      title: "Términos de servicio | AgentBiz",
+      description: "Términos que rigen el uso del sitio y servicios de AgentBiz.",
+    },
+    careers: {
+      title: "Carreras en AgentBiz | Ingeniería IA Enterprise",
+      description:
+        "Únase a AgentBiz y construya sistemas de IA en producción para organizaciones enterprise.",
+    },
+    services: {
+      title: "Servicios de IA y software | AgentBiz",
+      description:
+        "Desarrollo de IA enterprise, flujos agénticos, integraciones y entrega de software — de code review a aplicaciones en producción.",
+    },
+    resources: {
+      title: "Recursos enterprise de IA | AgentBiz",
+      description:
+        "Guías, checklists y casos de estudio para líderes C-level que llevan IA gobernada de piloto a producción.",
+    },
+    roi: {
+      title: "Calculadora ROI de IA | AgentBiz",
+      description:
+        "Estime el ahorro operativo al automatizar trabajo repetitivo con flujos de IA enterprise gobernados.",
+    },
+    briefing: {
+      title: "Briefing ejecutivo | AgentBiz",
+      description:
+        "Diez pain points C-level en IA enterprise — y cómo los equipos de producción abordan gobernanza, integración y escala.",
+    },
+    industries: {
+      title: "Industrias | AgentBiz",
+      description:
+        "Entrega de IA para FinTech, salud, logística, SaaS y energía — entornos regulados con resultados medibles.",
+    },
+    engagement: {
+      title: "Modelos de engagement | AgentBiz",
+      description:
+        "Proyectos, managed services, staff augmentation, mantenimiento y rescue para entrega de IA enterprise.",
+    },
+    insights: {
+      title: "Insights | AgentBiz",
+      description:
+        "Perspectivas prácticas sobre IA en producción, agentes gobernados y transformación operativa para líderes enterprise.",
+    },
+  },
   nav: {
     services: "Servicios",
     industries: "Industrias",
@@ -181,6 +236,13 @@ export const messages = {
   },
   trustedBy: {
     eyebrow: "Construido para industrias reguladas y de alto volumen",
+  },
+  faq: {
+    eyebrow: "FAQ EJECUTIVO",
+    title: "Preguntas que hacen",
+    titleHighlight: "los compradores C-level",
+    subtitle:
+      "Respuestas directas sobre gobernanza, entrega y qué se necesita para pasar de piloto a producción.",
   },
   legal: {
     updated: "Última actualización:",

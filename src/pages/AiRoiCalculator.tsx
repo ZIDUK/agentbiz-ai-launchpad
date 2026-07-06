@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { createResourceLead } from "@/lib/leads";
+import { trackEvent } from "@/lib/analytics";
 import { useTranslation } from "@/i18n/useTranslation";
 
 const AiRoiCalculator = () => {
@@ -57,6 +58,10 @@ const AiRoiCalculator = () => {
           efficiencyGain,
           ...results,
         },
+      });
+      trackEvent("roi_submit", {
+        team_size: teamSize,
+        annual_savings: results.annualSavings,
       });
       toast.success(t("calculator.saved"));
     } catch {

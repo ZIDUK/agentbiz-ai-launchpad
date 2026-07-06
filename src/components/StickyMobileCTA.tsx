@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/i18n/useTranslation";
+import { trackEvent } from "@/lib/analytics";
 
 const StickyMobileCTA = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const StickyMobileCTA = () => {
   }, []);
 
   const scrollToContact = () => {
+    trackEvent("book_call", { location: "sticky_mobile_cta" });
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 

@@ -3,7 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, Mail, Building2, FileText, Calendar, MessageSquare } from "lucide-react";
+import { Search, Mail, Building2, FileText, Calendar, MessageSquare, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { subscribeToResourceLeads, type ResourceLead } from "@/lib/leads";
 
 const sourceLabels: Record<ResourceLead["source"], string> = {
@@ -39,6 +40,34 @@ export function LeadsManagement() {
     return matchesSearch && matchesSource;
   });
 
+  const exportCsv = () => {
+    const rows = [
+      ["name", "email", "company", "source", "resource_slug", "workflow", "message", "created_at"],
+      ...filteredLeads.map((lead) => [
+        lead.name,
+        lead.email,
+        lead.company || "",
+        lead.source,
+        lead.resource_slug,
+        String(lead.metadata?.workflow || ""),
+        String(lead.metadata?.message || ""),
+        lead.created_at.toISOString(),
+      ]),
+    ];
+
+    const csv = rows
+      .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `agentbiz-leads-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -48,9 +77,15 @@ export function LeadsManagement() {
             Downloads, ROI calculator, contact form, and newsletter captures
           </p>
         </div>
-        <Badge className="bg-blue-100 text-blue-700 border-blue-300">
-          {leads.length} leads
-        </Badge>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" size="sm" onClick={exportCsv} disabled={filteredLeads.length === 0}>
+            <Download className="h-4 w-4 mr-2" />
+            Export CSV
+          </Button>
+          <Badge className="bg-blue-100 text-blue-700 border-blue-300">
+            {leads.length} leads
+          </Badge>
+        </div>
       </div>
 
       <Card>

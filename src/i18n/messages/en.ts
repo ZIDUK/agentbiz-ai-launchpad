@@ -4,6 +4,61 @@ export const messages = {
     description:
       "AgentBiz designs, builds, and scales production AI systems for enterprise organizations — agentic workflows, integrations, and governed delivery from pilot to production.",
   },
+  seo: {
+    about: {
+      title: "About AgentBiz | Enterprise AI Engineering",
+      description:
+        "Learn how AgentBiz delivers production AI systems, governed agent workflows, and enterprise engineering for regulated, high-volume organizations.",
+    },
+    privacy: {
+      title: "Privacy Policy | AgentBiz",
+      description: "How AgentBiz collects and uses information on agentbiz.io.",
+    },
+    terms: {
+      title: "Terms of Service | AgentBiz",
+      description: "Terms governing use of the AgentBiz website and services.",
+    },
+    careers: {
+      title: "Careers at AgentBiz | Enterprise AI Engineering",
+      description:
+        "Join AgentBiz and build production AI systems for enterprise organizations. Open roles in engineering, product, and solutions.",
+    },
+    services: {
+      title: "AI & Software Services | AgentBiz",
+      description:
+        "Enterprise AI development, agentic workflows, integrations, and software delivery — from code review to production applications.",
+    },
+    resources: {
+      title: "Enterprise AI Resources | AgentBiz",
+      description:
+        "Guides, checklists, and case studies for C-level leaders shipping governed AI from pilot to production.",
+    },
+    roi: {
+      title: "AI ROI Calculator | AgentBiz",
+      description:
+        "Estimate operational savings from automating repetitive work with governed enterprise AI workflows.",
+    },
+    briefing: {
+      title: "Executive Briefing | AgentBiz",
+      description:
+        "Ten C-level pain points in enterprise AI — and how production teams address governance, integration, and scale.",
+    },
+    industries: {
+      title: "Industries | AgentBiz",
+      description:
+        "AI delivery for FinTech, healthcare, logistics, SaaS, and energy — regulated environments with measurable outcomes.",
+    },
+    engagement: {
+      title: "Engagement Models | AgentBiz",
+      description:
+        "Project-based, managed services, staff augmentation, maintenance, and rescue engagements for enterprise AI delivery.",
+    },
+    insights: {
+      title: "Insights | AgentBiz",
+      description:
+        "Practical perspectives on production AI, governed agents, and operational transformation for enterprise leaders.",
+    },
+  },
   nav: {
     services: "Services",
     industries: "Industries",
@@ -180,6 +235,13 @@ export const messages = {
   },
   trustedBy: {
     eyebrow: "Built for regulated, high-volume industries",
+  },
+  faq: {
+    eyebrow: "EXECUTIVE FAQ",
+    title: "Questions",
+    titleHighlight: "C-level buyers ask",
+    subtitle:
+      "Straight answers on governance, delivery, and what it takes to move from pilot to production.",
   },
   legal: {
     updated: "Last updated:",

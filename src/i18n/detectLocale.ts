@@ -11,6 +11,12 @@ export function getStoredLocale(): Locale | null {
   return stored === "en" || stored === "es" ? stored : null;
 }
 
+export function localeFromUrl(): Locale | null {
+  if (typeof window === "undefined") return null;
+  const lang = new URLSearchParams(window.location.search).get("lang");
+  return lang === "en" || lang === "es" ? lang : null;
+}
+
 export function localeFromBrowser(): Locale {
   const languages = navigator.languages?.length
     ? navigator.languages
@@ -39,6 +45,9 @@ async function localeFromCountry(): Promise<Locale | null> {
 }
 
 export async function detectLocale(): Promise<Locale> {
+  const urlLocale = localeFromUrl();
+  if (urlLocale) return urlLocale;
+
   const stored = getStoredLocale();
   if (stored) return stored;
 

@@ -8,6 +8,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useSiteContent } from "@/i18n/hooks";
 import { useIndustriesContent } from "@/i18n/hooks";
 import { useTranslation } from "@/i18n/useTranslation";
+import { trackEvent } from "@/lib/analytics";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,6 +27,10 @@ const Header = () => {
 
   const scrollToSection = (sectionId: string) => {
     setMobileOpen(false);
+
+    if (sectionId === "contact") {
+      trackEvent("book_call", { location: "header" });
+    }
 
     if (location.pathname !== "/") {
       navigate(`/#${sectionId}`);

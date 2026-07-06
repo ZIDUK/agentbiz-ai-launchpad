@@ -1,4 +1,5 @@
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/types";
 
@@ -23,7 +24,12 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
         <button
           key={option.value}
           type="button"
-          onClick={() => setLocale(option.value)}
+          onClick={() => {
+            if (locale !== option.value) {
+              trackEvent("locale_switch", { locale: option.value });
+            }
+            setLocale(option.value);
+          }}
           className={cn(
             "px-2.5 py-1 text-xs font-semibold rounded-md transition-colors",
             locale === option.value

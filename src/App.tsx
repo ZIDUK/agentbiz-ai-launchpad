@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
-import { useDocumentMeta } from "@/i18n/useDocumentMeta";
+import { useSeo } from "@/hooks/useSeo";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
@@ -41,7 +41,7 @@ const PageLoader = () => (
 );
 
 const AppRoutes = () => {
-  useDocumentMeta();
+  useSeo();
   usePageTracking();
 
   return (
