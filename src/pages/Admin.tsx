@@ -3,6 +3,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/admin/AppSidebar";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { Navigate, Routes, Route } from "react-router-dom";
+import { CrmManagement } from "@/components/admin/CrmManagement";
 import { ApplicationsManagement } from "@/components/admin/ApplicationsManagement";
 import { LeadsManagement } from "@/components/admin/LeadsManagement";
 import { Dashboard } from "@/components/admin/Dashboard";
@@ -29,7 +30,8 @@ const Admin = () => {
             <AdminHeader />
             <main className="flex-1 p-6">
               <Routes>
-                <Route path="/" element={<Navigate to="/admin/applications" replace />} />
+                <Route path="/" element={<Navigate to="/admin/crm" replace />} />
+                <Route path="/crm" element={<CrmManagement />} />
                 <Route path="/applications" element={<ApplicationsManagement />} />
                 <Route path="/leads" element={<LeadsManagement />} />
                 <Route path="/settings" element={<Settings />} />

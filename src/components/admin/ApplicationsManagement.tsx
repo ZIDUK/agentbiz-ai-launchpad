@@ -199,15 +199,6 @@ export function ApplicationsManagement() {
                         {application.status}
                       </span>
                     </Badge>
-                    {application.crm_synced_at ? (
-                      <Badge className="bg-green-100 text-green-700 border-green-300 text-xs mb-2">
-                        CRM synced
-                      </Badge>
-                    ) : (
-                      <Badge variant="secondary" className="text-xs mb-2">
-                        CRM pending
-                      </Badge>
-                    )}
                     <p className="text-xs text-muted-foreground">
                       Experiencia: {application.experience}
                     </p>

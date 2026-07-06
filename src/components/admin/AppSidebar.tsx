@@ -2,7 +2,8 @@ import {
   Settings as SettingsIcon,
   Home,
   Briefcase,
-  Users
+  Users,
+  Kanban,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -19,6 +20,7 @@ import {
 } from "@/components/ui/sidebar";
 
 const items = [
+  { title: "CRM", url: "/admin/crm", icon: Kanban },
   { title: "Hojas de vida", url: "/admin/applications", icon: Briefcase },
   { title: "Leads", url: "/admin/leads", icon: Users },
   { title: "Dashboard", url: "/admin", icon: Home, exact: true },

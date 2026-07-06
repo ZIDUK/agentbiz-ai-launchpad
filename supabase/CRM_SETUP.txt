@@ -1,8 +1,14 @@
-AgentBiz CRM Integration Setup
-==============================
+AgentBiz CRM Setup
+==================
 
-Syncs marketing leads (resource_leads) and job applications (applications)
-to HubSpot, Pipedrive, or any CRM via webhook (Zapier, Make, n8n).
+DEFAULT: Internal CRM at /admin/crm (no external tool required).
+Run supabase/migrations/003_internal_crm.sql to enable it.
+
+External sync (optional — HubSpot / Pipedrive / Zapier)
+-------------------------------------------------------
+Only needed if you want leads mirrored to an external CRM.
+See sections below. Leave CRM_PROVIDER=none otherwise.
+
 
 Architecture
 ------------

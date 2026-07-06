@@ -74,7 +74,7 @@ export function LeadsManagement() {
         <div>
           <h2 className="text-2xl font-bold text-foreground">Resource Leads</h2>
           <p className="text-muted-foreground">
-            Downloads, ROI calculator, contact form, and newsletter captures
+            Raw marketing captures — synced automatically to CRM
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -172,15 +172,6 @@ export function LeadsManagement() {
                     </div>
                     <div className="flex flex-col items-end gap-2">
                       <Badge variant="outline">{sourceLabels[lead.source]}</Badge>
-                      {lead.crm_synced_at ? (
-                        <Badge className="bg-green-100 text-green-700 border-green-300 text-xs">
-                          CRM synced
-                        </Badge>
-                      ) : (
-                        <Badge variant="secondary" className="text-xs">
-                          CRM pending
-                        </Badge>
-                      )}
                     </div>
                   </div>
                 </CardContent>
