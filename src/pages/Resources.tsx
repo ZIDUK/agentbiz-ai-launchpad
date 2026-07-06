@@ -3,9 +3,13 @@ import { ArrowRight, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { resources } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Resources = () => {
+  const { t } = useTranslation();
+  const { resources } = useSiteContent();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -13,15 +17,13 @@ const Resources = () => {
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold tracking-wider text-primary mb-3">
-              ENTERPRISE RESOURCES
+              {t("resourcesPage.eyebrow")}
             </p>
             <h1 className="text-display mb-6">
-              Guides for <span className="gradient-text">AI-native leaders</span>
+              {t("resourcesPage.title")}{" "}
+              <span className="gradient-text">{t("resourcesPage.titleHighlight")}</span>
             </h1>
-            <p className="text-lead max-w-3xl mx-auto">
-              Frameworks and playbooks to help your organization move from AI pilots to
-              governed, production-ready capability.
-            </p>
+            <p className="text-lead max-w-3xl mx-auto">{t("resourcesPage.subtitle")}</p>
           </div>
 
           <div className="grid gap-6">
@@ -51,7 +53,7 @@ const Resources = () => {
                   </div>
                   <Button asChild className="btn-primary">
                     <Link to={resource.href ?? `/resources/${resource.slug}`}>
-                      {resource.type === "Case Study" ? "Read case study" : "Read guide"}{" "}
+                      {resource.type === "Case Study" ? t("common.readCaseStudy") : t("common.readGuide")}{" "}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -61,17 +63,14 @@ const Resources = () => {
           </div>
 
           <div className="mt-16 text-center card-hover p-10">
-            <h2 className="text-2xl font-bold mb-4">Need a tailored roadmap?</h2>
-            <p className="text-secondary mb-6 max-w-xl mx-auto">
-              Speak with an engineering lead about your infrastructure, priorities, and first
-              production workflow.
-            </p>
+            <h2 className="text-2xl font-bold mb-4">{t("resourcesPage.ctaTitle")}</h2>
+            <p className="text-secondary mb-6 max-w-xl mx-auto">{t("resourcesPage.ctaBody")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="btn-primary">
-                <Link to="/#contact">Schedule a strategy call</Link>
+                <Link to="/#contact">{t("common.scheduleCall")}</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/insights">Read insights</Link>
+                <Link to="/insights">{t("resourcesPage.readInsights")}</Link>
               </Button>
             </div>
           </div>

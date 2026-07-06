@@ -1,21 +1,22 @@
-import { strategicPillars } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const StrategicFocus = () => {
+  const { t } = useTranslation();
+  const { strategicPillars } = useSiteContent();
+
   return (
     <section id="strategic-focus" className="section">
       <div className="container">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold tracking-wider text-primary mb-3">
-            OUR STRATEGIC FOCUS
+            {t("strategic.eyebrow")}
           </p>
           <h2 className="text-headline mb-6">
-            From AI pilots to{" "}
-            <span className="gradient-text">AI-native operating capability</span>
+            {t("strategic.title")}{" "}
+            <span className="gradient-text">{t("strategic.titleHighlight")}</span>
           </h2>
-          <p className="text-lead max-w-3xl mx-auto">
-            The organizations that win the next decade will redesign operations around
-            AI as a core capability — not an add-on.
-          </p>
+          <p className="text-lead max-w-3xl mx-auto">{t("strategic.subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

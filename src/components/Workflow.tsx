@@ -1,19 +1,22 @@
-import { workflowPhases } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Workflow = () => {
+  const { t } = useTranslation();
+  const { workflowPhases } = useSiteContent();
+
   return (
     <section id="workflow" className="section bg-card">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold tracking-wider text-primary mb-3">HOW WE WORK</p>
-          <h2 className="text-headline mb-6">
-            A governed path from{" "}
-            <span className="gradient-text">assessment to scale</span>
-          </h2>
-          <p className="text-lead max-w-3xl mx-auto">
-            A disciplined engagement model designed for enterprise complexity — legacy systems,
-            approvals, sensitive data, and distributed teams.
+          <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+            {t("workflow.eyebrow")}
           </p>
+          <h2 className="text-headline mb-6">
+            {t("workflow.title")}{" "}
+            <span className="gradient-text">{t("workflow.titleHighlight")}</span>
+          </h2>
+          <p className="text-lead max-w-3xl mx-auto">{t("workflow.subtitle")}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

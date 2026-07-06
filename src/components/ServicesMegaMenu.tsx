@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { aiServices, engagementModels, softwareServices } from "@/data/site-content";
-import { industryDetails } from "@/data/industries-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useIndustriesContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 import { cn } from "@/lib/utils";
 
 type OpenMenu = "services" | "industries" | null;
@@ -15,6 +16,9 @@ const menuLinkClass =
   "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground";
 
 export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
+  const { t } = useTranslation();
+  const { aiServices, softwareServices, engagementModels } = useSiteContent();
+  const industryDetails = useIndustriesContent();
   const [openMenu, setOpenMenu] = useState<OpenMenu>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -60,7 +64,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
           aria-expanded={openMenu === "services"}
           onClick={() => toggleMenu("services")}
         >
-          Services
+          {t("nav.services")}
           <ChevronDown
             className={cn(
               "h-3.5 w-3.5 transition-transform duration-200",
@@ -78,7 +82,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
           aria-expanded={openMenu === "industries"}
           onClick={() => toggleMenu("industries")}
         >
-          Industries
+          {t("nav.industries")}
           <ChevronDown
             className={cn(
               "h-3.5 w-3.5 transition-transform duration-200",
@@ -94,7 +98,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
             <div className="mx-auto grid max-w-7xl gap-0 md:grid-cols-[300px_1fr] overflow-hidden rounded-xl border border-border">
               <div className="border-b md:border-b-0 md:border-r border-border bg-muted p-6">
                 <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                  ENGAGEMENT MODELS
+                  {t("nav.engagementModelsLabel")}
                 </p>
                 <ul className="space-y-1">
                   {engagementModels.map((model) => {
@@ -123,7 +127,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
               <div className="grid gap-6 bg-card p-6 md:grid-cols-2">
                 <div>
                   <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                    AI DEVELOPMENT
+                    {t("nav.aiDevelopment")}
                   </p>
                   <ul className="space-y-1">
                     {aiServices.map((service) => (
@@ -145,7 +149,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
 
                 <div>
                   <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                    SOFTWARE DEVELOPMENT
+                    {t("nav.softwareDevelopment")}
                   </p>
                   <ul className="space-y-1">
                     {softwareServices.map((service) => (
@@ -169,7 +173,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                     className={cn(menuLinkClass, "mt-4 border border-border text-center")}
                     onClick={handleNavigate}
                   >
-                    <p className="text-sm font-semibold text-primary">View all services →</p>
+                    <p className="text-sm font-semibold text-primary">{t("nav.viewAllServices")}</p>
                   </Link>
                 </div>
               </div>
@@ -208,7 +212,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                   className={cn(menuLinkClass, "border border-border text-center")}
                   onClick={handleNavigate}
                 >
-                  <p className="text-sm font-semibold text-primary">View all industries →</p>
+                  <p className="text-sm font-semibold text-primary">{t("nav.viewAllIndustries")}</p>
                 </Link>
               </li>
             </ul>

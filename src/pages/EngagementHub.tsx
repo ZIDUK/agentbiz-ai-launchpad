@@ -2,23 +2,27 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { engagementDetails } from "@/data/engagement-content";
+import { useEngagementContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const EngagementHub = () => {
+  const { t } = useTranslation();
+  const engagementDetails = useEngagementContent();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-28 lg:pt-32 pb-20">
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold tracking-wider text-primary mb-3">HOW WE WORK</p>
-            <h1 className="text-display mb-6">
-              Engagement <span className="gradient-text">models</span>
-            </h1>
-            <p className="text-lead max-w-3xl mx-auto">
-              Flexible partnership structures aligned to your delivery stage — from first production
-              workflow to ongoing operations and team augmentation.
+            <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+              {t("engagementPage.eyebrow")}
             </p>
+            <h1 className="text-display mb-6">
+              {t("engagementPage.title")}{" "}
+              <span className="gradient-text">{t("engagementPage.titleHighlight")}</span>
+            </h1>
+            <p className="text-lead max-w-3xl mx-auto">{t("engagementPage.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -37,20 +41,17 @@ const EngagementHub = () => {
                     {model.title}
                   </h2>
                   <p className="text-secondary text-sm mb-4">{model.shortDescription}</p>
-                  <span className="text-sm font-semibold text-primary">Learn more →</span>
+                  <span className="text-sm font-semibold text-primary">{t("common.learnMore")}</span>
                 </Link>
               );
             })}
           </div>
 
           <div className="mt-16 text-center card-hover p-10">
-            <h2 className="text-2xl font-bold mb-4">Not sure which model fits?</h2>
-            <p className="text-secondary mb-6 max-w-xl mx-auto">
-              A 30-minute engineering strategy call helps map your workflow, team, and timeline to
-              the right engagement structure.
-            </p>
+            <h2 className="text-2xl font-bold mb-4">{t("engagementPage.ctaTitle")}</h2>
+            <p className="text-secondary mb-6 max-w-xl mx-auto">{t("engagementPage.ctaBody")}</p>
             <Button asChild className="btn-primary">
-              <Link to="/#contact">Discuss your engagement</Link>
+              <Link to="/#contact">{t("engagementPage.discuss")}</Link>
             </Button>
           </div>
         </div>

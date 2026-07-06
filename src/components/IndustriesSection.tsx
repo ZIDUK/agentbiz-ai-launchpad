@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
-import { industryDetails } from "@/data/industries-content";
+import { useIndustriesContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const IndustriesSection = () => {
+  const { t } = useTranslation();
+  const industryDetails = useIndustriesContent();
+
   return (
     <section id="industries" className="section">
       <div className="container">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wider text-primary mb-3">INDUSTRIES</p>
-          <h2 className="text-headline mb-4">
-            Built for <span className="gradient-text">enterprise complexity</span>
-          </h2>
-          <p className="text-lead max-w-3xl mx-auto">
-            AI must work inside environments with legacy systems, complex approvals, sensitive
-            data, and high-volume workflows. This is where transformation becomes real.
+          <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+            {t("industriesSection.eyebrow")}
           </p>
+          <h2 className="text-headline mb-4">
+            {t("industriesSection.title")}{" "}
+            <span className="gradient-text">{t("industriesSection.titleHighlight")}</span>
+          </h2>
+          <p className="text-lead max-w-3xl mx-auto">{t("industriesSection.subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -46,7 +50,7 @@ const IndustriesSection = () => {
 
         <div className="text-center mt-10">
           <Link to="/industries" className="text-sm font-semibold text-primary hover:underline">
-            View all industries →
+            {t("nav.viewAllIndustries")}
           </Link>
         </div>
       </div>

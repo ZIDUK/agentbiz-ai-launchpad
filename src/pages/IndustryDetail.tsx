@@ -3,12 +3,16 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getIndustryBySlug } from "@/data/industries-content";
+import { getIndustryBySlug } from "@/i18n/content";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { useTranslation } from "@/i18n/useTranslation";
 import NotFound from "@/pages/NotFound";
 
 const IndustryDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const industry = slug ? getIndustryBySlug(slug) : undefined;
+  const { locale } = useLanguage();
+  const { t } = useTranslation();
+  const industry = slug ? getIndustryBySlug(slug, locale) : undefined;
 
   if (!industry) {
     return <NotFound />;
@@ -26,7 +30,7 @@ const IndustryDetail = () => {
             className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            All industries
+            {t("common.allIndustries")}
           </Link>
 
           <div className="flex items-center gap-4 mb-6">
@@ -45,7 +49,7 @@ const IndustryDetail = () => {
 
           <section className="mb-12">
             <h2 className="text-xl font-semibold text-foreground mb-6">
-              Common enterprise challenges
+              {t("industryDetail.challenges")}
             </h2>
             <ul className="space-y-4">
               {industry.challenges.map((challenge) => (
@@ -60,7 +64,9 @@ const IndustryDetail = () => {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-6">Production use cases</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-6">
+              {t("industryDetail.useCases")}
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {industry.useCases.map((useCase) => (
                 <div key={useCase.title} className="card-hover p-6">
@@ -72,7 +78,7 @@ const IndustryDetail = () => {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-6">Typical outcomes</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-6">{t("common.typicalOutcomes")}</h2>
             <div className="grid grid-cols-3 gap-4">
               {industry.metrics.map((metric) => (
                 <div key={metric.label} className="card-hover p-6 text-center">
@@ -81,28 +87,22 @@ const IndustryDetail = () => {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-4">
-              Ranges based on scoped workflow automation programs. Results vary by process maturity
-              and data readiness.
-            </p>
+            <p className="text-xs text-muted-foreground mt-4">{t("common.metricsDisclaimer")}</p>
           </section>
 
           <section className="card-hover p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">
-              Start with one workflow in {industry.name.split(" ")[0]}
+              {t("industryDetail.startWorkflow")} {industry.name.split(" ")[0]}
             </h2>
-            <p className="text-secondary mb-6">
-              Identify a high-volume process with clear KPIs, then deploy a governed AI workflow
-              your operations team can run and scale.
-            </p>
+            <p className="text-secondary mb-6">{t("industryDetail.startBody")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild className="btn-primary">
                 <Link to="/#contact">
-                  Talk to an Engineering Lead <ArrowRight className="ml-2 h-4 w-4" />
+                  {t("common.talkToLead")} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/ai-roi-calculator">Estimate ROI</Link>
+                <Link to="/ai-roi-calculator">{t("common.estimateRoi")}</Link>
               </Button>
             </div>
           </section>

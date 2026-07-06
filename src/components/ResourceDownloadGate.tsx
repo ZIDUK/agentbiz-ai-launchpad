@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { useTranslation } from "@/i18n/useTranslation";
 import {
   createResourceLead,
   hasUnlockedResource,
@@ -23,9 +24,10 @@ const ResourceDownloadGate = ({
   resourceSlug,
   resourceTitle,
   downloadPath,
-  downloadLabel = "Download",
+  downloadLabel,
   source = "resource_download",
 }: ResourceDownloadGateProps) => {
+  const { t } = useTranslation();
   const [unlocked, setUnlocked] = useState(() => hasUnlockedResource(resourceSlug));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,7 +38,7 @@ const ResourceDownloadGate = ({
     event.preventDefault();
 
     if (!name.trim() || !email.trim()) {
-      toast.error("Please enter your name and work email.");
+      toast.error(t("resourceGate.validationError"));
       return;
     }
 
@@ -51,12 +53,12 @@ const ResourceDownloadGate = ({
       });
       unlockResource(resourceSlug);
       setUnlocked(true);
-      toast.success("Download unlocked. Thank you!");
+      toast.success(t("resourceGate.thankYou"));
     } catch {
       unlockResource(resourceSlug);
       setUnlocked(true);
-      toast.message("Download available", {
-        description: "We saved your request locally. Download is ready.",
+      toast.message(t("resourceGate.fallbackTitle"), {
+        description: t("resourceGate.fallbackBody"),
       });
     } finally {
       setSubmitting(false);
@@ -68,7 +70,7 @@ const ResourceDownloadGate = ({
       <Button asChild variant="outline">
         <a href={downloadPath} download>
           <Download className="mr-2 h-4 w-4" />
-          {downloadLabel}
+          {downloadLabel ?? t("common.download")}
         </a>
       </Button>
     );
@@ -81,48 +83,47 @@ const ResourceDownloadGate = ({
           <Lock className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h3 className="font-semibold text-foreground">Unlock the download</h3>
+          <h3 className="font-semibold text-foreground">{t("resourceGate.title")}</h3>
           <p className="text-sm text-secondary mt-1">
-            Enter your details to access <span className="text-foreground">{resourceTitle}</span>.
-            We use this to share relevant enterprise AI insights — no spam.
+            {t("resourceGate.body").replace("{title}", resourceTitle)}
           </p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor={`gate-name-${resourceSlug}`}>Full name</Label>
+          <Label htmlFor={`gate-name-${resourceSlug}`}>{t("resourceGate.fullName")}</Label>
           <Input
             id={`gate-name-${resourceSlug}`}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Jane Smith"
+            placeholder={t("resourceGate.namePlaceholder")}
             required
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor={`gate-email-${resourceSlug}`}>Work email</Label>
+          <Label htmlFor={`gate-email-${resourceSlug}`}>{t("resourceGate.workEmail")}</Label>
           <Input
             id={`gate-email-${resourceSlug}`}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="jane@company.com"
+            placeholder={t("resourceGate.emailPlaceholder")}
             required
           />
         </div>
         <div className="space-y-2 sm:col-span-2">
-          <Label htmlFor={`gate-company-${resourceSlug}`}>Company (optional)</Label>
+          <Label htmlFor={`gate-company-${resourceSlug}`}>{t("resourceGate.companyOptional")}</Label>
           <Input
             id={`gate-company-${resourceSlug}`}
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            placeholder="Acme Corp"
+            placeholder={t("resourceGate.companyPlaceholder")}
           />
         </div>
         <div className="sm:col-span-2">
           <Button type="submit" className="btn-primary w-full sm:w-auto" disabled={submitting}>
-            {submitting ? "Unlocking..." : "Unlock download"}
+            {submitting ? t("resourceGate.unlocking") : t("resourceGate.unlock")}
           </Button>
         </div>
       </form>

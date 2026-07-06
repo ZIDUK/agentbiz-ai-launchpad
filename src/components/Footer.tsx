@@ -1,9 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Linkedin, Twitter } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== "/") {
@@ -18,55 +20,52 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black border-t border-border py-16">
+    <footer className="bg-muted border-t border-border py-16">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Agent<span className="gradient-text">Biz</span>
             </h3>
-            <p className="text-secondary leading-relaxed max-w-md">
-              AI-native engineering and delivery for the enterprise. We build production AI
-              systems, agentic workflows, and software your organization can own and scale.
-            </p>
+            <p className="text-secondary leading-relaxed max-w-md">{t("footer.tagline")}</p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Company</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">{t("footer.company")}</h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/services" className="text-secondary hover:text-primary transition-colors">
-                  Solutions
+                  {t("footer.solutions")}
                 </Link>
               </li>
               <li>
                 <Link to="/resources" className="text-secondary hover:text-primary transition-colors">
-                  Resources
+                  {t("nav.resources")}
                 </Link>
               </li>
               <li>
                 <Link to="/industries" className="text-secondary hover:text-primary transition-colors">
-                  Industries
+                  {t("nav.industries")}
                 </Link>
               </li>
               <li>
                 <Link to="/ai-roi-calculator" className="text-secondary hover:text-primary transition-colors">
-                  ROI Calculator
+                  {t("nav.roiCalculator")}
                 </Link>
               </li>
               <li>
                 <Link to="/engagement" className="text-secondary hover:text-primary transition-colors">
-                  Engagement Models
+                  {t("nav.engagementModels")}
                 </Link>
               </li>
               <li>
                 <Link to="/insights" className="text-secondary hover:text-primary transition-colors">
-                  Insights
+                  {t("nav.insights")}
                 </Link>
               </li>
               <li>
                 <Link to="/careers" className="text-secondary hover:text-primary transition-colors">
-                  Careers
+                  {t("nav.careers")}
                 </Link>
               </li>
               <li>
@@ -74,21 +73,21 @@ const Footer = () => {
                   onClick={() => scrollToSection("contact")}
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  Contact
+                  {t("nav.contact")}
                 </button>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Capabilities</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">{t("footer.capabilities")}</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <button
                   onClick={() => scrollToSection("capabilities")}
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  AI Operations Engineering
+                  {t("footer.aiOps")}
                 </button>
               </li>
               <li>
@@ -96,7 +95,7 @@ const Footer = () => {
                   to="/services/ai-assisted-software-development"
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  AI-Accelerated Delivery
+                  {t("footer.aiAccelerated")}
                 </Link>
               </li>
               <li>
@@ -104,7 +103,7 @@ const Footer = () => {
                   to="/services/ai-application-development"
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  Enterprise AI Applications
+                  {t("footer.enterpriseApps")}
                 </Link>
               </li>
             </ul>
@@ -112,7 +111,7 @@ const Footer = () => {
         </div>
 
         <div className="mb-8">
-          <h4 className="text-lg font-semibold text-foreground mb-4">Connect</h4>
+          <h4 className="text-lg font-semibold text-foreground mb-4">{t("footer.connect")}</h4>
           <p className="text-secondary mb-4">
             <a
               href="mailto:hello@agentbiz.ai"
@@ -144,9 +143,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-border text-center">
-          <p className="text-secondary text-sm">
-            © 2025 AgentBiz. All rights reserved.
-          </p>
+          <p className="text-secondary text-sm">{t("common.rights")}</p>
         </div>
       </div>
     </footer>

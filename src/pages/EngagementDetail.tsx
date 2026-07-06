@@ -3,12 +3,16 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getEngagementBySlug } from "@/data/engagement-content";
+import { getEngagementBySlug } from "@/i18n/content";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { useTranslation } from "@/i18n/useTranslation";
 import NotFound from "@/pages/NotFound";
 
 const EngagementDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const model = slug ? getEngagementBySlug(slug) : undefined;
+  const { locale } = useLanguage();
+  const { t } = useTranslation();
+  const model = slug ? getEngagementBySlug(slug, locale) : undefined;
 
   if (!model) {
     return <NotFound />;
@@ -26,7 +30,7 @@ const EngagementDetail = () => {
             className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            All engagement models
+            {t("common.allEngagement")}
           </Link>
 
           <div className="flex items-center gap-4 mb-6">
@@ -42,7 +46,7 @@ const EngagementDetail = () => {
           <p className="text-lead mb-12">{model.description}</p>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Best for</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">{t("common.bestFor")}</h2>
             <ul className="space-y-3">
               {model.bestFor.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-secondary">
@@ -54,7 +58,7 @@ const EngagementDetail = () => {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Typical deliverables</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">{t("common.deliverables")}</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {model.deliverables.map((item) => (
                 <div key={item} className="card-hover p-4 text-sm text-secondary">
@@ -65,12 +69,12 @@ const EngagementDetail = () => {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-2">Timeline</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-2">{t("common.timeline")}</h2>
             <p className="text-secondary">{model.timeline}</p>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-foreground mb-6">How engagement works</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-6">{t("common.howItWorks")}</h2>
             <div className="space-y-4">
               {model.engagementSteps.map((step, index) => (
                 <div key={step.title} className="card-hover p-6 flex gap-4">
@@ -88,20 +92,17 @@ const EngagementDetail = () => {
 
           <section className="card-hover p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">
-              Ready to discuss {model.title.toLowerCase()}?
+              {t("engagementPage.readyDiscuss")} {model.title.toLowerCase()}?
             </h2>
-            <p className="text-secondary mb-6">
-              We'll map your workflow, team structure, and success metrics to a concrete delivery
-              plan.
-            </p>
+            <p className="text-secondary mb-6">{t("engagementPage.readyBody")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild className="btn-primary">
                 <Link to="/#contact">
-                  Schedule a strategy call <ArrowRight className="ml-2 h-4 w-4" />
+                  {t("common.scheduleCall")} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/ai-roi-calculator">Estimate ROI</Link>
+                <Link to="/ai-roi-calculator">{t("common.estimateRoi")}</Link>
               </Button>
             </div>
           </section>

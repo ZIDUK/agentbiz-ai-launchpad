@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Calculator, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { resources } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const ResourcesPreview = () => {
+  const { t } = useTranslation();
+  const { resources } = useSiteContent();
   const featured = resources.slice(0, 2);
 
   return (
     <section id="resources-preview" className="section">
       <div className="container max-w-5xl">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wider text-primary mb-3">RESOURCES</p>
-          <h2 className="text-headline mb-4">
-            Guides for <span className="gradient-text">enterprise leaders</span>
-          </h2>
-          <p className="text-lead max-w-2xl mx-auto">
-            Practical frameworks to move from AI experimentation to governed, production-ready capability.
+          <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+            {t("resourcesSection.eyebrow")}
           </p>
+          <h2 className="text-headline mb-4">
+            {t("resourcesSection.title")}{" "}
+            <span className="gradient-text">{t("resourcesSection.titleHighlight")}</span>
+          </h2>
+          <p className="text-lead max-w-2xl mx-auto">{t("resourcesSection.subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -34,7 +38,7 @@ const ResourcesPreview = () => {
               </p>
               <Button asChild variant="outline" className="w-fit">
                 <Link to={resource.href ?? `/resources/${resource.slug}`}>
-                  Read more <ArrowRight className="ml-2 h-4 w-4" />
+                  {t("common.readMore")} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -47,16 +51,16 @@ const ResourcesPreview = () => {
               <Calculator className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h3 className="font-bold text-foreground">AI Operations ROI Calculator</h3>
-              <p className="text-sm text-secondary">Model potential savings before your next board review.</p>
+              <h3 className="font-bold text-foreground">{t("resourcesSection.calculatorTitle")}</h3>
+              <p className="text-sm text-secondary">{t("resourcesSection.calculatorSubtitle")}</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button asChild className="btn-primary">
-              <Link to="/ai-roi-calculator">Calculate ROI</Link>
+              <Link to="/ai-roi-calculator">{t("common.calculateRoi")}</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link to="/resources">View all resources</Link>
+              <Link to="/resources">{t("common.viewAllResources")}</Link>
             </Button>
           </div>
         </div>

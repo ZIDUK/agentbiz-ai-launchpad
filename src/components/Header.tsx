@@ -4,14 +4,19 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ServicesMegaMenu } from "@/components/ServicesMegaMenu";
-import { aiServices, softwareServices } from "@/data/site-content";
-import { industryDetails } from "@/data/industries-content";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useSiteContent } from "@/i18n/hooks";
+import { useIndustriesContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { aiServices, softwareServices } = useSiteContent();
+  const industryDetails = useIndustriesContent();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -63,48 +68,52 @@ const Header = () => {
           <div className="hidden lg:flex flex-1 items-center justify-center gap-2">
             <ServicesMegaMenu />
             <button onClick={() => scrollToSection("workflow")} className="btn-ghost">
-              Process
+              {t("nav.process")}
             </button>
             <Link to="/resources" className="btn-ghost">
-              Resources
+              {t("nav.resources")}
             </Link>
             <Link to="/insights" className="btn-ghost">
-              Insights
+              {t("nav.insights")}
             </Link>
             <Link to="/engagement" className="btn-ghost">
-              Engagement
+              {t("nav.engagement")}
             </Link>
             <Link to="/careers" className="btn-ghost">
-              Careers
+              {t("nav.careers")}
             </Link>
             <button onClick={() => scrollToSection("contact")} className="btn-ghost">
-              Contact
+              {t("nav.contact")}
             </button>
           </div>
 
           <div className="flex items-center gap-3">
+            <LanguageSwitcher className="hidden sm:inline-flex" />
             <Button
               onClick={() => scrollToSection("contact")}
               className="btn-primary hidden sm:inline-flex px-6 py-2"
             >
-              Book a Call
+              {t("nav.bookCall")}
             </Button>
 
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="lg:hidden">
                   <Menu className="h-5 w-5" />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">{t("nav.openMenu")}</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[min(100vw,380px)] overflow-y-auto">
                 <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+                  <SheetTitle>{t("nav.menu")}</SheetTitle>
                 </SheetHeader>
-                <nav className="mt-8 space-y-6">
+                <div className="mt-4 mb-6">
+                  <LanguageSwitcher />
+                </div>
+                <nav className="space-y-6">
                   <div>
                     <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
-                      AI SERVICES
+                      {t("nav.aiServices")}
                     </p>
                     <ul className="space-y-2">
                       {aiServices.map((service) => (
@@ -123,7 +132,7 @@ const Header = () => {
 
                   <div>
                     <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
-                      SOFTWARE
+                      {t("nav.software")}
                     </p>
                     <ul className="space-y-2">
                       {softwareServices.map((service) => (
@@ -141,8 +150,8 @@ const Header = () => {
                   </div>
 
                   <div>
-                    <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
-                      INDUSTRIES
+                    <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3 uppercase">
+                      {t("nav.industries")}
                     </p>
                     <ul className="space-y-2">
                       {industryDetails.map((industry) => (
@@ -164,67 +173,67 @@ const Header = () => {
                       className="block w-full text-left text-sm font-medium py-2"
                       onClick={() => scrollToSection("workflow")}
                     >
-                      Our Process
+                      {t("nav.process")}
                     </button>
                     <Link
                       to="/resources"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Resources
+                      {t("nav.resources")}
                     </Link>
                     <Link
                       to="/insights"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Insights
+                      {t("nav.insights")}
                     </Link>
                     <Link
                       to="/engagement"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Engagement Models
+                      {t("nav.engagementModels")}
                     </Link>
                     <Link
                       to="/ai-roi-calculator"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      ROI Calculator
+                      {t("nav.roiCalculator")}
                     </Link>
                     <Link
                       to="/executive-briefing"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Executive Briefing
+                      {t("nav.executiveBriefing")}
                     </Link>
                     <Link
                       to="/careers"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Careers
+                      {t("nav.careers")}
                     </Link>
                     <button
                       className="block w-full text-left text-sm font-medium py-2"
                       onClick={() => scrollToSection("contact")}
                     >
-                      Contact
+                      {t("nav.contact")}
                     </button>
                     <Link
                       to="/services"
                       className="block text-sm font-medium text-primary py-2"
                       onClick={() => setMobileOpen(false)}
                     >
-                      All Services
+                      {t("nav.allServices")}
                     </Link>
                   </div>
 
                   <Button className="btn-primary w-full" onClick={() => scrollToSection("contact")}>
-                    Book a Call
+                    {t("nav.bookCall")}
                   </Button>
                 </nav>
               </SheetContent>

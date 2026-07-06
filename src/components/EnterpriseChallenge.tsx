@@ -1,21 +1,22 @@
-import { enterpriseChallenges } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const EnterpriseChallenge = () => {
+  const { t } = useTranslation();
+  const { enterpriseChallenges } = useSiteContent();
+
   return (
     <section id="challenge" className="section bg-card">
       <div className="container max-w-5xl">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold tracking-wider text-primary mb-3">
-            THE ENTERPRISE CHALLENGE
+            {t("challenge.eyebrow")}
           </p>
           <h2 className="text-headline mb-6">
-            AI adoption is no longer the question.{" "}
-            <span className="gradient-text">Operational transformation is.</span>
+            {t("challenge.title")}{" "}
+            <span className="gradient-text">{t("challenge.titleHighlight")}</span>
           </h2>
-          <p className="text-lead max-w-3xl mx-auto">
-            Most organizations are already experimenting with AI. The challenge is moving
-            beyond pilots and productivity tools into core business execution.
-          </p>
+          <p className="text-lead max-w-3xl mx-auto">{t("challenge.subtitle")}</p>
         </div>
 
         <ul className="grid md:grid-cols-2 gap-4">

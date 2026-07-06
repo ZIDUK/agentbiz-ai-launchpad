@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const CALENDLY_URL =
-  "https://calendly.com/jonapardo92/30min?hide_event_type_details=1&background_color=000000&text_color=ffffff&primary_color=007bff";
+  "https://calendly.com/jonapardo92/30min?hide_event_type_details=1&background_color=ffffff&text_color=1a1a1a&primary_color=007bff";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,13 +45,11 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="container">
         <h2 className="text-headline mb-6">
-          Schedule Your <span className="gradient-text">Engineering Strategy Call</span>
+          {t("contact.title")}{" "}
+          <span className="gradient-text">{t("contact.titleHighlight")}</span>
         </h2>
 
-        <p className="text-lead mb-12">
-          Discuss your operational priorities, production AI roadmap, and first workflow
-          for measurable enterprise impact.
-        </p>
+        <p className="text-lead mb-12">{t("contact.subtitle")}</p>
 
         <div
           ref={widgetRef}

@@ -2,26 +2,31 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { aiServices, softwareServices } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Services = () => {
+  const { t } = useTranslation();
+  const { aiServices, softwareServices } = useSiteContent();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-28 lg:pt-32 pb-20">
         <div className="container">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h1 className="text-display mb-4">
-              Our <span className="gradient-text">Services</span>
-            </h1>
-            <p className="text-lead">
-              AI development and software engineering services to help your business build,
-              integrate, and scale technology with confidence.
+            <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+              {t("servicesPage.eyebrow")}
             </p>
+            <h1 className="text-display mb-4">
+              {t("servicesPage.title")}{" "}
+              <span className="gradient-text">{t("servicesPage.titleHighlight")}</span>
+            </h1>
+            <p className="text-lead">{t("servicesPage.subtitle")}</p>
           </div>
 
           <section className="mb-20">
-            <h2 className="text-headline mb-8">AI Development</h2>
+            <h2 className="text-headline mb-8">{t("servicesPage.aiTab")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {aiServices.map((service) => {
                 const Icon = service.icon;
@@ -37,7 +42,7 @@ const Services = () => {
                     </h3>
                     <p className="text-sm text-secondary mb-3">{service.shortDescription}</p>
                     <span className="inline-flex items-center text-sm text-primary font-medium">
-                      View details <ArrowRight className="ml-1 h-4 w-4" />
+                      {t("servicesPage.viewDetails")} <ArrowRight className="ml-1 h-4 w-4" />
                     </span>
                   </Link>
                 );
@@ -46,7 +51,7 @@ const Services = () => {
           </section>
 
           <section>
-            <h2 className="text-headline mb-8">Software Development</h2>
+            <h2 className="text-headline mb-8">{t("servicesPage.softwareTab")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {softwareServices.map((service) => {
                 const Icon = service.icon;

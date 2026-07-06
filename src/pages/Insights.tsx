@@ -3,23 +3,30 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { insightArticles } from "@/data/insights-content";
+import { useInsightsContent } from "@/i18n/hooks";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const Insights = () => {
+  const { t } = useTranslation();
+  const { locale } = useLanguage();
+  const insightArticles = useInsightsContent();
+  const dateLocale = locale === "es" ? "es-ES" : "en-US";
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-28 lg:pt-32 pb-20">
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold tracking-wider text-primary mb-3">INSIGHTS</p>
-            <h1 className="text-display mb-6">
-              Enterprise AI <span className="gradient-text">perspectives</span>
-            </h1>
-            <p className="text-lead max-w-3xl mx-auto">
-              Practical thinking on production AI, governed agents, and operational transformation —
-              from the engineering and delivery side.
+            <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+              {t("insightsPage.eyebrow")}
             </p>
+            <h1 className="text-display mb-6">
+              {t("insightsPage.title")}{" "}
+              <span className="gradient-text">{t("insightsPage.titleHighlight")}</span>
+            </h1>
+            <p className="text-lead max-w-3xl mx-auto">{t("insightsPage.subtitle")}</p>
           </div>
 
           <div className="grid gap-6">
@@ -29,7 +36,7 @@ const Insights = () => {
                   <span className="text-xs text-muted-foreground">{article.readTime}</span>
                   <span className="text-xs text-muted-foreground">·</span>
                   <time className="text-xs text-muted-foreground" dateTime={article.publishedAt}>
-                    {new Date(article.publishedAt).toLocaleDateString("en-US", {
+                    {new Date(article.publishedAt).toLocaleDateString(dateLocale, {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
@@ -50,7 +57,7 @@ const Insights = () => {
                 </div>
                 <Button asChild variant="outline">
                   <Link to={`/insights/${article.slug}`}>
-                    Read article <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("common.readArticle")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </article>
@@ -58,12 +65,10 @@ const Insights = () => {
           </div>
 
           <div className="mt-16 text-center card-hover p-10">
-            <h2 className="text-2xl font-bold mb-4">Turn insight into a production plan</h2>
-            <p className="text-secondary mb-6 max-w-xl mx-auto">
-              Speak with an engineering lead about your highest-impact workflow.
-            </p>
+            <h2 className="text-2xl font-bold mb-4">{t("insightsPage.ctaTitle")}</h2>
+            <p className="text-secondary mb-6 max-w-xl mx-auto">{t("insightsPage.ctaBody")}</p>
             <Button asChild className="btn-primary">
-              <Link to="/#contact">Book a strategy call</Link>
+              <Link to="/#contact">{t("common.bookStrategyCall")}</Link>
             </Button>
           </div>
         </div>

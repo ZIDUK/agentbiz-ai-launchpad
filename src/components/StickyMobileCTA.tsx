@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const StickyMobileCTA = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,10 +25,10 @@ const StickyMobileCTA = () => {
     <div className="fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur-lg p-3 md:hidden">
       <div className="flex gap-2">
         <Button onClick={scrollToContact} className="btn-primary flex-1">
-          Book a Call
+          {t("sticky.bookCall")}
         </Button>
         <Button asChild variant="outline" className="flex-1">
-          <Link to="/resources">Resources</Link>
+          <Link to="/resources">{t("sticky.resources")}</Link>
         </Button>
       </div>
     </div>

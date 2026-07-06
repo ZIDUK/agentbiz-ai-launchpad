@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { engagementModels } from "@/data/site-content";
+import { useSiteContent } from "@/i18n/hooks";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const EngagementModels = () => {
+  const { t } = useTranslation();
+  const { engagementModels } = useSiteContent();
+
   return (
     <section id="engagement" className="section bg-card/40">
       <div className="container">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wider text-primary mb-3">HOW WE WORK</p>
-          <h2 className="text-headline mb-4">
-            Engagement <span className="gradient-text">Models</span>
-          </h2>
-          <p className="text-lead max-w-3xl mx-auto">
-            Flexible partnership models designed to match your stage, team, and delivery goals.
+          <p className="text-sm font-semibold tracking-wider text-primary mb-3">
+            {t("engagementSection.eyebrow")}
           </p>
+          <h2 className="text-headline mb-4">
+            {t("engagementSection.title")}{" "}
+            <span className="gradient-text">{t("engagementSection.titleHighlight")}</span>
+          </h2>
+          <p className="text-lead max-w-3xl mx-auto">{t("engagementSection.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,10 +44,10 @@ const EngagementModels = () => {
 
         <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild className="btn-primary">
-            <Link to="/#contact">Discuss your engagement model</Link>
+            <Link to="/#contact">{t("engagementSection.discuss")}</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link to="/engagement">Compare all models</Link>
+            <Link to="/engagement">{t("common.compareModels")}</Link>
           </Button>
         </div>
       </div>

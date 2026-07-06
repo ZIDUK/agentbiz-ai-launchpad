@@ -1,28 +1,33 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { createApplication } from '@/lib/applications';
-import { Loader2, CheckCircle, Upload } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { createApplication } from "@/lib/applications";
+import { Loader2, CheckCircle, Upload } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
+import { useJobPositions } from "@/i18n/hooks";
 
 interface ApplicationFormProps {
   position?: string;
+  positionLabel?: string;
   onClose?: () => void;
 }
 
-const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
+const ApplicationForm = ({ position, positionLabel, onClose }: ApplicationFormProps) => {
+  const { t } = useTranslation();
+  const jobPositions = useJobPositions();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    position: position || '',
-    experience: '',
-    cover_letter: '',
-    cv_url: '',
-    cv_file_name: ''
+    name: "",
+    email: "",
+    phone: "",
+    position: position || "",
+    experience: "",
+    cover_letter: "",
+    cv_url: "",
+    cv_file_name: "",
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -30,7 +35,7 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,9 +47,9 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!cvFile) {
-      alert('Por favor, selecciona un archivo CV');
+      alert(t("application.cvRequired"));
       return;
     }
 
@@ -52,43 +57,40 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
       setLoading(true);
       await createApplication(formData, cvFile);
       setSubmitted(true);
-      
-      // Reset form
+
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        position: position || '',
-        experience: '',
-        cover_letter: '',
-        cv_url: '',
-        cv_file_name: ''
+        name: "",
+        email: "",
+        phone: "",
+        position: position || "",
+        experience: "",
+        cover_letter: "",
+        cv_url: "",
+        cv_file_name: "",
       });
       setCvFile(null);
-      
-      // Close modal after 2 seconds
+
       setTimeout(() => {
         setSubmitted(false);
         onClose?.();
       }, 2000);
-      
     } catch (error) {
-      console.error('Error al enviar aplicación:', error);
-      alert('Error al enviar la aplicación. Inténtalo de nuevo.');
+      console.error("Error submitting application:", error);
+      alert(t("application.submitError"));
     } finally {
       setLoading(false);
     }
   };
+
+  const displayPosition = positionLabel || position || t("application.position");
 
   if (submitted) {
     return (
       <Card className="w-full max-w-md mx-auto">
         <CardContent className="text-center py-8">
           <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">¡Aplicación Enviada!</h3>
-          <p className="text-muted-foreground">
-            Tu aplicación ha sido enviada correctamente. Te contactaremos pronto.
-          </p>
+          <h3 className="text-xl font-semibold mb-2">{t("application.successTitle")}</h3>
+          <p className="text-muted-foreground">{t("application.successBody")}</p>
         </CardContent>
       </Card>
     );
@@ -97,28 +99,28 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>Aplicar a {position || 'Posición'}</CardTitle>
-        <CardDescription>
-          Completa el formulario y sube tu CV para aplicar a esta posición.
-        </CardDescription>
+        <CardTitle>
+          {t("application.applyTo")} {displayPosition}
+        </CardTitle>
+        <CardDescription>{t("application.description")}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Nombre Completo *</Label>
+              <Label htmlFor="name">{t("application.fullName")} *</Label>
               <Input
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                placeholder="Tu nombre completo"
+                placeholder={t("application.namePlaceholder")}
               />
             </div>
-            
+
             <div className="space-y-2">
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email">{t("application.email")} *</Label>
               <Input
                 id="email"
                 name="email"
@@ -126,14 +128,14 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                placeholder="tu@email.com"
+                placeholder={t("application.emailPlaceholder")}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="phone">Teléfono</Label>
+              <Label htmlFor="phone">{t("application.phone")}</Label>
               <Input
                 id="phone"
                 name="phone"
@@ -142,56 +144,59 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
                 placeholder="+1 (555) 123-4567"
               />
             </div>
-            
+
             <div className="space-y-2">
-              <Label htmlFor="position">Posición *</Label>
+              <Label htmlFor="position">{t("application.positionLabel")} *</Label>
               <Select
                 value={formData.position}
-                onValueChange={(value) => setFormData(prev => ({ ...prev, position: value }))}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, position: value }))}
                 required
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecciona una posición" />
+                  <SelectValue placeholder={t("application.selectPosition")} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Senior AI Engineer">Senior AI Engineer</SelectItem>
-                  <SelectItem value="AI Product Manager">AI Product Manager</SelectItem>
-                  <SelectItem value="AI Research Scientist">AI Research Scientist</SelectItem>
-                  <SelectItem value="AI Solutions Architect">AI Solutions Architect</SelectItem>
-                  <SelectItem value="Data Scientist">Data Scientist</SelectItem>
-                  <SelectItem value="Machine Learning Engineer">Machine Learning Engineer</SelectItem>
+                  {jobPositions.map((job) => (
+                    <SelectItem key={job.id} value={job.positionValue}>
+                      {job.title}
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="Data Scientist">{t("application.otherPositions.dataScientist")}</SelectItem>
+                  <SelectItem value="Machine Learning Engineer">
+                    {t("application.otherPositions.mlEngineer")}
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="experience">Experiencia *</Label>
+            <Label htmlFor="experience">{t("application.experience")} *</Label>
             <Textarea
               id="experience"
               name="experience"
               value={formData.experience}
               onChange={handleInputChange}
               required
-              placeholder="Describe tu experiencia relevante..."
+              placeholder={t("application.experiencePlaceholder")}
               rows={3}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="cover_letter">Carta de Presentación</Label>
+            <Label htmlFor="cover_letter">{t("application.coverLetter")}</Label>
             <Textarea
               id="cover_letter"
               name="cover_letter"
               value={formData.cover_letter}
               onChange={handleInputChange}
-              placeholder="¿Por qué te interesa trabajar con nosotros?"
+              placeholder={t("application.coverLetterPlaceholder")}
               rows={4}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="cv">CV (PDF, DOC, DOCX) *</Label>
+            <Label htmlFor="cv">{t("application.cv")} *</Label>
             <div className="flex items-center gap-2">
               <Input
                 id="cv"
@@ -211,29 +216,20 @@ const ApplicationForm = ({ position, onClose }: ApplicationFormProps) => {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <Button
-              type="submit"
-              disabled={loading}
-              className="flex-1"
-            >
+            <Button type="submit" disabled={loading} className="flex-1">
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Enviando...
+                  {t("application.submitting")}
                 </>
               ) : (
-                'Enviar Aplicación'
+                t("application.submit")
               )}
             </Button>
-            
+
             {onClose && (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={onClose}
-                disabled={loading}
-              >
-                Cancelar
+              <Button type="button" variant="outline" onClick={onClose} disabled={loading}>
+                {t("application.cancel")}
               </Button>
             )}
           </div>
