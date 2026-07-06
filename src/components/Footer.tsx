@@ -50,6 +50,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/trainings" className="text-secondary hover:text-primary transition-colors">
+                  {t("nav.trainings")}
+                </Link>
+              </li>
+              <li>
                 <Link to="/industries" className="text-secondary hover:text-primary transition-colors">
                   {t("nav.industries")}
                 </Link>

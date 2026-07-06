@@ -110,6 +110,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights?lang=en" />
   </url>
   <url>
+    <loc>https://agentbiz.io/trainings</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/trainings?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/trainings?lang=en" />
+  </url>
+  <url>
     <loc>https://agentbiz.io/case-studies/enterprise-ops-automation</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -405,5 +414,23 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
     <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=es" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
+  </url>
+  <url>
+    <loc>https://agentbiz.io/trainings/ai-for-operations-leaders</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings/ai-for-operations-leaders?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/trainings/ai-for-operations-leaders?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/trainings/ai-for-operations-leaders?lang=en" />
+  </url>
+  <url>
+    <loc>https://agentbiz.io/trainings/ai-for-operations-leaders/enroll</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings/ai-for-operations-leaders/enroll?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/trainings/ai-for-operations-leaders/enroll?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/trainings/ai-for-operations-leaders/enroll?lang=en" />
   </url>
 </urlset>

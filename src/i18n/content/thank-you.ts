@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/types";
 
-export type ThankYouType = "contact" | "resource" | "roi" | "careers";
+export type ThankYouType = "contact" | "resource" | "roi" | "careers" | "training";
 
 export interface ThankYouContent {
   title: string;
@@ -99,6 +99,28 @@ function careers(locale: Locale): ThankYouContent {
       };
 }
 
+function training(locale: Locale): ThankYouContent {
+  return locale === "es"
+    ? {
+        title: "Solicitud de inscripción recibida",
+        subtitle:
+          "Confirmaremos su cupo y enviaremos detalles de pago y preparación en 1–2 días hábiles. Revise su correo de trabajo.",
+        primaryCta: "Ver el programa",
+        primaryHref: "/trainings/ai-for-operations-leaders",
+        secondaryCta: "Agendar llamada de estrategia",
+        secondaryHref: "/#contact",
+      }
+    : {
+        title: "Enrollment request received",
+        subtitle:
+          "We'll confirm your seat and send payment and prep details within 1–2 business days. Watch your work inbox.",
+        primaryCta: "View the program",
+        primaryHref: "/trainings/ai-for-operations-leaders",
+        secondaryCta: "Schedule a strategy call",
+        secondaryHref: "/#contact",
+      };
+}
+
 export function getThankYouContent(type: ThankYouType, locale: Locale): ThankYouContent {
   switch (type) {
     case "contact":
@@ -109,6 +131,8 @@ export function getThankYouContent(type: ThankYouType, locale: Locale): ThankYou
       return roi(locale);
     case "careers":
       return careers(locale);
+    case "training":
+      return training(locale);
     default: {
       const _exhaustive: never = type;
       return _exhaustive;

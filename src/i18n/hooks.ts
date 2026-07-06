@@ -6,6 +6,7 @@ import {
   getInsightsContent,
   getExecutiveContent,
 } from "./content";
+import { getTrainingBySlug, getTrainingPrograms } from "./content/trainings";
 import { jobPositionsEn, jobPositionsEs } from "./content/careers";
 
 export function useSiteContent() {
@@ -36,4 +37,14 @@ export function useExecutiveContent() {
 export function useJobPositions() {
   const { locale } = useLanguage();
   return locale === "es" ? jobPositionsEs : jobPositionsEn;
+}
+
+export function useTrainingPrograms() {
+  const { locale } = useLanguage();
+  return getTrainingPrograms(locale);
+}
+
+export function useTrainingBySlug(slug: string) {
+  const { locale } = useLanguage();
+  return getTrainingBySlug(slug, locale);
 }

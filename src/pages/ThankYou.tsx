@@ -9,7 +9,7 @@ import { getThankYouContent, type ThankYouType } from "@/i18n/content/thank-you"
 import { getResourceDownloadPath } from "@/i18n/content/resource-guides";
 import { trackEvent } from "@/lib/analytics";
 
-const VALID_TYPES = new Set<ThankYouType>(["contact", "resource", "roi", "careers"]);
+const VALID_TYPES = new Set<ThankYouType>(["contact", "resource", "roi", "careers", "training"]);
 
 const ThankYou = () => {
   const { type } = useParams<{ type: string }>();

@@ -6,7 +6,12 @@ export interface ResourceLead {
   email: string;
   company?: string;
   resource_slug: string;
-  source: "resource_download" | "roi_calculator" | "insight_newsletter" | "contact_form";
+  source:
+    | "resource_download"
+    | "roi_calculator"
+    | "insight_newsletter"
+    | "contact_form"
+    | "training_enrollment";
   metadata?: Record<string, unknown>;
   created_at: Date;
   crm_synced_at?: Date;
@@ -101,6 +106,31 @@ export const createContactInquiry = async (inquiry: ContactInquiry): Promise<str
     metadata: {
       workflow: inquiry.workflow,
       message: inquiry.message || "",
+    },
+  });
+};
+
+export interface TrainingEnrollment {
+  name: string;
+  email: string;
+  company?: string;
+  programSlug: string;
+  courseId: string;
+  cohortId: string;
+  role: string;
+}
+
+export const createTrainingEnrollment = async (enrollment: TrainingEnrollment): Promise<string> => {
+  return createResourceLead({
+    name: enrollment.name,
+    email: enrollment.email,
+    company: enrollment.company,
+    resource_slug: enrollment.programSlug,
+    source: "training_enrollment",
+    metadata: {
+      course_id: enrollment.courseId,
+      cohort_id: enrollment.cohortId,
+      role: enrollment.role,
     },
   });
 };

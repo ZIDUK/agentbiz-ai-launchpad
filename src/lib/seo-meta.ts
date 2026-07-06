@@ -6,6 +6,7 @@ import {
   getResourceBySlug,
   getServiceBySlug,
 } from "@/i18n/content";
+import { getTrainingBySlug } from "@/i18n/content/trainings";
 import { messages as messagesEn } from "@/i18n/messages/en";
 import { messages as messagesEs } from "@/i18n/messages/es";
 import type { Locale } from "@/i18n/types";
@@ -74,6 +75,11 @@ export function resolveSeoMeta(pathname: string, locale: Locale): PageSeoMeta {
     "/industries": { title: "seo.industries.title", description: "seo.industries.description" },
     "/engagement": { title: "seo.engagement.title", description: "seo.engagement.description" },
     "/insights": { title: "seo.insights.title", description: "seo.insights.description" },
+    "/trainings": { title: "seo.trainings.title", description: "seo.trainings.description" },
+    "/trainings/ai-for-operations-leaders/enroll": {
+      title: "seo.trainingsEnroll.title",
+      description: "seo.trainingsEnroll.description",
+    },
   };
 
   if (staticKeys[path]) {
@@ -141,6 +147,18 @@ export function resolveSeoMeta(pathname: string, locale: Locale): PageSeoMeta {
         title: withBrand(article.title),
         description: article.excerpt,
         ogType: "article",
+      };
+    }
+  }
+
+  const trainingMatch = path.match(/^\/trainings\/([^/]+)$/);
+  if (trainingMatch) {
+    const program = getTrainingBySlug(trainingMatch[1], locale);
+    if (program) {
+      return {
+        title: t(locale, "seo.trainingsOps.title"),
+        description: program.heroSubtitle,
+        ogType: "website",
       };
     }
   }

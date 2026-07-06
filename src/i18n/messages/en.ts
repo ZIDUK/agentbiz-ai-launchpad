@@ -58,6 +58,20 @@ export const messages = {
       description:
         "Practical perspectives on production AI, governed agents, and operational transformation for enterprise leaders.",
     },
+    trainings: {
+      title: "Workshops & Courses | AgentBiz",
+      description:
+        "Hands-on AI workshops for operations leaders — governed workflows, executive playbooks, and production-ready enablement.",
+    },
+    trainingsOps: {
+      title: "AI for Operations Leaders | AgentBiz Workshops",
+      description:
+        "2-day intensive workshops for COOs and VPs of Operations. Applied AI foundations and advanced governance & scale.",
+    },
+    trainingsEnroll: {
+      title: "Enroll | AI for Operations Leaders | AgentBiz",
+      description: "Reserve your seat in an AgentBiz operations leadership workshop cohort.",
+    },
   },
   nav: {
     services: "Services",
@@ -72,12 +86,14 @@ export const messages = {
     bookCall: "Book a Call",
     roiCalculator: "ROI Calculator",
     executiveBriefing: "Executive Briefing",
+    trainings: "Trainings",
     engagementModels: "Engagement Models",
     allServices: "All Services",
     menu: "Menu",
     aiServices: "AI SERVICES",
     software: "SOFTWARE",
     openMenu: "Open menu",
+    more: "More",
     viewAllIndustries: "View all industries →",
     viewAllServices: "View all services →",
     engagementModelsLabel: "ENGAGEMENT MODELS",
@@ -395,6 +411,53 @@ export const messages = {
     readyDiscuss: "Ready to discuss",
     readyBody:
       "We'll map your workflow, team structure, and success metrics to a concrete delivery plan.",
+  },
+  trainings: {
+    hub: {
+      eyebrow: "WORKSHOPS & COURSES",
+      title: "Enterprise AI",
+      titleHighlight: "enablement",
+      subtitle:
+        "Hands-on workshops for leaders who need to direct AI on real operations — not sit through another vendor demo.",
+      courses: "courses",
+      course: "Course",
+      advanced: "Advanced",
+      viewProgram: "View program",
+      enrollNow: "Enroll now",
+      ctaTitle: "Need a private cohort for your leadership team?",
+      ctaBody:
+        "We run customized workshops for executive groups — same curriculum, tailored to your workflows and governance requirements.",
+      contactTeam: "Contact our team",
+    },
+    course: {
+      enrollCta: "Enroll in a cohort",
+      allPrograms: "All programs",
+      finalCtaTitle: "Reserve your seat",
+      finalCtaBody:
+        "Cohorts are intentionally small so every participant works on their own operational context. We'll confirm availability within 1–2 business days.",
+      reserveSeat: "Reserve your seat",
+    },
+    enroll: {
+      title: "Enroll in",
+      subtitle: "Select your course and cohort. We'll confirm your seat and send next steps.",
+      pickCourse: "Pick your course",
+      courseLabel: "Course",
+      pickCohort: "Pick your cohort",
+      cohortLabel: "Cohort dates",
+      yourDetails: "Your details",
+      fullName: "Full name",
+      workEmail: "Work email",
+      company: "Company",
+      role: "Role / title",
+      rolePlaceholder: "e.g. VP Operations",
+      paymentNote:
+        "Payment instructions are sent after we confirm your seat. No charge is processed on this form.",
+      submit: "Request enrollment",
+      submitting: "Submitting…",
+      validationError: "Please complete all required fields.",
+      error: "Could not submit enrollment. Please try again or contact us.",
+      backToProgram: "← Back to program overview",
+    },
   },
   insightsPage: {
     eyebrow: "INSIGHTS",

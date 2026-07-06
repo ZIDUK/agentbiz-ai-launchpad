@@ -24,17 +24,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    let active = true;
-
-    detectLocale().then((detected) => {
-      if (!active) return;
-      setLocaleState(detected);
-      setIsReady(true);
-    });
-
-    return () => {
-      active = false;
-    };
+    setLocaleState(detectLocale());
+    setIsReady(true);
   }, []);
 
   useEffect(() => {

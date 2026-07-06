@@ -8,7 +8,6 @@ import IndustriesSection from "@/components/IndustriesSection";
 import Workflow from "@/components/Workflow";
 import ResourcesPreview from "@/components/ResourcesPreview";
 import InsightsPreview from "@/components/InsightsPreview";
-import ExitIntentModal from "@/components/ExitIntentModal";
 import VisitorPaths from "@/components/VisitorPaths";
 import TrustedBy from "@/components/TrustedBy";
 import ExecutiveFaq from "@/components/ExecutiveFaq";
@@ -36,7 +35,6 @@ const Index = () => {
         <Contact />
       </main>
       <StickyMobileCTA />
-      <ExitIntentModal />
       <Footer />
     </div>
   );

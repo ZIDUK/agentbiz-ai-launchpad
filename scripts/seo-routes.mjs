@@ -44,6 +44,8 @@ export const caseStudyPaths = [
   "/case-studies/logistics-exception-handling",
 ];
 
+export const trainingSlugs = ["ai-for-operations-leaders"];
+
 export function getPublicPaths() {
   const paths = [
     "/",
@@ -58,6 +60,7 @@ export function getPublicPaths() {
     "/industries",
     "/engagement",
     "/insights",
+    "/trainings",
     ...caseStudyPaths,
   ];
 
@@ -66,6 +69,10 @@ export function getPublicPaths() {
   for (const slug of industrySlugs) paths.push(`/industries/${slug}`);
   for (const slug of engagementSlugs) paths.push(`/engagement/${slug}`);
   for (const slug of insightSlugs) paths.push(`/insights/${slug}`);
+  for (const slug of trainingSlugs) {
+    paths.push(`/trainings/${slug}`);
+    paths.push(`/trainings/${slug}/enroll`);
+  }
 
   return paths;
 }

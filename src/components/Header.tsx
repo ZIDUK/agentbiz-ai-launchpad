@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ServicesMegaMenu } from "@/components/ServicesMegaMenu";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -70,36 +76,47 @@ const Header = () => {
             Agent<span className="gradient-text">Biz</span>
           </Link>
 
-          <div className="hidden lg:flex flex-1 items-center justify-center gap-2">
+          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-center gap-1 xl:gap-2">
             <ServicesMegaMenu />
-            <button onClick={() => scrollToSection("workflow")} className="btn-ghost">
+            <button onClick={() => scrollToSection("workflow")} className="btn-ghost whitespace-nowrap">
               {t("nav.process")}
             </button>
-            <Link to="/resources" className="btn-ghost">
+            <Link to="/resources" className="btn-ghost whitespace-nowrap">
               {t("nav.resources")}
             </Link>
-            <Link to="/insights" className="btn-ghost">
+            <Link to="/insights" className="btn-ghost whitespace-nowrap">
               {t("nav.insights")}
             </Link>
-            <Link to="/engagement" className="btn-ghost">
+            <Link to="/engagement" className="btn-ghost whitespace-nowrap">
               {t("nav.engagement")}
             </Link>
-            <Link to="/careers" className="btn-ghost">
-              {t("nav.careers")}
-            </Link>
-            <Link to="/about" className="btn-ghost">
-              {t("nav.about")}
-            </Link>
-            <button onClick={() => scrollToSection("contact")} className="btn-ghost">
-              {t("nav.contact")}
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="btn-ghost inline-flex items-center gap-1 whitespace-nowrap">
+                {t("nav.more")}
+                <ChevronDown className="h-4 w-4 opacity-70" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuItem asChild>
+                  <Link to="/trainings">{t("nav.trainings")}</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/about">{t("nav.about")}</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/careers">{t("nav.careers")}</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => scrollToSection("contact")}>
+                  {t("nav.contact")}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher className="hidden sm:inline-flex" />
+          <div className="flex shrink-0 items-center gap-2 lg:gap-3">
+            <LanguageSwitcher className="hidden sm:inline-flex shrink-0" />
             <Button
               onClick={() => scrollToSection("contact")}
-              className="btn-primary hidden sm:inline-flex px-6 py-2"
+              className="btn-primary hidden sm:inline-flex shrink-0 px-4 lg:px-6 py-2 whitespace-nowrap"
             >
               {t("nav.bookCall")}
             </Button>
@@ -189,6 +206,13 @@ const Header = () => {
                       onClick={() => setMobileOpen(false)}
                     >
                       {t("nav.resources")}
+                    </Link>
+                    <Link
+                      to="/trainings"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {t("nav.trainings")}
                     </Link>
                     <Link
                       to="/insights"

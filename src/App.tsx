@@ -29,6 +29,9 @@ const Insights = lazy(() => import("./pages/Insights"));
 const InsightArticle = lazy(() => import("./pages/InsightArticle"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const LogisticsCaseStudy = lazy(() => import("./pages/LogisticsCaseStudy"));
+const TrainingsHub = lazy(() => import("./pages/TrainingsHub"));
+const OperationsLeadersCourse = lazy(() => import("./pages/OperationsLeadersCourse"));
+const TrainingEnroll = lazy(() => import("./pages/TrainingEnroll"));
 const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -69,6 +72,9 @@ const AppRoutes = () => {
           <Route path="/engagement/:slug" element={<EngagementDetail />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/insights/:slug" element={<InsightArticle />} />
+          <Route path="/trainings" element={<TrainingsHub />} />
+          <Route path="/trainings/:slug/enroll" element={<TrainingEnroll />} />
+          <Route path="/trainings/:slug" element={<OperationsLeadersCourse />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

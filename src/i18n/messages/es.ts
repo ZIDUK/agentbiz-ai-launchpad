@@ -58,6 +58,20 @@ export const messages = {
       description:
         "Perspectivas prácticas sobre IA en producción, agentes gobernados y transformación operativa para líderes enterprise.",
     },
+    trainings: {
+      title: "Workshops y cursos | AgentBiz",
+      description:
+        "Workshops prácticos de IA para líderes de operaciones — flujos gobernados, playbooks ejecutivos y enablement listo para producción.",
+    },
+    trainingsOps: {
+      title: "IA para líderes de operaciones | Workshops AgentBiz",
+      description:
+        "Workshops intensivos de 2 días para COOs y VPs de Operaciones. Fundamentos de IA aplicada y governance avanzado.",
+    },
+    trainingsEnroll: {
+      title: "Inscripción | IA para líderes de operaciones | AgentBiz",
+      description: "Reserve su cupo en una cohorte del workshop de liderazgo en operaciones de AgentBiz.",
+    },
   },
   nav: {
     services: "Servicios",
@@ -72,12 +86,14 @@ export const messages = {
     bookCall: "Agendar llamada",
     roiCalculator: "Calculadora ROI",
     executiveBriefing: "Briefing ejecutivo",
+    trainings: "Capacitaciones",
     engagementModels: "Modelos de engagement",
     allServices: "Todos los servicios",
     menu: "Menú",
     aiServices: "SERVICIOS IA",
     software: "SOFTWARE",
     openMenu: "Abrir menú",
+    more: "Más",
     viewAllIndustries: "Ver todas las industrias →",
     viewAllServices: "Ver todos los servicios →",
     engagementModelsLabel: "MODELOS DE ENGAGEMENT",
@@ -396,6 +412,53 @@ export const messages = {
     readyDiscuss: "¿Listo para discutir",
     readyBody:
       "Mapearemos su flujo, estructura de equipo y métricas de éxito a un plan de entrega concreto.",
+  },
+  trainings: {
+    hub: {
+      eyebrow: "WORKSHOPS Y CURSOS",
+      title: "Enablement de IA",
+      titleHighlight: "enterprise",
+      subtitle:
+        "Workshops prácticos para líderes que necesitan dirigir IA en operaciones reales — no otra demo de proveedor.",
+      courses: "cursos",
+      course: "Curso",
+      advanced: "Avanzado",
+      viewProgram: "Ver programa",
+      enrollNow: "Inscribirse",
+      ctaTitle: "¿Necesita una cohorte privada para su equipo directivo?",
+      ctaBody:
+        "Ejecutamos workshops personalizados para grupos ejecutivos — mismo currículo, adaptado a sus flujos y requisitos de governance.",
+      contactTeam: "Contactar al equipo",
+    },
+    course: {
+      enrollCta: "Inscribirse en una cohorte",
+      allPrograms: "Todos los programas",
+      finalCtaTitle: "Reserve su cupo",
+      finalCtaBody:
+        "Las cohortes son intencionalmente pequeñas para que cada participante trabaje su contexto operativo. Confirmamos disponibilidad en 1–2 días hábiles.",
+      reserveSeat: "Reservar cupo",
+    },
+    enroll: {
+      title: "Inscripción en",
+      subtitle: "Seleccione curso y cohorte. Confirmaremos su cupo y enviaremos los siguientes pasos.",
+      pickCourse: "Elija su curso",
+      courseLabel: "Curso",
+      pickCohort: "Elija su cohorte",
+      cohortLabel: "Fechas de cohorte",
+      yourDetails: "Sus datos",
+      fullName: "Nombre completo",
+      workEmail: "Correo corporativo",
+      company: "Empresa",
+      role: "Cargo",
+      rolePlaceholder: "ej. VP de Operaciones",
+      paymentNote:
+        "Las instrucciones de pago se envían tras confirmar su cupo. Este formulario no procesa cargos.",
+      submit: "Solicitar inscripción",
+      submitting: "Enviando…",
+      validationError: "Complete todos los campos obligatorios.",
+      error: "No se pudo enviar la inscripción. Intente de nuevo o contáctenos.",
+      backToProgram: "← Volver al programa",
+    },
   },
   insightsPage: {
     eyebrow: "INSIGHTS",
