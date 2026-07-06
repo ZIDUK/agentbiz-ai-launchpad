@@ -91,7 +91,7 @@ const Career = () => {
     : jobPositions.filter(job => job.department === selectedDepartment);
 
   return (
-    <section id="career" className="section">
+    <section id="career" className="section pt-8">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-headline mb-6">

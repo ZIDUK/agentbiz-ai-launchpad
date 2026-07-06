@@ -7,10 +7,11 @@ const IndustriesSection = () => {
         <div className="text-center mb-12">
           <p className="text-sm font-semibold tracking-wider text-primary mb-3">INDUSTRIES</p>
           <h2 className="text-headline mb-4">
-            Industries We <span className="gradient-text">Transform</span>
+            Built for <span className="gradient-text">enterprise complexity</span>
           </h2>
           <p className="text-lead max-w-3xl mx-auto">
-            Domain-specific AI and software solutions for regulated and high-growth sectors.
+            AI must work inside environments with legacy systems, complex approvals, sensitive
+            data, and high-volume workflows. This is where transformation becomes real.
           </p>
         </div>
 

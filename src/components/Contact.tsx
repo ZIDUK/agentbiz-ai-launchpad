@@ -43,12 +43,12 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="container">
         <h2 className="text-headline mb-6">
-          Schedule Your <span className="gradient-text">AI Strategy Call</span>
+          Schedule Your <span className="gradient-text">Engineering Strategy Call</span>
         </h2>
 
         <p className="text-lead mb-12">
-          Discover how our AI and software solutions can transform your business.
-          Select a time that works best for you.
+          Discuss your operational priorities, production AI roadmap, and first workflow
+          for measurable enterprise impact.
         </p>
 
         <div

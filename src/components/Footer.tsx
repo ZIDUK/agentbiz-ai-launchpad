@@ -26,8 +26,8 @@ const Footer = () => {
               Agent<span className="gradient-text">Biz</span>
             </h3>
             <p className="text-secondary leading-relaxed max-w-md">
-              Your strategic partner in AI and software development. We build custom solutions,
-              integrate intelligent systems, and help teams ship with confidence.
+              AI-native engineering and delivery for the enterprise. We build production AI
+              systems, agentic workflows, and software your organization can own and scale.
             </p>
           </div>
 
@@ -36,16 +36,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/services" className="text-secondary hover:text-primary transition-colors">
-                  Services
+                  Solutions
                 </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("career")}
-                  className="text-secondary hover:text-primary transition-colors"
-                >
+                <Link to="/resources" className="text-secondary hover:text-primary transition-colors">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-secondary hover:text-primary transition-colors">
                   Careers
-                </button>
+                </Link>
               </li>
               <li>
                 <button
@@ -59,30 +61,30 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-6">AI Services</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">Capabilities</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link
-                  to="/services/agentic-ai-development"
+                <button
+                  onClick={() => scrollToSection("capabilities")}
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  Agentic AI
+                  AI Operations Engineering
+                </button>
+              </li>
+              <li>
+                <Link
+                  to="/services/ai-assisted-software-development"
+                  className="text-secondary hover:text-primary transition-colors"
+                >
+                  AI-Accelerated Delivery
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services/custom-ai-development"
+                  to="/services/ai-application-development"
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  Custom AI
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/ai-mvp-development"
-                  className="text-secondary hover:text-primary transition-colors"
-                >
-                  AI MVP
+                  Enterprise AI Applications
                 </Link>
               </li>
             </ul>

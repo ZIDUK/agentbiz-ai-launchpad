@@ -14,6 +14,7 @@ import {
   Shield,
   Smartphone,
   Sparkles,
+  Target,
   Users,
   Wrench,
   Zap,
@@ -280,6 +281,169 @@ export const industries: Industry[] = [
 ];
 
 export const allServices = [...aiServices, ...softwareServices];
+
+export interface StrategicPillar {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export interface CoreCapability {
+  slug: string;
+  title: string;
+  shortDescription: string;
+  outcomes: string[];
+  icon: LucideIcon;
+  href: string;
+}
+
+export interface ResourceItem {
+  slug: string;
+  title: string;
+  description: string;
+  type: string;
+  readTime: string;
+  tags: string[];
+}
+
+export const enterpriseChallenges: string[] = [
+  "How documents become decisions",
+  "How requests become actions",
+  "How teams coordinate across systems",
+  "How knowledge becomes reusable capability",
+  "How operations scale without proportional cost growth",
+  "How AI becomes part of the operating model",
+];
+
+export const strategicPillars: StrategicPillar[] = [
+  {
+    number: "01",
+    title: "Operational Redesign",
+    description:
+      "We map current-state workflows, identify friction, and design future-state processes where humans, AI agents, data, and systems work together.",
+    icon: Layers,
+  },
+  {
+    number: "02",
+    title: "Production AI Implementation",
+    description:
+      "We build AI-enabled workflows integrated with the systems, data, permissions, and controls required for real business use.",
+    icon: Code2,
+  },
+  {
+    number: "03",
+    title: "Governance & Control",
+    description:
+      "Traceability, approvals, role-based access, escalation paths, quality review, audit trails, and human oversight — designed in from day one.",
+    icon: Shield,
+  },
+  {
+    number: "04",
+    title: "Enterprise Scale",
+    description:
+      "Reusable patterns, delivery standards, and operating models that allow AI transformation to expand beyond a single workflow.",
+    icon: Rocket,
+  },
+];
+
+export const coreCapabilities: CoreCapability[] = [
+  {
+    slug: "ai-operations-engineering",
+    title: "AI Operations Engineering",
+    shortDescription:
+      "Design and deploy agentic workflows, integrations, and custom AI systems inside your real operating environment.",
+    outcomes: [
+      "Production-ready agent workflows",
+      "CRM, ERP, and cloud integrations",
+      "Measurable cycle-time reduction",
+      "Governed human-in-the-loop controls",
+    ],
+    icon: Bot,
+    href: "/services/agentic-ai-development",
+  },
+  {
+    slug: "ai-accelerated-delivery",
+    title: "AI-Accelerated Delivery",
+    shortDescription:
+      "Senior-led engineering teams using AI-assisted development to ship faster without sacrificing architecture or quality.",
+    outcomes: [
+      "AI-assisted build and review",
+      "Predictable Agile delivery",
+      "Reduced manual engineering load",
+      "Architecture your team can own",
+    ],
+    icon: Code2,
+    href: "/services/ai-assisted-software-development",
+  },
+  {
+    slug: "enterprise-ai-applications",
+    title: "Enterprise AI Applications",
+    shortDescription:
+      "Build AI-first applications — agents, copilots, and decision systems — designed for security, scale, and maintainability.",
+    outcomes: [
+      "Custom AI applications",
+      "Conversational and agent interfaces",
+      "Cloud-native deployment",
+      "Full code and IP ownership",
+    ],
+    icon: Sparkles,
+    href: "/services/ai-application-development",
+  },
+  {
+    slug: "engagement-models",
+    title: "Engagement Models",
+    shortDescription:
+      "Flexible partnership models — project-based, staff augmentation, managed services, and rescue delivery — aligned to enterprise needs.",
+    outcomes: [
+      "Project-based development",
+      "Staff augmentation",
+      "Managed services",
+      "Rescue and modernization",
+    ],
+    icon: Users,
+    href: "/#engagement",
+  },
+];
+
+export const workflowPhases = [
+  {
+    icon: Target,
+    title: "Identify",
+    description: "Assess processes, data flows, manual dependencies, and opportunities for measurable impact.",
+  },
+  {
+    icon: Layers,
+    title: "Redesign",
+    description: "Define the AI-native future state — what AI does, what humans control, and how value is measured.",
+  },
+  {
+    icon: Code2,
+    title: "Implement",
+    description: "Build and deploy production workflows, agents, integrations, and controls in your environment.",
+  },
+  {
+    icon: Rocket,
+    title: "Scale",
+    description: "Establish reusable components and delivery standards to expand AI-native operations across functions.",
+  },
+];
+
+export const resources: ResourceItem[] = [
+  {
+    slug: "enterprise-ai-roadmap",
+    title: "Enterprise AI Implementation Roadmap",
+    description:
+      "A practical guide for enterprise leaders moving from AI pilots to production capability — with phases, governance checkpoints, and delivery milestones.",
+    type: "Guide",
+    readTime: "15 min read",
+    tags: ["Strategy", "Roadmap", "Enterprise"],
+  },
+];
+
+export function getResourceBySlug(slug: string): ResourceItem | undefined {
+  return resources.find((resource) => resource.slug === slug);
+}
 
 export function getServiceBySlug(slug: string): ServiceItem | undefined {
   return allServices.find((service) => service.slug === slug);

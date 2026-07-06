@@ -1,28 +1,32 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import EnterpriseChallenge from "@/components/EnterpriseChallenge";
+import StrategicFocus from "@/components/StrategicFocus";
+import CoreCapabilities from "@/components/CoreCapabilities";
 import EngagementModels from "@/components/EngagementModels";
-import AIServices from "@/components/AIServices";
-import TechServices from "@/components/TechServices";
 import IndustriesSection from "@/components/IndustriesSection";
 import Workflow from "@/components/Workflow";
-import Career from "@/components/Career";
+import ResourcesPreview from "@/components/ResourcesPreview";
 import Contact from "@/components/Contact";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main className="pb-20 md:pb-0">
         <Hero />
+        <EnterpriseChallenge />
+        <StrategicFocus />
+        <CoreCapabilities />
         <EngagementModels />
-        <AIServices />
-        <TechServices />
         <IndustriesSection />
         <Workflow />
-        <Career />
+        <ResourcesPreview />
         <Contact />
       </main>
+      <StickyMobileCTA />
       <Footer />
     </div>
   );

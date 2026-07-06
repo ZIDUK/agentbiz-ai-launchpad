@@ -64,9 +64,12 @@ const Header = () => {
             <button onClick={() => scrollToSection("workflow")} className="btn-ghost">
               Process
             </button>
-            <button onClick={() => scrollToSection("career")} className="btn-ghost">
+            <Link to="/resources" className="btn-ghost">
+              Resources
+            </Link>
+            <Link to="/careers" className="btn-ghost">
               Careers
-            </button>
+            </Link>
             <button onClick={() => scrollToSection("contact")} className="btn-ghost">
               Contact
             </button>
@@ -155,12 +158,20 @@ const Header = () => {
                     >
                       Our Process
                     </button>
-                    <button
-                      className="block w-full text-left text-sm font-medium py-2"
-                      onClick={() => scrollToSection("career")}
+                    <Link
+                      to="/resources"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Resources
+                    </Link>
+                    <Link
+                      to="/careers"
+                      className="block text-sm font-medium py-2"
+                      onClick={() => setMobileOpen(false)}
                     >
                       Careers
-                    </button>
+                    </Link>
                     <button
                       className="block w-full text-left text-sm font-medium py-2"
                       onClick={() => scrollToSection("contact")}
