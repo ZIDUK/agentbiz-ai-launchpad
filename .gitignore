@@ -1,5 +1,7 @@
 # Logs
 logs
+!dokploy/supabase/volumes/logs/
+!dokploy/supabase/volumes/logs/**
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -14,6 +16,7 @@ dist-ssr
 .env
 .env.*
 !env.example
+!dokploy/supabase/.env.example
 
 # Editor directories and files
 .vscode/*
