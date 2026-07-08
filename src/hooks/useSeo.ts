@@ -7,6 +7,11 @@ import {
   buildCanonicalUrl,
   resolveSeoMeta,
 } from "@/lib/seo-meta";
+import {
+  buildOrganizationSchema,
+  buildSiteNavigationSchema,
+  buildWebSiteSchema,
+} from "@/lib/site-navigation-schema";
 
 const OG_IMAGE = `${siteConfig.siteUrl}/og-image.png`;
 
@@ -113,36 +118,14 @@ export function useSeo() {
       upsertMeta(`meta[name="${name}"]`, { name, content });
     });
 
-    upsertJsonLd("jsonld-organization", {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "AgentBiz",
-      url: siteConfig.siteUrl,
-      logo: `${siteConfig.siteUrl}/apple-touch-icon.png`,
-      email: siteConfig.email,
-      sameAs: [
-        siteConfig.social.linkedin,
-        siteConfig.social.twitter,
-        siteConfig.social.github,
-      ],
-    });
+    upsertJsonLd("jsonld-organization", buildOrganizationSchema(meta.description));
 
     if (pathname === "/") {
-      upsertJsonLd("jsonld-website", {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "AgentBiz",
-        url: siteConfig.siteUrl,
-        description: meta.description,
-        inLanguage: ["en", "es"],
-        publisher: {
-          "@type": "Organization",
-          name: "AgentBiz",
-        },
-      });
+      upsertJsonLd("jsonld-website", buildWebSiteSchema(meta.description, locale));
+      upsertJsonLd("jsonld-navigation", buildSiteNavigationSchema(locale));
     } else {
-      const websiteScript = document.getElementById("jsonld-website");
-      websiteScript?.remove();
+      document.getElementById("jsonld-website")?.remove();
+      document.getElementById("jsonld-navigation")?.remove();
     }
 
     const insightMatch = pathname.match(/^\/insights\/([^/]+)$/);

@@ -1,8 +1,8 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | AI-Native Engineering for the Enterprise",
+    title: "AgentBiz | Production AI Systems for the Enterprise",
     description:
-      "AgentBiz designs, builds, and scales production AI systems for enterprise organizations — agentic workflows, integrations, and governed delivery from pilot to production.",
+      "We design, build, and scale production AI workflows, agents, and enterprise applications — with the governance, engineering discipline, and delivery rigor C-level teams require.",
   },
   seo: {
     about: {

@@ -1,8 +1,8 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | Ingeniería IA nativa para la empresa",
+    title: "AgentBiz | Sistemas de IA en producción para la empresa",
     description:
-      "AgentBiz diseña, construye y escala sistemas de IA en producción para organizaciones enterprise — flujos agentic, integraciones y entrega gobernada del piloto a producción.",
+      "Diseñamos, construimos y escalamos flujos de IA, agentes y aplicaciones enterprise — con la gobernanza, disciplina de ingeniería y rigor de entrega que exigen los equipos C-level.",
   },
   seo: {
     about: {
