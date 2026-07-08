@@ -329,7 +329,7 @@ html.poc-mode body {
 
 .poc-production-site header,
 .poc-production-site header[class*="bg-"] {
-  top: 2rem !important;
+  top: 0 !important;
   background: rgba(0, 0, 0, 0.88) !important;
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 123, 255, 0.15);
@@ -420,14 +420,14 @@ html.poc-mode body {
 }
 
 .poc-hud-tl {
-  top: 3.5rem;
+  top: 4.5rem;
   left: 1rem;
   border-top-width: 2px;
   border-left-width: 2px;
 }
 
 .poc-hud-tr {
-  top: 3.5rem;
+  top: 4.5rem;
   right: 1rem;
   border-top-width: 2px;
   border-right-width: 2px;
@@ -519,12 +519,12 @@ html.poc-mode body {
 }
 
 .poc-hud-label-tl {
-  top: 4.5rem;
+  top: 5.25rem;
   left: 1.5rem;
 }
 
 .poc-hud-label-tr {
-  top: 4.5rem;
+  top: 5.25rem;
   right: 1.5rem;
 }
 
