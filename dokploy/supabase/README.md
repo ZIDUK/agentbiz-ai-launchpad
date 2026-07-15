@@ -327,7 +327,7 @@ Empty dirs use `.gitkeep`; Postgres creates `db/data` on first run.
 | Analytics / vector unhealthy | Ensure `volumes/logs/vector.yml` exists and `COMPOSE_PROFILES=logs` is set if you intentionally enabled logs |
 | SSL self-signed on `agent-supabase` | Enable Let's Encrypt in Dokploy Domains (do not use raw IP) |
 | Storage won't start | Wait for `db` + `rest` + `imgproxy` healthy; check `docker logs agentbiz-storage` |
-| Pooler won't start | Ensure `SECRET_KEY_BASE`, `VAULT_ENC_KEY`, and `analytics` are healthy; check port 5432 not already in use on host |
+| Pooler won't start / `Bind for 0.0.0.0:5432 failed` | Host port 5432 already used (another Supabase). Our compose no longer publishes 5432 — redeploy latest `docker-compose.yml`. Keep `POSTGRES_PORT=5432` for **internal** Docker network only. |
 
 ---
 

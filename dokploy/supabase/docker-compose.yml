@@ -421,15 +421,16 @@ services:
         "/etc/vector/vector.yml"
       ]
     security_opt:
-      - "label=disable"
-
-  supavisor:
+      - "label=disable"  supavisor:
     container_name: ${CONTAINER_PREFIX}-pooler
     image: supabase/supavisor:2.5.1
     restart: unless-stopped
-    ports:
-      - ${POSTGRES_PORT}:5432
-      - ${POOLER_PROXY_PORT_TRANSACTION}:6543
+    # Do NOT publish 5432/6543 on the host — conflicts with other Supabase stacks
+    # (e.g. Momo Tea). App traffic goes via Kong :8000 through Dokploy reverse proxy.
+    # For rare psql access: docker exec -it <prefix>-db psql -U postgres
+    expose:
+      - 5432
+      - 6543
     volumes:
       - ./volumes/pooler/pooler.exs:/etc/pooler/pooler.exs:ro,z
     healthcheck:
