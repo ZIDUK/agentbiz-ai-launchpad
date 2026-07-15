@@ -1,35 +1,25 @@
 # syntax=docker/dockerfile:1
-
-# --- Build stage ---
-FROM node:20-alpine AS builder
-
+FROM node:20-bookworm-slim AS deps
 WORKDIR /app
-
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
 RUN npm ci
 
+FROM deps AS builder
 COPY . .
-
-# Vite embeds env vars at build time — pass via Dokploy "Available at build time"
-ARG VITE_SUPABASE_URL
-ARG VITE_SUPABASE_PUBLISHABLE_KEY
-ARG VITE_GA_MEASUREMENT_ID
-
-ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL \
-    VITE_SUPABASE_PUBLISHABLE_KEY=$VITE_SUPABASE_PUBLISHABLE_KEY \
-    VITE_GA_MEASUREMENT_ID=$VITE_GA_MEASUREMENT_ID
-
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# --- Production stage ---
-FROM nginx:1.27-alpine AS production
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-EXPOSE 80
-
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://127.0.0.1/ || exit 1
-
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:20-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV DATABASE_PATH=/data/agentbiz.sqlite
+ENV CV_DIR=/data/cvs
+RUN mkdir -p /data/cvs
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD node -e "fetch('http://127.0.0.1:3000/api/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+CMD ["node", "server.js"]

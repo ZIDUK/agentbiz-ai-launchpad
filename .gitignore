@@ -33,3 +33,4 @@ poc/**/dist
 *.sw?
 .worktrees/
 .data/
+*.tsbuildinfo

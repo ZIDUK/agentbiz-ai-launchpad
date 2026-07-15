@@ -35,7 +35,7 @@ function resolvePath(tree: MessageTree, key: string): string | undefined {
 }
 
 export function translate(locale: Locale, key: TranslationKey): string {
-  const value = resolvePath(catalogs[locale], key);
+  const value = resolvePath(catalogs[locale] as MessageTree, key);
   if (value) return value;
 
   const fallback = resolvePath(catalogs.en, key);

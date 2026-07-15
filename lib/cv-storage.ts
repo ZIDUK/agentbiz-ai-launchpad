@@ -12,7 +12,7 @@ export function getCvDir() {
 export function saveCvBuffer(applicationId: string, buf: Buffer, originalName: string) {
   if (buf.byteLength > MAX_BYTES) throw new Error("FILE_TOO_LARGE");
   if (buf.subarray(0, 4).toString("utf8") !== "%PDF") throw new Error("INVALID_TYPE");
-  const safeName = originalName.replace(/[^\w.\-]+/g, "_").slice(0, 120);
+  const safeName = originalName.replace(/[^\w.-]+/g, "_").slice(0, 120);
   const stored = `${applicationId}.pdf`;
   const full = path.join(getCvDir(), stored);
   fs.writeFileSync(full, buf);
@@ -24,6 +24,9 @@ export async function saveCvFile(
   file: File | Buffer,
   originalName: string,
 ): Promise<{ cvPath: string; cvFileName: string }> {
-  const buf = file instanceof Buffer ? file : Buffer.from(await file.arrayBuffer());
+  const buf =
+    file instanceof Buffer
+      ? file
+      : Buffer.from(await (file as File).arrayBuffer());
   return saveCvBuffer(applicationId, buf, originalName);
 }

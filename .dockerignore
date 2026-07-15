@@ -1,17 +1,38 @@
+# Dependencies and build output (rebuilt inside image)
 node_modules
+.next
 dist
 dist-ssr
+
+# Local runtime data — never bake into image
+.data
+
+# Worktrees and VCS
 .git
 .github
+.worktrees
+
+# Editor / OS noise
 .vscode
 .idea
+.DS_Store
 *.log
+
+# Secrets
 .env
 .env.*
 !.env.example
-.DS_Store
+
+# Tests and coverage (not needed for build:next)
 coverage
+tests
+vitest.config.ts
+
+# Docs (not needed for build; keep DOKPLOY reference optional)
 *.md
 !docs/DOKPLOY.md
+
+# Legacy / unused in Next image
 bun.lock
 supabase/.temp
+dokploy/supabase

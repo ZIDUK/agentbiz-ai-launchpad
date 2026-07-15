@@ -1,5 +1,7 @@
 # AgentBiz Supabase on Dokploy
 
+> **Archive notice (2026-07):** This self-hosted Supabase stack is **retired** for AgentBiz production. The live app uses **Next.js + SQLite** (`docs/ops/dokploy-next-cutover.md`). Keep this folder until a human confirms safe deletion; do not deploy for new cutovers.
+
 Self-hosted [Supabase](https://supabase.com/docs/guides/self-hosting/docker) stack for AgentBiz, deployed as a **Dokploy Compose** application. Uses the **Momo Tea proven stack** (same services and image versions as a working production deployment), not the latest upstream compose.
 
 | Item | Value |

@@ -1,157 +1,69 @@
-# 🚀 AgentBiz AI - Sitio Web Corporativo
+# 🚀 AgentBiz AI — Next.js + SQLite
 
-> **Sitio web profesional para consultoría y desarrollo de IA**  
-> Transformative Custom AI Development - 2× the Speed & Cost Savings - Guaranteed!
+Marketing site, Jarvis home, and admin panel on **Next.js 15** (App Router) with **SQLite**, **Better Auth**, and **Drizzle ORM**. Deployed as a Next `standalone` Docker container on Dokploy.
 
-## 🌐 Sitio Web en Vivo
+- **Live:** [https://agentbiz.io](https://agentbiz.io)
+- **Admin:** [https://agentbiz.io/admin](https://agentbiz.io/admin)
 
-- **🌍 Sitio Principal**: [https://agentbiz.io](https://agentbiz.io)
-- **⚙️ Panel Admin**: [https://agentbiz.io/admin](https://agentbiz.io/admin)
-- **📱 Responsive**: Optimizado para móviles y desktop
+## Stack
 
-## 🎯 ¿Qué es AgentBiz AI?
+| Layer | Technology |
+|-------|------------|
+| App | Next.js 15, React 18, TypeScript |
+| Data | SQLite (`better-sqlite3`) + Drizzle |
+| Auth | Better Auth (admin only in production) |
+| UI | Tailwind CSS, shadcn/ui |
+| Tests | Vitest (API + security) |
 
-AgentBiz AI es una plataforma web corporativa que combina:
+Legacy Vite SPA scripts remain as `dev:classic` / `build:classic` for reference only.
 
-- **🏠 Landing Page** - Para atraer clientes potenciales
-- **⚙️ Panel de Administración** - Para gestionar leads, candidatos y operaciones
-- **📊 Dashboard** - Métricas y analytics en tiempo real
-- **📞 Sistema de Contacto** - Integración con Calendly para citas
+## Local development
 
-## 🛠️ Tecnologías Utilizadas
-
-### Frontend
-- **React 18** - Framework principal
-- **TypeScript** - Tipado estático
-- **Vite 5** - Build tool y dev server
-- **Tailwind CSS** - Estilos y diseño
-- **shadcn/ui** - Componentes de UI
-
-### Herramientas
-- **React Router** - Navegación
-- **TanStack Query** - Gestión de estado
-- **React Hook Form** - Formularios
-- **Lucide React** - Iconos
-- **Recharts** - Gráficos
-
-### Despliegue
-- **GitHub Pages** - Hosting estático
-- **GitHub Actions** - CI/CD automático
-- **Dominio Personalizado** - agentbiz.io
-
-## 🚀 Desarrollo Local
-
-### Requisitos
-- **Node.js 20.19+** (especificado en `.nvmrc`)
-- **npm** como gestor de paquetes
-
-### Instalación
+**Requirements:** Node.js 20.19+ (see `.nvmrc`)
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/ZIDUK/agentbiz-ai-launchpad.git
-cd agentbiz-ai-launchpad
-
-# 2. Instalar dependencias
 npm install
-
-# 3. Ejecutar en modo desarrollo
-npm run dev
-
-# 4. Abrir en el navegador
-# http://localhost:5173
+cp .env.example .env   # set BETTER_AUTH_SECRET, DATABASE_PATH, etc.
+npm run dev            # http://localhost:3000
 ```
 
-### Comandos Disponibles
+Apply schema (first run):
 
 ```bash
-# Desarrollo
-npm run dev          # Servidor de desarrollo
-npm run build        # Construir para producción
-npm run preview      # Previsualizar build local
-npm run lint         # Verificar código
-
-# Usar versión correcta de Node.js
-nvm use              # Si tienes nvm instalado
+npx drizzle-kit migrate
+NODE_ENV=development npx tsx scripts/seed-admin.ts
 ```
 
-## 📁 Estructura del Proyecto
+### Commands
+
+| Script | Purpose |
+|--------|---------|
+| `npm run dev` | Next dev server |
+| `npm run build` | Production build |
+| `npm start` | Run production server |
+| `npm test` | Vitest suite |
+| `npm run dev:classic` | Legacy Vite dev (optional) |
+
+## Deployment
+
+Production uses the repo **Dockerfile** (Next standalone, port **3000**, volume at `/data`).
+
+- **Cutover checklist:** [docs/ops/dokploy-next-cutover.md](docs/ops/dokploy-next-cutover.md)
+- **Backups:** [docs/ops/sqlite-backup.md](docs/ops/sqlite-backup.md)
+- **Dokploy overview:** [docs/DOKPLOY.md](docs/DOKPLOY.md)
+
+No `VITE_SUPABASE_*` or Supabase runtime is required.
+
+## Project layout
 
 ```
-src/
-├── components/          # Componentes reutilizables
-│   ├── admin/          # Panel de administración
-│   ├── ui/             # Componentes de UI (shadcn)
-│   └── ...             # Componentes de páginas
-├── pages/              # Páginas principales
-│   ├── Index.tsx       # Landing page
-│   ├── Admin.tsx       # Panel admin
-│   └── NotFound.tsx    # Página 404
-├── hooks/              # Custom hooks
-├── lib/                # Utilidades
-└── assets/             # Imágenes y recursos
+app/           Next.js routes (marketing + admin + API)
+lib/           DB, auth, validation, security
+src/           Shared React components (Jarvis, shadcn, pages)
+drizzle/       SQL migrations
+tests/         Vitest API and security tests
 ```
-
-## 🎨 Características del Diseño
-
-- **🌙 Tema Oscuro** - Diseño profesional moderno
-- **🎨 Gradientes** - Azul a púrpura para branding
-- **📱 Responsive** - Adaptable a todos los dispositivos
-- **⚡ Animaciones** - Transiciones suaves
-- **♿ Accesible** - Cumple estándares de accesibilidad
-
-## 🔧 Configuración para Despliegue
-
-### GitHub Pages
-El proyecto está configurado para desplegarse automáticamente en GitHub Pages:
-
-1. **Habilitar GitHub Pages**:
-   - Ve a `Settings` > `Pages`
-   - Selecciona `GitHub Actions` como fuente
-
-2. **Despliegue Automático**:
-   - Push a `main` → Despliegue automático
-   - Pull Request → Preview automático
-
-### Dominio Personalizado
-- **Configurado**: `agentbiz.io`
-- **Base path**: `/` (raíz del dominio)
-- **SSL**: Automático con GitHub Pages
-
-## 📊 Funcionalidades
-
-### Landing Page
-- **Hero Section** - Presentación principal
-- **Servicios** - 7 categorías de servicios de IA
-- **Industrias** - 4 sectores objetivo
-- **Workflow** - Proceso de trabajo
-- **Contacto** - Integración con Calendly
-
-### Panel de Administración
-- **Dashboard** - Métricas y KPIs
-- **Gestión de Candidatos** - Sistema de reclutamiento
-- **Gestión de Leads** - CRM básico
-- **Analytics** - Reportes y estadísticas
-- **Configuración** - Ajustes del sistema
-
-## 🤝 Contribuir
-
-1. **Fork** el repositorio
-2. **Crear** una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. **Commit** tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
-5. **Abrir** un Pull Request
-
-## 📝 Licencia
-
-Este proyecto es privado y pertenece a AgentBiz AI.
-
-## 🆘 Soporte
-
-Para soporte técnico o consultas:
-- **Email**: [contacto@agentbiz.io](mailto:contacto@agentbiz.io)
-- **Sitio Web**: [https://agentbiz.io](https://agentbiz.io)
 
 ---
 
-**Desarrollado con ❤️ para AgentBiz AI**
+**AgentBiz AI** — private repository.
