@@ -1,164 +1,57 @@
-# 🚀 Guía de Despliegue - AgentBiz AI
+# Deployment — AgentBiz (Next.js + SQLite)
 
-> **Guía completa para desplegar el sitio web de AgentBiz AI**  
-> Configuración optimizada para GitHub Pages con dominio personalizado
+Production runs a **single Next.js standalone container** on Dokploy (port **3000**), with SQLite and CV files on a `/data` volume. The former Vite + nginx + Supabase stack is retired.
 
-## 🌐 Sitio Web Desplegado
+## Quick reference
 
-- **🌍 Sitio Principal**: [https://agentbiz.io](https://agentbiz.io)
-- **⚙️ Panel Admin**: [https://agentbiz.io/admin](https://agentbiz.io/admin)
-- **📊 GitHub Pages**: [https://ziduk.github.io/agentbiz-ai-launchpad](https://ziduk.github.io/agentbiz-ai-launchpad)
+| Item | Value |
+|------|-------|
+| Build | `npm run build` (Dockerfile default) |
+| Runtime | `node server.js` |
+| Port | **3000** |
+| Data | `/data/agentbiz.sqlite`, `/data/cvs` |
+| Health | `GET /api/health` → `{"ok":true}` |
 
-## ✅ Estado Actual
+## Environment (runtime)
 
-**¡El sitio ya está desplegado y funcionando!** 🎉
-
-- ✅ **Dominio personalizado** configurado (`agentbiz.io`)
-- ✅ **Despliegue automático** con GitHub Actions
-- ✅ **Assets cargando** correctamente
-- ✅ **Rutas funcionando** (incluyendo `/admin`)
-- ✅ **Responsive design** en móviles y desktop
-
-## 🔧 Configuración Técnica
-
-### Archivos Clave
-- `vite.config.mjs` - Base path `/` para dominio personalizado
-- `src/App.tsx` - Router con `basename="/"`
-- `.github/workflows/deploy.yml` - Workflow de GitHub Actions
-- `public/404.html` - Redirección para SPA routing
-- `.nvmrc` - Node.js 20.19+
-
-### Tecnologías
-- **Vite 5** - Build tool optimizado
-- **React 18** - Framework principal
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** - Estilos
-- **shadcn/ui** - Componentes
-
-## 🚀 Desarrollo Local
-
-### Instalación Rápida
-
-```bash
-# 1. Clonar repositorio
-git clone https://github.com/ZIDUK/agentbiz-ai-launchpad.git
-cd agentbiz-ai-launchpad
-
-# 2. Instalar dependencias
-npm install
-
-# 3. Ejecutar desarrollo
-npm run dev
-# Abre: http://localhost:5173
-```
-
-### Comandos Disponibles
-
-```bash
-npm run dev          # Desarrollo (localhost:5173)
-npm run build        # Construir para producción
-npm run preview      # Preview local (localhost:4173)
-npm run lint         # Verificar código
-```
-
-## 🔄 Despliegue Automático
-
-### ¿Cómo Funciona?
-
-1. **Push a `main`** → GitHub Actions se ejecuta automáticamente
-2. **Build** → Vite construye el proyecto
-3. **Deploy** → Se sube a GitHub Pages
-4. **Live** → Sitio actualizado en `agentbiz.io`
-
-### Monitoreo
-
-- **GitHub Actions**: [Ver workflows](https://github.com/ZIDUK/agentbiz-ai-launchpad/actions)
-- **GitHub Pages**: [Configuración](https://github.com/ZIDUK/agentbiz-ai-launchpad/settings/pages)
-
-## 🛠️ Para Desarrolladores
-
-### Estructura del Proyecto
-
-```
-src/
-├── components/
-│   ├── admin/          # Panel de administración
-│   ├── ui/             # Componentes shadcn/ui
-│   ├── Hero.tsx        # Sección principal
-│   ├── Solutions.tsx   # Servicios
-│   └── Contact.tsx     # Formulario de contacto
-├── pages/
-│   ├── Index.tsx       # Landing page
-│   ├── Admin.tsx       # Panel admin
-│   └── NotFound.tsx    # 404
-└── assets/             # Imágenes y recursos
-```
-
-### Agregar Nuevas Funcionalidades
-
-1. **Crear componente** en `src/components/`
-2. **Agregar ruta** en `src/App.tsx` si es necesario
-3. **Hacer commit** y push
-4. **Despliegue automático** en unos minutos
-
-### Personalización
-
-- **Colores**: Editar `src/index.css` (variables CSS)
-- **Contenido**: Modificar componentes en `src/components/`
-- **Estilos**: Usar Tailwind CSS o editar CSS personalizado
-
-## 🔍 Solución de Problemas
-
-### Problemas Comunes
-
-| Problema | Solución |
+| Variable | Required |
 |----------|----------|
-| Assets no cargan | Verificar `base: '/'` en `vite.config.mjs` |
-| Rutas no funcionan | Verificar `basename="/"` en `App.tsx` |
-| Build falla | Usar Node.js 20.19+ (`nvm use`) |
-| Despliegue falla | Verificar GitHub Pages habilitado |
+| `DATABASE_PATH` | Yes — e.g. `/data/agentbiz.sqlite` |
+| `CV_DIR` | Yes — e.g. `/data/cvs` |
+| `BETTER_AUTH_SECRET` | Yes — ≥32 chars |
+| `BETTER_AUTH_URL` | Yes — public origin |
+| `NEXT_PUBLIC_APP_URL` | Yes — same as auth URL |
+| `NODE_ENV` | `production` in image |
 
-### Verificación Post-Despliegue
+Do **not** set `VITE_SUPABASE_*` for this stack.
 
-- [ ] Página principal carga correctamente
-- [ ] Panel admin funciona (`/admin`)
-- [ ] Assets (CSS, JS) cargan sin errores
-- [ ] Formulario de contacto (Calendly) funciona
-- [ ] Diseño responsive en móviles
+## Docs
 
-## 📊 URLs Importantes
+- [Dokploy cutover checklist](docs/ops/dokploy-next-cutover.md)
+- [SQLite backup & restore](docs/ops/sqlite-backup.md)
+- [Dokploy setup details](docs/DOKPLOY.md)
 
-### Producción
-- **Sitio Principal**: https://agentbiz.io
-- **Admin Panel**: https://agentbiz.io/admin
-- **GitHub Pages**: https://ziduk.github.io/agentbiz-ai-launchpad
+## Local smoke
 
-### Desarrollo
-- **Local Dev**: http://localhost:5173
-- **Local Preview**: http://localhost:4173
+```bash
+npm install
+npm run build
+npm start
+curl -s http://127.0.0.1:3000/api/health
+```
 
-### Repositorio
-- **GitHub**: https://github.com/ZIDUK/agentbiz-ai-launchpad
-- **Actions**: https://github.com/ZIDUK/agentbiz-ai-launchpad/actions
-- **Pages Settings**: https://github.com/ZIDUK/agentbiz-ai-launchpad/settings/pages
+## Security (production)
 
-## 🎯 Próximos Pasos
+- Security headers + CSP via `middleware.ts` / `next.config.ts`
+- Origin allowlist on mutating `/api/*` requests
+- Rate limits on public POST endpoints
+- Admin signup disabled when `NODE_ENV=production`
+- CV downloads require authenticated admin session
 
-### Mejoras Sugeridas
-- [ ] Agregar Google Analytics
-- [ ] Implementar SEO meta tags
-- [ ] Crear sitemap.xml
-- [ ] Agregar robots.txt
-- [ ] Implementar tests automatizados
+## Legacy
 
-### Mantenimiento
-- [ ] Actualizar dependencias regularmente
-- [ ] Monitorear performance
-- [ ] Backup de configuraciones
-- [ ] Documentar cambios importantes
+GitHub Pages + Vite deployment docs in git history. Use `npm run build:classic` only if you need the old static SPA locally.
 
 ---
 
-**¡El sitio web de AgentBiz AI está completamente funcional y desplegado! 🚀**
-
-*Para soporte técnico, contacta al equipo de desarrollo.*
+For support: [contacto@agentbiz.io](mailto:contacto@agentbiz.io)

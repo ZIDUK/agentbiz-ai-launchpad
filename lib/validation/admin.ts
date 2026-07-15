@@ -20,15 +20,18 @@ export const deleteApplicationSchema = z.object({
 
 export const crmStageSchema = z.enum(["new", "contacted", "qualified", "proposal", "won", "lost"]);
 export const crmPrioritySchema = z.enum(["low", "normal", "high"]);
+export const crmContactTypeSchema = z.enum(["prospect", "candidate", "customer"]);
 
 export const patchCrmContactSchema = z.object({
   id: z.string().min(1),
+  name: z.string().trim().min(1).max(200).optional(),
+  company: z.string().trim().max(200).optional(),
+  phone: z.string().trim().max(50).optional(),
+  contact_type: crmContactTypeSchema.optional(),
   stage: crmStageSchema.optional(),
   priority: crmPrioritySchema.optional(),
   notes: z.string().optional(),
 });
-
-export const crmContactTypeSchema = z.enum(["prospect", "candidate", "customer"]);
 
 export const postCrmContactSchema = z.object({
   name: z.string().trim().min(1).max(200),

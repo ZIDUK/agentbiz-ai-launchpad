@@ -5,12 +5,17 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
-export function AdminHeader() {
+interface AdminHeaderProps {
+  onLogout?: () => void;
+}
+
+export function AdminHeader({ onLogout }: AdminHeaderProps) {
   const { user, logout } = useAuth();
 
   const handleLogout = async () => {
     try {
       await logout();
+      onLogout?.();
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }

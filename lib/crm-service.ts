@@ -84,7 +84,7 @@ export function upsertCrmFromApplication(input: {
         lastActivityAt: now,
         updatedAt: now,
         name: input.name,
-        phone: input.phone ?? existing.phone,
+        phone: input.phone ?? existing?.phone ?? null,
         contactType: "candidate",
       })
       .where(eq(crmContacts.id, contactId))
