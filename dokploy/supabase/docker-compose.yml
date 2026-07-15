@@ -1,17 +1,22 @@
-# AgentBiz Supabase — Momo Tea proven stack for Dokploy
+# AgentBiz Supabase — lean stack for Dokploy (low RAM)
 #
-# Compose root: dokploy/supabase/ (volume mounts use ./volumes/)
-# Based on working Momo Tea deployment; Kong exposed internally for Dokploy reverse proxy.
+# Default: NO analytics/Logflare and NO vector log shipper (~500–900 MiB saved).
+# Optional profiles:
+#   --profile studio  → Studio UI
+#   --profile logs    → analytics + vector (only if you need Studio log explorer)
 #
-# Usage (local):
+# Compose root: dokploy/supabase/
+# Usage:
 #   cp .env.example .env
 #   docker compose up -d
+#   docker compose --profile studio up -d studio meta
 
 name: agentbiz-supabase
 
 services:
 
   studio:
+    profiles: ["studio"]
     container_name: ${CONTAINER_PREFIX}-studio
     image: supabase/studio:2025.04.21-sha-173cc56
     restart: unless-stopped
@@ -27,8 +32,10 @@ services:
       interval: 5s
       retries: 3
     depends_on:
-      analytics:
+      db:
         condition: service_healthy
+      meta:
+        condition: service_started
     environment:
       STUDIO_PG_META_URL: http://meta:8080
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -43,9 +50,9 @@ services:
       SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
       AUTH_JWT_SECRET: ${JWT_SECRET}
 
-      LOGFLARE_API_KEY: ${LOGFLARE_API_KEY}
+      LOGFLARE_API_KEY: ${LOGFLARE_API_KEY:-}
       LOGFLARE_URL: http://analytics:4000
-      NEXT_PUBLIC_ENABLE_LOGS: true
+      NEXT_PUBLIC_ENABLE_LOGS: "false"
       NEXT_ANALYTICS_BACKEND_PROVIDER: postgres
 
   kong:
@@ -59,7 +66,7 @@ services:
       - ./volumes/api/kong.yml:/home/kong/temp.yml:ro,z
       - ./volumes/api/kong-entrypoint.sh:/home/kong/kong-entrypoint.sh:ro,z
     depends_on:
-      analytics:
+      db:
         condition: service_healthy
     environment:
       KONG_DATABASE: "off"
@@ -97,8 +104,6 @@ services:
       retries: 3
     depends_on:
       db:
-        condition: service_healthy
-      analytics:
         condition: service_healthy
     environment:
       GOTRUE_MAILER_EXTERNAL_HOSTS: kong,${SUPABASE_HOST}
@@ -144,8 +149,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      analytics:
-        condition: service_healthy
     environment:
       PGRST_DB_URI: postgres://authenticator:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       PGRST_DB_SCHEMAS: ${PGRST_DB_SCHEMAS}
@@ -165,8 +168,6 @@ services:
     restart: unless-stopped
     depends_on:
       db:
-        condition: service_healthy
-      analytics:
         condition: service_healthy
     healthcheck:
       test:
@@ -266,13 +267,12 @@ services:
       IMGPROXY_ENABLE_WEBP_DETECTION: ${IMGPROXY_ENABLE_WEBP_DETECTION}
 
   meta:
+    profiles: ["studio"]
     container_name: ${CONTAINER_PREFIX}-meta
     image: supabase/postgres-meta:v0.88.9
     restart: unless-stopped
     depends_on:
       db:
-        condition: service_healthy
-      analytics:
         condition: service_healthy
     environment:
       PG_META_PORT: 8080
@@ -289,8 +289,10 @@ services:
     volumes:
       - ./volumes/functions:/home/deno/functions:Z
     depends_on:
-      analytics:
+      db:
         condition: service_healthy
+      kong:
+        condition: service_started
     environment:
       JWT_SECRET: ${JWT_SECRET}
       SUPABASE_URL: http://kong:8000
@@ -306,9 +308,11 @@ services:
       ]
 
   analytics:
+    profiles: ["logs"]
     container_name: ${CONTAINER_PREFIX}-analytics
     image: supabase/logflare:1.12.0
     restart: unless-stopped
+    mem_limit: 512m
     expose:
       - 4000
     healthcheck:
@@ -367,9 +371,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    depends_on:
-      vector:
-        condition: service_healthy
     environment:
       POSTGRES_HOST: /var/run/postgresql
       PGPORT: ${POSTGRES_PORT}
@@ -390,9 +391,11 @@ services:
       ]
 
   vector:
+    profiles: ["logs"]
     container_name: ${CONTAINER_PREFIX}-vector
     image: timberio/vector:0.28.1-alpine
     restart: unless-stopped
+    mem_limit: 192m
     volumes:
       - ./volumes/logs/vector.yml:/etc/vector/vector.yml:ro,z
       - ${DOCKER_SOCKET_LOCATION}:/var/run/docker.sock:ro,z
@@ -445,8 +448,6 @@ services:
       retries: 5
     depends_on:
       db:
-        condition: service_healthy
-      analytics:
         condition: service_healthy
     environment:
       PORT: 4000

@@ -16,8 +16,8 @@ Self-hosted [Supabase](https://supabase.com/docs/guides/self-hosting/docker) sta
 
 | Path | Purpose |
 |------|---------|
-| `docker-compose.yml` | Momo Tea proven stack — studio, kong, auth, rest, realtime, storage, imgproxy, meta, functions, analytics, db, vector, supavisor |
-| `volumes/logs/vector.yml` | Vector log shipper config (required by analytics pipeline) |
+| `docker-compose.yml` | Lean stack by default — kong, auth, rest, realtime, storage, imgproxy, functions, db, supavisor. Optional profiles: `studio`, `logs` |
+| `volumes/logs/vector.yml` | Vector log shipper (only with `--profile logs`) |
 | `.env.example` | Required env vars with AgentBiz URLs pre-filled |
 | `volumes/` | Init SQL, Kong config, edge-function router (from upstream) |
 | `scripts/bootstrap-volumes.sh` | Re-download volume files from Supabase GitHub |
@@ -124,13 +124,17 @@ POSTGRES_PASSWORD=<strong password>
 
 Click **Deploy** and wait for all services to become healthy (first boot initializes Postgres — can take several minutes).
 
-**Orden de arranque (automático):** `vector` → `db` → `analytics` → resto de servicios. Si `storage` o `pooler` no arrancan:
+**Orden de arranque (lean):** `db` → `kong` / `auth` / `rest` / `storage` / `realtime` / `functions` / `pooler`.
+
+> **RAM:** By default **analytics (Logflare)**, **vector**, **studio**, and **meta** do **not** start. That typically saves **~0.5–1.2 GiB** vs the full stack. Studio logs explorer is unavailable unless you enable profiles (below).
+
+Si `storage` o `pooler` no arrancan:
 
 ```bash
 # SSH al servidor Dokploy (2.25.74.63)
 docker ps -a --filter name=agentbiz --format 'table {{.Names}}\t{{.Status}}'
 
-# Reiniciar servicios atascados (después de que db y analytics estén healthy)
+# Reiniciar servicios atascados (después de que db esté healthy)
 docker restart agentbiz-storage agentbiz-pooler
 
 # Ver logs
@@ -138,6 +142,31 @@ docker logs agentbiz-storage --tail 50
 docker logs agentbiz-pooler --tail 50
 ```
 
+### Low-RAM profiles (optional)
+
+Default deploy is lean. Enable extras only when needed:
+
+```bash
+# Studio UI (+ postgres-meta) — on demand
+COMPOSE_PROFILES=studio docker compose up -d
+
+# Logflare + Vector (~500–900 MiB) — only if you need Studio log explorer
+COMPOSE_PROFILES=logs docker compose up -d
+
+# Both
+COMPOSE_PROFILES=studio,logs docker compose up -d
+```
+
+After switching to lean mode, stop leftover heavy containers if Dokploy left them running:
+
+```bash
+docker stop agentbiz-analytics agentbiz-vector agentbiz-studio agentbiz-meta 2>/dev/null || true
+docker rm agentbiz-analytics agentbiz-vector agentbiz-studio agentbiz-meta 2>/dev/null || true
+# If Dokploy prefix includes a random suffix, list first:
+docker ps -a --filter name=agentbiz --format '{{.Names}}\t{{.Status}}\t{{.Size}}'
+```
+
+> **Also free RAM on the same host:** Momo Tea `*-supabase-analytics` (~900 MiB) is the other Logflare. Disable it the same way if you do not need Studio logs there.
 Verify:
 
 ```bash
@@ -295,7 +324,7 @@ Empty dirs use `.gitkeep`; Postgres creates `db/data` on first run.
 | Frontend auth fails | Rebuild site with `VITE_SUPABASE_URL=https://agent-supabase.agentbiz.io` |
 | CORS errors | `SUPABASE_PUBLIC_URL` must match the domain browsers call |
 | Realtime won't connect | Kong must route to Docker service `realtime` (not hardcoded Momo hostnames) |
-| Analytics / vector unhealthy | Ensure `volumes/logs/vector.yml` exists, `LOGFLARE_PUBLIC_ACCESS_TOKEN` is set, and `DOCKER_SOCKET_LOCATION` is set |
+| Analytics / vector unhealthy | Ensure `volumes/logs/vector.yml` exists and `COMPOSE_PROFILES=logs` is set if you intentionally enabled logs |
 | SSL self-signed on `agent-supabase` | Enable Let's Encrypt in Dokploy Domains (do not use raw IP) |
 | Storage won't start | Wait for `db` + `rest` + `imgproxy` healthy; check `docker logs agentbiz-storage` |
 | Pooler won't start | Ensure `SECRET_KEY_BASE`, `VAULT_ENC_KEY`, and `analytics` are healthy; check port 5432 not already in use on host |
