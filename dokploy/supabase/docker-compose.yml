@@ -421,13 +421,18 @@ services:
         "/etc/vector/vector.yml"
       ]
     security_opt:
-      - "label=disable"  supavisor:
+      - "label=disable"
+
+  # Pooler: keep POSTGRES_PORT=5432 for *internal* Docker DNS (db:5432).
+  # Do not publish host :5432/:6543 — Momo Tea already owns those on this server.
+  # Public API stays on Kong :8000 via Dokploy. Stack worked that way for app traffic.
+  supavisor:
     container_name: ${CONTAINER_PREFIX}-pooler
     image: supabase/supavisor:2.5.1
     restart: unless-stopped
-    ports:
-      - ${POSTGRES_PORT}:5432
-      - ${POOLER_PROXY_PORT_TRANSACTION}:6543
+    expose:
+      - 5432
+      - 6543
     volumes:
       - ./volumes/pooler/pooler.exs:/etc/pooler/pooler.exs:ro,z
     healthcheck:
