@@ -36,6 +36,7 @@
     "app/**/*.tsx",
     "lib/**/*.ts",
     "lib/**/*.tsx",
+    "hooks/**/*.ts",
     "tests/**/*.ts",
     "next.config.ts",
     "vitest.config.ts"

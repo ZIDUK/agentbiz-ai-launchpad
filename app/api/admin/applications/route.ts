@@ -2,7 +2,7 @@ import { desc, eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { getAdminSessionOr401 } from "@/lib/auth-guard";
 import { applications, getDb } from "@/lib/db";
-import { patchApplicationSchema } from "@/lib/validation/admin";
+import { deleteApplicationSchema, patchApplicationSchema } from "@/lib/validation/admin";
 
 export async function GET() {
   const auth = await getAdminSessionOr401();
@@ -53,4 +53,30 @@ export async function PATCH(req: Request) {
   db.update(applications).set(updates).where(eq(applications.id, id)).run();
   const updated = db.select().from(applications).where(eq(applications.id, id)).get();
   return NextResponse.json(updated);
+}
+
+export async function DELETE(req: Request) {
+  const auth = await getAdminSessionOr401();
+  if (auth.error) return auth.error;
+
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+
+  const parsed = deleteApplicationSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+
+  const db = getDb();
+  const existing = db.select().from(applications).where(eq(applications.id, parsed.data.id)).get();
+  if (!existing) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  db.delete(applications).where(eq(applications.id, parsed.data.id)).run();
+  return NextResponse.json({ ok: true });
 }
