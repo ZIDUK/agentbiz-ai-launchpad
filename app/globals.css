@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AgentBiz Design System - Professional Light Theme */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 212 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-accent: 271 76% 53%;
+
+    --secondary: 220 9% 46%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --hover: 212 100% 45%;
+    --hover-accent: 271 76% 48%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 212 100% 50%;
+
+    --gradient-primary: linear-gradient(90deg, hsl(212 100% 50%), hsl(271 76% 53%));
+    --gradient-primary-hover: linear-gradient(90deg, hsl(212 100% 45%), hsl(271 76% 48%));
+
+    --shadow-primary: 0 10px 25px hsl(212 100% 50% / 0.2);
+    --shadow-card: 0 4px 24px hsl(220 14% 76% / 0.2);
+
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 212 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 212 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .text-display {
+    @apply text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+  }
+
+  .text-headline {
+    @apply text-3xl lg:text-4xl font-bold leading-tight tracking-tight;
+  }
+
+  .text-title {
+    @apply text-xl lg:text-2xl font-semibold leading-tight;
+  }
+
+  .text-lead {
+    @apply text-lg lg:text-xl text-secondary leading-relaxed;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--gradient-primary-hover);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 rounded-lg font-medium text-secondary hover:text-foreground;
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover {
+    @apply bg-card border border-border rounded-xl transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    @apply border-primary;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px hsl(212 100% 50% / 0.12);
+  }
+
+  .section {
+    @apply py-20 lg:py-32;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+}
