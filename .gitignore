@@ -31,3 +31,4 @@ poc/**/dist
 *.sln
 *.sw?
 .worktrees/
+.data/
