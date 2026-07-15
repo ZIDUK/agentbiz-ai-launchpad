@@ -47,3 +47,58 @@ export function upsertCrmFromLead(input: {
     .run();
   return contactId;
 }
+
+export function upsertCrmFromApplication(input: {
+  name: string;
+  email: string;
+  phone?: string | null;
+  position: string;
+  content: string;
+}) {
+  const db = getDb();
+  const email = input.email.trim().toLowerCase();
+  const now = new Date().toISOString();
+  const existing = db.select().from(crmContacts).where(eq(crmContacts.email, email)).get();
+  let contactId = existing?.id;
+  if (!contactId) {
+    contactId = crypto.randomUUID();
+    db.insert(crmContacts)
+      .values({
+        id: contactId,
+        name: input.name,
+        email,
+        company: null,
+        phone: input.phone ?? null,
+        stage: "new",
+        contactType: "candidate",
+        priority: "normal",
+        notes: "",
+        lastActivityAt: now,
+        createdAt: now,
+        updatedAt: now,
+      })
+      .run();
+  } else {
+    db.update(crmContacts)
+      .set({
+        lastActivityAt: now,
+        updatedAt: now,
+        name: input.name,
+        phone: input.phone ?? existing.phone,
+        contactType: "candidate",
+      })
+      .where(eq(crmContacts.id, contactId))
+      .run();
+  }
+  db.insert(crmActivities)
+    .values({
+      id: crypto.randomUUID(),
+      contactId,
+      activityType: "application",
+      content: input.content,
+      metadata: "{}",
+      createdAt: now,
+    })
+    .run();
+  return contactId;
+}
