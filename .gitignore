@@ -17,6 +17,7 @@ poc/**/dist
 *.local
 .env
 .env.*
+!.env.example
 !env.example
 !dokploy/supabase/.env.example
 
