@@ -3,7 +3,9 @@ FROM node:20-bookworm-slim AS deps
 WORKDIR /app
 RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
-RUN npm ci
+# Prefer install over ci: Node 20 npm reports lockfile peer/optional mismatches
+# (esbuild/@swc/helpers) that block Dokploy builds even after lock regenerations.
+RUN npm install --no-audit --no-fund
 
 FROM deps AS builder
 COPY . .
