@@ -12,10 +12,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next
 poc/**/dist
 *.local
 .env
 .env.*
+!.env.example
 !env.example
 !dokploy/supabase/.env.example
 
@@ -29,3 +31,6 @@ poc/**/dist
 *.njsproj
 *.sln
 *.sw?
+.worktrees/
+.data/
+*.tsbuildinfo

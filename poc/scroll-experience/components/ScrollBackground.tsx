@@ -197,7 +197,7 @@ export function ScrollBackground({ stateRef, mouseRef }: ScrollBackgroundProps) 
   const themeRef = useRef(isLight);
   const visualRef = useRef(getJourneyAct(0).visual);
   const cameraRef = useRef({ x: 0, y: 0 });
-  const coreMotionRef = useRef({ x: CORE_HOME.coreX, y: CORE_HOME.coreY });
+  const coreMotionRef = useRef<{ x: number; y: number }>({ x: CORE_HOME.coreX, y: CORE_HOME.coreY });
   const driftRef = useRef(0);
   const lastProgressRef = useRef(0);
   themeRef.current = isLight;

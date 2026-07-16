@@ -12,6 +12,7 @@ const sourceLabels: Record<ResourceLead["source"], string> = {
   roi_calculator: "ROI calculator",
   insight_newsletter: "Insights",
   contact_form: "Contact form",
+  training_enrollment: "Training enrollment",
 };
 
 export function LeadsManagement() {
@@ -120,7 +121,7 @@ export function LeadsManagement() {
         <Card>
           <CardContent className="p-12 text-center text-muted-foreground">
             {leads.length === 0
-              ? "No leads yet. Ensure the resource_leads table is created in Supabase (see supabase/migrations/001_resource_leads.sql)."
+              ? "No leads yet. Submit a form on the site or run Drizzle migrations if the database is empty."
               : "No leads match your filters."}
           </CardContent>
         </Card>
