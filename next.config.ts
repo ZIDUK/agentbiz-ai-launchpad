@@ -45,7 +45,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/engagement/capability-scale",
-        destination: "/engagement/agentops-factory",
+        destination: "/engagement/ai-native-operating-system",
+        permanent: true,
+      },
+      {
+        source: "/engagement/agentops-factory",
+        destination: "/engagement/ai-native-operating-system",
         permanent: true,
       },
       {

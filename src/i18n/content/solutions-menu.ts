@@ -50,14 +50,15 @@ const solutionsEn: SolutionMenuColumn[] = [
     ],
   },
   {
-    slug: "agentops-factory",
-    title: "AgentOps Factory",
+    slug: "ai-native-operating-system",
+    title: "AI-Native Operating System",
     eyebrow: "Scale",
-    description: "Core infrastructure, patterns, and standards so you can scale beyond the first win.",
-    href: "/engagement/agentops-factory",
+    description:
+      "The operating system for AI-native delivery — patterns and standards so you scale beyond the first win.",
+    href: "/engagement/ai-native-operating-system",
     highlights: [
       "Reusable workflow & agent patterns",
-      "AgentOps standards and runbooks",
+      "Operating standards and runbooks",
       "Internal enablement with your team",
       "Roadmap for the next governed workflows",
     ],
@@ -66,13 +67,14 @@ const solutionsEn: SolutionMenuColumn[] = [
     slug: "function-modernization",
     title: "Function Modernization",
     eyebrow: "Function",
-    description: "Modernize Ops, Finance, or Support with AI-native systems that fit your reality.",
+    description:
+      "Stop buying SaaS. Build custom AI-native systems for your function — it’s modernization, not automation.",
     href: "/engagement/function-modernization",
     highlights: [
-      "Function assessment & redesign",
-      "Production AI-native workflows",
-      "Integrations to systems you already use",
-      "KPI baseline and ownership transfer",
+      "Custom systems — not another SaaS seat",
+      "Diagnose → Build → Iterate (you own it)",
+      "Built on ERP/CRM you already run",
+      "Ops, Finance, Support, and adjacent functions",
     ],
   },
 ];
@@ -109,15 +111,15 @@ const solutionsEs: SolutionMenuColumn[] = [
     ],
   },
   {
-    slug: "agentops-factory",
-    title: "AgentOps Factory",
+    slug: "ai-native-operating-system",
+    title: "AI-Native Operating System",
     eyebrow: "Escala",
     description:
-      "Infraestructura, patrones y estándares para escalar más allá del primer logro.",
-    href: "/engagement/agentops-factory",
+      "El sistema operativo para entrega AI-Native — patrones y estándares para escalar más allá del primer logro.",
+    href: "/engagement/ai-native-operating-system",
     highlights: [
       "Patrones reutilizables de flujos y agentes",
-      "Estándares AgentOps y runbooks",
+      "Estándares operativos y runbooks",
       "Enablement interno con su equipo",
       "Roadmap de los siguientes flujos gobernados",
     ],
@@ -127,13 +129,13 @@ const solutionsEs: SolutionMenuColumn[] = [
     title: "Function Modernization",
     eyebrow: "Función",
     description:
-      "Modernice Ops, Finanzas o Soporte con sistemas AI-Native a medida de su realidad.",
+      "Deje de comprar SaaS. Construya sistemas AI-Native a medida — es modernización, no automatización.",
     href: "/engagement/function-modernization",
     highlights: [
-      "Evaluación y rediseño de la función",
-      "Flujos AI-Native en producción",
-      "Integraciones a sistemas que ya usa",
-      "Línea base de KPIs y transferencia de ownership",
+      "Sistemas a medida — no otro asiento SaaS",
+      "Diagnosticar → Construir → Iterar (usted es dueño)",
+      "Sobre el ERP/CRM que ya opera",
+      "Ops, Finanzas, Soporte y funciones adyacentes",
     ],
   },
 ];

@@ -117,17 +117,17 @@ export const engagementDetailsEs: EngagementDetail[] = [
     ],
   },
   {
-    slug: "agentops-factory",
-    title: "AgentOps Factory",
+    slug: "ai-native-operating-system",
+    title: "AI-Native Operating System",
     eyebrow: "Escala",
     shortDescription:
-      "Transfiera patrones, estándares AgentOps y modelos operativos para que su equipo escale más allá del primer flujo.",
+      "Instale el sistema operativo para entrega AI-Native — patrones, estándares y rituales para que su equipo escale más allá del primer flujo.",
     icon: Layers,
     headline: "Escale operaciones con IA nativa sin otro ejército de contratistas",
     description:
-      "Después del primer logro en producción, el cuello de botella suele ser capacidad — no más headcount. Instalamos patrones reutilizables, estándares de entrega y rituales operativos para que su organización posea la siguiente ola de flujos.",
+      "Después del primer logro en producción, el cuello de botella suele ser capacidad — no más headcount. El AI-Native Operating System instala patrones reutilizables, estándares de entrega y rituales operativos para que su organización posea la siguiente ola de flujos.",
     whatItIs:
-      "AgentOps Factory es la capa operativa que convierte el primer win en producción en un motor enterprise repetible. Unifica priorización, gobernanza, patrones de entrega, estándares de arquitectura y conocimiento institucional para escalar sin reinventar cada ciclo.",
+      "El AI-Native Operating System es la capa que convierte el primer win en producción en un motor enterprise repetible. Unifica priorización, gobernanza, patrones de entrega, estándares de arquitectura y conocimiento institucional para escalar sin reinventar cada ciclo.",
     principle: "La velocidad sube. La calidad se estabiliza. El throughput escala.",
     capabilities: [
       {
@@ -141,7 +141,7 @@ export const engagementDetailsEs: EngagementDetail[] = [
           "Rutas de decisión claras, gates de aprobación y escalamientos que quitan ambigüedad y aceleran ejecución.",
       },
       {
-        title: "Patrones de entrega AgentOps",
+        title: "Patrones de entrega",
         description:
           "Plantillas reutilizables de flujos y agentes que sus equipos (y PODs) operan con ritmo predecible.",
       },
@@ -165,13 +165,13 @@ export const engagementDetailsEs: EngagementDetail[] = [
     ],
     bestFor: [
       "Organizaciones listas para expandirse más allá de un solo flujo",
-      "Equipos internos que necesitan patrones AgentOps y runbooks",
+      "Equipos internos que necesitan patrones compartidos y runbooks",
       "Líderes que quieren ownership y anti lock-in",
-      "Programas que pasan de cultura de piloto a modelo operativo",
+      "Programas que pasan de cultura de piloto a un sistema operativo",
     ],
     deliverables: [
       "Patrones reutilizables de flujos y agentes",
-      "Estándares AgentOps, runbooks y rutas de escalamiento",
+      "Estándares operativos, runbooks y rutas de escalamiento",
       "Enablement interno y pairing con su equipo",
       "Roadmap para los siguientes 2–3 flujos gobernados",
     ],
@@ -204,14 +204,14 @@ export const engagementDetailsEs: EngagementDetail[] = [
     ],
     faqs: [
       {
-        question: "¿Qué es AgentOps Factory?",
+        question: "¿Qué es el AI-Native Operating System?",
         answer:
-          "El sistema operativo para escalar entrega AI-Native: patrones, estándares, gobernanza y enablement para expandirse más allá del primer flujo en producción.",
+          "El sistema para escalar entrega AI-Native: patrones, estándares, gobernanza y enablement para expandirse más allá del primer flujo en producción.",
       },
       {
         question: "¿En qué se diferencia de un PMO?",
         answer:
-          "Un PMO rastrea status. AgentOps Factory es una capa de ejecución y capacidad — acelera decisiones, impone estándares y deja patrones reutilizables.",
+          "Un PMO rastrea status. El AI-Native Operating System es una capa de ejecución y capacidad — acelera decisiones, impone estándares y deja patrones reutilizables.",
       },
       {
         question: "¿Reemplaza a nuestros equipos actuales?",
@@ -225,101 +225,105 @@ export const engagementDetailsEs: EngagementDetail[] = [
     title: "Function Modernization",
     eyebrow: "Función",
     shortDescription:
-      "Modernice una función de negocio — Ops, Finanzas, Soporte — con flujos AI-Native a medida de su realidad.",
+      "Deje de comprar otro SaaS. Construya sistemas AI-Native a medida de su función — y sea dueño de ellos.",
     icon: Wrench,
-    headline: "Modernice funciones de negocio con sistemas AI-Native que encajan en su realidad",
+    headline: "Deje de comprar tools SaaS. Empiece a construir sistemas.",
     description:
-      "Function Modernization reconstruye cómo opera un área de negocio — no pegando un chatbot, sino rediseñando los flujos donde se acumula costo, ciclo y retrabajo. Los Agentiers mapean la función, despliegan sistemas AI-Native gobernados en producción y dejan a su equipo operando una nueva línea base medible.",
+      "Modernice Ops, Finanzas, Soporte u otras funciones con sistemas AI-Native a medida de su realidad — no del roadmap de un vendor. Los Agentiers reconstruyen cómo se hace el trabajo, despliegan sistemas gobernados en producción y dejan capacidad de su propiedad.",
     whatItIs:
-      "Function Modernization no es otro rollout de SaaS. Es reconstruir cómo se hace el trabajo en un departamento — con sistemas AI-Native a medida que automatizan flujos de alta fricción, se apoyan en sus sistemas de registro y quedan bajo su ownership.",
-    principle: "No es automatización pegada. Es modernización que usted posee.",
+      "Function Modernization no es agregar otra tool. Es reconstruir cómo se hace el trabajo. Los Agentiers diagnostican flujos de alta fricción en un departamento y construyen sistemas AI-Native a medida sobre el stack que ya opera — para pasar de humanos parcheando gaps entre SaaS genéricos a sistemas que razonan, ejecutan y quedan bajo su ownership.",
+    principle: "No es automatización. Es modernización.",
     capabilities: [
       {
-        title: "Flujos de Ops y Finanzas",
+        title: "Sistemas de Ops y Finanzas",
         description:
-          "Reconciliación, facturas, excepciones y cash-ops rediseñados para ejecución AI-Native con gates de aprobación humana.",
+          "Sistemas a medida de reconciliación, facturas, excepciones y cash-ops — no otro asiento genérico de SaaS financiero.",
       },
       {
-        title: "Operaciones de soporte y servicio",
+        title: "Sistemas de soporte y servicio",
         description:
-          "Triage, asistencia de resolución y detección proactiva conectadas a su stack de tickets y conocimiento — no un chatbot genérico.",
+          "Triage, asistencia de resolución y detección proactiva para sus colas y conocimiento — no un chatbot pegado.",
       },
       {
-        title: "Pipelines documentales y de compliance",
+        title: "Sistemas documentales y de compliance",
         description:
-          "Intake, clasificación, extracción y ruteo auditable para procesos documentales regulados.",
+          "Intake, clasificación, extracción y ruteo auditable diseñados alrededor de sus filings y controles.",
       },
       {
-        title: "Integración profunda al stack",
+        title: "Construido sobre su stack",
         description:
-          "Construido sobre sistemas que ya opera (ERP, CRM, tools de ops) — modernice sin un rip-and-replace riesgoso.",
+          "ERP, CRM y tools de ops siguen siendo sistemas de registro. Modernizamos la capa de trabajo sin rip-and-replace.",
       },
       {
-        title: "Ownership sin lock-in por asiento",
+        title: "De su propiedad",
         description:
-          "Usted posee flujos, prompts y playbooks. La capacidad escala con su demanda — no con la matemática de seats del vendor.",
+          "Usted posee sistemas, prompts y playbooks. La capacidad escala con la demanda — no con lock-in por asiento.",
       },
     ],
     howInside: [
-      "Diagnosticar primero los flujos de alto valor y alta fricción",
-      "Construir sistemas AI-Native a medida para esos flujos — no tools genéricos",
-      "Iterar con sus operadores como dueños del sistema",
-      "Medir ciclo, costo y calidad contra una nueva línea base",
-      "Expandir a flujos adyacentes cuando la función se estabilice",
+      "No implementamos software de estantería — lo construimos para sus flujos",
+      "Diagnosticar el trabajo de alto valor y alta fricción que frena la función",
+      "Construir sistemas AI-Native a medida que los Agentiers llevan a producción",
+      "Iterar con sus operadores como dueños — sin esperar el roadmap de un vendor",
+      "Expandir a flujos adyacentes cuando la nueva línea base de la función se sostenga",
     ],
     bestFor: [
-      "Funciones de Ops, Finanzas, Soporte o Supply Chain atrapadas en trabajo manual",
-      "Líderes que necesitan bajar costo y ciclo primero en un área",
-      "Organizaciones listas para rediseñar una función alrededor de IA — no esparcir tools",
-      "Sponsors que quieren impacto en producción con ownership total de lo entregado",
+      "Funciones atrapadas parcheando gaps entre tools con trabajo manual",
+      "Líderes cansados de roadmaps de SaaS que no encajan con cómo operan",
+      "Organizaciones listas para poseer sistemas — no alquilar otro asiento para siempre",
+      "Sponsors que quieren impacto en producción primero en una función",
     ],
     deliverables: [
       "Mapa del estado actual y diseño del estado futuro AI-Native de la función",
-      "Flujos en producción con agentes gobernados y supervisión humana",
-      "Integraciones a los sistemas que la función ya usa",
+      "Sistemas a medida en producción con agentes gobernados y supervisión humana",
+      "Integraciones a los sistemas de registro en los que ya confía",
       "Línea base de KPIs y playbooks operativos que su equipo posee",
     ],
     outcomes: [
       "Operaciones más lean en la función objetivo",
       "Ejecución más rápida en flujos de alto volumen",
-      "Menos retrabajo y backlog de excepciones",
-      "Sistemas de su propiedad — no capacidad alquilada",
+      "Deja de alquilar capacidad — empieza a poseerla",
+      "Sistemas que evolucionan con su negocio, no con el backlog de un vendor",
       "Una línea base medible desde la cual expandir",
     ],
     timeline: "8–16 semanas típicas para modernizar una función enfocada",
     engagementSteps: [
       {
-        title: "Evaluar la función",
-        description: "Mapee procesos, handoffs, sistemas y dónde se concentra el costo o la demora.",
+        title: "Diagnosticar",
+        description:
+          "Identifique los flujos de alto valor y alta fricción donde se concentra costo, ciclo y retrabajo — y donde las tools genéricas fallan.",
       },
       {
-        title: "Rediseñar para ops AI-Native",
-        description: "Defina qué ejecuta la IA, qué aprueban los humanos y cómo se mide el valor.",
+        title: "Construir",
+        description:
+          "Los Agentiers construyen sistemas AI-Native a medida para esos flujos y los despliegan en su entorno operativo vivo con gobernanza.",
       },
       {
-        title: "Implementar en producción",
-        description: "Despliegue flujos gobernados en el entorno operativo real.",
+        title: "Iterar",
+        description:
+          "Usted es dueño del sistema. Evoluciona con sus operadores y prioridades — sin esperar el roadmap de producto de otro.",
       },
       {
-        title: "Estabilizar y transferir",
-        description: "Confirme KPIs, entregue runbooks y planifique la expansión a funciones adyacentes.",
+        title: "Estabilizar y expandir",
+        description:
+          "Confirme KPIs, fije runbooks y planifique el siguiente flujo adyacente dentro de la misma función.",
       },
     ],
     faqs: [
       {
         question: "¿Qué es Function Modernization?",
         answer:
-          "Reconstruir cómo opera una función de negocio con flujos AI-Native a medida que automatizan trabajo complejo y decisión — con transferencia total de ownership.",
+          "Reconstruir cómo opera una función de negocio creando sistemas AI-Native a medida para sus flujos de mayor fricción — con ownership total. Es modernización, no otra automatización pegada.",
       },
       {
-        question: "¿Es solo RPA?",
+        question: "¿Es solo RPA o automatización?",
         answer:
-          "No. El RPA parchea pasos legacy. Nosotros rediseñamos el flujo y construimos sistemas inteligentes que razonan, escalan y manejan ambigüedad bajo gobernanza.",
+          "No. El RPA y la automatización de tools parchean pasos legacy. Nosotros reconstruimos el trabajo en sistemas inteligentes que razonan, escalan y manejan ambigüedad bajo gobernanza — sistemas de su propiedad.",
       },
       {
         question: "¿Hay que reemplazar el ERP/CRM?",
         answer:
-          "Por lo general no. A menudo construimos la capa AI-Native sobre sistemas que ya confía, para modernizar sin un rip-and-replace completo.",
+          "Por lo general no. Construimos la capa AI-Native sobre sistemas que ya confía, para modernizar sin un rip-and-replace riesgoso.",
       },
     ],
   },

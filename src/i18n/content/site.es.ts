@@ -222,18 +222,18 @@ export const engagementModelsEs: EngagementModel[] = [
     href: "/engagement/ai-native-pods",
   },
   {
-    slug: "agentops-factory",
-    title: "AgentOps Factory",
+    slug: "ai-native-operating-system",
+    title: "AI-Native Operating System",
     description:
-      "Patrones, estándares AgentOps y enablement para que su equipo posea los siguientes flujos.",
+      "Patrones, estándares y enablement para que su equipo posea los siguientes flujos.",
     icon: Layers,
-    href: "/engagement/agentops-factory",
+    href: "/engagement/ai-native-operating-system",
   },
   {
     slug: "function-modernization",
     title: "Function Modernization",
     description:
-      "Modernice Ops, Finanzas o Soporte con flujos AI-Native a medida de su realidad.",
+      "Deje de comprar SaaS. Construya sistemas AI-Native a medida — modernización, no automatización.",
     icon: Wrench,
     href: "/engagement/function-modernization",
   },
@@ -326,10 +326,10 @@ export const coreCapabilitiesEs: CoreCapability[] = [
     slug: "engagement-models",
     title: "Paquetes de transformación",
     shortDescription:
-      "Paquetes orientados a outcomes — AI-Native PODs, AgentOps Factory y Function Modernization — alineados a transformación operativa enterprise.",
+      "Paquetes orientados a outcomes — AI-Native PODs, AI-Native Operating System y Function Modernization — alineados a transformación operativa enterprise.",
     outcomes: [
       "AI-Native PODs",
-      "AgentOps Factory",
+      "AI-Native Operating System",
       "Function Modernization",
       "Handoff gobernado y ownership",
     ],

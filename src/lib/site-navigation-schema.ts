@@ -30,7 +30,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Transformation Packages",
       description:
-        "AI-Native PODs, AgentOps Factory, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
+        "AI-Native PODs, AI-Native Operating System, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
       path: "/engagement",
     },
     {
@@ -74,7 +74,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Paquetes de transformación",
       description:
-        "AI-Native PODs, AgentOps Factory y Function Modernization — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
+        "AI-Native PODs, AI-Native Operating System y Function Modernization — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
       path: "/engagement",
     },
     {

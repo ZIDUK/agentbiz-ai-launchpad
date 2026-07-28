@@ -51,7 +51,7 @@ export const messages = {
     engagement: {
       title: "Transformation Packages | AgentBiz",
       description:
-        "AI-Native PODs, AgentOps Factory, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
+        "AI-Native PODs, AI-Native Operating System, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
     },
     insights: {
       title: "Insights | AgentBiz",

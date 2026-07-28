@@ -149,17 +149,17 @@ export const engagementDetails: EngagementDetail[] = [
     ],
   },
   {
-    slug: "agentops-factory",
-    title: "AgentOps Factory",
+    slug: "ai-native-operating-system",
+    title: "AI-Native Operating System",
     eyebrow: "Scale",
     shortDescription:
-      "Transfer patterns, AgentOps standards, and operating models so your team can expand beyond the first workflow.",
+      "Install the operating system for AI-native delivery — patterns, standards, and rituals so your team scales beyond the first workflow.",
     icon: Layers,
     headline: "Scale AI-native operations without another army of contractors",
     description:
-      "After the first production win, the bottleneck is usually capability — not more headcount. We install reusable patterns, delivery standards, and operating rituals so your organization owns the next wave of workflows.",
+      "After the first production win, the bottleneck is usually capability — not more headcount. The AI-Native Operating System installs reusable patterns, delivery standards, and operating rituals so your organization owns the next wave of workflows.",
     whatItIs:
-      "AgentOps Factory is the operating layer that turns a first production win into a repeatable enterprise engine. It unifies prioritization, governance, delivery patterns, architecture standards, and institutional knowledge so multiple workflows can scale without reinventing every cycle.",
+      "The AI-Native Operating System is the layer that turns a first production win into a repeatable enterprise engine. It unifies prioritization, governance, delivery patterns, architecture standards, and institutional knowledge so multiple workflows can scale without reinventing every cycle.",
     principle: "Speed increases. Quality stabilizes. Throughput scales.",
     capabilities: [
       {
@@ -173,7 +173,7 @@ export const engagementDetails: EngagementDetail[] = [
           "Clear decision pathways, approval gates, and escalation paths that remove ambiguity and accelerate execution.",
       },
       {
-        title: "AgentOps delivery patterns",
+        title: "Delivery patterns",
         description:
           "Reusable workflow and agent templates your teams (and PODs) run at a predictable rhythm.",
       },
@@ -197,13 +197,13 @@ export const engagementDetails: EngagementDetail[] = [
     ],
     bestFor: [
       "Organizations ready to expand past a single workflow",
-      "Internal teams that need AgentOps patterns and runbooks",
+      "Internal teams that need shared patterns and runbooks",
       "Leaders who want ownership and anti-lock-in",
-      "Programs moving from pilot culture to operating model",
+      "Programs moving from pilot culture to an operating system",
     ],
     deliverables: [
       "Reusable workflow and agent patterns",
-      "AgentOps standards, runbooks, and escalation paths",
+      "Operating standards, runbooks, and escalation paths",
       "Internal enablement and pairing with your team",
       "Roadmap for the next 2–3 governed workflows",
     ],
@@ -236,14 +236,14 @@ export const engagementDetails: EngagementDetail[] = [
     ],
     faqs: [
       {
-        question: "What is AgentOps Factory?",
+        question: "What is the AI-Native Operating System?",
         answer:
-          "The operating system for scaling AI-native delivery: patterns, standards, governance, and enablement so your org can expand beyond the first production workflow.",
+          "The system for scaling AI-native delivery: patterns, standards, governance, and enablement so your org can expand beyond the first production workflow.",
       },
       {
         question: "How is this different from a PMO?",
         answer:
-          "A PMO tracks status. AgentOps Factory is an execution and capability layer — it accelerates decisions, enforces standards, and leaves reusable patterns your teams run.",
+          "A PMO tracks status. The AI-Native Operating System is an execution and capability layer — it accelerates decisions, enforces standards, and leaves reusable patterns your teams run.",
       },
       {
         question: "Does this replace our current teams?",
@@ -257,101 +257,105 @@ export const engagementDetails: EngagementDetail[] = [
     title: "Function Modernization",
     eyebrow: "Function",
     shortDescription:
-      "Modernize a business function — Ops, Finance, Support — with custom AI-native workflows that fit your reality.",
+      "Stop buying another SaaS. Build custom AI-native systems that fit your function — and own them.",
     icon: Wrench,
-    headline: "Modernize business functions with AI-native systems that fit your reality",
+    headline: "Stop buying SaaS tools. Start building systems.",
     description:
-      "Function Modernization rebuilds how a business area runs — not by bolting on a chatbot, but by redesigning the workflows where cost, cycle time, and rework accumulate. Agentiers map the function, deploy governed AI-native systems into production, and leave your team operating a measurable new baseline.",
+      "Modernize Ops, Finance, Support, or adjacent functions with custom AI-native systems that fit your reality — not someone else’s product roadmap. Agentiers rebuild how the work gets done, ship governed systems into production, and leave capability you own.",
     whatItIs:
-      "Function Modernization is not another SaaS rollout. It is rebuilding how work gets done in a department — with custom AI-native systems that automate high-friction workflows, sit on your systems of record, and stay owned by you.",
-    principle: "It’s not automation bolted on. It’s modernization you own.",
+      "Function Modernization isn’t adding another tool. It’s rebuilding how work gets done. Agentiers diagnose high-friction workflows inside a department and build custom AI-native systems on top of the stack you already run — so you move from humans bridging gaps between generic SaaS to systems that reason, execute, and stay under your ownership.",
+    principle: "It’s not automation. It’s modernization.",
     capabilities: [
       {
-        title: "Ops & Finance workflows",
+        title: "Ops & Finance systems",
         description:
-          "Reconciliation, invoice processing, exception handling, and cash-ops flows redesigned for AI-native execution with human approval gates.",
+          "Custom reconciliation, invoice, exception, and cash-ops systems — not another generic finance SaaS seat.",
       },
       {
-        title: "Support & service operations",
+        title: "Support & service systems",
         description:
-          "Triage, resolution assist, and proactive detection wired into your ticketing and knowledge stack — not a generic chatbot.",
+          "Triage, resolution assist, and proactive detection built for your queues and knowledge — not a bolted-on chatbot.",
       },
       {
-        title: "Document & compliance pipelines",
+        title: "Document & compliance systems",
         description:
-          "Intake, classification, extraction, and audit-ready routing for regulated document-heavy processes.",
+          "Intake, classification, extraction, and audit-ready routing designed around your filings and controls.",
       },
       {
-        title: "Deep stack integration",
+        title: "Built on your stack",
         description:
-          "Built on systems you already run (ERP, CRM, core ops tools) — modernize without a risky rip-and-replace.",
+          "ERP, CRM, and ops tools stay systems of record. We modernize the work layer without a rip-and-replace.",
       },
       {
-        title: "Ownership without per-seat lock-in",
+        title: "Owned by you",
         description:
-          "You own the workflows, prompts, and playbooks. Capability scales with your demand — not vendor seat math.",
+          "You own the systems, prompts, and playbooks. Capability scales with demand — not per-seat vendor lock-in.",
       },
     ],
     howInside: [
-      "Diagnose high-value, high-friction workflows first",
-      "Build custom AI-native systems for those workflows — not generic tools",
-      "Iterate with your operators as owners of the system",
-      "Measure cycle time, cost, and quality against a new baseline",
-      "Expand to adjacent workflows once the function stabilizes",
+      "We don’t implement off-the-shelf software — we build it for your workflows",
+      "Diagnose the high-value, high-friction work slowing the function down",
+      "Build custom AI-native systems Agentiers ship into production",
+      "Iterate with your operators as owners — no waiting on a vendor roadmap",
+      "Expand to adjacent workflows once the function’s new baseline holds",
     ],
     bestFor: [
-      "Ops, Finance, Support, or Supply Chain functions stuck in manual work",
-      "Leaders who need cost and cycle-time reduction in one area first",
-      "Organizations ready to redesign a function around AI — not sprinkle tools",
-      "Sponsors who want production impact with full ownership of what ships",
+      "Functions stuck bridging gaps between tools with manual work",
+      "Leaders tired of SaaS roadmaps that don’t match how you actually operate",
+      "Organizations ready to own systems — not rent another seat forever",
+      "Sponsors who want production impact in one function first",
     ],
     deliverables: [
       "Current-state map and AI-native future-state design for the function",
-      "Production workflows with governed agents and human oversight",
-      "Integrations to the systems the function already uses",
+      "Custom production systems with governed agents and human oversight",
+      "Integrations to the systems of record you already trust",
       "KPI baseline and operating playbooks your team owns",
     ],
     outcomes: [
       "Leaner operations in the target function",
       "Faster execution on high-volume workflows",
-      "Lower rework and exception backlog",
-      "Systems owned by you — not rented capability",
+      "You stop renting capability — you start owning it",
+      "Systems that evolve with your business, not a vendor backlog",
       "A measurable baseline to expand from",
     ],
     timeline: "8–16 weeks typical for a focused function modernization",
     engagementSteps: [
       {
-        title: "Assess the function",
-        description: "Map processes, handoffs, systems, and where cost or delay concentrates.",
+        title: "Diagnose",
+        description:
+          "Identify the high-value, high-friction workflows where cost, cycle time, and rework concentrate — and where generic tools fail you.",
       },
       {
-        title: "Redesign for AI-native ops",
-        description: "Define what AI executes, what humans approve, and how value is measured.",
+        title: "Build",
+        description:
+          "Agentiers build custom AI-native systems for those workflows and ship them into your live operating environment with governance.",
       },
       {
-        title: "Implement in production",
-        description: "Ship governed workflows into the live operating environment.",
+        title: "Iterate",
+        description:
+          "You own the system. It evolves with your operators and priorities — without waiting for someone else’s product roadmap.",
       },
       {
-        title: "Stabilize & transfer",
-        description: "Confirm KPIs, hand off runbooks, and plan adjacent function expansion.",
+        title: "Stabilize & expand",
+        description:
+          "Confirm KPIs, lock runbooks, and plan the next adjacent workflow inside the same function.",
       },
     ],
     faqs: [
       {
         question: "What is Function Modernization?",
         answer:
-          "Rebuilding how a core business function runs using custom AI-native workflows that automate complex work and decisioning — with full ownership transfer.",
+          "Rebuilding how a core business function runs by creating custom AI-native systems for its highest-friction workflows — with full ownership. It’s modernization, not another automation bolt-on.",
       },
       {
-        question: "Is this just RPA?",
+        question: "Is this just RPA or automation?",
         answer:
-          "No. RPA patches legacy steps. We redesign the workflow and build intelligent systems that can reason, escalate, and handle ambiguity under governance.",
+          "No. RPA and tool automation patch legacy steps. We rebuild the work itself into intelligent systems that can reason, escalate, and handle ambiguity under governance — systems you own.",
       },
       {
         question: "Do we need to replace our ERP/CRM?",
         answer:
-          "Usually not. We often build the AI-native layer on top of systems you already trust, so you modernize operations without a full rip-and-replace.",
+          "Usually not. We build the AI-native layer on systems you already trust, so you modernize operations without a risky rip-and-replace.",
       },
     ],
   },
