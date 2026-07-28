@@ -20,12 +20,18 @@ function subscribeToUrl(cb: () => void) {
   return () => window.removeEventListener("popstate", cb);
 }
 
-function getClientSearchParams() {
-  return new URLSearchParams(window.location.search);
+/** Stable string snapshots — URLSearchParams objects break useSyncExternalStore caching. */
+function getClientSearch() {
+  return window.location.search;
 }
 
-function getServerSearchParams() {
-  return new URLSearchParams();
+function getServerSearch() {
+  return "";
+}
+
+function parseSearch(search: string): URLSearchParams {
+  const query = search.startsWith("?") ? search.slice(1) : search;
+  return new URLSearchParams(query);
 }
 
 type NavigateOptions = { replace?: boolean; state?: unknown };
@@ -86,12 +92,7 @@ export function useParams<T extends Record<string, string | undefined> = Record<
 
 export function useLocation() {
   const pathname = usePathname() ?? "/";
-  const searchParams = useSyncExternalStore(
-    subscribeToUrl,
-    getClientSearchParams,
-    getServerSearchParams,
-  );
-  const search = searchParams.toString() ? `?${searchParams.toString()}` : "";
+  const search = useSyncExternalStore(subscribeToUrl, getClientSearch, getServerSearch);
 
   return useMemo(
     () => ({
@@ -108,11 +109,8 @@ export function useLocation() {
 export function useSearchParams(): [URLSearchParams, (next: URLSearchParams | ((prev: URLSearchParams) => URLSearchParams)) => void] {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
-  const params = useSyncExternalStore(
-    subscribeToUrl,
-    getClientSearchParams,
-    getServerSearchParams,
-  );
+  const search = useSyncExternalStore(subscribeToUrl, getClientSearch, getServerSearch);
+  const params = useMemo(() => parseSearch(search), [search]);
 
   const setSearchParams = useCallback(
     (next: URLSearchParams | ((prev: URLSearchParams) => URLSearchParams)) => {
