@@ -221,109 +221,110 @@ export const engagementDetailsEs: EngagementDetail[] = [
     ],
   },
   {
-    slug: "function-modernization",
-    title: "Function Modernization",
-    eyebrow: "Función",
+    slug: "ai-native-stack-upgrade",
+    title: "AI-Native Stack Upgrade",
+    eyebrow: "Stack",
     shortDescription:
-      "Deje de comprar otro SaaS. Construya sistemas AI-Native a medida de su función — y sea dueño de ellos.",
+      "Reemplace tools alquiladas por un stack AI-Native de su propiedad — actualice cómo operan Ops, Finanzas y Soporte.",
     icon: Wrench,
-    headline: "Deje de comprar tools SaaS. Empiece a construir sistemas.",
+    headline: "Reemplace tools alquiladas por un stack AI-Native de su propiedad.",
     description:
-      "Modernice Ops, Finanzas, Soporte u otras funciones con sistemas AI-Native a medida de su realidad — no del roadmap de un vendor. Los Agentiers reconstruyen cómo se hace el trabajo, despliegan sistemas gobernados en producción y dejan capacidad de su propiedad.",
+      "Actualice los sistemas y tools con los que corre su función. Los Agentiers diagnostican dónde el SaaS alquilado y los workarounds manuales lo frenan, y construyen un stack AI-Native gobernado sobre sistemas en los que ya confía — para actualizar cómo trabaja la función y conservar la IP.",
     whatItIs:
-      "Function Modernization no es agregar otra tool. Es reconstruir cómo se hace el trabajo. Los Agentiers diagnostican flujos de alta fricción en un departamento y construyen sistemas AI-Native a medida sobre el stack que ya opera — para pasar de humanos parcheando gaps entre SaaS genéricos a sistemas que razonan, ejecutan y quedan bajo su ownership.",
-    principle: "No es automatización. Es modernización.",
+      "AI-Native Stack Upgrade es cómo refresca los sistemas y tools de una función sin comprar otro asiento SaaS genérico. Los Agentiers reconstruyen flujos de alta fricción en un stack AI-Native propio — sobre su ERP/CRM — para que los operadores dejen de parchear gaps entre tools alquiladas y pasen a operar sistemas hechos a cómo trabajan.",
+    principle: "Actualice el stack. Conserve la IP.",
     capabilities: [
       {
-        title: "Sistemas de Ops y Finanzas",
+        title: "Stack de Ops y Finanzas",
         description:
-          "Sistemas a medida de reconciliación, facturas, excepciones y cash-ops — no otro asiento genérico de SaaS financiero.",
+          "Reemplace toolchains frágiles de finance/ops por sistemas propios de reconciliación, facturas, excepciones y cash-ops.",
       },
       {
-        title: "Sistemas de soporte y servicio",
+        title: "Stack de soporte y servicio",
         description:
-          "Triage, asistencia de resolución y detección proactiva para sus colas y conocimiento — no un chatbot pegado.",
+          "Actualice triage, asistencia de resolución y detección para sus colas — no otra licencia de chatbot pegado.",
       },
       {
-        title: "Sistemas documentales y de compliance",
+        title: "Stack documental y de compliance",
         description:
-          "Intake, clasificación, extracción y ruteo auditable diseñados alrededor de sus filings y controles.",
+          "Refresque intake, clasificación, extracción y ruteo auditable alrededor de sus filings y controles reales.",
       },
       {
-        title: "Construido sobre su stack",
+        title: "Sobre sus sistemas de registro",
         description:
-          "ERP, CRM y tools de ops siguen siendo sistemas de registro. Modernizamos la capa de trabajo sin rip-and-replace.",
+          "ERP, CRM y tools core se quedan. Actualizamos la capa de trabajo — sin rip-and-replace de toda la plataforma.",
       },
       {
-        title: "De su propiedad",
+        title: "Propio, no alquilado",
         description:
-          "Usted posee sistemas, prompts y playbooks. La capacidad escala con la demanda — no con lock-in por asiento.",
+          "Usted posee el stack, prompts y playbooks. La capacidad escala con la demanda — no con lock-in por asiento.",
       },
     ],
     howInside: [
-      "No implementamos software de estantería — lo construimos para sus flujos",
-      "Diagnosticar el trabajo de alto valor y alta fricción que frena la función",
-      "Construir sistemas AI-Native a medida que los Agentiers llevan a producción",
-      "Iterar con sus operadores como dueños — sin esperar el roadmap de un vendor",
-      "Expandir a flujos adyacentes cuando la nueva línea base de la función se sostenga",
+      "Mapear las tools alquiladas y puentes manuales que frenan la función",
+      "Diseñar el stack AI-Native que reemplaza esos gaps — de su propiedad",
+      "Los Agentiers construyen y despliegan a producción con gobernanza",
+      "Sus operadores corren e iteran el stack sin roadmap de un vendor",
+      "Expandir a flujos adyacentes cuando la línea base actualizada se sostenga",
     ],
     bestFor: [
-      "Funciones atrapadas parcheando gaps entre tools con trabajo manual",
-      "Líderes cansados de roadmaps de SaaS que no encajan con cómo operan",
-      "Organizaciones listas para poseer sistemas — no alquilar otro asiento para siempre",
-      "Sponsors que quieren impacto en producción primero en una función",
+      "Funciones atrapadas en tools alquiladas que no encajan con cómo operan",
+      "Líderes listos para actualizar sistemas y tools — no agregar otra capa de automatización",
+      "Organizaciones que quieren poseer el stack, no alquilar asientos para siempre",
+      "Sponsors que quieren un upgrade en producción primero en una función",
     ],
     deliverables: [
-      "Mapa del estado actual y diseño del estado futuro AI-Native de la función",
+      "Assessment del stack: tools alquiladas, gaps y objetivos de upgrade",
+      "Diseño del estado futuro AI-Native de los sistemas de la función",
       "Sistemas a medida en producción con agentes gobernados y supervisión humana",
-      "Integraciones a los sistemas de registro en los que ya confía",
+      "Integraciones a sistemas de registro en los que ya confía",
       "Línea base de KPIs y playbooks operativos que su equipo posee",
     ],
     outcomes: [
-      "Operaciones más lean en la función objetivo",
+      "Un stack actualizado con el que la función realmente opera",
+      "Menos tools alquiladas y workarounds manuales",
       "Ejecución más rápida en flujos de alto volumen",
-      "Deja de alquilar capacidad — empieza a poseerla",
-      "Sistemas que evolucionan con su negocio, no con el backlog de un vendor",
+      "Usted posee los sistemas — evolucionan con su negocio",
       "Una línea base medible desde la cual expandir",
     ],
-    timeline: "8–16 semanas típicas para modernizar una función enfocada",
+    timeline: "8–16 semanas típicas para un stack upgrade enfocado",
     engagementSteps: [
       {
-        title: "Diagnosticar",
+        title: "Evaluar el stack",
         description:
-          "Identifique los flujos de alto valor y alta fricción donde se concentra costo, ciclo y retrabajo — y donde las tools genéricas fallan.",
+          "Inventarie tools alquiladas, puentes manuales y dónde se concentra costo, ciclo y retrabajo.",
       },
       {
-        title: "Construir",
+        title: "Diseñar el upgrade",
         description:
-          "Los Agentiers construyen sistemas AI-Native a medida para esos flujos y los despliegan en su entorno operativo vivo con gobernanza.",
+          "Defina el stack AI-Native: qué sistemas reemplazan qué tools, qué ejecuta la IA, qué aprueban los humanos.",
       },
       {
-        title: "Iterar",
+        title: "Construir y salir a vivo",
         description:
-          "Usted es dueño del sistema. Evoluciona con sus operadores y prioridades — sin esperar el roadmap de producto de otro.",
+          "Los Agentiers construyen el stack propio y lo despliegan en su entorno operativo vivo con gobernanza.",
       },
       {
-        title: "Estabilizar y expandir",
+        title: "Operar y expandir",
         description:
-          "Confirme KPIs, fije runbooks y planifique el siguiente flujo adyacente dentro de la misma función.",
+          "Confirme KPIs, fije runbooks y planifique el siguiente upgrade adyacente dentro de la misma función.",
       },
     ],
     faqs: [
       {
-        question: "¿Qué es Function Modernization?",
+        question: "¿Qué es un AI-Native Stack Upgrade?",
         answer:
-          "Reconstruir cómo opera una función de negocio creando sistemas AI-Native a medida para sus flujos de mayor fricción — con ownership total. Es modernización, no otra automatización pegada.",
+          "Un paquete para actualizar los sistemas y tools con los que corre una función de negocio — reemplazando tooling genérico alquilado por un stack AI-Native propio que encaja con cómo trabajan.",
       },
       {
-        question: "¿Es solo RPA o automatización?",
+        question: "¿Es solo automatización encima de nuestras tools actuales?",
         answer:
-          "No. El RPA y la automatización de tools parchean pasos legacy. Nosotros reconstruimos el trabajo en sistemas inteligentes que razonan, escalan y manejan ambigüedad bajo gobernanza — sistemas de su propiedad.",
+          "No. La automatización se pega a lo que ya alquila. Un stack upgrade reconstruye el trabajo en sistemas de su propiedad — con gobernanza — para que la función opere distinto, no solo más rápido en los mismos pasos rotos.",
       },
       {
         question: "¿Hay que reemplazar el ERP/CRM?",
         answer:
-          "Por lo general no. Construimos la capa AI-Native sobre sistemas que ya confía, para modernizar sin un rip-and-replace riesgoso.",
+          "Por lo general no. Actualizamos el stack de trabajo sobre sistemas de registro en los que ya confía, sin un rip-and-replace completo de plataforma.",
       },
     ],
   },

@@ -253,109 +253,110 @@ export const engagementDetails: EngagementDetail[] = [
     ],
   },
   {
-    slug: "function-modernization",
-    title: "Function Modernization",
-    eyebrow: "Function",
+    slug: "ai-native-stack-upgrade",
+    title: "AI-Native Stack Upgrade",
+    eyebrow: "Stack",
     shortDescription:
-      "Stop buying another SaaS. Build custom AI-native systems that fit your function — and own them.",
+      "Replace rented tools with an AI-native stack you own — upgrade how Ops, Finance, and Support actually run.",
     icon: Wrench,
-    headline: "Stop buying SaaS tools. Start building systems.",
+    headline: "Replace rented tools with an AI-native stack you own.",
     description:
-      "Modernize Ops, Finance, Support, or adjacent functions with custom AI-native systems that fit your reality — not someone else’s product roadmap. Agentiers rebuild how the work gets done, ship governed systems into production, and leave capability you own.",
+      "Upgrade the systems and tools your function runs on. Agentiers diagnose where rented SaaS and manual workarounds slow you down, then build a governed AI-native stack on top of systems you already trust — so you update how the function works and keep the IP.",
     whatItIs:
-      "Function Modernization isn’t adding another tool. It’s rebuilding how work gets done. Agentiers diagnose high-friction workflows inside a department and build custom AI-native systems on top of the stack you already run — so you move from humans bridging gaps between generic SaaS to systems that reason, execute, and stay under your ownership.",
-    principle: "It’s not automation. It’s modernization.",
+      "AI-Native Stack Upgrade is how you refresh a business function’s systems and tools without buying another generic SaaS seat. Agentiers rebuild high-friction workflows into an owned AI-native stack — sitting on your ERP/CRM — so operators stop bridging gaps between rented tools and start running systems built for how you work.",
+    principle: "Upgrade the stack. Keep the IP.",
     capabilities: [
       {
-        title: "Ops & Finance systems",
+        title: "Ops & Finance stack",
         description:
-          "Custom reconciliation, invoice, exception, and cash-ops systems — not another generic finance SaaS seat.",
+          "Replace brittle finance/ops toolchains with owned reconciliation, invoice, exception, and cash-ops systems.",
       },
       {
-        title: "Support & service systems",
+        title: "Support & service stack",
         description:
-          "Triage, resolution assist, and proactive detection built for your queues and knowledge — not a bolted-on chatbot.",
+          "Upgrade triage, resolution assist, and detection for your queues — not another bolted-on chatbot license.",
       },
       {
-        title: "Document & compliance systems",
+        title: "Document & compliance stack",
         description:
-          "Intake, classification, extraction, and audit-ready routing designed around your filings and controls.",
+          "Refresh intake, classification, extraction, and audit-ready routing around your real filings and controls.",
       },
       {
-        title: "Built on your stack",
+        title: "On your systems of record",
         description:
-          "ERP, CRM, and ops tools stay systems of record. We modernize the work layer without a rip-and-replace.",
+          "ERP, CRM, and core ops tools stay. We upgrade the work layer — no risky rip-and-replace of the whole platform.",
       },
       {
-        title: "Owned by you",
+        title: "Owned, not rented",
         description:
-          "You own the systems, prompts, and playbooks. Capability scales with demand — not per-seat vendor lock-in.",
+          "You own the stack, prompts, and playbooks. Capability scales with demand — not per-seat vendor lock-in.",
       },
     ],
     howInside: [
-      "We don’t implement off-the-shelf software — we build it for your workflows",
-      "Diagnose the high-value, high-friction work slowing the function down",
-      "Build custom AI-native systems Agentiers ship into production",
-      "Iterate with your operators as owners — no waiting on a vendor roadmap",
-      "Expand to adjacent workflows once the function’s new baseline holds",
+      "Map the rented tools and manual bridges slowing the function down",
+      "Design the AI-native stack that replaces those gaps — owned by you",
+      "Agentiers build and ship into production with governance",
+      "Your operators run and iterate the stack without a vendor roadmap",
+      "Expand to adjacent workflows once the upgraded baseline holds",
     ],
     bestFor: [
-      "Functions stuck bridging gaps between tools with manual work",
-      "Leaders tired of SaaS roadmaps that don’t match how you actually operate",
-      "Organizations ready to own systems — not rent another seat forever",
-      "Sponsors who want production impact in one function first",
+      "Functions stuck on rented tools that don’t match how you operate",
+      "Leaders ready to upgrade systems and tools — not add another automation layer",
+      "Organizations that want to own the stack, not rent seats forever",
+      "Sponsors who want a production upgrade in one function first",
     ],
     deliverables: [
-      "Current-state map and AI-native future-state design for the function",
+      "Stack assessment: rented tools, gaps, and upgrade targets",
+      "AI-native future-state design for the function’s systems",
       "Custom production systems with governed agents and human oversight",
-      "Integrations to the systems of record you already trust",
+      "Integrations to systems of record you already trust",
       "KPI baseline and operating playbooks your team owns",
     ],
     outcomes: [
-      "Leaner operations in the target function",
+      "An upgraded stack the function actually runs on",
+      "Fewer rented tools and manual workarounds",
       "Faster execution on high-volume workflows",
-      "You stop renting capability — you start owning it",
-      "Systems that evolve with your business, not a vendor backlog",
+      "You own the systems — they evolve with your business",
       "A measurable baseline to expand from",
     ],
-    timeline: "8–16 weeks typical for a focused function modernization",
+    timeline: "8–16 weeks typical for a focused stack upgrade",
     engagementSteps: [
       {
-        title: "Diagnose",
+        title: "Assess the stack",
         description:
-          "Identify the high-value, high-friction workflows where cost, cycle time, and rework concentrate — and where generic tools fail you.",
+          "Inventory rented tools, manual bridges, and where cost, cycle time, and rework concentrate.",
       },
       {
-        title: "Build",
+        title: "Design the upgrade",
         description:
-          "Agentiers build custom AI-native systems for those workflows and ship them into your live operating environment with governance.",
+          "Define the AI-native stack: what systems replace which tools, what AI executes, what humans approve.",
       },
       {
-        title: "Iterate",
+        title: "Build & go live",
         description:
-          "You own the system. It evolves with your operators and priorities — without waiting for someone else’s product roadmap.",
+          "Agentiers build the owned stack and ship it into your live operating environment with governance.",
       },
       {
-        title: "Stabilize & expand",
+        title: "Operate & expand",
         description:
-          "Confirm KPIs, lock runbooks, and plan the next adjacent workflow inside the same function.",
+          "Confirm KPIs, lock runbooks, and plan the next adjacent upgrade inside the same function.",
       },
     ],
     faqs: [
       {
-        question: "What is Function Modernization?",
+        question: "What is an AI-Native Stack Upgrade?",
         answer:
-          "Rebuilding how a core business function runs by creating custom AI-native systems for its highest-friction workflows — with full ownership. It’s modernization, not another automation bolt-on.",
+          "A package to upgrade the systems and tools a business function runs on — replacing rented, generic tooling with an owned AI-native stack that fits how you work.",
       },
       {
-        question: "Is this just RPA or automation?",
+        question: "Is this just automation on top of our current tools?",
         answer:
-          "No. RPA and tool automation patch legacy steps. We rebuild the work itself into intelligent systems that can reason, escalate, and handle ambiguity under governance — systems you own.",
+          "No. Automation bolts onto what you already rent. A stack upgrade rebuilds the work into systems you own — with governance — so the function runs differently, not just faster at the same broken steps.",
       },
       {
         question: "Do we need to replace our ERP/CRM?",
         answer:
-          "Usually not. We build the AI-native layer on systems you already trust, so you modernize operations without a risky rip-and-replace.",
+          "Usually not. We upgrade the work stack on systems of record you already trust, without a full platform rip-and-replace.",
       },
     ],
   },

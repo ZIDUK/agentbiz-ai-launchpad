@@ -55,7 +55,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/engagement/managed-ops",
-        destination: "/engagement/function-modernization",
+        destination: "/engagement/ai-native-stack-upgrade",
+        permanent: true,
+      },
+      {
+        source: "/engagement/function-modernization",
+        destination: "/engagement/ai-native-stack-upgrade",
         permanent: true,
       },
       {
@@ -75,7 +80,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/engagement/software-maintenance",
-        destination: "/engagement/function-modernization",
+        destination: "/engagement/ai-native-stack-upgrade",
         permanent: true,
       },
       {
@@ -90,7 +95,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/engagement/managed-services",
-        destination: "/engagement/function-modernization",
+        destination: "/engagement/ai-native-stack-upgrade",
         permanent: true,
       },
     ];

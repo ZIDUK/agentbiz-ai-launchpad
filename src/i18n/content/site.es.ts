@@ -230,12 +230,12 @@ export const engagementModelsEs: EngagementModel[] = [
     href: "/engagement/ai-native-operating-system",
   },
   {
-    slug: "function-modernization",
-    title: "Function Modernization",
+    slug: "ai-native-stack-upgrade",
+    title: "AI-Native Stack Upgrade",
     description:
-      "Deje de comprar SaaS. Construya sistemas AI-Native a medida — modernización, no automatización.",
+      "Reemplace tools alquiladas por un stack AI-Native de su propiedad — actualice sistemas y tools de la función.",
     icon: Wrench,
-    href: "/engagement/function-modernization",
+    href: "/engagement/ai-native-stack-upgrade",
   },
 ];
 
@@ -326,11 +326,11 @@ export const coreCapabilitiesEs: CoreCapability[] = [
     slug: "engagement-models",
     title: "Paquetes de transformación",
     shortDescription:
-      "Paquetes orientados a outcomes — AI-Native PODs, AI-Native Operating System y Function Modernization — alineados a transformación operativa enterprise.",
+      "Paquetes orientados a outcomes — AI-Native PODs, AI-Native Operating System y AI-Native Stack Upgrade — alineados a transformación operativa enterprise.",
     outcomes: [
       "AI-Native PODs",
       "AI-Native Operating System",
-      "Function Modernization",
+      "AI-Native Stack Upgrade",
       "Handoff gobernado y ownership",
     ],
     icon: Users,

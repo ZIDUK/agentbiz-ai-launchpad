@@ -29,7 +29,7 @@ const faqEn: FaqItem[] = [
   {
     question: "How do you price enterprise AI work?",
     answer:
-      "Pricing is package-based — AI-Native PODs, AI-Native Operating System, or Function Modernization. We scope against defined outcomes and timeline, not open-ended experimentation or staff hours.",
+      "Pricing is package-based — AI-Native PODs, AI-Native Operating System, or AI-Native Stack Upgrade. We scope against defined outcomes and timeline, not open-ended experimentation or staff hours.",
   },
   {
     question: "Do we own the code and IP?",
@@ -62,7 +62,7 @@ const faqEs: FaqItem[] = [
   {
     question: "¿Cómo precian el trabajo de IA enterprise?",
     answer:
-      "El precio es por paquete — AI-Native PODs, AI-Native Operating System o Function Modernization. Cotizamos contra resultados y cronograma definidos, no experimentación abierta ni horas de staff.",
+      "El precio es por paquete — AI-Native PODs, AI-Native Operating System o AI-Native Stack Upgrade. Cotizamos contra resultados y cronograma definidos, no experimentación abierta ni horas de staff.",
   },
   {
     question: "¿Poseemos el código y la IP?",
