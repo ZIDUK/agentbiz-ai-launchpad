@@ -17,6 +17,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV DATABASE_PATH=/data/agentbiz.sqlite
 ENV CV_DIR=/data/cvs
+# Swarm sets HOSTNAME to the container id; Next standalone binds to HOSTNAME, so
+# force 0.0.0.0 or healthchecks against 127.0.0.1 and Traefik routing fail.
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 RUN mkdir -p /data/cvs
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
@@ -24,4 +28,5 @@ COPY --from=builder /app/.next/static ./.next/static
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:3000/api/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
-CMD ["node", "server.js"]
+# Re-assert bind address at runtime (Docker may overwrite HOSTNAME from the container name).
+CMD ["sh", "-c", "HOSTNAME=0.0.0.0 exec node server.js"]
