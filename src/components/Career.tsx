@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { MapPin, Clock, DollarSign, Users, Briefcase } from "lucide-react";
+import { ArrowRight, Briefcase, Clock, DollarSign, MapPin, Users } from "lucide-react";
 import ApplicationForm from "./ApplicationForm";
 import { useTranslation } from "@/i18n/useTranslation";
 import { useJobPositions } from "@/i18n/hooks";
@@ -26,15 +24,15 @@ const Career = () => {
 
   return (
     <section id="career" className="section pt-8">
-      <div className="container">
-        <div className="text-center mb-16">
+      <div className="container max-w-6xl">
+        <div className="mb-16 text-center">
           <h2 className="text-headline mb-6">
             {t("careers.joinTitle")} <span className="gradient-text">{t("careers.joinHighlight")}</span>
           </h2>
-          <p className="text-lead max-w-3xl mx-auto">{t("careers.joinSubtitle")}</p>
+          <p className="text-lead mx-auto max-w-3xl">{t("careers.joinSubtitle")}</p>
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
+        <div className="mb-12 flex flex-wrap justify-center gap-3">
           {departmentKeys.map((dept) => (
             <Button
               key={dept}
@@ -47,123 +45,125 @@ const Career = () => {
           ))}
         </div>
 
-        <div className="grid gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredJobs.map((job) => (
-            <Card key={job.id} className="card-hover p-8">
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                <div className="flex-1">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-title text-foreground mb-2">{job.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-secondary">
-                        <span className="flex items-center gap-1">
-                          <Briefcase size={16} />
-                          {job.department}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin size={16} />
-                          {job.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock size={16} />
-                          {job.type}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <DollarSign size={16} />
-                          {job.salary}
-                        </span>
-                      </div>
-                    </div>
-                    <Badge variant="secondary" className="text-xs">
-                      {job.posted}
-                    </Badge>
-                  </div>
-
-                  <p className="text-secondary mb-4 leading-relaxed">{job.description}</p>
-
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2">{t("careers.requirements")}</h4>
-                    <ul className="space-y-1 text-sm text-secondary">
-                      {job.requirements.slice(0, 3).map((req) => (
-                        <li key={req} className="flex items-start">
-                          <span className="text-primary mr-2 mt-1">•</span>
-                          {req}
-                        </li>
-                      ))}
-                      {job.requirements.length > 3 && (
-                        <li className="text-muted-foreground text-xs">
-                          +{job.requirements.length - 3} {t("careers.moreRequirements")}
-                        </li>
-                      )}
-                    </ul>
-                  </div>
+            <article
+              key={job.id}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_12px_40px_hsl(212_100%_50%/0.12)]"
+            >
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="mb-4 flex items-start justify-between gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Briefcase className="h-6 w-6 text-primary" />
                 </div>
-
-                <div className="lg:ml-8 flex-shrink-0">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="btn-primary w-full lg:w-auto">{t("careers.applyNow")}</Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle>
-                          {t("careers.applyFor")} {job.title}
-                        </DialogTitle>
-                      </DialogHeader>
-                      <ApplicationForm
-                        position={job.positionValue}
-                        positionLabel={job.title}
-                        onClose={() => {
-                          const closeButton = document.querySelector(
-                            "[data-dialog-close]",
-                          ) as HTMLButtonElement;
-                          closeButton?.click();
-                        }}
-                      />
-                    </DialogContent>
-                  </Dialog>
-                </div>
+                <span className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">
+                  {job.posted}
+                </span>
               </div>
-            </Card>
+
+              <h3 className="mb-1 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
+                {job.title}
+              </h3>
+              <p className="mb-4 text-sm font-medium text-primary">{job.department}</p>
+              <p className="mb-5 flex-1 text-sm leading-relaxed text-secondary">{job.description}</p>
+
+              <div className="mb-5 space-y-2 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  {job.location}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-primary" />
+                  {job.type}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <DollarSign className="h-3.5 w-3.5 text-primary" />
+                  {job.salary}
+                </span>
+              </div>
+
+              <ul className="mb-6 space-y-1.5 text-sm text-secondary">
+                {job.requirements.slice(0, 3).map((req) => (
+                  <li key={req} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                    <span className="line-clamp-2">{req}</span>
+                  </li>
+                ))}
+                {job.requirements.length > 3 && (
+                  <li className="pl-3 text-xs text-muted-foreground">
+                    +{job.requirements.length - 3} {t("careers.moreRequirements")}
+                  </li>
+                )}
+              </ul>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="btn-primary mt-auto w-full">
+                    {t("careers.applyNow")}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>
+                      {t("careers.applyFor")} {job.title}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <ApplicationForm
+                    position={job.positionValue}
+                    positionLabel={job.title}
+                    onClose={() => {
+                      const closeButton = document.querySelector(
+                        "[data-dialog-close]",
+                      ) as HTMLButtonElement;
+                      closeButton?.click();
+                    }}
+                  />
+                </DialogContent>
+              </Dialog>
+            </article>
           ))}
         </div>
 
         {filteredJobs.length === 0 && (
-          <div className="text-center py-12">
-            <Users className="mx-auto h-16 w-16 text-secondary mb-4" />
-            <h3 className="text-xl font-semibold text-foreground mb-2">
+          <div className="py-12 text-center">
+            <Users className="mx-auto mb-4 h-16 w-16 text-secondary" />
+            <h3 className="mb-2 text-xl font-semibold text-foreground">
               {t("careers.noPositions")} {departmentLabel(selectedDepartment)}
             </h3>
             <p className="text-secondary">{t("careers.checkBack")}</p>
           </div>
         )}
 
-        <div className="mt-20 pt-16 border-t border-border">
+        <div className="mt-20 border-t border-border pt-16">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
+            <h3 className="mb-6 text-2xl font-bold text-foreground">
               {t("careers.whyJoin")} <span className="gradient-text">Agentier</span>?
             </h3>
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="text-primary" size={32} />
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                  <Briefcase className="text-primary" size={28} />
                 </div>
-                <h4 className="font-semibold text-foreground mb-2">{t("careers.cuttingEdge")}</h4>
-                <p className="text-secondary text-sm leading-relaxed">{t("careers.cuttingEdgeBody")}</p>
+                <h4 className="mb-2 font-semibold text-foreground">{t("careers.cuttingEdge")}</h4>
+                <p className="text-sm leading-relaxed text-secondary">{t("careers.cuttingEdgeBody")}</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Users className="text-primary" size={32} />
+              <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                  <Users className="text-primary" size={28} />
                 </div>
-                <h4 className="font-semibold text-foreground mb-2">{t("careers.worldClass")}</h4>
-                <p className="text-secondary text-sm leading-relaxed">{t("careers.worldClassBody")}</p>
+                <h4 className="mb-2 font-semibold text-foreground">{t("careers.worldClass")}</h4>
+                <p className="text-sm leading-relaxed text-secondary">{t("careers.worldClassBody")}</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="text-primary" size={32} />
+              <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                  <DollarSign className="text-primary" size={28} />
                 </div>
-                <h4 className="font-semibold text-foreground mb-2">{t("careers.competitive")}</h4>
-                <p className="text-secondary text-sm leading-relaxed">{t("careers.competitiveBody")}</p>
+                <h4 className="mb-2 font-semibold text-foreground">{t("careers.competitive")}</h4>
+                <p className="text-sm leading-relaxed text-secondary">{t("careers.competitiveBody")}</p>
               </div>
             </div>
           </div>

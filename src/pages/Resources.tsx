@@ -14,7 +14,7 @@ const Resources = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-28 lg:pt-32 pb-20">
-        <div className="container max-w-5xl">
+        <div className="container max-w-6xl">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold tracking-wider text-primary mb-3">
               {t("resourcesPage.eyebrow")}
@@ -26,39 +26,45 @@ const Resources = () => {
             <p className="text-lead max-w-3xl mx-auto">{t("resourcesPage.subtitle")}</p>
           </div>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {resources.map((resource) => (
-              <div key={resource.slug} className="card-hover p-8 flex flex-col md:flex-row gap-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                  <FileText className="h-7 w-7 text-primary" />
+              <Link
+                key={resource.slug}
+                to={resource.href ?? `/resources/${resource.slug}`}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_12px_40px_hsl(212_100%_50%/0.12)]"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
+                />
+                <div className="mb-5 flex items-start justify-between gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                    <FileText className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="text-xs text-muted-foreground">{resource.readTime}</span>
                 </div>
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      {resource.type}
+                <span className="mb-3 w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                  {resource.type}
+                </span>
+                <h2 className="mb-2 text-xl font-bold text-foreground transition-colors group-hover:text-primary">
+                  {resource.title}
+                </h2>
+                <p className="mb-5 flex-1 text-sm leading-relaxed text-secondary">{resource.description}</p>
+                <div className="mb-5 flex flex-wrap gap-2">
+                  {resource.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground"
+                    >
+                      {tag}
                     </span>
-                    <span className="text-xs text-muted-foreground">{resource.readTime}</span>
-                  </div>
-                  <h2 className="text-2xl font-bold text-foreground mb-2">{resource.title}</h2>
-                  <p className="text-secondary mb-4">{resource.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {resource.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <Button asChild className="btn-primary">
-                    <Link to={resource.href ?? `/resources/${resource.slug}`}>
-                      {resource.type === "Case Study" ? t("common.readCaseStudy") : t("common.readGuide")}{" "}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  ))}
                 </div>
-              </div>
+                <span className="mt-auto inline-flex items-center text-sm font-semibold text-primary">
+                  {resource.type === "Case Study" ? t("common.readCaseStudy") : t("common.readGuide")}
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
             ))}
           </div>
 

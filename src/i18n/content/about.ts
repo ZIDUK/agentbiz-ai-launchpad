@@ -8,22 +8,29 @@ export interface TeamMember {
 
 export interface AboutContent {
   headline: string;
+  headlineHighlight: string;
   subtitle: string;
   missionTitle: string;
   missionBody: string;
+  valuesTitle: string;
   values: { title: string; description: string }[];
+  industriesTitle: string;
   teamTitle: string;
   teamSubtitle: string;
   team: TeamMember[];
+  ctaTitle: string;
+  ctaBody: string;
 }
 
 const aboutEn: AboutContent = {
-  headline: "Partners for operational AI in production",
+  headline: "Partners for",
+  headlineHighlight: "operational AI in production",
   subtitle:
     "AgentBiz helps enterprises redesign, implement, and scale critical operations with governed AI — not another strategy deck or staffed outsourcing bench. We ship workflows your team can run and own.",
   missionTitle: "Our mission",
   missionBody:
     "Help enterprise teams move from AI pilots to production capability with engineering discipline, measurable outcomes, and full ownership of what we build.",
+  valuesTitle: "How we work",
   values: [
     {
       title: "Production over pilots",
@@ -38,6 +45,7 @@ const aboutEn: AboutContent = {
       description: "You own the code, integrations, and operational playbooks we deliver.",
     },
   ],
+  industriesTitle: "Where we ship",
   teamTitle: "Our Agentiers",
   teamSubtitle:
     "Agentiers are the people behind AgentBiz — senior practitioners with 15+ years shipping enterprise software and production AI systems across regulated industries.",
@@ -53,15 +61,20 @@ const aboutEn: AboutContent = {
       bio: "Agentiers own execution from AI-Native POD scoping through scale. Ensures KPIs, governance checkpoints, and knowledge transfer so your team operates what we build.",
     },
   ],
+  ctaTitle: "Talk through your first production workflow",
+  ctaBody:
+    "Share the process that costs you the most — we'll map a governed path from pilot to something your team can run.",
 };
 
 const aboutEs: AboutContent = {
-  headline: "Partners para IA operativa en producción",
+  headline: "Partners para",
+  headlineHighlight: "IA operativa en producción",
   subtitle:
     "AgentBiz ayuda a empresas a rediseñar, implementar y escalar operaciones críticas con IA gobernada — no otra deck de estrategia ni un banco de outsourcing. Entregamos flujos que su equipo puede operar y poseer.",
   missionTitle: "Nuestra misión",
   missionBody:
     "Ayudar a equipos enterprise a pasar de pilotos de IA a capacidad en producción con disciplina de ingeniería, resultados medibles y propiedad total de lo que construimos.",
+  valuesTitle: "Cómo trabajamos",
   values: [
     {
       title: "Producción sobre pilotos",
@@ -76,6 +89,7 @@ const aboutEs: AboutContent = {
       description: "Usted posee el código, integraciones y playbooks operativos que entregamos.",
     },
   ],
+  industriesTitle: "Dónde entregamos",
   teamTitle: "Nuestros Agentiers",
   teamSubtitle:
     "Los Agentiers son las personas detrás de AgentBiz — practicantes senior con 15+ años entregando software enterprise y sistemas de IA en producción en industrias reguladas.",
@@ -91,6 +105,9 @@ const aboutEs: AboutContent = {
       bio: "Los Agentiers gestionan la ejecución desde el alcance de AI-Native PODs hasta la escala. Aseguran KPIs, checkpoints de gobernanza y transferencia de conocimiento.",
     },
   ],
+  ctaTitle: "Hablemos de su primer flujo en producción",
+  ctaBody:
+    "Cuéntenos el proceso que más le cuesta — mapeamos un camino gobernado del piloto a algo que su equipo pueda operar.",
 };
 
 export function getAboutContent(locale: Locale): AboutContent {
