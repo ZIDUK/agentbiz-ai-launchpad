@@ -28,15 +28,68 @@ html.poc-mode body {
   color: hsl(var(--foreground));
 }
 
-/* Solutions mega-menu left rail — lighter than the dark panel so it reads as a sidebar */
+/* Solutions mega-menu — lift the whole panel off the black page */
+.solutions-mega-panel {
+  background: hsl(220 14% 97%);
+  box-shadow: 0 18px 50px hsl(222 47% 11% / 0.12);
+}
+html.poc-mode:not(.poc-light) .solutions-mega-panel {
+  background: hsl(222 18% 15%);
+  box-shadow: 0 24px 70px hsl(0 0% 0% / 0.65), inset 0 1px 0 hsl(210 40% 98% / 0.08);
+  border-color: hsl(222 16% 32%);
+}
+html.poc-mode.poc-light .solutions-mega-panel {
+  background: hsl(220 14% 97%);
+  box-shadow: 0 18px 50px hsl(222 47% 11% / 0.12);
+}
+
 .solutions-mega-sidebar {
-  background: hsl(220 14% 96%);
+  background: hsl(220 16% 94%);
 }
 html.poc-mode:not(.poc-light) .solutions-mega-sidebar {
-  background: hsl(222 16% 14%);
+  background: hsl(222 16% 22%);
 }
 html.poc-mode.poc-light .solutions-mega-sidebar {
-  background: hsl(220 14% 96%);
+  background: hsl(220 16% 94%);
+}
+
+.solutions-mega-detail {
+  background: hsl(0 0% 100%);
+}
+html.poc-mode:not(.poc-light) .solutions-mega-detail {
+  background: hsl(222 18% 16%);
+}
+html.poc-mode.poc-light .solutions-mega-detail {
+  background: hsl(0 0% 100%);
+}
+
+.solutions-mega-item {
+  background: hsl(0 0% 100% / 0.7);
+  border: 1px solid hsl(220 13% 88%);
+}
+html.poc-mode:not(.poc-light) .solutions-mega-item {
+  background: hsl(222 18% 17%);
+  border: 1px solid hsl(222 14% 30%);
+}
+html.poc-mode.poc-light .solutions-mega-item {
+  background: hsl(0 0% 100% / 0.7);
+  border: 1px solid hsl(220 13% 88%);
+}
+
+.solutions-mega-item-active {
+  background: hsl(0 0% 100%);
+  border-color: hsl(212 100% 50% / 0.45);
+  box-shadow: 0 1px 0 hsl(212 100% 50% / 0.12);
+}
+html.poc-mode:not(.poc-light) .solutions-mega-item-active {
+  background: hsl(222 26% 12%);
+  border-color: hsl(212 100% 50% / 0.6);
+  box-shadow: 0 0 0 1px hsl(212 100% 50% / 0.2), 0 8px 24px hsl(212 100% 50% / 0.1);
+}
+html.poc-mode.poc-light .solutions-mega-item-active {
+  background: hsl(0 0% 100%);
+  border-color: hsl(212 100% 50% / 0.45);
+  box-shadow: 0 1px 0 hsl(212 100% 50% / 0.12);
 }
 
 /* Transparent only on the cinematic Jarvis home so the canvas shows through */

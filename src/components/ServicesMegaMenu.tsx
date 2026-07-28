@@ -1,6 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, ChevronRight, Layers, Rocket, Wrench, type LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  ChevronDown,
+  ChevronRight,
+  ClipboardList,
+  Code2,
+  Database,
+  FlaskConical,
+  GitPullRequest,
+  GraduationCap,
+  Layers,
+  LayoutTemplate,
+  Map,
+  Puzzle,
+  Rocket,
+  Replace,
+  Workflow,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import { useIndustriesContent } from "@/i18n/hooks";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { useTranslation } from "@/i18n/useTranslation";
@@ -20,6 +40,13 @@ const solutionIcons: Record<string, LucideIcon> = {
   "ai-native-pods": Rocket,
   "ai-native-operating-system": Layers,
   "ai-native-stack-upgrade": Wrench,
+};
+
+/** Icons for capability / highlight rows — ordered to match solutions-menu content */
+const detailItemIcons: Record<string, LucideIcon[]> = {
+  "ai-native-pods": [ClipboardList, LayoutTemplate, Code2, FlaskConical, GitPullRequest],
+  "ai-native-operating-system": [Puzzle, BookOpen, GraduationCap, Map],
+  "ai-native-stack-upgrade": [Replace, Workflow, Database, Building2],
 };
 
 export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
@@ -117,15 +144,15 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
       </div>
 
       {openMenu === "solutions" && selectedSolution && (
-        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-card shadow-2xl lg:top-20">
+        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-[hsl(222_18%_9%/0.96)] shadow-2xl backdrop-blur-md lg:top-20">
           <div className="container py-6">
-            <div className="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-border md:grid-cols-[minmax(240px,300px)_1fr]">
-              {/* Left rail — lighter panel so it stands out */}
+            <div className="solutions-mega-panel mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-border md:grid-cols-[minmax(240px,300px)_1fr]">
+              {/* Left rail — elevated so it separates from the page */}
               <div className="solutions-mega-sidebar border-b border-border p-4 md:border-b-0 md:border-r md:p-5">
                 <p className="mb-3 px-2 text-xs font-semibold tracking-wider text-muted-foreground">
                   {t("nav.solutions")}
                 </p>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {solutions.map((solution) => {
                     const Icon = solutionIcons[solution.slug] ?? Rocket;
                     const isSelected = solution.slug === selectedSolution.slug;
@@ -135,9 +162,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                           type="button"
                           className={cn(
                             "flex w-full items-start gap-3 rounded-lg px-3 py-3 text-left transition-colors",
-                            isSelected
-                              ? "bg-background shadow-sm ring-1 ring-primary/40"
-                              : "hover:bg-background/70",
+                            isSelected ? "solutions-mega-item-active" : "solutions-mega-item hover:border-primary/35",
                           )}
                           aria-pressed={isSelected}
                           onClick={() => setSelectedSlug(solution.slug)}
@@ -145,7 +170,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                           <div
                             className={cn(
                               "mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
-                              isSelected ? "bg-primary/15" : "bg-primary/10",
+                              isSelected ? "bg-primary/20" : "bg-primary/10",
                             )}
                           >
                             <Icon className="h-4 w-4 text-primary" />
@@ -176,7 +201,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                   to="/engagement"
                   className={cn(
                     menuLinkClass,
-                    "mt-4 border border-border/80 bg-background/50 text-center",
+                    "solutions-mega-item mt-4 text-center hover:border-primary/40",
                   )}
                   onClick={handleNavigate}
                 >
@@ -184,8 +209,8 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                 </Link>
               </div>
 
-              {/* Detail pane — internals of selected solution */}
-              <div className="bg-card p-6 md:p-8">
+              {/* Detail pane — lifted surface, not page-black */}
+              <div className="solutions-mega-detail p-6 md:p-8">
                 <div className="mb-6 max-w-2xl">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                     {selectedSolution.eyebrow}
@@ -202,37 +227,59 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                       {t("nav.howAgentiersDeliver")}
                     </p>
                     <ul className="grid gap-2 sm:grid-cols-2">
-                      {selectedSolution.capabilities.map((cap) => (
-                        <li key={cap.title}>
-                          <Link
-                            to={selectedSolution.href}
-                            className={cn(menuLinkClass, "h-full border border-transparent py-3 hover:border-primary/30")}
-                            onClick={handleNavigate}
-                          >
-                            <p className="text-sm font-medium text-foreground">{cap.title}</p>
-                            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                              {cap.description}
-                            </p>
-                          </Link>
-                        </li>
-                      ))}
+                      {selectedSolution.capabilities.map((cap, index) => {
+                        const CapIcon =
+                          detailItemIcons[selectedSolution.slug]?.[index] ?? ClipboardList;
+                        return (
+                          <li key={cap.title}>
+                            <Link
+                              to={selectedSolution.href}
+                              className={cn(
+                                menuLinkClass,
+                                "solutions-mega-item flex h-full items-start gap-3 py-3 hover:border-primary/40",
+                              )}
+                              onClick={handleNavigate}
+                            >
+                              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                                <CapIcon className="h-4 w-4 text-primary" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-sm font-medium text-foreground">{cap.title}</p>
+                                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                                  {cap.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </>
                 )}
 
                 {selectedSolution.highlights && (
                   <ul className="grid gap-2 sm:grid-cols-2">
-                    {selectedSolution.highlights.map((item) => (
-                      <li key={item}>
-                        <Link
-                          to={selectedSolution.href}
-                          className={cn(menuLinkClass, "border border-transparent py-3 hover:border-primary/30")}
-                          onClick={handleNavigate}
-                        >
-                          <p className="text-sm text-foreground">{item}</p>
-                        </Link>
-                      </li>
-                    ))}
+                    {selectedSolution.highlights.map((item, index) => {
+                      const ItemIcon =
+                        detailItemIcons[selectedSolution.slug]?.[index] ?? Layers;
+                      return (
+                        <li key={item}>
+                          <Link
+                            to={selectedSolution.href}
+                            className={cn(
+                              menuLinkClass,
+                              "solutions-mega-item flex items-start gap-3 py-3 hover:border-primary/40",
+                            )}
+                            onClick={handleNavigate}
+                          >
+                            <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                              <ItemIcon className="h-4 w-4 text-primary" />
+                            </div>
+                            <p className="min-w-0 flex-1 text-sm leading-snug text-foreground">{item}</p>
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
 
