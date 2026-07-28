@@ -8,6 +8,7 @@ export const engagementDetailsEs: EngagementDetail[] = [
   {
     slug: "ai-native-pods",
     title: "AI-Native PODs",
+    eyebrow: "Ejecución",
     shortDescription:
       "Su motor de ejecución para llevar operaciones AI-Native a producción — con KPIs, gobernanza y transferencia de ownership.",
     icon: Rocket,
@@ -56,6 +57,7 @@ export const engagementDetailsEs: EngagementDetail[] = [
   {
     slug: "agentops-factory",
     title: "AgentOps Factory",
+    eyebrow: "Escala",
     shortDescription:
       "Transfiera patrones, estándares AgentOps y modelos operativos para que su equipo escale más allá del primer flujo.",
     icon: Layers,
@@ -97,6 +99,7 @@ export const engagementDetailsEs: EngagementDetail[] = [
   {
     slug: "function-modernization",
     title: "Function Modernization",
+    eyebrow: "Función",
     shortDescription:
       "Modernice una función de negocio — Ops, Finanzas, Soporte — con flujos AI-Native a medida de su realidad.",
     icon: Wrench,

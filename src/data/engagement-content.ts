@@ -4,6 +4,8 @@ import { Layers, Rocket, Wrench } from "lucide-react";
 export interface EngagementDetail {
   slug: string;
   title: string;
+  /** Differentiating label (not the generic "Solutions") */
+  eyebrow: string;
   shortDescription: string;
   icon: LucideIcon;
   headline: string;
@@ -18,6 +20,7 @@ export const engagementDetails: EngagementDetail[] = [
   {
     slug: "ai-native-pods",
     title: "AI-Native PODs",
+    eyebrow: "Execution",
     shortDescription:
       "Your execution engine to put AI-native operations in production — with KPIs, governance, and ownership transfer.",
     icon: Rocket,
@@ -66,6 +69,7 @@ export const engagementDetails: EngagementDetail[] = [
   {
     slug: "agentops-factory",
     title: "AgentOps Factory",
+    eyebrow: "Scale",
     shortDescription:
       "Transfer patterns, AgentOps standards, and operating models so your team can expand beyond the first workflow.",
     icon: Layers,
@@ -107,6 +111,7 @@ export const engagementDetails: EngagementDetail[] = [
   {
     slug: "function-modernization",
     title: "Function Modernization",
+    eyebrow: "Function",
     shortDescription:
       "Modernize a business function — Ops, Finance, Support — with custom AI-native workflows that fit your reality.",
     icon: Wrench,

@@ -107,8 +107,8 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                     index < solutions.length - 1 && "border-b md:border-b-0 md:border-r border-border",
                   )}
                 >
-                  <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground">
-                    {t("nav.solutionsLabel")}
+                  <p className="mb-2 text-xs font-semibold tracking-wider text-primary uppercase">
+                    {solution.eyebrow}
                   </p>
                   <Link to={solution.href} className="group block mb-4" onClick={handleNavigate}>
                     <p className="text-base font-bold text-foreground group-hover:text-primary transition-colors">

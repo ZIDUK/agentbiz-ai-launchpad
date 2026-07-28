@@ -8,6 +8,8 @@ export interface SolutionMenuCapability {
 export interface SolutionMenuColumn {
   slug: string;
   title: string;
+  /** Unique short label per column — never reuse the nav "Solutions" word */
+  eyebrow: string;
   description: string;
   href: string;
   /** Shown under AI-Native PODs — how Agentiers deliver */
@@ -20,6 +22,7 @@ const solutionsEn: SolutionMenuColumn[] = [
   {
     slug: "ai-native-pods",
     title: "AI-Native PODs",
+    eyebrow: "Execution",
     description:
       "Your execution engine to put AI-native operations in production — staffed by Agentiers.",
     href: "/engagement/ai-native-pods",
@@ -49,6 +52,7 @@ const solutionsEn: SolutionMenuColumn[] = [
   {
     slug: "agentops-factory",
     title: "AgentOps Factory",
+    eyebrow: "Scale",
     description: "Core infrastructure, patterns, and standards so you can scale beyond the first win.",
     href: "/engagement/agentops-factory",
     highlights: [
@@ -61,6 +65,7 @@ const solutionsEn: SolutionMenuColumn[] = [
   {
     slug: "function-modernization",
     title: "Function Modernization",
+    eyebrow: "Function",
     description: "Modernize Ops, Finance, or Support with AI-native systems that fit your reality.",
     href: "/engagement/function-modernization",
     highlights: [
@@ -76,6 +81,7 @@ const solutionsEs: SolutionMenuColumn[] = [
   {
     slug: "ai-native-pods",
     title: "AI-Native PODs",
+    eyebrow: "Ejecución",
     description:
       "Su motor de ejecución para llevar operaciones AI-Native a producción — integrado por Agentiers.",
     href: "/engagement/ai-native-pods",
@@ -105,6 +111,7 @@ const solutionsEs: SolutionMenuColumn[] = [
   {
     slug: "agentops-factory",
     title: "AgentOps Factory",
+    eyebrow: "Escala",
     description:
       "Infraestructura, patrones y estándares para escalar más allá del primer logro.",
     href: "/engagement/agentops-factory",
@@ -118,6 +125,7 @@ const solutionsEs: SolutionMenuColumn[] = [
   {
     slug: "function-modernization",
     title: "Function Modernization",
+    eyebrow: "Función",
     description:
       "Modernice Ops, Finanzas o Soporte con sistemas AI-Native a medida de su realidad.",
     href: "/engagement/function-modernization",
