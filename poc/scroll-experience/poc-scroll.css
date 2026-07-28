@@ -28,6 +28,17 @@ html.poc-mode body {
   color: hsl(var(--foreground));
 }
 
+/* Solutions mega-menu left rail — lighter than the dark panel so it reads as a sidebar */
+.solutions-mega-sidebar {
+  background: hsl(220 14% 96%);
+}
+html.poc-mode:not(.poc-light) .solutions-mega-sidebar {
+  background: hsl(222 16% 14%);
+}
+html.poc-mode.poc-light .solutions-mega-sidebar {
+  background: hsl(220 14% 96%);
+}
+
 /* Transparent only on the cinematic Jarvis home so the canvas shows through */
 html.poc-mode.poc-home,
 html.poc-mode.poc-home body,
