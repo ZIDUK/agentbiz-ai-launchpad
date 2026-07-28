@@ -186,37 +186,45 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
       {openMenu === "industries" && (
         <div className="fixed inset-x-0 top-16 lg:top-20 z-[90] border-t border-border bg-card shadow-2xl">
           <div className="container py-6">
-            <ul className="mx-auto grid max-w-4xl gap-2 rounded-xl border border-border bg-card p-6 md:grid-cols-3">
-              {industryDetails.map((industry) => {
-                const Icon = industry.icon;
-                return (
-                  <li key={industry.slug}>
-                    <Link
-                      to={`/industries/${industry.slug}`}
-                      className={menuLinkClass}
-                      onClick={handleNavigate}
-                    >
-                      <div className="mb-1 flex items-center gap-2">
-                        <Icon className="h-4 w-4 text-primary" />
-                        <p className="text-sm font-semibold">{industry.name}</p>
-                      </div>
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        {industry.headline}
-                      </p>
-                    </Link>
-                  </li>
-                );
-              })}
-              <li className="md:col-span-3">
-                <Link
-                  to="/industries"
-                  className={cn(menuLinkClass, "border border-border text-center")}
-                  onClick={handleNavigate}
-                >
-                  <p className="text-sm font-semibold text-primary">{t("nav.viewAllIndustries")}</p>
-                </Link>
-              </li>
-            </ul>
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-background/40 p-2 md:p-3">
+              <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {industryDetails.map((industry) => {
+                  const Icon = industry.icon;
+                  return (
+                    <li key={industry.slug}>
+                      <Link
+                        to={`/industries/${industry.slug}`}
+                        className={cn(
+                          menuLinkClass,
+                          "h-full border border-transparent hover:border-primary/40 hover:bg-card",
+                        )}
+                        onClick={handleNavigate}
+                      >
+                        <div className="mb-2 flex items-center gap-3">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                            <Icon className="h-5 w-5 text-primary" />
+                          </div>
+                          <p className="text-sm font-semibold leading-snug">{industry.name}</p>
+                        </div>
+                        <p className="pl-[3.25rem] text-xs leading-relaxed text-muted-foreground line-clamp-2">
+                          {industry.headline}
+                        </p>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <Link
+                to="/industries"
+                className={cn(
+                  menuLinkClass,
+                  "mt-2 border border-border text-center hover:border-primary/40",
+                )}
+                onClick={handleNavigate}
+              >
+                <p className="text-sm font-semibold text-primary">{t("nav.viewAllIndustries")}</p>
+              </Link>
+            </div>
           </div>
         </div>
       )}

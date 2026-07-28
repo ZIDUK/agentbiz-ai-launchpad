@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Menu } from "lucide-react";
+import { BookOpen, ChevronDown, ChevronRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,7 +12,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { ServicesMegaMenu } from "@/components/ServicesMegaMenu";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/poc/scroll-experience/components/ThemeToggle";
-import { useIndustriesContent } from "@/i18n/hooks";
+import { useIndustriesContent, useTrainingPrograms } from "@/i18n/hooks";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { useTranslation } from "@/i18n/useTranslation";
 import { getSolutionsMenu } from "@/i18n/content/solutions-menu";
@@ -27,6 +27,7 @@ const Header = () => {
   const { locale } = useLanguage();
   const solutions = getSolutionsMenu(locale);
   const industryDetails = useIndustriesContent();
+  const trainingPrograms = useTrainingPrograms();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -84,6 +85,43 @@ const Header = () => {
             <button onClick={() => scrollToSection("workflow")} className="btn-ghost whitespace-nowrap">
               {t("nav.process")}
             </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="btn-ghost inline-flex items-center gap-1 whitespace-nowrap">
+                {t("nav.trainings")}
+                <ChevronDown className="h-3.5 w-3.5 opacity-70" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-[min(92vw,360px)] p-2">
+                {trainingPrograms.map((program) => (
+                  <DropdownMenuItem key={program.slug} asChild className="cursor-pointer p-0 focus:bg-transparent">
+                    <Link
+                      to={`/trainings/${program.slug}`}
+                      className="flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-primary/40 hover:bg-accent"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                        <BookOpen className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-foreground">{program.title}</p>
+                        <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                          {program.heroSubtitle}
+                        </p>
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <div className="mt-1 border-t border-border pt-1">
+                  <DropdownMenuItem asChild className="cursor-pointer">
+                    <Link
+                      to="/trainings"
+                      className="flex w-full items-center justify-between px-2 py-2 text-sm font-semibold text-primary"
+                    >
+                      {t("nav.viewAllTrainings")}
+                      <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </DropdownMenuItem>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link to="/resources" className="btn-ghost whitespace-nowrap">
               {t("nav.resources")}
             </Link>
@@ -96,9 +134,6 @@ const Header = () => {
                 <ChevronDown className="h-4 w-4 opacity-70" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
-                <DropdownMenuItem asChild>
-                  <Link to="/trainings">{t("nav.trainings")}</Link>
-                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/about">{t("nav.about")}</Link>
                 </DropdownMenuItem>

@@ -92,6 +92,7 @@ export const messages = {
     roiCalculator: "Calculadora ROI",
     executiveBriefing: "Briefing ejecutivo",
     trainings: "Capacitaciones",
+    viewAllTrainings: "Ver todas las capacitaciones →",
     engagementModels: "Paquetes de transformación",
     allServices: "Todas las soluciones",
     menu: "Menú",
@@ -417,6 +418,11 @@ export const messages = {
     readyDiscuss: "¿Listo para discutir",
     readyBody:
       "Mapearemos su flujo, métricas de éxito y restricciones operativas a un plan de transformación concreto.",
+    whatItIs: "Qué es",
+    howWeDeliver: "Cómo entregan los Agentiers",
+    howInside: "Cómo opera dentro de su organización",
+    theOutcome: "El resultado",
+    faq: "Preguntas frecuentes",
   },
   trainings: {
     hub: {

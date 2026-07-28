@@ -95,6 +95,65 @@ const EngagementDetail = () => {
         </section>
 
         <article className="container max-w-6xl pt-14 lg:pt-16">
+          <section className="mb-16 max-w-3xl lg:mb-20">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              {model.eyebrow}
+            </p>
+            <h2 className="mb-4 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
+              {t("engagementPage.whatItIs")}
+            </h2>
+            <p className="text-lead">{model.whatItIs}</p>
+          </section>
+
+          <section className="mb-16 lg:mb-20">
+            <div className="mb-8 max-w-2xl">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                {model.eyebrow}
+              </p>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
+                {t("engagementPage.howWeDeliver")}
+              </h2>
+              {model.principle && (
+                <p className="mt-3 text-base font-medium text-foreground/80">{model.principle}</p>
+              )}
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {model.capabilities.map((cap, index) => (
+                <div
+                  key={cap.title}
+                  className="group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-primary/40"
+                >
+                  <p className="mb-3 text-xs font-semibold tabular-nums tracking-wider text-primary/60">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mb-2 text-base font-semibold text-foreground">{cap.title}</h3>
+                  <p className="text-sm leading-relaxed text-secondary">{cap.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-16 lg:mb-20">
+            <div className="mb-6 border-b border-border pb-3">
+              <h2 className="text-xl font-semibold text-foreground lg:text-2xl">
+                {t("engagementPage.howInside")}
+              </h2>
+            </div>
+            <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {model.howInside.map((item, index) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-border bg-card/70 p-4"
+                >
+                  <span className="mb-2 block text-lg font-bold tabular-nums text-primary">
+                    {index + 1}
+                  </span>
+                  <p className="text-sm leading-relaxed text-secondary">{item}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-10">
             <section>
               <div className="mb-6 flex items-end justify-between gap-4 border-b border-border pb-3">
@@ -172,6 +231,42 @@ const EngagementDetail = () => {
                 </li>
               ))}
             </ol>
+          </section>
+
+          <section className="mt-16 rounded-2xl border border-border bg-card/50 p-6 lg:mt-20 lg:p-8">
+            <h2 className="mb-6 text-xl font-semibold text-foreground lg:text-2xl">
+              {t("engagementPage.theOutcome")}
+            </h2>
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {model.outcomes.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-background px-4 py-3"
+                >
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <span className="text-sm text-secondary">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-16 lg:mt-20">
+            <h2 className="mb-6 text-xl font-semibold text-foreground lg:text-2xl">
+              {t("engagementPage.faq")}
+            </h2>
+            <div className="divide-y divide-border rounded-2xl border border-border bg-card">
+              {model.faqs.map((faq) => (
+                <details key={faq.question} className="group px-5 py-4 open:bg-muted/30">
+                  <summary className="cursor-pointer list-none font-medium text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-center justify-between gap-4">
+                      {faq.question}
+                      <span className="text-primary transition-transform group-open:rotate-45">+</span>
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-secondary">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
           </section>
 
           <section className="relative mt-16 overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-8 lg:mt-20 lg:p-10">
