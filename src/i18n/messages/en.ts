@@ -1,8 +1,8 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | Production AI Systems for the Enterprise",
+    title: "AgentBiz | Operational AI for the Enterprise",
     description:
-      "We design, build, and scale production AI workflows, agents, and enterprise applications — with the governance, engineering discipline, and delivery rigor C-level teams require.",
+      "We help organizations redesign, implement, and scale critical business operations with governed AI — production workflows your team can run and own.",
   },
   seo: {
     about: {
@@ -19,9 +19,9 @@ export const messages = {
       description: "Terms governing use of the AgentBiz website and services.",
     },
     careers: {
-      title: "Careers at AgentBiz | Enterprise AI Engineering",
+      title: "Careers at AgentBiz | Become an Agentier",
       description:
-        "Join AgentBiz and build production AI systems for enterprise organizations. Open roles in engineering, product, and solutions.",
+        "Join AgentBiz as an Agentier and ship AI-native operations for enterprise organizations. Open roles in engineering, product, and solutions.",
     },
     services: {
       title: "AI & Software Services | AgentBiz",
@@ -49,9 +49,9 @@ export const messages = {
         "AI delivery for FinTech, healthcare, logistics, SaaS, and energy — regulated environments with measurable outcomes.",
     },
     engagement: {
-      title: "Engagement Models | AgentBiz",
+      title: "Transformation Packages | AgentBiz",
       description:
-        "Project-based, managed services, staff augmentation, maintenance, and rescue engagements for enterprise AI delivery.",
+        "AI-Native PODs, AgentOps Factory, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
     },
     insights: {
       title: "Insights | AgentBiz",
@@ -74,12 +74,17 @@ export const messages = {
     },
   },
   nav: {
-    services: "Services",
+    services: "Solutions",
+    solutions: "Solutions",
+    solutionsLabel: "SOLUTIONS",
+    howAgentiersDeliver: "How Agentiers deliver",
+    exploreSolution: "Explore solution →",
+    viewAllSolutions: "View all solutions →",
     industries: "Industries",
     process: "Process",
     resources: "Resources",
     insights: "Insights",
-    engagement: "Engagement",
+    engagement: "Solutions",
     careers: "Careers",
     about: "About",
     contact: "Contact",
@@ -87,16 +92,16 @@ export const messages = {
     roiCalculator: "ROI Calculator",
     executiveBriefing: "Executive Briefing",
     trainings: "Trainings",
-    engagementModels: "Engagement Models",
-    allServices: "All Services",
+    engagementModels: "Transformation Packages",
+    allServices: "All Solutions",
     menu: "Menu",
-    aiServices: "AI SERVICES",
+    aiServices: "SOLUTIONS",
     software: "SOFTWARE",
     openMenu: "Open menu",
     more: "More",
     viewAllIndustries: "View all industries →",
     viewAllServices: "View all services →",
-    engagementModelsLabel: "ENGAGEMENT MODELS",
+    engagementModelsLabel: "TRANSFORMATION PACKAGES",
     aiDevelopment: "AI DEVELOPMENT",
     softwareDevelopment: "SOFTWARE DEVELOPMENT",
   },
@@ -110,14 +115,14 @@ export const messages = {
     viewAllInsights: "View all insights →",
     exploreIndustry: "Explore industry →",
     learnMore: "Learn more →",
-    compareModels: "Compare all models",
-    talkToLead: "Talk to an Engineering Lead",
+    compareModels: "Compare all packages",
+    talkToLead: "Talk to an Operations Lead",
     scheduleCall: "Schedule a strategy call",
     bookStrategyCall: "Book a strategy call",
     allResources: "All resources",
     allInsights: "All insights",
     allIndustries: "All industries",
-    allEngagement: "All engagement models",
+    allEngagement: "All transformation packages",
     estimateRoi: "Estimate ROI",
     calculateRoi: "Calculate ROI",
     validateWithLead: "Validate with an Engineering Lead",
@@ -131,7 +136,7 @@ export const messages = {
     bestFor: "Best for",
     deliverables: "Typical deliverables",
     timeline: "Timeline",
-    howItWorks: "How engagement works",
+    howItWorks: "How the package works",
     typicalOutcomes: "Typical outcomes",
     metricsDisclaimer:
       "Ranges based on scoped workflow automation programs. Results vary by process maturity and data readiness.",
@@ -141,17 +146,17 @@ export const messages = {
     notFoundCta: "Back to home",
   },
   hero: {
-    eyebrow: "AI-Native Engineering for the Enterprise",
-    title: "Build Production AI Systems",
-    titleHighlight: "Your Organization Can Own",
+    eyebrow: "AI-Native Enterprise Operations",
+    title: "Operational AI",
+    titleHighlight: "You Can Own",
     subtitle:
-      "We design, build, and scale AI-native workflows, agents, and enterprise applications — with the governance, engineering discipline, and delivery rigor C-level teams require.",
-    ctaPrimary: "Talk to an Engineering Lead",
+      "We help organizations redesign, implement, and scale critical business operations with governed artificial intelligence — integrated to your systems, measured by KPIs, and owned by your team.",
+    ctaPrimary: "Talk to an Operations Lead",
     ctaSecondary: "Calculate AI ROI",
-    trust1: "Enterprise-grade delivery",
-    trust2: "Production AI systems",
-    trust3: "Governed implementation",
-    trust4: "Software expertise since 2007",
+    trust1: "Production engineering",
+    trust2: "Governed agents & workflows",
+    trust3: "System integrations",
+    trust4: "Capability transfer — outcome first",
   },
   challenge: {
     eyebrow: "THE ENTERPRISE CHALLENGE",
@@ -178,10 +183,11 @@ export const messages = {
   },
   engagementSection: {
     eyebrow: "HOW WE WORK",
-    title: "Engagement",
-    titleHighlight: "Models",
-    subtitle: "Flexible partnership models designed to match your stage, team, and delivery goals.",
-    discuss: "Discuss your engagement model",
+    title: "Transformation",
+    titleHighlight: "Packages",
+    subtitle:
+      "Outcome-based packages that take critical operations from assessment to production — then scale capability your organization owns.",
+    discuss: "Discuss your transformation path",
   },
   industriesSection: {
     eyebrow: "INDUSTRIES",
@@ -247,7 +253,7 @@ export const messages = {
   },
   about: {
     eyebrow: "ABOUT",
-    visitAgenticDream: "Visit Agentic Dream →",
+    visitSite: "Visit site →",
   },
   trustedBy: {
     eyebrow: "Trusted by teams building production AI",
@@ -400,17 +406,17 @@ export const messages = {
   },
   engagementPage: {
     eyebrow: "HOW WE WORK",
-    title: "Engagement",
-    titleHighlight: "models",
+    title: "Transformation",
+    titleHighlight: "packages",
     subtitle:
-      "Flexible partnership structures aligned to your delivery stage — from first production workflow to ongoing operations and team augmentation.",
-    ctaTitle: "Not sure which model fits?",
+      "Three outcome-based packages — from first production workflow to capability transfer and ongoing managed operations.",
+    ctaTitle: "Not sure where to start?",
     ctaBody:
-      "A 30-minute engineering strategy call helps map your workflow, team, and timeline to the right engagement structure.",
-    discuss: "Discuss your engagement",
+      "A 30-minute strategy call maps your highest-volume workflow, KPIs, and timeline to the right package.",
+    discuss: "Discuss your path",
     readyDiscuss: "Ready to discuss",
     readyBody:
-      "We'll map your workflow, team structure, and success metrics to a concrete delivery plan.",
+      "We'll map your workflow, success metrics, and operating constraints to a concrete transformation plan.",
   },
   trainings: {
     hub: {
@@ -470,13 +476,14 @@ export const messages = {
   },
   careers: {
     eyebrow: "CAREERS",
-    title: "Build the future of",
-    titleHighlight: "enterprise AI",
-    subtitle: "Join a team shipping production AI systems for global organizations.",
-    joinTitle: "Join Our",
-    joinHighlight: "AI Revolution",
+    title: "Become an",
+    titleHighlight: "Agentier",
+    subtitle:
+      "Agentiers ship AI-native operations to production for enterprise clients — governed workflows, measurable KPIs, and systems the client owns.",
+    joinTitle: "Join the",
+    joinHighlight: "Agentiers",
     joinSubtitle:
-      "Build the future of AI with us. We're looking for passionate individuals who want to shape how businesses transform through artificial intelligence.",
+      "We're looking for people who want to put critical business operations in production with governed AI — not endless pilots or rented headcount.",
     all: "All",
     requirements: "Requirements:",
     moreRequirements: "more requirements",
@@ -484,13 +491,13 @@ export const messages = {
     applyFor: "Apply for",
     noPositions: "No positions available in",
     checkBack: "Check back later or explore other departments.",
-    whyJoin: "Why Join",
-    cuttingEdge: "Cutting-Edge Work",
+    whyJoin: "Why become an",
+    cuttingEdge: "Production work that matters",
     cuttingEdgeBody:
-      "Work on the most advanced AI technologies and shape the future of business automation.",
-    worldClass: "World-Class Team",
+      "Ship real workflows inside enterprise operations — with governance, integrations, and KPIs your clients can measure.",
+    worldClass: "A tribe of Agentiers",
     worldClassBody:
-      "Collaborate with top AI researchers, engineers, and business experts from around the world.",
+      "Collaborate with operators, architects, and delivery leads who care about ownership transfer — not body shopping.",
     competitive: "Competitive Package",
     competitiveBody:
       "Competitive salary, equity, comprehensive benefits, and flexible remote work options.",

@@ -4,7 +4,6 @@ import {
   Brain,
   Code2,
   Cpu,
-  GitBranch,
   Layers,
   LineChart,
   Monitor,
@@ -17,7 +16,6 @@ import {
   Target,
   Users,
   Wrench,
-  Zap,
 } from "lucide-react";
 
 export interface ServiceItem {
@@ -217,39 +215,28 @@ export const softwareServices: ServiceItem[] = [
 
 export const engagementModels: EngagementModel[] = [
   {
-    slug: "project-based-development",
-    title: "Project Based Development",
-    description: "Software solutions tailored to your specific business requirements.",
+    slug: "ai-native-pods",
+    title: "AI-Native PODs",
+    description:
+      "Your execution engine to put AI-native operations in production — with KPIs, governance, and ownership.",
     icon: Rocket,
-    href: "/engagement/project-based-development",
+    href: "/engagement/ai-native-pods",
   },
   {
-    slug: "managed-services",
-    title: "Managed Services Program",
-    description: "Monitoring and support to optimize your technology stack.",
+    slug: "agentops-factory",
+    title: "AgentOps Factory",
+    description:
+      "Patterns, AgentOps standards, and enablement so your team owns the next workflows.",
+    icon: Layers,
+    href: "/engagement/agentops-factory",
+  },
+  {
+    slug: "function-modernization",
+    title: "Function Modernization",
+    description:
+      "Modernize Ops, Finance, or Support with AI-native workflows that fit your reality.",
     icon: Wrench,
-    href: "/engagement/managed-services",
-  },
-  {
-    slug: "staff-augmentation",
-    title: "Staff Augmentation",
-    description: "Skilled professionals integrated into your team to extend capacity.",
-    icon: Users,
-    href: "/engagement/staff-augmentation",
-  },
-  {
-    slug: "software-maintenance",
-    title: "Software Maintenance",
-    description: "Reliable support for your digital solution's longevity.",
-    icon: GitBranch,
-    href: "/engagement/software-maintenance",
-  },
-  {
-    slug: "rescue-project",
-    title: "Rescue Project",
-    description: "Turn around failing projects and restore delivery momentum.",
-    icon: Zap,
-    href: "/engagement/rescue-project",
+    href: "/engagement/function-modernization",
   },
 ];
 
@@ -399,14 +386,14 @@ export const coreCapabilities: CoreCapability[] = [
   },
   {
     slug: "engagement-models",
-    title: "Engagement Models",
+    title: "Transformation Packages",
     shortDescription:
-      "Flexible partnership models — project-based, staff augmentation, managed services, and rescue delivery — aligned to enterprise needs.",
+      "Outcome-based packages — AI-Native PODs, AgentOps Factory, and Function Modernization — aligned to enterprise operational transformation.",
     outcomes: [
-      "Project-based development",
-      "Staff augmentation",
-      "Managed services",
-      "Rescue and modernization",
+      "AI-Native PODs",
+      "AgentOps Factory",
+      "Function Modernization",
+      "Governed handoff and ownership",
     ],
     icon: Users,
     href: "/engagement",

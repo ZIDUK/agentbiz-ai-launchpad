@@ -19,11 +19,9 @@ export const serviceSlugs = [
 export const industrySlugs = ["fintech", "healthcare", "logistics", "saas-hitech", "energy"];
 
 export const engagementSlugs = [
-  "project-based-development",
-  "managed-services",
-  "staff-augmentation",
-  "software-maintenance",
-  "rescue-project",
+  "ai-native-pods",
+  "agentops-factory",
+  "function-modernization",
 ];
 
 export const insightSlugs = [

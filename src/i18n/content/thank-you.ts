@@ -19,7 +19,7 @@ function contact(locale: Locale): ThankYouContent {
           "Revisaremos su contexto y le responderemos en 1–2 días hábiles. Mientras tanto, puede agendar una llamada directamente.",
         primaryCta: "Agendar llamada de estrategia",
         primaryHref: "/#contact",
-        secondaryCta: "Ver modelos de engagement",
+        secondaryCta: "Ver paquetes de transformación",
         secondaryHref: "/engagement",
       }
     : {
@@ -28,7 +28,7 @@ function contact(locale: Locale): ThankYouContent {
           "We'll review your context and respond within 1–2 business days. You can also schedule a strategy call directly.",
         primaryCta: "Schedule strategy call",
         primaryHref: "/#contact",
-        secondaryCta: "View engagement models",
+        secondaryCta: "View transformation packages",
         secondaryHref: "/engagement",
       };
 }

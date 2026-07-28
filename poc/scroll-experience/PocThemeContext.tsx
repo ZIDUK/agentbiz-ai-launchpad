@@ -44,6 +44,9 @@ export function PocThemeProvider({ children }: { children: ReactNode }) {
 
   useLayoutEffect(() => {
     document.documentElement.classList.toggle("poc-light", theme === "light");
+    return () => {
+      document.documentElement.classList.remove("poc-light");
+    };
   }, [theme]);
 
   useEffect(() => {

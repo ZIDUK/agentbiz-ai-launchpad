@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { PocThemeProvider } from "@/poc/scroll-experience/PocThemeContext";
+import { PocModeRoot } from "@/components/marketing/PocModeRoot";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -21,26 +22,21 @@ function SiteChrome() {
 
 interface MarketingProvidersProps {
   children: ReactNode;
-  withPocTheme?: boolean;
 }
 
-export function MarketingProviders({ children, withPocTheme = false }: MarketingProvidersProps) {
-  const content = (
-    <>
-      {children}
-      <SiteChrome />
-    </>
-  );
-
-  const themed = withPocTheme ? <PocThemeProvider>{content}</PocThemeProvider> : content;
-
+export function MarketingProviders({ children }: MarketingProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          {themed}
+          <PocThemeProvider>
+            <PocModeRoot>
+              {children}
+              <SiteChrome />
+            </PocModeRoot>
+          </PocThemeProvider>
         </TooltipProvider>
       </LanguageProvider>
     </QueryClientProvider>

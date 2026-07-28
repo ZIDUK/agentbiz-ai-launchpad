@@ -22,17 +22,20 @@ html.poc-mode {
   background: #000000;
 }
 
-html.poc-mode,
-html.poc-mode body,
-html.poc-mode #root,
-.poc-shell,
-.poc-production-site,
-.poc-production-site > div {
-  background: transparent !important;
+/* Solid theme on all marketing pages (Engagement, Services, etc.) */
+html.poc-mode body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
-html.poc-mode body {
-  color: hsl(var(--foreground));
+/* Transparent only on the cinematic Jarvis home so the canvas shows through */
+html.poc-mode.poc-home,
+html.poc-mode.poc-home body,
+html.poc-mode.poc-home #root,
+html.poc-mode.poc-home .poc-shell,
+html.poc-mode.poc-home .poc-production-site,
+html.poc-mode.poc-home .poc-production-site > div {
+  background: transparent !important;
 }
 
 .poc-shell {
@@ -172,6 +175,17 @@ html.poc-mode body {
   border-radius: 999px;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+@media (max-width: 639px) {
+  .poc-theme-toggle span {
+    display: none;
+  }
+
+  .poc-theme-toggle {
+    padding: 0.4rem;
+  }
 }
 
 .poc-theme-toggle:hover {
@@ -703,7 +717,17 @@ html.poc-mode.poc-light {
   --accent-foreground: 222 47% 11%;
   --border: 220 13% 91%;
   --input: 220 13% 91%;
-  background: #eef2f9;
+  background: #ffffff;
+}
+
+html.poc-mode.poc-light body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+html.poc-mode.poc-light.poc-home,
+html.poc-mode.poc-light.poc-home body {
+  background: transparent !important;
 }
 
 html.poc-mode.poc-light .poc-vignette {

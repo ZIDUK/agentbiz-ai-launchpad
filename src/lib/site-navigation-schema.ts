@@ -12,7 +12,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Careers at AgentBiz",
       description:
-        "Explore AgentBiz job openings and learn why engineers join us to build production AI systems for enterprise clients.",
+        "Explore AgentBiz roles and learn why Agentiers join us to ship AI-native operations for enterprise clients.",
       path: "/careers",
     },
     {
@@ -28,9 +28,9 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
       path: "/services",
     },
     {
-      name: "Engagement Models",
+      name: "Transformation Packages",
       description:
-        "Project-based delivery, managed services, staff augmentation, maintenance, and rescue engagements for enterprise AI programs.",
+        "AI-Native PODs, AgentOps Factory, and Function Modernization — outcome-based packages for enterprise operational AI transformation.",
       path: "/engagement",
     },
     {
@@ -56,7 +56,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Carreras en AgentBiz",
       description:
-        "Explore vacantes en AgentBiz y conozca por qué ingenieros se unen a nosotros para construir IA en producción para clientes enterprise.",
+        "Explore vacantes en AgentBiz y conozca por qué los Agentiers se unen a nosotros para llevar operaciones AI-Native a producción.",
       path: "/careers",
     },
     {
@@ -72,9 +72,9 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
       path: "/services",
     },
     {
-      name: "Modelos de engagement",
+      name: "Paquetes de transformación",
       description:
-        "Proyectos, managed services, staff augmentation, mantenimiento y rescue para programas de IA enterprise.",
+        "AI-Native PODs, AgentOps Factory y Function Modernization — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
       path: "/engagement",
     },
     {

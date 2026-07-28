@@ -1,8 +1,8 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | Sistemas de IA en producción para la empresa",
+    title: "AgentBiz | IA operativa para la empresa",
     description:
-      "Diseñamos, construimos y escalamos flujos de IA, agentes y aplicaciones enterprise — con la gobernanza, disciplina de ingeniería y rigor de entrega que exigen los equipos C-level.",
+      "Ayudamos a organizaciones a rediseñar, implementar y escalar operaciones críticas de negocio con IA gobernada — flujos en producción que su equipo puede operar y poseer.",
   },
   seo: {
     about: {
@@ -19,9 +19,9 @@ export const messages = {
       description: "Términos que rigen el uso del sitio y servicios de AgentBiz.",
     },
     careers: {
-      title: "Carreras en AgentBiz | Ingeniería IA Enterprise",
+      title: "Carreras en AgentBiz | Conviértase en Agentier",
       description:
-        "Únase a AgentBiz y construya sistemas de IA en producción para organizaciones enterprise.",
+        "Únase a AgentBiz como Agentier y lleve operaciones AI-Native a producción para organizaciones enterprise.",
     },
     services: {
       title: "Servicios de IA y software | AgentBiz",
@@ -49,9 +49,9 @@ export const messages = {
         "Entrega de IA para FinTech, salud, logística, SaaS y energía — entornos regulados con resultados medibles.",
     },
     engagement: {
-      title: "Modelos de engagement | AgentBiz",
+      title: "Paquetes de transformación | AgentBiz",
       description:
-        "Proyectos, managed services, staff augmentation, mantenimiento y rescue para entrega de IA enterprise.",
+        "AI-Native PODs, AgentOps Factory y Function Modernization — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
     },
     insights: {
       title: "Insights | AgentBiz",
@@ -74,12 +74,17 @@ export const messages = {
     },
   },
   nav: {
-    services: "Servicios",
+    services: "Soluciones",
+    solutions: "Soluciones",
+    solutionsLabel: "SOLUCIONES",
+    howAgentiersDeliver: "Cómo entregan los Agentiers",
+    exploreSolution: "Explorar solución →",
+    viewAllSolutions: "Ver todas las soluciones →",
     industries: "Industrias",
     process: "Proceso",
     resources: "Recursos",
     insights: "Insights",
-    engagement: "Engagement",
+    engagement: "Soluciones",
     careers: "Carreras",
     about: "Nosotros",
     contact: "Contacto",
@@ -87,16 +92,16 @@ export const messages = {
     roiCalculator: "Calculadora ROI",
     executiveBriefing: "Briefing ejecutivo",
     trainings: "Capacitaciones",
-    engagementModels: "Modelos de engagement",
-    allServices: "Todos los servicios",
+    engagementModels: "Paquetes de transformación",
+    allServices: "Todas las soluciones",
     menu: "Menú",
-    aiServices: "SERVICIOS IA",
+    aiServices: "SOLUCIONES",
     software: "SOFTWARE",
     openMenu: "Abrir menú",
     more: "Más",
     viewAllIndustries: "Ver todas las industrias →",
     viewAllServices: "Ver todos los servicios →",
-    engagementModelsLabel: "MODELOS DE ENGAGEMENT",
+    engagementModelsLabel: "PAQUETES DE TRANSFORMACIÓN",
     aiDevelopment: "DESARROLLO IA",
     softwareDevelopment: "DESARROLLO DE SOFTWARE",
   },
@@ -110,14 +115,14 @@ export const messages = {
     viewAllInsights: "Ver todos los insights →",
     exploreIndustry: "Explorar industria →",
     learnMore: "Saber más →",
-    compareModels: "Comparar todos los modelos",
-    talkToLead: "Hablar con un líder de ingeniería",
+    compareModels: "Comparar todos los paquetes",
+    talkToLead: "Hablar con un líder de operaciones",
     scheduleCall: "Agendar llamada estratégica",
     bookStrategyCall: "Agendar llamada estratégica",
     allResources: "Todos los recursos",
     allInsights: "Todos los insights",
     allIndustries: "Todas las industrias",
-    allEngagement: "Todos los modelos de engagement",
+    allEngagement: "Todos los paquetes de transformación",
     estimateRoi: "Estimar ROI",
     calculateRoi: "Calcular ROI",
     validateWithLead: "Validar con un líder de ingeniería",
@@ -131,7 +136,7 @@ export const messages = {
     bestFor: "Ideal para",
     deliverables: "Entregables típicos",
     timeline: "Cronograma",
-    howItWorks: "Cómo funciona el engagement",
+    howItWorks: "Cómo funciona el paquete",
     typicalOutcomes: "Resultados típicos",
     metricsDisclaimer:
       "Rangos basados en programas de automatización de flujos acotados. Los resultados varían según madurez del proceso y preparación de datos.",
@@ -141,17 +146,17 @@ export const messages = {
     notFoundCta: "Volver al inicio",
   },
   hero: {
-    eyebrow: "Ingeniería IA nativa para la empresa",
-    title: "Construya sistemas de IA en producción",
-    titleHighlight: "que su organización pueda poseer",
+    eyebrow: "Operaciones enterprise con IA nativa",
+    title: "IA operativa",
+    titleHighlight: "que usted posee",
     subtitle:
-      "Diseñamos, construimos y escalamos flujos, agentes y aplicaciones enterprise con IA nativa — con la gobernanza, disciplina de ingeniería y rigor de entrega que exigen los equipos C-level.",
-    ctaPrimary: "Hablar con un líder de ingeniería",
+      "Ayudamos a organizaciones a rediseñar, implementar y escalar operaciones críticas de negocio con inteligencia artificial gobernada — integrada a sus sistemas, medida con KPIs y propiedad de su equipo.",
+    ctaPrimary: "Hablar con un líder de operaciones",
     ctaSecondary: "Calcular ROI de IA",
-    trust1: "Entrega enterprise",
-    trust2: "Sistemas de IA en producción",
-    trust3: "Implementación gobernada",
-    trust4: "Experiencia en software desde 2007",
+    trust1: "Ingeniería de producción",
+    trust2: "Agentes y flujos gobernados",
+    trust3: "Integraciones de sistemas",
+    trust4: "Transferencia de capacidad — outcome primero",
   },
   challenge: {
     eyebrow: "EL DESAFÍO ENTERPRISE",
@@ -178,11 +183,11 @@ export const messages = {
   },
   engagementSection: {
     eyebrow: "CÓMO TRABAJAMOS",
-    title: "Modelos de",
-    titleHighlight: "engagement",
+    title: "Paquetes de",
+    titleHighlight: "transformación",
     subtitle:
-      "Modelos de partnership flexibles diseñados para su etapa, equipo y objetivos de entrega.",
-    discuss: "Discutir su modelo de engagement",
+      "Paquetes orientados a outcomes que llevan operaciones críticas de la evaluación a producción — y luego escalan capacidad que su organización posee.",
+    discuss: "Discutir su ruta de transformación",
   },
   industriesSection: {
     eyebrow: "INDUSTRIAS",
@@ -248,7 +253,7 @@ export const messages = {
   },
   about: {
     eyebrow: "NOSOTROS",
-    visitAgenticDream: "Visitar Agentic Dream →",
+    visitSite: "Visitar sitio →",
   },
   trustedBy: {
     eyebrow: "Equipos que confían en nosotros para IA en producción",
@@ -401,17 +406,17 @@ export const messages = {
   },
   engagementPage: {
     eyebrow: "CÓMO TRABAJAMOS",
-    title: "Modelos de",
-    titleHighlight: "engagement",
+    title: "Paquetes de",
+    titleHighlight: "transformación",
     subtitle:
-      "Estructuras de partnership alineadas a su etapa de entrega — desde el primer flujo en producción hasta operaciones continuas y ampliación de equipo.",
-    ctaTitle: "¿No sabe qué modelo encaja?",
+      "Tres paquetes orientados a outcomes — del primer flujo en producción a transferencia de capacidad y operaciones gestionadas continuas.",
+    ctaTitle: "¿No sabe por dónde empezar?",
     ctaBody:
-      "Una llamada estratégica de 30 minutos ayuda a mapear su flujo, equipo y cronograma al modelo de engagement correcto.",
-    discuss: "Discutir su engagement",
+      "Una llamada estratégica de 30 minutos mapea su flujo de mayor volumen, KPIs y cronograma al paquete correcto.",
+    discuss: "Discutir su ruta",
     readyDiscuss: "¿Listo para discutir",
     readyBody:
-      "Mapearemos su flujo, estructura de equipo y métricas de éxito a un plan de entrega concreto.",
+      "Mapearemos su flujo, métricas de éxito y restricciones operativas a un plan de transformación concreto.",
   },
   trainings: {
     hub: {
@@ -471,13 +476,14 @@ export const messages = {
   },
   careers: {
     eyebrow: "CARRERAS",
-    title: "Construya el futuro de la",
-    titleHighlight: "IA enterprise",
-    subtitle: "Únase a un equipo que entrega sistemas de IA en producción para organizaciones globales.",
-    joinTitle: "Únase a nuestra",
-    joinHighlight: "revolución de IA",
+    title: "Conviértase en",
+    titleHighlight: "Agentier",
+    subtitle:
+      "Los Agentiers llevan operaciones AI-Native a producción para clientes enterprise — flujos gobernados, KPIs medibles y sistemas que el cliente posee.",
+    joinTitle: "Únase a los",
+    joinHighlight: "Agentiers",
     joinSubtitle:
-      "Construya el futuro de la IA con nosotros. Buscamos personas apasionadas que quieran transformar cómo las empresas adoptan inteligencia artificial.",
+      "Buscamos personas que quieran poner operaciones críticas de negocio en producción con IA gobernada — no pilotos eternos ni headcount rentado.",
     all: "Todos",
     requirements: "Requisitos:",
     moreRequirements: "requisitos más",
@@ -485,13 +491,13 @@ export const messages = {
     applyFor: "Aplicar a",
     noPositions: "No hay posiciones disponibles en",
     checkBack: "Vuelva más tarde o explore otros departamentos.",
-    whyJoin: "Por qué unirse a",
-    cuttingEdge: "Trabajo de vanguardia",
+    whyJoin: "¿Por qué ser",
+    cuttingEdge: "Trabajo de producción que importa",
     cuttingEdgeBody:
-      "Trabaje con las tecnologías de IA más avanzadas y modele el futuro de la automatización empresarial.",
-    worldClass: "Equipo de clase mundial",
+      "Entregue flujos reales dentro de operaciones enterprise — con gobernanza, integraciones y KPIs que el cliente puede medir.",
+    worldClass: "Una tribu de Agentiers",
     worldClassBody:
-      "Colabore con investigadores, ingenieros y expertos de negocio de primer nivel en todo el mundo.",
+      "Colabore con operadores, arquitectos y líderes de entrega que cuidan la transferencia de ownership — no el body shopping.",
     competitive: "Paquete competitivo",
     competitiveBody:
       "Salario competitivo, equity, beneficios integrales y opciones flexibles de trabajo remoto.",

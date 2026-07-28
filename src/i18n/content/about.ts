@@ -15,14 +15,12 @@ export interface AboutContent {
   teamTitle: string;
   teamSubtitle: string;
   team: TeamMember[];
-  sisterBrandTitle: string;
-  sisterBrandBody: string;
 }
 
 const aboutEn: AboutContent = {
-  headline: "Engineering partners for production AI",
+  headline: "Partners for operational AI in production",
   subtitle:
-    "AgentBiz is the delivery arm for organizations building governed AI systems — not another strategy consultancy. We ship code, integrations, and operational workflows your team can run.",
+    "AgentBiz helps enterprises redesign, implement, and scale critical operations with governed AI — not another strategy deck or staffed outsourcing bench. We ship workflows your team can run and own.",
   missionTitle: "Our mission",
   missionBody:
     "Help enterprise teams move from AI pilots to production capability with engineering discipline, measurable outcomes, and full ownership of what we build.",
@@ -40,30 +38,27 @@ const aboutEn: AboutContent = {
       description: "You own the code, integrations, and operational playbooks we deliver.",
     },
   ],
-  teamTitle: "Leadership",
+  teamTitle: "Our Agentiers",
   teamSubtitle:
-    "Senior practitioners with 15+ years shipping enterprise software and production AI systems across regulated industries.",
+    "Agentiers are the people behind AgentBiz — senior practitioners with 15+ years shipping enterprise software and production AI systems across regulated industries.",
   team: [
     {
       name: "Engineering & Architecture",
       role: "AI Operations · Integrations · Agent Design",
-      bio: "Leads technical discovery, system design, and production deployment. Background in enterprise integrations (ERP, CRM, ITSM), document AI, and governed agent workflows.",
+      bio: "Agentiers lead technical discovery, system design, and production deployment. Background in enterprise integrations (ERP, CRM, ITSM), document AI, and governed agent workflows.",
     },
     {
       name: "Delivery & Client Success",
       role: "Program Management · Executive Alignment",
-      bio: "Owns engagement execution from pilot scoping through scale. Ensures KPIs, governance checkpoints, and knowledge transfer so your team operates what we build.",
+      bio: "Agentiers own execution from AI-Native POD scoping through scale. Ensures KPIs, governance checkpoints, and knowledge transfer so your team operates what we build.",
     },
   ],
-  sisterBrandTitle: "Part of the Agentic Dream ecosystem",
-  sisterBrandBody:
-    "AgentBiz focuses on engineering and delivery. Our sister brand Agentic Dream addresses AI-native operating model strategy. Together we cover strategy through production — without duplicating either role.",
 };
 
 const aboutEs: AboutContent = {
-  headline: "Partners de ingeniería para IA en producción",
+  headline: "Partners para IA operativa en producción",
   subtitle:
-    "AgentBiz es el brazo de entrega para organizaciones que construyen sistemas de IA gobernados — no otra consultora de estrategia. Entregamos código, integraciones y flujos operativos que su equipo puede ejecutar.",
+    "AgentBiz ayuda a empresas a rediseñar, implementar y escalar operaciones críticas con IA gobernada — no otra deck de estrategia ni un banco de outsourcing. Entregamos flujos que su equipo puede operar y poseer.",
   missionTitle: "Nuestra misión",
   missionBody:
     "Ayudar a equipos enterprise a pasar de pilotos de IA a capacidad en producción con disciplina de ingeniería, resultados medibles y propiedad total de lo que construimos.",
@@ -81,24 +76,21 @@ const aboutEs: AboutContent = {
       description: "Usted posee el código, integraciones y playbooks operativos que entregamos.",
     },
   ],
-  teamTitle: "Liderazgo",
+  teamTitle: "Nuestros Agentiers",
   teamSubtitle:
-    "Practicantes senior con 15+ años entregando software enterprise y sistemas de IA en producción en industrias reguladas.",
+    "Los Agentiers son las personas detrás de AgentBiz — practicantes senior con 15+ años entregando software enterprise y sistemas de IA en producción en industrias reguladas.",
   team: [
     {
       name: "Ingeniería y Arquitectura",
       role: "Operaciones IA · Integraciones · Diseño de agentes",
-      bio: "Lidera discovery técnico, diseño de sistemas y despliegue en producción. Experiencia en integraciones enterprise (ERP, CRM, ITSM), IA documental y flujos agénticos gobernados.",
+      bio: "Los Agentiers lideran discovery técnico, diseño de sistemas y despliegue en producción. Experiencia en integraciones enterprise (ERP, CRM, ITSM), IA documental y flujos agénticos gobernados.",
     },
     {
       name: "Entrega y Éxito del Cliente",
       role: "Gestión de programas · Alineación ejecutiva",
-      bio: "Gestiona la ejecución del engagement desde el alcance del piloto hasta la escala. Asegura KPIs, checkpoints de gobernanza y transferencia de conocimiento.",
+      bio: "Los Agentiers gestionan la ejecución desde el alcance de AI-Native PODs hasta la escala. Aseguran KPIs, checkpoints de gobernanza y transferencia de conocimiento.",
     },
   ],
-  sisterBrandTitle: "Parte del ecosistema Agentic Dream",
-  sisterBrandBody:
-    "AgentBiz se enfoca en ingeniería y entrega. Nuestra marca hermana Agentic Dream aborda estrategia de modelo operativo con IA nativa. Juntas cubrimos de estrategia a producción sin duplicar roles.",
 };
 
 export function getAboutContent(locale: Locale): AboutContent {

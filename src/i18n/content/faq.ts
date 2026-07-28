@@ -14,7 +14,7 @@ const faqEn: FaqItem[] = [
   {
     question: "Do you replace our internal engineering team?",
     answer:
-      "No. We embed with your team, transfer patterns and runbooks, and build systems your organization can own. Staff augmentation and co-delivery are common starting points.",
+      "No. Staff augmentation adds people. An AI-Native POD of Agentiers embeds execution discipline to ship one workflow to production, transfer runbooks and patterns, and leave capability your organization owns — not rented headcount.",
   },
   {
     question: "How do you handle compliance and data boundaries?",
@@ -24,17 +24,17 @@ const faqEn: FaqItem[] = [
   {
     question: "What does a typical first engagement look like?",
     answer:
-      "A 4–8 week pilot on one high-volume workflow with baseline KPIs, production deployment, and a roadmap to adjacent processes. Many clients start with document-to-decision or exception-handling workflows.",
+      "AI-Native PODs: 6–10 weeks on one high-volume workflow with baseline KPIs, production deployment, and a roadmap to adjacent processes. Many clients start with document-to-decision or exception-handling workflows.",
   },
   {
     question: "How do you price enterprise AI work?",
     answer:
-      "Pricing depends on engagement model — fixed-scope project, managed pod, or staff augmentation. We scope against defined outcomes and timeline, not open-ended experimentation.",
+      "Pricing is package-based — AI-Native PODs, AgentOps Factory, or Function Modernization. We scope against defined outcomes and timeline, not open-ended experimentation or staff hours.",
   },
   {
-    question: "What is the relationship between AgentBiz and Agentic Dream?",
+    question: "Do we own the code and IP?",
     answer:
-      "Agentic Dream focuses on AI-native operating strategy; AgentBiz is the engineering and delivery arm that ships governed systems to production. Many clients engage both for strategy and execution.",
+      "Yes. 100%. You own the code, prompts, integrations, documentation, and runbooks. We build your operating capability — we do not rent it to you.",
   },
 ];
 
@@ -47,7 +47,7 @@ const faqEs: FaqItem[] = [
   {
     question: "¿Reemplazan a nuestro equipo de ingeniería interno?",
     answer:
-      "No. Nos integramos con su equipo, transferimos patrones y runbooks, y construimos sistemas que su organización puede poseer. Staff augmentation y co-entrega son puntos de partida comunes.",
+      "No. Staff augmentation suma personas. Un AI-Native POD de Agentiers aporta disciplina de ejecución para llevar un flujo a producción, transferir runbooks y patrones, y dejar capacidad que su organización posee — no headcount rentado.",
   },
   {
     question: "¿Cómo manejan cumplimiento y límites de datos?",
@@ -57,17 +57,17 @@ const faqEs: FaqItem[] = [
   {
     question: "¿Cómo es un primer engagement típico?",
     answer:
-      "Un piloto de 4–8 semanas en un flujo de alto volumen con KPIs base, despliegue en producción y hoja de ruta a procesos adyacentes. Muchos clientes empiezan con flujos documento-a-decisión o manejo de excepciones.",
+      "AI-Native PODs: 6–10 semanas en un flujo de alto volumen con KPIs base, despliegue en producción y hoja de ruta a procesos adyacentes. Muchos clientes empiezan con flujos documento-a-decisión o manejo de excepciones.",
   },
   {
     question: "¿Cómo precian el trabajo de IA enterprise?",
     answer:
-      "El precio depende del modelo de engagement — proyecto de alcance fijo, pod gestionado o staff augmentation. Cotizamos contra resultados y cronograma definidos, no experimentación abierta.",
+      "El precio es por paquete — AI-Native PODs, AgentOps Factory o Function Modernization. Cotizamos contra resultados y cronograma definidos, no experimentación abierta ni horas de staff.",
   },
   {
-    question: "¿Cuál es la relación entre AgentBiz y Agentic Dream?",
+    question: "¿Poseemos el código y la IP?",
     answer:
-      "Agentic Dream se enfoca en estrategia operativa AI-native; AgentBiz es el brazo de ingeniería y entrega que lleva sistemas gobernados a producción. Muchos clientes contratan ambos para estrategia y ejecución.",
+      "Sí. 100%. Usted posee el código, prompts, integraciones, documentación y runbooks. Construimos su capacidad operativa — no se la rentamos.",
   },
 ];
 

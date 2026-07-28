@@ -41,6 +41,55 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/engagement/capability-scale",
+        destination: "/engagement/agentops-factory",
+        permanent: true,
+      },
+      {
+        source: "/engagement/managed-ops",
+        destination: "/engagement/function-modernization",
+        permanent: true,
+      },
+      {
+        source: "/engagement/production-launch",
+        destination: "/engagement/ai-native-pods",
+        permanent: true,
+      },
+      {
+        source: "/engagement/production-sprint",
+        destination: "/engagement/ai-native-pods",
+        permanent: true,
+      },
+      {
+        source: "/engagement/staff-augmentation",
+        destination: "/engagement",
+        permanent: true,
+      },
+      {
+        source: "/engagement/software-maintenance",
+        destination: "/engagement/function-modernization",
+        permanent: true,
+      },
+      {
+        source: "/engagement/rescue-project",
+        destination: "/engagement",
+        permanent: true,
+      },
+      {
+        source: "/engagement/project-based-development",
+        destination: "/engagement/ai-native-pods",
+        permanent: true,
+      },
+      {
+        source: "/engagement/managed-services",
+        destination: "/engagement/function-modernization",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     const securityHeaders = Object.entries(getSecurityHeaders()).map(([key, value]) => ({
       key,

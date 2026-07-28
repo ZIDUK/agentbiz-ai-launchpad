@@ -1,9 +1,8 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { lazy, Suspense, useLayoutEffect, useRef } from "react";
 import { ScrollBackground, type ScrollSceneState } from "./components/ScrollBackground";
 import { JarvisHud } from "./components/JarvisHud";
 import { CursorTrail } from "./components/CursorTrail";
 import { useScrollExperience } from "./hooks/useScrollExperience";
-import { ThemeToggle } from "./components/ThemeToggle";
 import { CORE_HOME } from "./journey-acts";
 import ProductionHomePreview from "./ProductionHomePreview";
 
@@ -22,10 +21,10 @@ export default function ScrollHomeShell() {
 
   useScrollExperience(stateRef, { progressBarRef });
 
-  useEffect(() => {
-    document.documentElement.classList.add("poc-mode");
+  useLayoutEffect(() => {
+    document.documentElement.classList.add("poc-home");
     return () => {
-      document.documentElement.classList.remove("poc-mode");
+      document.documentElement.classList.remove("poc-home");
     };
   }, []);
 
@@ -39,10 +38,6 @@ export default function ScrollHomeShell() {
       <CursorTrail mouseRef={mouseRef} />
       <div className="poc-vignette" aria-hidden="true" />
       <JarvisHud stateRef={stateRef} />
-
-      <div className="poc-theme-float">
-        <ThemeToggle />
-      </div>
 
       <div className="poc-content poc-production-site">
         <ProductionHomePreview />

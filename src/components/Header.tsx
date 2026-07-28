@@ -11,9 +11,11 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ServicesMegaMenu } from "@/components/ServicesMegaMenu";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useSiteContent } from "@/i18n/hooks";
+import { ThemeToggle } from "@/poc/scroll-experience/components/ThemeToggle";
 import { useIndustriesContent } from "@/i18n/hooks";
+import { useLanguage } from "@/i18n/LanguageProvider";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getSolutionsMenu } from "@/i18n/content/solutions-menu";
 import { trackEvent } from "@/lib/analytics";
 
 const Header = () => {
@@ -22,7 +24,8 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { aiServices, softwareServices } = useSiteContent();
+  const { locale } = useLanguage();
+  const solutions = getSolutionsMenu(locale);
   const industryDetails = useIndustriesContent();
 
   useEffect(() => {
@@ -87,9 +90,6 @@ const Header = () => {
             <Link to="/insights" className="btn-ghost whitespace-nowrap">
               {t("nav.insights")}
             </Link>
-            <Link to="/engagement" className="btn-ghost whitespace-nowrap">
-              {t("nav.engagement")}
-            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger className="btn-ghost inline-flex items-center gap-1 whitespace-nowrap">
                 {t("nav.more")}
@@ -113,6 +113,7 @@ const Header = () => {
           </div>
 
           <div className="flex shrink-0 items-center gap-2 lg:gap-3">
+            <ThemeToggle />
             <LanguageSwitcher className="hidden sm:inline-flex shrink-0" />
             <Button
               onClick={() => scrollToSection("contact")}
@@ -138,39 +139,29 @@ const Header = () => {
                 <nav className="space-y-6">
                   <div>
                     <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
-                      {t("nav.aiServices")}
+                      {t("nav.solutionsLabel")}
                     </p>
                     <ul className="space-y-2">
-                      {aiServices.map((service) => (
-                        <li key={service.slug}>
+                      {solutions.map((solution) => (
+                        <li key={solution.slug}>
                           <Link
-                            to={`/services/${service.slug}`}
+                            to={solution.href}
                             className="text-sm text-foreground hover:text-primary"
                             onClick={() => setMobileOpen(false)}
                           >
-                            {service.title}
+                            {solution.title}
                           </Link>
                         </li>
                       ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-3">
-                      {t("nav.software")}
-                    </p>
-                    <ul className="space-y-2">
-                      {softwareServices.map((service) => (
-                        <li key={service.slug}>
-                          <Link
-                            to={`/services/${service.slug}`}
-                            className="text-sm text-foreground hover:text-primary"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {service.title}
-                          </Link>
-                        </li>
-                      ))}
+                      <li>
+                        <Link
+                          to="/engagement"
+                          className="text-sm font-semibold text-primary"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {t("nav.viewAllSolutions")}
+                        </Link>
+                      </li>
                     </ul>
                   </div>
 
@@ -222,13 +213,6 @@ const Header = () => {
                       {t("nav.insights")}
                     </Link>
                     <Link
-                      to="/engagement"
-                      className="block text-sm font-medium py-2"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {t("nav.engagementModels")}
-                    </Link>
-                    <Link
                       to="/ai-roi-calculator"
                       className="block text-sm font-medium py-2"
                       onClick={() => setMobileOpen(false)}
@@ -262,13 +246,6 @@ const Header = () => {
                     >
                       {t("nav.contact")}
                     </button>
-                    <Link
-                      to="/services"
-                      className="block text-sm font-medium text-primary py-2"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {t("nav.allServices")}
-                    </Link>
                   </div>
 
                   <Button className="btn-primary w-full" onClick={() => scrollToSection("contact")}>

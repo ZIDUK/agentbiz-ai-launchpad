@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { useSiteContent } from "@/i18n/hooks";
 import { useIndustriesContent } from "@/i18n/hooks";
+import { useLanguage } from "@/i18n/LanguageProvider";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getSolutionsMenu } from "@/i18n/content/solutions-menu";
 import { cn } from "@/lib/utils";
 
-type OpenMenu = "services" | "industries" | null;
+type OpenMenu = "solutions" | "industries" | null;
 
 interface ServicesMegaMenuProps {
   onNavigate?: () => void;
@@ -17,7 +18,8 @@ const menuLinkClass =
 
 export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
   const { t } = useTranslation();
-  const { aiServices, softwareServices, engagementModels } = useSiteContent();
+  const { locale } = useLanguage();
+  const solutions = getSolutionsMenu(locale);
   const industryDetails = useIndustriesContent();
   const [openMenu, setOpenMenu] = useState<OpenMenu>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -59,16 +61,16 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
           type="button"
           className={cn(
             "btn-ghost inline-flex h-10 items-center gap-1 px-4 rounded-md",
-            openMenu === "services" && "bg-muted text-foreground",
+            openMenu === "solutions" && "bg-muted text-foreground",
           )}
-          aria-expanded={openMenu === "services"}
-          onClick={() => toggleMenu("services")}
+          aria-expanded={openMenu === "solutions"}
+          onClick={() => toggleMenu("solutions")}
         >
-          {t("nav.services")}
+          {t("nav.solutions")}
           <ChevronDown
             className={cn(
               "h-3.5 w-3.5 transition-transform duration-200",
-              openMenu === "services" && "rotate-180",
+              openMenu === "solutions" && "rotate-180",
             )}
           />
         </button>
@@ -92,91 +94,90 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
         </button>
       </div>
 
-      {openMenu === "services" && (
+      {openMenu === "solutions" && (
         <div className="fixed inset-x-0 top-16 lg:top-20 z-[90] border-t border-border bg-card shadow-2xl">
           <div className="container py-6">
-            <div className="mx-auto grid max-w-7xl gap-0 md:grid-cols-[300px_1fr] overflow-hidden rounded-xl border border-border">
-              <div className="border-b md:border-b-0 md:border-r border-border bg-muted p-6">
-                <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                  {t("nav.engagementModelsLabel")}
-                </p>
-                <ul className="space-y-1">
-                  {engagementModels.map((model) => {
-                    const Icon = model.icon;
-                    return (
-                      <li key={model.title}>
-                        <Link to={model.href} className={menuLinkClass} onClick={handleNavigate}>
-                          <div className="flex gap-3">
-                            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                              <Icon className="h-4 w-4 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold text-foreground">{model.title}</p>
-                              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                                {model.description}
+            <div className="mx-auto grid max-w-7xl gap-0 overflow-hidden rounded-xl border border-border md:grid-cols-3">
+              {solutions.map((solution, index) => (
+                <div
+                  key={solution.slug}
+                  className={cn(
+                    "bg-card p-6",
+                    index === 0 && "bg-muted/60",
+                    index < solutions.length - 1 && "border-b md:border-b-0 md:border-r border-border",
+                  )}
+                >
+                  <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground">
+                    {t("nav.solutionsLabel")}
+                  </p>
+                  <Link to={solution.href} className="group block mb-4" onClick={handleNavigate}>
+                    <p className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                      {solution.title}
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {solution.description}
+                    </p>
+                  </Link>
+
+                  {solution.capabilities && (
+                    <>
+                      <p className="mb-3 text-[11px] font-semibold tracking-wider text-primary uppercase">
+                        {t("nav.howAgentiersDeliver")}
+                      </p>
+                      <ul className="space-y-1">
+                        {solution.capabilities.map((cap) => (
+                          <li key={cap.title}>
+                            <Link
+                              to={solution.href}
+                              className={cn(menuLinkClass, "py-2")}
+                              onClick={handleNavigate}
+                            >
+                              <p className="text-sm font-medium text-foreground">{cap.title}</p>
+                              <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                                {cap.description}
                               </p>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
 
-              <div className="grid gap-6 bg-card p-6 md:grid-cols-2">
-                <div>
-                  <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                    {t("nav.aiDevelopment")}
-                  </p>
-                  <ul className="space-y-1">
-                    {aiServices.map((service) => (
-                      <li key={service.slug}>
-                        <Link
-                          to={`/services/${service.slug}`}
-                          className={cn(menuLinkClass, "py-2")}
-                          onClick={handleNavigate}
-                        >
-                          <p className="text-sm font-medium">{service.title}</p>
-                          <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                            {service.shortDescription}
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <p className="mb-4 text-xs font-semibold tracking-wider text-muted-foreground">
-                    {t("nav.softwareDevelopment")}
-                  </p>
-                  <ul className="space-y-1">
-                    {softwareServices.map((service) => (
-                      <li key={service.slug}>
-                        <Link
-                          to={`/services/${service.slug}`}
-                          className={cn(menuLinkClass, "py-2")}
-                          onClick={handleNavigate}
-                        >
-                          <p className="text-sm font-medium">{service.title}</p>
-                          <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                            {service.shortDescription}
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {solution.highlights && (
+                    <ul className="space-y-2 mt-1">
+                      {solution.highlights.map((item) => (
+                        <li key={item}>
+                          <Link
+                            to={solution.href}
+                            className={cn(menuLinkClass, "py-2")}
+                            onClick={handleNavigate}
+                          >
+                            <p className="text-sm text-foreground">{item}</p>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   <Link
-                    to="/services"
-                    className={cn(menuLinkClass, "mt-4 border border-border text-center")}
+                    to={solution.href}
+                    className="mt-4 inline-block text-sm font-semibold text-primary hover:underline"
                     onClick={handleNavigate}
                   >
-                    <p className="text-sm font-semibold text-primary">{t("nav.viewAllServices")}</p>
+                    {t("nav.exploreSolution")}
                   </Link>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            <div className="mx-auto mt-4 max-w-7xl">
+              <Link
+                to="/engagement"
+                className={cn(menuLinkClass, "border border-border text-center")}
+                onClick={handleNavigate}
+              >
+                <p className="text-sm font-semibold text-primary">{t("nav.viewAllSolutions")}</p>
+              </Link>
             </div>
           </div>
         </div>

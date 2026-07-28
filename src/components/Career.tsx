@@ -141,7 +141,7 @@ const Career = () => {
         <div className="mt-20 pt-16 border-t border-border">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              {t("careers.whyJoin")} <span className="gradient-text">AgentBiz</span>?
+              {t("careers.whyJoin")} <span className="gradient-text">Agentier</span>?
             </h3>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">

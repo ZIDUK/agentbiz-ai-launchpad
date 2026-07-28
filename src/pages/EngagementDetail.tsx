@@ -92,7 +92,7 @@ const EngagementDetail = () => {
 
           <section className="card-hover p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">
-              {t("engagementPage.readyDiscuss")} {model.title.toLowerCase()}?
+              {t("engagementPage.readyDiscuss")} {model.title}?
             </h2>
             <p className="text-secondary mb-6">{t("engagementPage.readyBody")}</p>
             <div className="flex flex-col sm:flex-row gap-3">

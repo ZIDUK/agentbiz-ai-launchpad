@@ -55,16 +55,6 @@ const About = () => {
             </div>
           </section>
 
-          <section className="card-hover p-10 mb-16">
-            <h2 className="text-xl font-semibold text-foreground mb-3">{content.sisterBrandTitle}</h2>
-            <p className="text-secondary leading-relaxed mb-6">{content.sisterBrandBody}</p>
-            <Button asChild variant="outline">
-              <a href="https://www.agenticdream.com/" target="_blank" rel="noopener noreferrer">
-                {t("about.visitAgenticDream")}
-              </a>
-            </Button>
-          </section>
-
           <div className="text-center">
             <Button asChild className="btn-primary">
               <Link to="/#contact">{t("common.talkToLead")}</Link>
