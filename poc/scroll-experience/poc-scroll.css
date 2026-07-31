@@ -28,6 +28,17 @@ html.poc-mode body {
   color: hsl(var(--foreground));
 }
 
+/* Full-width backdrop behind the Solutions / Industries mega-menus */
+.solutions-mega-overlay {
+  background: hsl(220 14% 92% / 0.94) !important;
+}
+html.poc-mode:not(.poc-light) .solutions-mega-overlay {
+  background: hsl(222 18% 9% / 0.96) !important;
+}
+html.poc-mode.poc-light .solutions-mega-overlay {
+  background: hsl(220 14% 92% / 0.94) !important;
+}
+
 /* Shared elevated nav panels (Solutions / Industries / Trainings) */
 .solutions-mega-panel {
   background: hsl(220 14% 97%) !important;

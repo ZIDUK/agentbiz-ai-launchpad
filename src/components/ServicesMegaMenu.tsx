@@ -144,7 +144,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
       </div>
 
       {openMenu === "solutions" && selectedSolution && (
-        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-[hsl(222_18%_9%/0.96)] shadow-2xl backdrop-blur-md lg:top-20">
+        <div className="solutions-mega-overlay fixed inset-x-0 top-16 z-[90] border-t border-border shadow-2xl backdrop-blur-md lg:top-20">
           <div className="container py-6">
             <div className="solutions-mega-panel mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-border md:grid-cols-[minmax(240px,300px)_1fr]">
               {/* Left rail — elevated so it separates from the page */}
@@ -298,7 +298,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
       )}
 
       {openMenu === "industries" && (
-        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-[hsl(222_18%_9%/0.96)] shadow-2xl backdrop-blur-md lg:top-20">
+        <div className="solutions-mega-overlay fixed inset-x-0 top-16 z-[90] border-t border-border shadow-2xl backdrop-blur-md lg:top-20">
           <div className="container py-6">
             <div className="solutions-mega-panel mx-auto max-w-5xl overflow-hidden rounded-xl border border-border p-3 md:p-4">
               <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
