@@ -90,12 +90,19 @@ const Header = () => {
                 {t("nav.trainings")}
                 <ChevronDown className="h-3.5 w-3.5 opacity-70" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-[min(92vw,360px)] p-2">
+              <DropdownMenuContent
+                align="center"
+                className="solutions-mega-panel w-[min(92vw,380px)] border-border p-3 shadow-2xl"
+              >
                 {trainingPrograms.map((program) => (
-                  <DropdownMenuItem key={program.slug} asChild className="cursor-pointer p-0 focus:bg-transparent">
+                  <DropdownMenuItem
+                    key={program.slug}
+                    asChild
+                    className="cursor-pointer p-0 focus:bg-transparent"
+                  >
                     <Link
                       to={`/trainings/${program.slug}`}
-                      className="flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-primary/40 hover:bg-accent"
+                      className="solutions-mega-item mb-2 flex items-start gap-3 rounded-lg p-3 transition-colors hover:border-primary/40 last:mb-0"
                     >
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                         <BookOpen className="h-5 w-5 text-primary" />
@@ -109,17 +116,13 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                 ))}
-                <div className="mt-1 border-t border-border pt-1">
-                  <DropdownMenuItem asChild className="cursor-pointer">
-                    <Link
-                      to="/trainings"
-                      className="flex w-full items-center justify-between px-2 py-2 text-sm font-semibold text-primary"
-                    >
-                      {t("nav.viewAllTrainings")}
-                      <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </DropdownMenuItem>
-                </div>
+                <Link
+                  to="/trainings"
+                  className="solutions-mega-item mt-1 flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-primary hover:border-primary/40"
+                >
+                  {t("nav.viewAllTrainings")}
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
             <Link to="/resources" className="btn-ghost whitespace-nowrap">

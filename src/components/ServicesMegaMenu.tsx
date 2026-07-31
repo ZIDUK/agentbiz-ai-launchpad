@@ -298,9 +298,9 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
       )}
 
       {openMenu === "industries" && (
-        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-card shadow-2xl lg:top-20">
+        <div className="fixed inset-x-0 top-16 z-[90] border-t border-border bg-[hsl(222_18%_9%/0.96)] shadow-2xl backdrop-blur-md lg:top-20">
           <div className="container py-6">
-            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-background/40 p-2 md:p-3">
+            <div className="solutions-mega-panel mx-auto max-w-5xl overflow-hidden rounded-xl border border-border p-3 md:p-4">
               <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {industryDetails.map((industry) => {
                   const Icon = industry.icon;
@@ -310,17 +310,19 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                         to={`/industries/${industry.slug}`}
                         className={cn(
                           menuLinkClass,
-                          "h-full border border-transparent hover:border-primary/40 hover:bg-card",
+                          "solutions-mega-item flex h-full flex-col gap-3 hover:border-primary/40",
                         )}
                         onClick={handleNavigate}
                       >
-                        <div className="mb-2 flex items-center gap-3">
+                        <div className="flex items-center gap-3">
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                             <Icon className="h-5 w-5 text-primary" />
                           </div>
-                          <p className="text-sm font-semibold leading-snug">{industry.name}</p>
+                          <p className="text-sm font-semibold leading-snug text-foreground">
+                            {industry.name}
+                          </p>
                         </div>
-                        <p className="pl-[3.25rem] text-xs leading-relaxed text-muted-foreground line-clamp-2">
+                        <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">
                           {industry.headline}
                         </p>
                       </Link>
@@ -332,7 +334,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                 to="/industries"
                 className={cn(
                   menuLinkClass,
-                  "mt-2 border border-border text-center hover:border-primary/40",
+                  "solutions-mega-item mt-3 text-center hover:border-primary/40",
                 )}
                 onClick={handleNavigate}
               >
