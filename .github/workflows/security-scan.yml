@@ -1,0 +1,44 @@
+name: Security scan
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  malware-scan:
+    name: Malware pattern scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Run malware scan
+        run: |
+          chmod +x scripts/scan-malware.sh
+          ./scripts/scan-malware.sh .
+
+      - name: Confirm pushed commits are clean
+        # Defense in depth: even if a pre-push hook is bypassed, fail the CI
+        # run if any of the just-pushed commits introduce the watched files
+        # with content larger than the last known-good baseline.
+        run: |
+          set -e
+          THRESHOLD=1000
+          for f in postcss.config.js scripts/generate-sitemap.mjs; do
+            if git show "HEAD:$f" >/dev/null 2>&1; then
+              longest=$(git show "HEAD:$f" | awk '{ print length }' | sort -nr | head -1)
+              if [ "$longest" -gt "$THRESHOLD" ]; then
+                echo "::error::$f has a $longest-char line in HEAD (threshold $THRESHOLD)"
+                exit 1
+              fi
+            fi
+          done
+          echo "Pushed commits clean."

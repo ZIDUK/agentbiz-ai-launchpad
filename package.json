@@ -16,7 +16,9 @@
     "start": "next start",
     "start:next": "next start",
     "test": "vitest run",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "scan:malware": "./scripts/scan-malware.sh .",
+    "hooks:install": "./scripts/install-hooks.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
