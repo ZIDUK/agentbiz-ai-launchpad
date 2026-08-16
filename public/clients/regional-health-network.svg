@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80" role="img" aria-label="Regional Health Network">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Regional Health Network">
   <defs>
-    <linearGradient id="rhn-g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3B82F6"/>
-      <stop offset="1" stop-color="#1E40AF"/>
+    <linearGradient id="rhn-mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F766E"/>
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#rhn-g)" stroke-width="2.5" stroke-linecap="round">
-    <path d="M20 40 L20 25 M20 40 L20 55 M10 32 L30 32 M10 48 L30 48"/>
-    <circle cx="20" cy="40" r="14" fill="none"/>
+  <!-- Brand mark: heart-pulse line forming a stylized heart -->
+  <g transform="translate(12, 16)">
+    <path
+      d="M24 44 C24 44 4 30 4 16 C4 8 10 2 18 2 C22 2 24 6 24 6 C24 6 26 2 30 2 C38 2 44 8 44 16 C44 30 24 44 24 44 Z"
+      fill="url(#rhn-mark)"/>
+    <path
+      d="M8 22 L14 22 L17 14 L22 30 L26 18 L30 22 L40 22"
+      fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <text x="46" y="38" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="currentColor">Regional Health</text>
-  <text x="46" y="55" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="currentColor" opacity="0.7">NETWORK</text>
+  <!-- Wordmark -->
+  <text x="68" y="38" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="currentColor" letter-spacing="-0.3">Regional Health</text>
+  <text x="68" y="56" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="currentColor" opacity="0.6" letter-spacing="2">NETWORK</text>
 </svg>
