@@ -30,19 +30,35 @@ const TrustedBy = () => {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
 
-        <div className="flex w-max gap-12 animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused] will-change-transform">
+        <div className="flex w-max items-center gap-16 animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused] will-change-transform">
           {track.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
-              className="flex flex-col items-center gap-1 min-w-[180px] px-2 opacity-80 hover:opacity-100 transition-opacity"
+              className="flex items-center gap-4 min-w-[260px] px-2 opacity-90 hover:opacity-100 transition-opacity"
               aria-hidden={i >= clients.length ? true : undefined}
             >
-              <span className="text-base font-semibold text-foreground tracking-tight whitespace-nowrap">
-                {client.name}
-              </span>
-              <span className="text-xs text-muted-foreground whitespace-nowrap">
-                {client.industry}
-              </span>
+              {client.logo ? (
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  width={200}
+                  height={80}
+                  className="h-12 w-auto shrink-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="h-12 w-[100px] rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground shrink-0">
+                  no logo
+                </div>
+              )}
+              <div className="flex flex-col min-w-0">
+                <span className="text-sm font-semibold text-foreground tracking-tight whitespace-nowrap">
+                  {client.name}
+                </span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap">
+                  {client.industry}
+                </span>
+              </div>
             </div>
           ))}
         </div>
