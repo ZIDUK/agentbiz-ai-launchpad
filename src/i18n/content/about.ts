@@ -114,20 +114,27 @@ export function getAboutContent(locale: Locale): AboutContent {
   return locale === "es" ? aboutEs : aboutEn;
 }
 
-export const trustedClients = {
+export interface TrustedClient {
+  name: string;
+  industry: string;
+  /** Path under /public (e.g. "/clients/foo.svg"). Optional: falls back to text. */
+  logo?: string;
+}
+
+export const trustedClients: Record<Locale, TrustedClient[]> = {
   en: [
-    { name: "Regional Health Network", industry: "Healthcare" },
-    { name: "Mid-Market Lender", industry: "FinTech" },
-    { name: "B2B Services Co.", industry: "Enterprise Ops" },
-    { name: "Logistics Operator", industry: "Supply Chain" },
-    { name: "SaaS Platform", industry: "HiTech" },
+    { name: "Regional Health Network", industry: "Healthcare", logo: "/clients/regional-health-network.svg" },
+    { name: "Mid-Market Lender", industry: "FinTech", logo: "/clients/mid-market-lender.svg" },
+    { name: "B2B Services Co.", industry: "Enterprise Ops", logo: "/clients/b2b-services-co.svg" },
+    { name: "Logistics Operator", industry: "Supply Chain", logo: "/clients/logistics-operator.svg" },
+    { name: "SaaS Platform", industry: "HiTech", logo: "/clients/saas-platform.svg" },
   ],
   es: [
-    { name: "Red de Salud Regional", industry: "Salud" },
-    { name: "Prestamista Mid-Market", industry: "FinTech" },
-    { name: "Empresa B2B Services", industry: "Ops Enterprise" },
-    { name: "Operador Logístico", industry: "Cadena de suministro" },
-    { name: "Plataforma SaaS", industry: "HiTech" },
+    { name: "Red de Salud Regional", industry: "Salud", logo: "/clients/regional-health-network.svg" },
+    { name: "Prestamista Mid-Market", industry: "FinTech", logo: "/clients/mid-market-lender.svg" },
+    { name: "Empresa B2B Services", industry: "Ops Enterprise", logo: "/clients/b2b-services-co.svg" },
+    { name: "Operador Logístico", industry: "Cadena de suministro", logo: "/clients/logistics-operator.svg" },
+    { name: "Plataforma SaaS", industry: "HiTech", logo: "/clients/saas-platform.svg" },
   ],
 };
 
