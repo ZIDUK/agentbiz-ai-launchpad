@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80" role="img" aria-label="Regional Health Network">
+  <defs>
+    <linearGradient id="rhn-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1E40AF"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#rhn-g)" stroke-width="2.5" stroke-linecap="round">
+    <path d="M20 40 L20 25 M20 40 L20 55 M10 32 L30 32 M10 48 L30 48"/>
+    <circle cx="20" cy="40" r="14" fill="none"/>
+  </g>
+  <text x="46" y="38" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="currentColor">Regional Health</text>
+  <text x="46" y="55" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="currentColor" opacity="0.7">NETWORK</text>
+</svg>
