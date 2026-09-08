@@ -6,7 +6,10 @@ RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt
 # .dockerignore excludes local secrets and runtime data.
 COPY . .
 RUN bash scripts/scan-malware.sh .
-RUN npm ci --no-audit --no-fund
+# Use npm install (not ci): Node 20 npm reports lockfile peer/optional
+# mismatches (esbuild/@swc/helpers) that block clean installs. The CI
+# workflow uses the same approach.
+RUN npm install --no-audit --no-fund
 
 FROM deps AS builder
 COPY . .
