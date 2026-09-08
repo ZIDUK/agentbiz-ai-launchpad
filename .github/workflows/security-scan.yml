@@ -56,7 +56,10 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+      # Use npm install (not ci): Node 20 npm reports lockfile peer/optional
+      # mismatches (esbuild/@swc/helpers) that block CI even after lock
+      # regeneration. The Dockerfile uses the same approach.
+      - run: npm install --no-audit --no-fund
       - run: npm audit --omit=dev --audit-level=high
       - run: npm run lint
       - run: npm test
