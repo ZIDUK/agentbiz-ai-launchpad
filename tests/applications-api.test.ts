@@ -72,6 +72,18 @@ describe("POST /api/applications", () => {
     if (cvDir && fs.existsSync(cvDir)) fs.rmSync(cvDir, { recursive: true, force: true });
   });
 
+  it("cleans up the PDF and rolls back records if CRM insertion fails", async () => {
+    const { getDb, applications, crmContacts } = await import("@/lib/db");
+    const { sql } = await import("drizzle-orm");
+    const db = getDb();
+    db.run(sql.raw("CREATE TRIGGER fail_activity BEFORE INSERT ON crm_activities BEGIN SELECT RAISE(ABORT, 'test failure'); END"));
+    const { POST } = await import("@/app/api/applications/route");
+    try { await POST(applicationRequest(validFields, { name: "resume.pdf", type: "application/pdf", data: MINIMAL_PDF })); } catch { /* inspect both storage boundaries */ }
+    expect(db.select().from(applications).all()).toHaveLength(0);
+    expect(db.select().from(crmContacts).all()).toHaveLength(0);
+    expect(fs.existsSync(cvDir) ? fs.readdirSync(cvDir) : []).toHaveLength(0);
+  });
+
   it("creates an application with PDF CV on disk", async () => {
     const { POST } = await import("@/app/api/applications/route");
     const { applications } = await import("@/lib/db");

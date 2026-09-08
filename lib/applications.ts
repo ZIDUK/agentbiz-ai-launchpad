@@ -89,7 +89,7 @@ export const updateApplicationStatus = async (
   await fetchJson<ApiApplicationRow>("/api/admin/applications", {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id, status, notes: notes || "" }),
+    body: JSON.stringify({ id, status, ...(notes !== undefined ? { notes } : {}) }),
   });
 };
 

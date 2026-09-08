@@ -16,6 +16,7 @@ export default defineConfig({
     // in stale tests that fail in the new Next context.
     exclude: [
       "**/node_modules/**",
+      "**/tests/e2e/**",
       "**/dist/**",
       "**/.next/**",
       "**/.worktrees/**",

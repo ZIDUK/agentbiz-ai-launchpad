@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Download, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,7 +35,8 @@ const ResourceDownloadGate = ({
   const { locale } = useLanguage();
   const navigate = useNavigate();
   const printPath = getResourcePrintPath(resourceSlug, locale);
-  const [unlocked, setUnlocked] = useState(() => hasUnlockedResource(resourceSlug));
+  const [unlocked, setUnlocked] = useState(false);
+  useEffect(() => { setUnlocked(hasUnlockedResource(resourceSlug)); }, [resourceSlug]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");

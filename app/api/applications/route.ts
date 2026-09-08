@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { upsertCrmFromApplication } from "@/lib/crm-service";
-import { saveCvFile } from "@/lib/cv-storage";
+import { deleteCvFile, saveCvFile } from "@/lib/cv-storage";
 import { applications, getDb } from "@/lib/db";
 import { assertRateLimit } from "@/lib/rate-limit";
 import { applicationFieldsSchema } from "@/lib/validation/application";
@@ -74,29 +74,36 @@ export async function POST(req: Request) {
   }
 
   const db = getDb();
-  db.insert(applications)
-    .values({
-      id,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      position: data.position,
-      experience: data.experience,
-      coverLetter: data.cover_letter,
-      cvPath: cvMeta.cvPath,
-      cvFileName: cvMeta.cvFileName,
-      status: "pending",
-      appliedAt: now,
-    })
-    .run();
+  try {
+    db.transaction(() => {
+      db.insert(applications)
+        .values({
+          id,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          position: data.position,
+          experience: data.experience,
+          coverLetter: data.cover_letter,
+          cvPath: cvMeta.cvPath,
+          cvFileName: cvMeta.cvFileName,
+          status: "pending",
+          appliedAt: now,
+        })
+        .run();
 
-  upsertCrmFromApplication({
-    name: data.name,
-    email: data.email,
-    phone: data.phone,
-    position: data.position,
-    content: `Application: ${data.position}`,
-  });
+      upsertCrmFromApplication({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        position: data.position,
+        content: `Application: ${data.position}`,
+      });
+    });
+  } catch {
+    deleteCvFile(cvMeta.cvPath);
+    return NextResponse.json({ error: "Could not save submission" }, { status: 500 });
+  }
 
   return NextResponse.json({ id });
 }

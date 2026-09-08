@@ -1,3 +1,4 @@
+import { deleteCvFile } from "@/lib/cv-storage";
 import { desc, eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { getAdminSessionOr401 } from "@/lib/auth-guard";
@@ -77,6 +78,11 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
+  // Keep the record available for retry if filesystem cleanup fails.
+  if (existing.cvPath) {
+    try { deleteCvFile(existing.cvPath); }
+    catch { return NextResponse.json({ error: "Could not delete CV" }, { status: 500 }); }
+  }
   db.delete(applications).where(eq(applications.id, parsed.data.id)).run();
   return NextResponse.json({ ok: true });
 }

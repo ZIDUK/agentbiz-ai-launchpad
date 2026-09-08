@@ -60,3 +60,7 @@ unresolved. The user should:
 4. Re-run the scan to confirm.
 5. **Do not push the cleaned file until you understand how the malicious
    version got there.** Otherwise it will reappear.
+
+## 2026-09-08 review
+
+See [security and reliability remediation](docs/ops/security-review-2026-09-08.md) for current evidence, local changes and external follow-up. A clean pattern scan does not certify the machine or deployed application as malware-free. The original incident root cause remains open.

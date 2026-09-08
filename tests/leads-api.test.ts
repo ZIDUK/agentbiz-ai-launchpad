@@ -42,6 +42,17 @@ describe("POST /api/leads", () => {
     if (dbPath && fs.existsSync(dbPath)) fs.unlinkSync(dbPath);
   });
 
+  it("rolls back lead and contact if activity insertion fails", async () => {
+    const { getDb, resourceLeads, crmContacts } = await import("@/lib/db");
+    const { sql } = await import("drizzle-orm");
+    const db = getDb();
+    db.run(sql.raw("CREATE TRIGGER fail_activity BEFORE INSERT ON crm_activities BEGIN SELECT RAISE(ABORT, 'test failure'); END"));
+    const { POST } = await import("@/app/api/leads/route");
+    try { await POST(leadRequest({ name: "Ada", email: "ada@example.com", resource_slug: "contact", source: "contact_form" })); } catch { /* failure must not leave partial data */ }
+    expect(db.select().from(resourceLeads).all()).toHaveLength(0);
+    expect(db.select().from(crmContacts).all()).toHaveLength(0);
+  });
+
   it("creates a lead", async () => {
     const { POST } = await import("@/app/api/leads/route");
     const res = await POST(

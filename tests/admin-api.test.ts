@@ -138,6 +138,43 @@ describe("admin API — authenticated", () => {
     if (cvDir && fs.existsSync(cvDir)) fs.rmSync(cvDir, { recursive: true, force: true });
   });
 
+  it("persists contact identity edits through the client and API", async () => {
+    const { getDb, crmContacts } = await import("@/lib/db");
+    const now = new Date().toISOString();
+    getDb().insert(crmContacts).values({ id: "edit-contact", name: "Old", email: "edit@example.com", company: "Old Co", phone: "123", createdAt: now, updatedAt: now, lastActivityAt: now }).run();
+    const { PATCH } = await import("@/app/api/admin/crm/contacts/route");
+    vi.stubGlobal("fetch", (_url: string, init: RequestInit) => PATCH(new Request("http://localhost/api/admin/crm/contacts", init)));
+    try {
+      const { updateCrmContact } = await import("@/lib/crm");
+      await updateCrmContact("edit-contact", { name: "New", company: "", phone: "", contact_type: "customer" });
+      expect(getDb().select().from(crmContacts).get()).toMatchObject({ name: "New", company: "", phone: "", contactType: "customer" });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it("preserves application notes when the client only changes status", async () => {
+    const { getDb, applications } = await import("@/lib/db");
+    getDb().insert(applications).values({ id: "notes-app", name: "Ada", email: "ada@example.com", phone: "123", position: "Dev", experience: "5y", notes: "Keep these notes", appliedAt: new Date().toISOString() }).run();
+    const { PATCH } = await import("@/app/api/admin/applications/route");
+    vi.stubGlobal("fetch", (_url: string, init: RequestInit) => PATCH(new Request("http://localhost/api/admin/applications", init)));
+    try {
+      const { updateApplicationStatus } = await import("@/lib/applications");
+      await updateApplicationStatus("notes-app", "interviewed");
+      expect(getDb().select().from(applications).get()).toMatchObject({ status: "interviewed", notes: "Keep these notes" });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it("removes the stored PDF when deleting an application", async () => {
+    const { getDb, applications } = await import("@/lib/db");
+    fs.mkdirSync(cvDir, { recursive: true });
+    fs.writeFileSync(path.join(cvDir, "delete-app.pdf"), MINIMAL_PDF);
+    getDb().insert(applications).values({ id: "delete-app", name: "Ada", email: "ada@example.com", phone: "123", position: "Dev", experience: "5y", cvPath: "delete-app.pdf", appliedAt: new Date().toISOString() }).run();
+    const { DELETE } = await import("@/app/api/admin/applications/route");
+    const response = await DELETE(new Request("http://localhost/api/admin/applications", { method: "DELETE", body: JSON.stringify({ id: "delete-app" }) }));
+    expect(response.status).toBe(200);
+    expect(getDb().select().from(applications).all()).toHaveLength(0);
+    expect(fs.existsSync(path.join(cvDir, "delete-app.pdf"))).toBe(false);
+  });
+
   it("lists leads ordered by createdAt desc", async () => {
     const { resourceLeads } = await import("@/lib/db");
     const { getDb } = await import("@/lib/db");

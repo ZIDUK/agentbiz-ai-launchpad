@@ -121,6 +121,9 @@ export const updateCrmContact = async (
   >,
 ): Promise<void> => {
   const payload: Record<string, unknown> = { id };
+  for (const field of ["name", "company", "phone", "contact_type"] as const) {
+    if (updates[field] !== undefined) payload[field] = updates[field];
+  }
   if (updates.stage !== undefined) payload.stage = updates.stage;
   if (updates.priority !== undefined) payload.priority = updates.priority;
   if (updates.notes !== undefined) payload.notes = updates.notes;

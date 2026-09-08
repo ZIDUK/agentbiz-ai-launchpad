@@ -34,3 +34,6 @@ poc/**/dist
 .worktrees/
 .data/
 *.tsbuildinfo
+
+playwright-report/
+test-results/

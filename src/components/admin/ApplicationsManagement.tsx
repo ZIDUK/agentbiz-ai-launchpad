@@ -1,3 +1,4 @@
+import { toast } from 'sonner';
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,11 +7,11 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { 
-  Search, 
-  Mail, 
-  Phone, 
-  FileText, 
+import {
+  Search,
+  Mail,
+  Phone,
+  FileText,
   Download,
   Eye,
   CheckCircle,
@@ -19,11 +20,11 @@ import {
   User,
   Calendar
 } from 'lucide-react';
-import { 
-  subscribeToApplications, 
-  updateApplicationStatus, 
+import {
+  getApplications,
+  updateApplicationStatus,
   deleteApplication,
-  Application 
+  Application
 } from '@/lib/applications';
 
 export function ApplicationsManagement() {
@@ -35,11 +36,10 @@ export function ApplicationsManagement() {
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
-    const unsubscribe = subscribeToApplications((apps) => {
-      setApplications(apps);
-    });
-
-    return () => unsubscribe();
+    let active = true;
+    getApplications().then(apps => { if (active) setApplications(apps); })
+      .catch(() => { if (active) toast.error('No se pudieron cargar las candidaturas'); });
+    return () => { active = false; };
   }, []);
 
   const filteredApplications = applications.filter(app => {
@@ -73,10 +73,14 @@ export function ApplicationsManagement() {
 
   const handleStatusUpdate = async (id: string, status: Application['status']) => {
     try {
-      await updateApplicationStatus(id, status, notes);
-      setNotes('');
+      const editedNotes = selectedApplication?.id === id && notes !== (selectedApplication.notes || "") ? notes : undefined;
+      await updateApplicationStatus(id, status, editedNotes);
+      const updated = await getApplications();
+      setApplications(updated);
+      setSelectedApplication(updated.find(app => app.id === id) || null);
+      toast.success('Candidatura actualizada');
     } catch (error) {
-      console.error('Error updating status:', error);
+      toast.error('No se pudo actualizar la candidatura');
     }
   };
 
@@ -84,8 +88,11 @@ export function ApplicationsManagement() {
     if (confirm('¿Estás seguro de que quieres eliminar esta aplicación?')) {
       try {
         await deleteApplication(id);
+        setApplications(await getApplications());
+        setSelectedApplication(null);
+        toast.success('Candidatura eliminada');
       } catch (error) {
-        console.error('Error deleting application:', error);
+        toast.error('No se pudo eliminar la candidatura');
       }
     }
   };
@@ -212,7 +219,7 @@ export function ApplicationsManagement() {
                       Experiencia: {application.experience}
                     </p>
                   </div>
-                  
+
                   <div>
                     <p className="text-sm font-medium text-foreground mb-1">CV</p>
                     <Button
@@ -233,10 +240,10 @@ export function ApplicationsManagement() {
                 <div className="flex flex-col gap-2">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         size="sm"
-                        onClick={() => setSelectedApplication(application)}
+                        onClick={() => { setSelectedApplication(application); setNotes(application.notes || ""); }}
                       >
                         <Eye className="h-4 w-4 mr-1" />
                         Ver Detalles
@@ -258,17 +265,17 @@ export function ApplicationsManagement() {
                               <p className="text-sm text-muted-foreground">{selectedApplication.email}</p>
                             </div>
                           </div>
-                          
+
                           <div>
                             <label className="text-sm font-medium">Experiencia</label>
                             <p className="text-sm text-muted-foreground">{selectedApplication.experience}</p>
                           </div>
-                          
+
                           <div>
                             <label className="text-sm font-medium">Carta de Presentación</label>
                             <p className="text-sm text-muted-foreground">{selectedApplication.cover_letter || 'No proporcionada'}</p>
                           </div>
-                          
+
                           <div>
                             <label className="text-sm font-medium">Notas</label>
                             <Textarea
@@ -278,7 +285,7 @@ export function ApplicationsManagement() {
                               rows={3}
                             />
                           </div>
-                          
+
                           <div className="flex gap-2">
                             <Button
                               onClick={() => handleStatusUpdate(selectedApplication.id!, 'accepted')}
@@ -303,7 +310,7 @@ export function ApplicationsManagement() {
                       )}
                     </DialogContent>
                   </Dialog>
-                  
+
                   <Button
                     variant="destructive"
                     size="sm"

@@ -1,77 +1,32 @@
 # SQLite and CV backup / restore
 
-AgentBiz Next stores all business data in a single SQLite file and uploaded CVs as PDF files on disk. In production (Dokploy), both live on a **persistent volume** mounted at `/data`.
+The database and CV directory form one restore point. **Stop the application and all other writers before backing up or restoring.** Do not copy a running SQLite database, WAL and SHM using separate `cp` commands: those files may represent different instants.
 
-## What to back up
+## Backup
 
-| Path | Contents |
-|------|----------|
-| `/data/agentbiz.sqlite` | Main database (leads, applications, CRM, Better Auth users/sessions) |
-| `/data/agentbiz.sqlite-wal` | WAL journal (present when app is running with WAL mode) |
-| `/data/agentbiz.sqlite-shm` | WAL shared memory (present while app is running) |
-| `/data/cvs/` | Uploaded CV PDFs (one file per application UUID) |
-
-Copy **all** `agentbiz.sqlite*` files together. Restoring only the main `.sqlite` file while stale WAL/SHM files remain can corrupt the database.
-
-## Daily backup (recommended)
-
-Run from the Dokploy host (or any machine with access to the volume):
+From a checkout with dependencies installed, and with the application stopped:
 
 ```bash
-BACKUP_ROOT=/var/backups/agentbiz
-STAMP=$(date +%Y%m%d-%H%M%S)
-DEST="$BACKUP_ROOT/$STAMP"
-mkdir -p "$DEST"
-
-# Adjust VOLUME_PATH if your Dokploy bind mount differs
-VOLUME_PATH=/var/lib/dokploy/volumes/agentbiz-data
-
-cp -a "$VOLUME_PATH/agentbiz.sqlite"* "$DEST/"
-cp -a "$VOLUME_PATH/cvs" "$DEST/"
-
-# Optional: compress for off-site copy
-tar -czf "$BACKUP_ROOT/agentbiz-$STAMP.tar.gz" -C "$BACKUP_ROOT" "$STAMP"
+node scripts/backup-sqlite.mjs /path/to/data /path/to/backups/2026-09-08-120000
 ```
 
-Schedule with cron (example — daily at 03:15 UTC):
+The source directory must contain `agentbiz.sqlite` and `cvs/`. The destination must not exist and must be outside the source. The command validates database integrity and referenced CV files, creates a SQLite backup snapshot, copies CVs, and writes `backup.json`. The app must remain stopped until the command completes because its PDFs and database cannot be snapshotted atomically together.
 
-```cron
-15 3 * * * root /usr/local/bin/agentbiz-sqlite-backup.sh
-```
+Restart the app after the command completes. Protect backups as sensitive data: they contain candidate documents, contact data and authentication records. Keep encrypted off-host copies and establish retention appropriate for these records. Scheduling and off-host storage are not configured by this script.
 
-Retain at least 7 daily copies off the VPS (S3, another server, or encrypted object storage).
+## Restore rehearsal
 
-## Restore procedure
+`npm test -- tests/backup.test.ts` creates a temporary database and PDF, backs them up, restores into a separate directory and verifies `integrity_check`, the row and PDF bytes. This validates the procedure against fixtures; it does not verify the production backup.
 
-1. **Stop** the AgentBiz application in Dokploy (or scale to 0) so nothing writes to SQLite.
-2. Copy backup files back to the volume:
+## Production restore
 
-   ```bash
-   VOLUME_PATH=/var/lib/dokploy/volumes/agentbiz-data
-   RESTORE_FROM=/var/backups/agentbiz/20260715-031500
+1. Stop the app and all writers.
+2. Preserve the existing data directory separately for rollback.
+3. Restore `agentbiz.sqlite` and `cvs/` together into an empty data directory. Never mix the restored database with old `-wal` or `-shm` files.
+4. Check ownership and point the persistent volume at the restored directory.
+5. Start the app. Verify `/api/ready`, admin login, a known record and its CV download.
+6. Keep the previous volume until the restored data is accepted.
 
-   rm -f "$VOLUME_PATH/agentbiz.sqlite"*
-   cp -a "$RESTORE_FROM/agentbiz.sqlite"* "$VOLUME_PATH/"
-   rm -rf "$VOLUME_PATH/cvs"
-   cp -a "$RESTORE_FROM/cvs" "$VOLUME_PATH/"
-   ```
+## Deployment
 
-3. Fix ownership if needed (`chown` to the container user).
-4. **Start** the application and verify:
-   - `GET /api/health` → `{"ok":true}`
-   - Admin login works
-   - A known CV downloads from admin
-
-## Dokploy volume notes
-
-- Mount a **named or bind volume** at `/data` in the application settings.
-- Set runtime env vars (see [dokploy-next-cutover.md](./dokploy-next-cutover.md)):
-  - `DATABASE_PATH=/data/agentbiz.sqlite`
-  - `CV_DIR=/data/cvs`
-- The Docker image creates `/data/cvs` at build time, but the **mounted volume** replaces `/data` at runtime — ensure `cvs` exists on first deploy (`mkdir -p` on the host volume if empty).
-- Do **not** store the database inside the container filesystem; it will be lost on redeploy.
-- Empty database on first cutover is acceptable (no legacy Supabase data restore in v1).
-
-## Related
-
-- [Dokploy Next.js cutover checklist](./dokploy-next-cutover.md)
+Use a persistent volume at `/data`, with `DATABASE_PATH=/data/agentbiz.sqlite` and `CV_DIR=/data/cvs`. `/api/health` checks the process only; `/api/ready` checks schema, auth configuration and CV directory permissions. Migrations must run before readiness can pass.

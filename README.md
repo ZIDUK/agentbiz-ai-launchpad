@@ -42,6 +42,7 @@ NODE_ENV=development npx tsx scripts/seed-admin.ts
 | `npm run build` | Production build |
 | `npm start` | Run production server |
 | `npm test` | Vitest suite |
+| `npm run test:e2e` | Chromium flows against a production build and temporary database |
 | `npm run dev:classic` | Legacy Vite dev (optional) |
 
 ## Deployment
@@ -66,4 +67,4 @@ tests/         Vitest API and security tests
 
 ---
 
-**AgentBiz AI** — private repository.
+**AgentBiz AI** — repository visibility is managed in GitHub; the API reported public on 2026-09-08.

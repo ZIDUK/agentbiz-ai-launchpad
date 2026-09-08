@@ -12,7 +12,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  const response = NextResponse.next();
+  // Overwrite these internal headers rather than trusting caller-supplied values.
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-agentbiz-path", pathname);
+  requestHeaders.set("x-agentbiz-locale", request.nextUrl.searchParams.get("lang") === "es" ? "es" : "en");
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
   for (const [key, value] of Object.entries(getSecurityHeaders())) {
     response.headers.set(key, value);
   }

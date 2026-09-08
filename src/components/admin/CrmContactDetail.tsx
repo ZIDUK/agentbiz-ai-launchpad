@@ -162,7 +162,7 @@ export function CrmContactDetail({
                   onBlur={(e) => {
                     const value = e.target.value.trim();
                     if (value !== (contact.company || "")) {
-                      void saveField({ company: value || undefined });
+                      void saveField({ company: value });
                     }
                   }}
                 />
@@ -176,7 +176,7 @@ export function CrmContactDetail({
                   onBlur={(e) => {
                     const value = e.target.value.trim();
                     if (value !== (contact.phone || "")) {
-                      void saveField({ phone: value || undefined });
+                      void saveField({ phone: value });
                     }
                   }}
                 />
