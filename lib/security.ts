@@ -72,17 +72,17 @@ export function validateMutationOrigin(
 /**
  * CSP tuned for Next.js + Tailwind + Three.js/Jarvis.
  * Looseness documented in task-11-report.md:
- * - script-src: unsafe-inline (Next hydration), unsafe-eval (Three dev tooling)
+ * - script-src: unsafe-inline (Next hydration); unsafe-eval only outside production
  * - style-src: unsafe-inline (Tailwind / component styles)
  */
 export function getContentSecurityPolicy(): string {
   const directives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com" + (process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""),
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob:",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
     "worker-src 'self' blob:",
     "frame-ancestors 'none'",
     "base-uri 'self'",

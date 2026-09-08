@@ -39,8 +39,14 @@ function resolveTheme(preference: PocTheme | null): PocTheme {
 }
 
 export function PocThemeProvider({ children }: { children: ReactNode }) {
-  const [userPreference, setUserPreference] = useState<PocTheme | null>(readUserPreference);
-  const [theme, setThemeState] = useState<PocTheme>(() => resolveTheme(readUserPreference()));
+  const [userPreference, setUserPreference] = useState<PocTheme | null>(null);
+  const [theme, setThemeState] = useState<PocTheme>("dark");
+
+  useEffect(() => {
+    const preference = readUserPreference();
+    setUserPreference(preference);
+    setThemeState(resolveTheme(preference));
+  }, []);
 
   useLayoutEffect(() => {
     document.documentElement.classList.toggle("poc-light", theme === "light");

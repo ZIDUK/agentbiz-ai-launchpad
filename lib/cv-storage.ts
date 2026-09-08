@@ -19,6 +19,14 @@ export function saveCvBuffer(applicationId: string, buf: Buffer, originalName: s
   return { cvPath: stored, cvFileName: safeName };
 }
 
+/** Delete only a filename owned by CV storage; missing files are already deleted. */
+export function deleteCvFile(storedName: string) {
+  if (path.basename(storedName) !== storedName || !storedName.endsWith(".pdf")) {
+    throw new Error("INVALID_CV_PATH");
+  }
+  fs.rmSync(path.join(getCvDir(), storedName), { force: true });
+}
+
 export async function saveCvFile(
   applicationId: string,
   file: File | Buffer,

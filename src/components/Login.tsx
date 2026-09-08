@@ -25,9 +25,9 @@ const Login = () => {
       } else {
         await loginWithEmail(email, password);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error de autenticación:', error);
-      setMessage(error.message || 'Error de autenticación. Inténtalo de nuevo.');
+      setMessage(error instanceof Error ? error.message : 'Error de autenticación. Inténtalo de nuevo.');
     } finally {
       setLoading(false);
     }

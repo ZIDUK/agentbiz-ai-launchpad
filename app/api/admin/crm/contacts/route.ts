@@ -29,7 +29,7 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 
-  const { id, stage, priority, notes } = parsed.data;
+  const { id, stage, priority, notes, name, company, phone, contact_type } = parsed.data;
   const db = getDb();
   const existing = db.select().from(crmContacts).where(eq(crmContacts.id, id)).get();
   if (!existing) {
@@ -41,11 +41,15 @@ export async function PATCH(req: Request) {
     lastActivityAt: now,
     updatedAt: now,
   };
+  if (name !== undefined) updates.name = name;
+  if (company !== undefined) updates.company = company;
+  if (phone !== undefined) updates.phone = phone;
+  if (contact_type !== undefined) updates.contactType = contact_type;
   if (stage !== undefined) updates.stage = stage;
   if (priority !== undefined) updates.priority = priority;
   if (notes !== undefined) updates.notes = notes;
 
-  if (stage === undefined && priority === undefined && notes === undefined) {
+  if ([stage, priority, notes, name, company, phone, contact_type].every(value => value === undefined)) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 

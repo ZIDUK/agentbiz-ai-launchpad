@@ -19,8 +19,8 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+export function LanguageProvider({ children, initialLocale = "en" }: { children: ReactNode; initialLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -45,14 +45,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     () => ({ locale, setLocale, isReady }),
     [locale, setLocale, isReady],
   );
-
-  if (!isReady) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-      </div>
-    );
-  }
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

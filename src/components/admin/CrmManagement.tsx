@@ -106,8 +106,10 @@ export function CrmManagement() {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = subscribeToCrmContacts(setContacts);
-    return () => unsubscribe();
+    let active = true;
+    getCrmContacts().then(data => { if (active) setContacts(data); })
+      .catch(() => { if (active) toast.error("Could not load contacts"); });
+    return () => { active = false; };
   }, []);
 
   const filtered = useMemo(() => {
@@ -140,6 +142,7 @@ export function CrmManagement() {
 
     try {
       await updateCrmContactStage(contact.id, stage, contact.stage);
+      setContacts(await getCrmContacts());
       toast.success(`Moved to ${stage}`);
     } catch {
       toast.error("Could not move contact");
@@ -161,6 +164,7 @@ export function CrmManagement() {
         email: newEmail.trim(),
         company: newCompany.trim() || undefined,
       });
+      setContacts(await getCrmContacts());
       toast.success("Contact created");
       setNewContactOpen(false);
       setNewName("");

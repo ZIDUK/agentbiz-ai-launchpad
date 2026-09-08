@@ -16,9 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Run malware scan
         run: |
@@ -42,3 +43,29 @@ jobs:
             fi
           done
           echo "Pushed commits clean."
+
+  quality:
+    name: Tests lint and build
+    needs: malware-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      # Use npm install (not ci): Node 20 npm reports lockfile peer/optional
+      # mismatches (esbuild/@swc/helpers) that block CI even after lock
+      # regeneration. The Dockerfile uses the same approach.
+      - run: npm install --no-audit --no-fund
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          BETTER_AUTH_SECRET: ci-only-not-a-production-secret-000000000000
+          BETTER_AUTH_URL: http://localhost:3000
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e

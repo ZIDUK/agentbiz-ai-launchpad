@@ -49,25 +49,31 @@ export async function POST(req: Request) {
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
 
-  db.insert(resourceLeads)
-    .values({
-      id,
-      name: data.name,
-      email: data.email,
-      company: data.company ?? null,
-      resourceSlug: data.resource_slug,
-      source: data.source,
-      metadata: JSON.stringify(data.metadata ?? {}),
-      createdAt: now,
-    })
-    .run();
+  try {
+    db.transaction(() => {
+      db.insert(resourceLeads)
+        .values({
+          id,
+          name: data.name,
+          email: data.email,
+          company: data.company ?? null,
+          resourceSlug: data.resource_slug,
+          source: data.source,
+          metadata: JSON.stringify(data.metadata ?? {}),
+          createdAt: now,
+        })
+        .run();
 
-  upsertCrmFromLead({
-    name: data.name,
-    email: data.email,
-    company: data.company,
-    content: `Lead: ${data.resource_slug} via ${data.source}`,
-  });
+      upsertCrmFromLead({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        content: `Lead: ${data.resource_slug} via ${data.source}`,
+      });
+    });
+  } catch {
+    return NextResponse.json({ error: "Could not save submission" }, { status: 500 });
+  }
 
   return NextResponse.json({ id });
 }

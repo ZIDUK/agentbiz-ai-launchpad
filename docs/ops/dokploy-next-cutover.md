@@ -59,6 +59,8 @@ See [sqlite-backup.md](./sqlite-backup.md) for backup paths and restore.
 
 ## Step 6 — Migrate DB and seed admin (one-shot)
 
+**Run schema migration before starting the first production container.** The Docker healthcheck now uses `/api/ready` and will remain unhealthy until the schema, auth configuration and CV storage are ready. `/api/health` is process liveness only.
+
 On first deploy, apply Drizzle migrations to the volume, then seed the admin user. Signup is disabled in production (`NODE_ENV=production`), so seeding uses a one-shot container with `NODE_ENV=development`.
 
 Use the **builder** image stage (includes source, migrations, and dev tooling):

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const ScrollHomeShell = dynamic(
   () => import("@/poc/scroll-experience/ScrollHomeShell"),
-  { ssr: false },
+  { ssr: true },
 );
 
 export default function HomePage() {

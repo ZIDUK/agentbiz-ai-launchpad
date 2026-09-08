@@ -1,3 +1,5 @@
+"use client";
+
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";

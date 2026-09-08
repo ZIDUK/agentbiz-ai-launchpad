@@ -22,12 +22,13 @@ function SiteChrome() {
 
 interface MarketingProvidersProps {
   children: ReactNode;
+  initialLocale?: "en" | "es";
 }
 
-export function MarketingProviders({ children }: MarketingProvidersProps) {
+export function MarketingProviders({ children, initialLocale }: MarketingProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
+      <LanguageProvider initialLocale={initialLocale}>
         <TooltipProvider>
           <Toaster />
           <Sonner />

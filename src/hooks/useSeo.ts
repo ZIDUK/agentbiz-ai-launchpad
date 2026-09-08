@@ -20,7 +20,7 @@ function upsertMeta(
   attributes: Record<string, string>,
   createTag: "meta" | "link" = "meta",
 ) {
-  const attrKey = createTag === "meta" ? "name" : "rel";
+  const attrKey = createTag === "meta" ? (attributes.property ? "property" : "name") : "rel";
   const attrValue = attributes[attrKey];
   if (!attrValue) return;
 

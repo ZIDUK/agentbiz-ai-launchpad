@@ -19,7 +19,8 @@ describe("security headers", () => {
 
   it("allows inline scripts/styles for Next and Three.js", () => {
     const csp = getContentSecurityPolicy();
-    expect(csp).toContain("script-src 'self' 'unsafe-inline' 'unsafe-eval'");
+    expect(csp).toContain("script-src 'self' 'unsafe-inline'");
+    expect(csp).toContain("https://www.googletagmanager.com");
     expect(csp).toContain("style-src 'self' 'unsafe-inline'");
     expect(csp).toContain("worker-src 'self' blob:");
   });
@@ -102,4 +103,14 @@ describe("production signup disabled", () => {
     const { getEmailPasswordConfig } = await import("@/lib/auth");
     expect(getEmailPasswordConfig().disableSignUp).toBe(false);
   });
+});
+
+it("does not allow eval in production and admits analytics connections", () => {
+  const original = process.env.NODE_ENV;
+  process.env.NODE_ENV = "production";
+  try {
+    const csp = getContentSecurityPolicy();
+    expect(csp).not.toContain("'unsafe-eval'");
+    expect(csp).toContain("https://www.google-analytics.com");
+  } finally { process.env.NODE_ENV = original; }
 });
