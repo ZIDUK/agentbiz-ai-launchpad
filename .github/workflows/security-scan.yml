@@ -69,3 +69,4 @@ jobs:
           BETTER_AUTH_URL: http://localhost:3000
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - run: npm run test:legacy

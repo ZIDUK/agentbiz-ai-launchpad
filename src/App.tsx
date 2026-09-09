@@ -1,3 +1,4 @@
+import { PocThemeProvider } from "@/poc/scroll-experience/PocThemeContext";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,6 +28,7 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
+      <PocThemeProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -34,6 +36,7 @@ const App = () => (
           <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
+      </PocThemeProvider>
     </LanguageProvider>
   </QueryClientProvider>
 );
