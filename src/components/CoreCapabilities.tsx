@@ -70,7 +70,7 @@ const CoreCapabilities = () => {
 
         <div className="text-center mt-12">
           <Button asChild className="btn-primary">
-            <Link to="/services">{t("capabilities.viewServices")}</Link>
+            <Link to="/solutions">{t("capabilities.viewServices")}</Link>
           </Button>
         </div>
       </div>
