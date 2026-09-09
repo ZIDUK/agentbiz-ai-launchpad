@@ -3,8 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { spawn, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { chromium } from "@playwright/test";
+import { preview } from "vite";
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "agentbiz-vite-"));
 const vite = path.resolve("node_modules/vite/bin/vite.js");
@@ -16,18 +17,12 @@ try {
     const output = path.join(root, String(index));
     const build = spawnSync(process.execPath, [vite, "build", "--config", config, "--outDir", output], { encoding: "utf8" });
     assert.equal(build.status, 0, build.stderr);
-    const server = spawn(process.execPath, [vite, "preview", "--config", config, "--outDir", output, "--host", "127.0.0.1", "--port", "0"], { stdio: ["ignore", "pipe", "pipe"] });
+    // Read the listening socket instead of parsing ANSI-formatted CLI output.
+    const server = await preview({ configFile: config, build: { outDir: output }, preview: { host: "127.0.0.1", port: 0, open: false } });
     servers.push(server);
-    const origin = await new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => reject(new Error("Preview did not start")), 15000);
-      let log = "";
-      server.stdout.on("data", chunk => {
-        log += chunk.toString();
-        const match = log.match(/http:\/\/127\.0\.0\.1:\d+/);
-        if (match) { clearTimeout(timeout); resolve(match[0]); }
-      });
-      server.once("exit", code => { clearTimeout(timeout); reject(new Error(`Preview exited: ${code}`)); });
-    });
+    const address = server.httpServer.address();
+    assert.ok(address && typeof address !== "string", "Preview did not open a TCP listener");
+    const origin = `http://127.0.0.1:${address.port}`;
     const page = await browser.newPage();
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
@@ -41,10 +36,6 @@ try {
   }
 } finally {
   await browser?.close();
-  await Promise.all(servers.map(server => new Promise(resolve => {
-    if (server.exitCode !== null) return resolve();
-    server.once("exit", resolve);
-    server.kill("SIGTERM");
-  })));
+  await Promise.all(servers.map(server => server.close()));
   fs.rmSync(root, { recursive: true, force: true });
 }
