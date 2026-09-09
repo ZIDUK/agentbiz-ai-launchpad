@@ -43,6 +43,7 @@ NODE_ENV=development npx tsx scripts/seed-admin.ts
 | `npm start` | Run production server |
 | `npm test` | Vitest suite |
 | `npm run test:e2e` | Chromium flows against a production build and temporary database |
+| `npm run test:legacy` | Build and browser smoke checks for both Vite entries (requires Playwright Chromium) |
 | `npm run dev:classic` | Legacy Vite dev (optional) |
 
 ## Deployment

@@ -10,6 +10,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      "@/poc": path.resolve(__dirname, "./poc"),
       "@": path.resolve(__dirname, "./src"),
     },
     dedupe: ["react", "react-dom"],

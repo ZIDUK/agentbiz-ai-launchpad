@@ -19,7 +19,8 @@
     "lint": "eslint .",
     "scan:malware": "./scripts/scan-malware.sh .",
     "hooks:install": "./scripts/install-hooks.sh",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:legacy": "node scripts/verify-vite.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

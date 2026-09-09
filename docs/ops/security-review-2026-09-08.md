@@ -35,3 +35,11 @@ This is a review of the local checkout and read-only GitHub API responses. It is
 ## Remaining product work
 
 Large admin lists still load in full; server pagination and search are a follow-up. Explicit role-based authorization is required before introducing non-admin accounts. The incident root cause remains **open** until external evidence is reviewed.
+
+## Follow-up verification — 2026-09-09
+
+- PR #5 was merged. Subsequent commit `95ea146` changed Docker/CI back to `npm install` after Node 20 peer/optional lockfile failures. The earlier `npm ci` statement above describes the initial remediation, not the current deployment configuration. Docker daemon is unavailable in the local environment; clean Linux installation remains to be reproduced before changing that choice again.
+- Read-only public checks returned 200 for `/api/health` and `/api/ready`; `/services` returned an HTML title and heading; a deliberately invalid service slug returned 404. These probes do not establish the image digest or validate production admin login.
+- Corrected both Vite aliases so `@/poc` resolves to the repository's `poc/` directory. Browser verification found and fixed the classic entry's missing theme provider.
+- Added `npm run test:legacy`: builds both entries into temporary directories and verifies home/services in Chromium, checking runtime errors. Both builds and browser checks passed locally. CI now includes this check.
+- These follow-up edits are local until committed and published. No production writes or credential rotations were performed.
