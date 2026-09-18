@@ -12,6 +12,7 @@ const ExecutiveBriefing = lazy(() => import("./pages/ExecutiveBriefing"));
 const Industries = lazy(() => import("./pages/Industries"));
 const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
 const HealthcareCaseStudy = lazy(() => import("./pages/HealthcareCaseStudy"));
 const FintechCaseStudy = lazy(() => import("./pages/FintechCaseStudy"));
 const EngagementHub = lazy(() => import("./pages/EngagementHub"));
@@ -56,6 +57,7 @@ export function SiteRoutes({ home }: SiteRoutesProps) {
         <Route path="/case-studies/healthcare-prior-auth" element={<HealthcareCaseStudy />} />
         <Route path="/case-studies/fintech-loan-documents" element={<FintechCaseStudy />} />
         <Route path="/case-studies/logistics-exception-handling" element={<LogisticsCaseStudy />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
         <Route path="/thank-you/:type" element={<ThankYou />} />
         <Route path="/engagement" element={<EngagementHub />} />
         <Route path="/engagement/:slug" element={<EngagementDetail />} />

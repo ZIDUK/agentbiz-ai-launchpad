@@ -8,134 +8,123 @@ export interface SolutionMenuCapability {
 export interface SolutionMenuColumn {
   slug: string;
   title: string;
-  /** Unique short label per column — never reuse the nav "Solutions" word */
   eyebrow: string;
   description: string;
   href: string;
-  /** Shown under AI-Native PODs — how Agentiers deliver */
   capabilities?: SolutionMenuCapability[];
-  /** Short bullets for Factory / Function columns */
   highlights?: string[];
 }
 
 const solutionsEn: SolutionMenuColumn[] = [
   {
-    slug: "ai-native-pods",
-    title: "AI-Native PODs",
-    eyebrow: "Execution",
+    slug: "agentic-readiness-sprint",
+    title: "Agentic Readiness Assessment",
+    eyebrow: "Start here",
     description:
-      "Your execution engine to put AI-native operations in production — staffed by Agentiers.",
-    href: "/engagement/ai-native-pods",
+      "Enterprise architecture for the operating floor — before another dollar on AI.",
+    href: "/engagement/agentic-readiness-sprint",
     capabilities: [
       {
-        title: "AI-Accelerated Planning",
-        description: "Requirements interpreted, analyzed, and structured with AI assistance.",
+        title: "Enterprise architecture",
+        description: "TOGAF vision, stakeholders, drivers, and the operating model that matters first.",
       },
       {
-        title: "AI-Augmented Design",
-        description: "System skeletons, data mappings, and architecture diagrams in minutes.",
+        title: "AS-IS / TO-BE maps",
+        description: "BPMN process maps with a Lean audit of waste and bottlenecks.",
       },
       {
-        title: "AI-Enhanced Build",
-        description: "Code, APIs, infrastructure, and multi-file implementations produced rapidly.",
+        title: "Transformation roadmap",
+        description: "A signed one-page plan for what to implement, automate, or pause.",
       },
       {
-        title: "AI-Driven Testing",
-        description: "Automated test generation, edge-case detection, and regression coverage.",
-      },
-      {
-        title: "AI-Assisted Code Review",
-        description: "First-pass reviews for consistency and structural risk before merge.",
+        title: "Decision memo",
+        description: "Clear next step: implement, build a workflow, or wait.",
       },
     ],
   },
   {
-    slug: "ai-native-operating-system",
-    title: "AI-Native Operating System",
-    eyebrow: "Scale",
+    slug: "agentic-operations-build",
+    title: "Agentic Operations Build",
+    eyebrow: "Full journey",
     description:
-      "The operating system for AI-native delivery — patterns and standards so you scale beyond the first win.",
-    href: "/engagement/ai-native-operating-system",
+      "Change how the work runs. Then give it AI. One team, one outcome.",
+    href: "/engagement/agentic-operations-build",
     highlights: [
-      "Reusable workflow & agent patterns",
-      "Operating standards and runbooks",
-      "Internal enablement with your team",
-      "Roadmap for the next governed workflows",
+      "Operating Foundation through AI Accelerator",
+      "Live KPI dashboards and coaching",
+      "1-2 governed workflows in production",
+      "One team, one proposal, one operating model",
     ],
   },
   {
-    slug: "ai-native-stack-upgrade",
-    title: "AI-Native Stack Upgrade",
-    eyebrow: "Stack",
+    slug: "custom-delivery-pod",
+    title: "Custom Delivery Pod",
+    eyebrow: "Follow-on",
     description:
-      "Replace rented tools with an AI-native stack you own — upgrade how the function runs.",
-    href: "/engagement/ai-native-stack-upgrade",
+      "When the process needs a system, we build it. You own it.",
+    href: "/engagement/custom-delivery-pod",
     highlights: [
-      "Upgrade systems & tools — not another SaaS seat",
-      "Assess → Design → Build → Operate",
-      "Built on ERP/CRM you already run",
-      "Ops, Finance, Support, and adjacent functions",
+      "Working software in your repository",
+      "Architecture, tests, and handoff",
+      "Fixed-fee by outcome, not hours",
+      "Used after the process is already clear",
     ],
   },
 ];
 
 const solutionsEs: SolutionMenuColumn[] = [
   {
-    slug: "ai-native-pods",
-    title: "AI-Native PODs",
-    eyebrow: "Ejecución",
+    slug: "agentic-readiness-sprint",
+    title: "Agentic Readiness Assessment",
+    eyebrow: "Empiece aquí",
     description:
-      "Su motor de ejecución para llevar operaciones AI-Native a producción — integrado por Agentiers.",
-    href: "/engagement/ai-native-pods",
+      "Arquitectura empresarial en el piso operativo — antes de otro dólar en IA.",
+    href: "/engagement/agentic-readiness-sprint",
     capabilities: [
       {
-        title: "Planning acelerado con IA",
-        description: "Requisitos interpretados, analizados y estructurados con asistencia de IA.",
+        title: "Arquitectura empresarial",
+        description: "Visión TOGAF, stakeholders, drivers y el modelo operativo que importa primero.",
       },
       {
-        title: "Diseño aumentado con IA",
-        description: "Esqueletos de sistema, mapeos de datos y diagramas de arquitectura en minutos.",
+        title: "Mapas AS-IS / TO-BE",
+        description: "Procesos en BPMN con auditoría Lean de desperdicio y cuellos de botella.",
       },
       {
-        title: "Build potenciado con IA",
-        description: "Código, APIs, infraestructura e implementaciones multi-archivo con velocidad.",
+        title: "Hoja de ruta de transformación",
+        description: "Un plan de una página firmado: implementar, automatizar o pausar.",
       },
       {
-        title: "Testing impulsado por IA",
-        description: "Generación de tests, detección de edge cases y cobertura de regresión.",
-      },
-      {
-        title: "Code review asistido por IA",
-        description: "Primera pasada de review para consistencia y riesgo estructural antes del merge.",
+        title: "Memo de decisión",
+        description: "Siguiente paso claro: implementar, construir un workflow, o esperar.",
       },
     ],
   },
   {
-    slug: "ai-native-operating-system",
-    title: "AI-Native Operating System",
-    eyebrow: "Escala",
+    slug: "agentic-operations-build",
+    title: "Agentic Operations Build",
+    eyebrow: "Journey completo",
     description:
-      "El sistema operativo para entrega AI-Native — patrones y estándares para escalar más allá del primer logro.",
-    href: "/engagement/ai-native-operating-system",
+      "Cambie cómo corre el trabajo. Después póngale IA. Un equipo, un outcome.",
+    href: "/engagement/agentic-operations-build",
     highlights: [
-      "Patrones reutilizables de flujos y agentes",
-      "Estándares operativos y runbooks",
-      "Enablement interno con su equipo",
-      "Roadmap de los siguientes flujos gobernados",
+      "De Fundación Operativa a Acelerador de IA",
+      "Dashboards KPI en vivo y coaching",
+      "1-2 workflows gobernados en producción",
+      "Un equipo, una propuesta, un modelo operativo",
     ],
   },
   {
-    slug: "ai-native-stack-upgrade",
-    title: "AI-Native Stack Upgrade",
-    eyebrow: "Stack",
+    slug: "custom-delivery-pod",
+    title: "Custom Delivery Pod",
+    eyebrow: "Siguiente paso",
     description:
-      "Reemplace tools alquiladas por un stack AI-Native de su propiedad — actualice cómo opera la función.",
-    href: "/engagement/ai-native-stack-upgrade",
+      "Cuando el proceso necesita un sistema, lo construimos. Usted lo posee.",
+    href: "/engagement/custom-delivery-pod",
     highlights: [
-      "Actualice sistemas y tools — no otro asiento SaaS",
-      "Evaluar → Diseñar → Construir → Operar",
-      "Sobre el ERP/CRM que ya opera",
-      "Ops, Finanzas, Soporte y funciones adyacentes",
+      "Software funcionando en su repositorio",
+      "Arquitectura, tests y handoff",
+      "Fee fijo por resultado, no por horas",
+      "Se usa cuando el proceso ya está claro",
     ],
   },
 ];

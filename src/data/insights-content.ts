@@ -1,6 +1,8 @@
 export interface InsightArticle {
   slug: string;
   title: string;
+  /** Short label for mega-menu / cards — not the full editorial headline */
+  menuLabel: string;
   excerpt: string;
   readTime: string;
   publishedAt: string;
@@ -11,182 +13,96 @@ export interface InsightArticle {
 export const insightArticles: InsightArticle[] = [
   {
     slug: "why-enterprise-ai-pilots-fail",
-    title: "Why Enterprise AI Pilots Fail — and What Production Teams Do Differently",
+    title: "You put AI on a process nobody owns. That is why the pilot died.",
+    menuLabel: "Why pilots die",
     excerpt:
-      "Most enterprises have run AI experiments. Few have shipped governed workflows that operations teams actually run. The gap is not model quality — it's delivery design.",
+      "The model worked in the demo. The operation did not. Pilots fail when there is no owner, no baseline, and no path into the work people already run.",
     readTime: "6 min read",
     publishedAt: "2026-03-01",
-    tags: ["Strategy", "Production", "Governance"],
+    tags: ["Strategy", "Operations", "AI"],
     sections: [
       {
-        heading: "The pilot trap is a delivery problem",
+        heading: "The demo is not the operation",
         paragraphs: [
-          "Enterprise AI pilots often fail for predictable reasons: no integration with systems of record, no human approval paths, no baseline KPIs, and no owner in operations. The model works in a demo. The workflow does not work in production.",
-          "Production teams start with one high-volume process, measure cycle time and error rate before automation, and design agents as part of the operating model — not as a sidebar chatbot.",
+          "Most AI pilots fail for a boring reason. Nobody owns the process the model is supposed to accelerate. There is no baseline. There is no approval path. The work still lives in inboxes and side channels.",
+          "A production team starts with one process that already has volume, a named owner, and a number you can defend. Then they decide what the model is allowed to touch.",
         ],
       },
       {
-        heading: "Governance before scale",
+        heading: "Fix the operation first",
         paragraphs: [
-          "Legal and compliance are not blockers when governance is designed upfront: role-based access, audit logs, data boundaries, and escalation rules. Waiting until after build guarantees delays.",
-          "The enterprises that scale AI treat each workflow like a product — with owners, runbooks, monitoring, and a path to adjacent processes.",
+          "Strategy, then operations, then AI. Reverse that order and you automate chaos. Map the work. Name the owner. Install the cadence. Only then give it a model.",
+          "Governance is not a layer you add after the pilot. Approvals, audit, and human checkpoints belong in the design of the work.",
         ],
       },
       {
-        heading: "What to do next",
+        heading: "What to do on Monday",
         paragraphs: [
-          "Pick one workflow where manual hours are visible and measurable. Define what AI automates vs. what humans approve. Ship to production in weeks, not quarters — then expand with reusable patterns.",
+          "Pick the process that is costing you growth. Write who owns it. Write what good looks like. If you cannot do that in one page, you are not ready for AI — you are ready for an operating map.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "strategy-operations-then-ai",
+    title: "Strategy. Operations. Then AI. In that order, or not at all.",
+    menuLabel: "The sequence",
+    excerpt:
+      "TOGAF to align the work. BPMN to see it. Lean to strip the waste. AI only when the process can survive a Monday without you in the room.",
+    readTime: "5 min read",
+    publishedAt: "2026-03-12",
+    tags: ["Strategy", "Operations", "Governance"],
+    sections: [
+      {
+        heading: "The sequence is the product",
+        paragraphs: [
+          "We do not sell a catalog of tools. We sell an order of work. Align on the few processes that matter. Make them runnable. Then accelerate them.",
+          "If the strategy conversation never names owners, the operations work will stall. If the operations work never names a cadence, the AI will have nowhere to sit.",
+        ],
+      },
+      {
+        heading: "Methods that survive the floor",
+        paragraphs: [
+          "TOGAF keeps strategy and operations on the same page. BPMN makes the work visible. Lean takes out the waste before you scale it. None of that is a slide — it is how the room actually runs.",
+          "When we build software, the client owns the repo. When we install a cadence, the client owns the meeting. Transfer is the point.",
+        ],
+      },
+      {
+        heading: "AI as a follow-on, not a first move",
+        paragraphs: [
+          "If the process is owned and measured, AI can take volume and leave judgment with the human. If it is not, you are buying a demo. We will tell you which one you have.",
         ],
       },
     ],
   },
   {
     slug: "governed-agents-human-in-the-loop",
-    title: "Governed Agents: Designing Human-in-the-Loop for Enterprise Operations",
+    title: "The human still makes the call that matters.",
+    menuLabel: "Human in the loop",
     excerpt:
-      "Autonomy without controls creates risk. Over-control creates friction. The right design gives agents volume and humans judgment.",
+      "Agents handle volume. People handle judgment. If your design cannot say who decides when the room is loud, it is not ready for production.",
     readTime: "5 min read",
     publishedAt: "2026-02-15",
     tags: ["Governance", "Agents", "Operations"],
     sections: [
       {
-        heading: "Agents handle volume; humans handle exceptions",
+        heading: "Volume is not the same as the official call",
         paragraphs: [
-          "In enterprise operations, the goal is not full autonomy — it's reliable throughput with clear escalation. Agents extract, classify, route, and draft. Humans approve exceptions, edge cases, and high-risk decisions.",
-          "Design escalation paths before writing agent prompts. If confidence is below threshold, route to a queue — don't guess.",
+          "In a live operation the score, the exception, the refund, the hire — someone has to stand by it. Agents can extract, classify, draft, and route. They should not own the call the room will protest.",
+          "Design the escalation before you write the prompt. Below a threshold, it goes to a person. That is not a limitation. That is the product.",
         ],
       },
       {
-        heading: "Auditability is a feature",
+        heading: "Audit is how you sleep",
         paragraphs: [
-          "Every agent action should be logged: input, output, model version, user context, and override history. This is what makes compliance teams comfortable and what makes debugging possible at scale.",
+          "Every action needs a file: input, output, who overrode it, when. That is what makes a federation stand by a score, a store stand by a batch, a delivery team stand by a status.",
+          "If you cannot reconstruct the decision, you do not have a governed system. You have a chat.",
         ],
       },
       {
-        heading: "Operating model",
+        heading: "Operate it, or do not ship it",
         paragraphs: [
-          "Assign an operations owner, not just a engineering sponsor. Run weekly reviews on quality metrics, cost, and exception rates. Governed agents are operated — not deployed and forgotten.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "document-workflows-highest-roi-ai",
-    title: "Document-to-Decision Workflows: The Highest-ROI Starting Point for Enterprise AI",
-    excerpt:
-      "PDFs, emails, and forms still drive most back-office work. Document intelligence plus workflow orchestration delivers measurable ROI faster than greenfield AI products.",
-    readTime: "5 min read",
-    publishedAt: "2026-02-01",
-    tags: ["ROI", "Operations", "Document AI"],
-    sections: [
-      {
-        heading: "Why documents first",
-        paragraphs: [
-          "Document-heavy processes — onboarding, claims, procurement, compliance — have clear inputs, repeatable steps, and measurable cycle times. That makes ROI visible to executives quickly.",
-          "Unlike customer-facing chatbots, internal document workflows don't require perfect conversational UX. They require accuracy, validation rules, and integration with ERP/CRM systems.",
-        ],
-      },
-      {
-        heading: "Architecture pattern",
-        paragraphs: [
-          "Ingest → extract → validate → route → human review (if needed) → write to system of record. This pattern works across FinTech, healthcare admin, logistics, and energy field operations.",
-        ],
-      },
-      {
-        heading: "Measuring success",
-        paragraphs: [
-          "Track cycle time, manual review hours, error rate, and cost per transaction before and after launch. These metrics resonate with COO and CFO stakeholders — not model benchmarks.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "build-vs-buy-enterprise-ai",
-    title: "Build vs. Buy for Enterprise AI: When Custom Systems Win",
-    excerpt:
-      "SaaS AI features are fast to trial and expensive to scale. Custom systems cost more upfront and deliver ownership, integration depth, and governed workflows.",
-    readTime: "7 min read",
-    publishedAt: "2026-01-20",
-    tags: ["Strategy", "Enterprise", "Build vs Buy"],
-    sections: [
-      {
-        heading: "When SaaS AI is enough",
-        paragraphs: [
-          "Generic copilots and per-seat AI add-ons work for individual productivity — drafting emails, summarizing meetings. They rarely replace operational workflows tied to ERP, compliance, and custom business rules.",
-        ],
-      },
-      {
-        heading: "When to build",
-        paragraphs: [
-          "Build when the workflow is core to operations, requires deep integration, has strict governance needs, or when per-seat pricing would exceed build cost at scale. Ownership of code and data matters for IP-sensitive industries.",
-        ],
-      },
-      {
-        heading: "Hybrid approach",
-        paragraphs: [
-          "Many enterprises use approved model APIs with custom orchestration, integrations, and controls — best of both worlds without vendor lock-in on the workflow layer.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "measuring-ai-roi-beyond-pilot",
-    title: "Measuring AI ROI Beyond the Pilot: Metrics Executives Actually Trust",
-    excerpt:
-      "Model accuracy doesn't convince the CFO. Cycle time, cost per transaction, and error rate do. Here's how to baseline and report production AI impact.",
-    readTime: "6 min read",
-    publishedAt: "2026-03-15",
-    tags: ["ROI", "Strategy", "Operations"],
-    sections: [
-      {
-        heading: "Start with operational baselines",
-        paragraphs: [
-          "Before automation, measure the workflow as it runs today: hours per transaction, rework rate, SLA breaches, and fully loaded labor cost. These baselines become the executive dashboard — not token counts or model benchmarks.",
-          "Pick one workflow with visible volume. Document the happy path and the top five exception types. That scope keeps ROI credible and auditable.",
-        ],
-      },
-      {
-        heading: "Metrics that resonate with the board",
-        paragraphs: [
-          "Cycle time reduction, manual hours avoided, cost per case, and quality/error rate are the metrics that survive scrutiny. Tie each to a dollar value using conservative assumptions.",
-          "Report monthly with before/after comparisons. Include human override rates — they prove governance is working, not failing.",
-        ],
-      },
-      {
-        heading: "Avoid vanity metrics",
-        paragraphs: [
-          "Chat sessions, prompts sent, or generic productivity scores rarely justify enterprise investment. If a metric can't connect to P&L or risk reduction, drop it from the executive summary.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "integration-patterns-enterprise-agents",
-    title: "Integration Patterns for Enterprise AI Agents",
-    excerpt:
-      "Agents fail in isolation. Production systems need reliable connections to ERP, CRM, ITSM, and document stores — with retries, idempotency, and audit trails.",
-    readTime: "6 min read",
-    publishedAt: "2026-03-22",
-    tags: ["Architecture", "Integrations", "Agents"],
-    sections: [
-      {
-        heading: "The agent is the orchestrator, not the system of record",
-        paragraphs: [
-          "Agents read, classify, draft, and route. Authoritative data stays in ERP, CRM, or core banking systems. Write operations go through staging tables or APIs with human approval gates.",
-          "This pattern prevents shadow databases and keeps compliance teams comfortable.",
-        ],
-      },
-      {
-        heading: "Patterns that scale",
-        paragraphs: [
-          "Event-driven ingestion from webhooks and message queues. Idempotent handlers so retries don't duplicate records. Dead-letter queues for exceptions. Structured logging with correlation IDs across agent steps.",
-          "Use the same integration standards for workflow two and workflow ten — don't reinvent per project.",
-        ],
-      },
-      {
-        heading: "Security and access",
-        paragraphs: [
-          "Service accounts with least privilege. Secrets in vaults, not prompts. Per-tenant data boundaries for multi-division enterprises. Every external call logged with actor, payload hash, and outcome.",
+          "Give the workflow an operations owner, not only an engineering sponsor. Review quality, exceptions, and cost on a cadence. Governed agents are run. They are not launched and forgotten.",
         ],
       },
     ],

@@ -27,7 +27,7 @@ const EngagementModels = () => {
             return (
               <Link
                 key={model.slug}
-                to={model.href}
+                to={model.href ?? `/engagement/${model.slug}`}
                 className="card-hover p-6 block group"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">

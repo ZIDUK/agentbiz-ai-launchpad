@@ -1,14 +1,14 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | IA operativa para la empresa",
+    title: "AgentBiz | Excelencia operativa, impulsada por IA",
     description:
-      "Ayudamos a organizaciones a rediseñar, implementar y escalar operaciones críticas de negocio con IA gobernada — flujos en producción que su equipo puede operar y poseer.",
+      "Si un proceso lo está frenando, dejamos el trabajo listo para correrse — y después lo aceleramos con IA gobernada.",
   },
   seo: {
     about: {
-      title: "Nosotros | AgentBiz Ingeniería IA Enterprise",
+      title: "Nosotros | AgentBiz",
       description:
-        "Conozca cómo AgentBiz entrega sistemas de IA en producción, flujos agénticos gobernados e ingeniería enterprise para organizaciones reguladas y de alto volumen.",
+        "Primero arreglamos la operación. Después le ponemos IA. Conozca al equipo detrás de AgentBiz.",
     },
     privacy: {
       title: "Política de privacidad | AgentBiz",
@@ -19,14 +19,14 @@ export const messages = {
       description: "Términos que rigen el uso del sitio y servicios de AgentBiz.",
     },
     careers: {
-      title: "Carreras en AgentBiz | Conviértase en Agentier",
+      title: "Carreras en AgentBiz | Dos asientos. Trabajo real.",
       description:
-        "Únase a AgentBiz como Agentier y lleve operaciones AI-Native a producción para organizaciones enterprise.",
+        "Un estudio operativo chico. Roles abiertos para quien ha corrido una operación o ha construido sistemas que los operadores sí usan.",
     },
     services: {
-      title: "Servicios de IA y software | AgentBiz",
+      title: "Cómo trabajamos | AgentBiz",
       description:
-        "Desarrollo de IA enterprise, flujos agénticos, integraciones y entrega de software — de code review a aplicaciones en producción.",
+        "Cuatro capacidades, un orden: alinear, diagnosticar, implementar y después acelerar con IA.",
     },
     resources: {
       title: "Recursos enterprise de IA | AgentBiz",
@@ -46,12 +46,12 @@ export const messages = {
     industries: {
       title: "Industrias | AgentBiz",
       description:
-        "Entrega de IA para FinTech, salud, logística, SaaS y energía — entornos regulados con resultados medibles.",
+        "Tecnología y Media — las industrias que hemos operado desde adentro.",
     },
     engagement: {
-      title: "Paquetes de transformación | AgentBiz",
+      title: "Empiece aquí | AgentBiz",
       description:
-        "AI-Native PODs, AI-Native Operating System y AI-Native Stack Upgrade — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
+        "Tres entradas: Agentic Readiness Assessment, Agentic Operations Build y Custom Delivery Pod.",
     },
     insights: {
       title: "Insights | AgentBiz",
@@ -77,11 +77,12 @@ export const messages = {
     services: "Soluciones",
     solutions: "Soluciones",
     solutionsLabel: "SOLUCIONES",
-    howAgentiersDeliver: "Cómo entregan los Agentiers",
+    howWeDeliver: "Cómo lo entregamos",
     exploreSolution: "Explorar solución →",
     viewAllSolutions: "Ver todas las soluciones →",
     industries: "Industrias",
-    process: "Proceso",
+    process: "Recorrido",
+    language: "Idioma",
     resources: "Recursos",
     insights: "Insights",
     engagement: "Soluciones",
@@ -102,6 +103,26 @@ export const messages = {
     more: "Más",
     viewAllIndustries: "Ver todas las industrias →",
     viewAllServices: "Ver todos los servicios →",
+    viewAllWork: "Ver nuestro trabajo →",
+    viewAllInsights: "Ver todos los insights →",
+    offering: "Oferta",
+    waysIn: "Paquetes",
+    capabilities: "Capacidades",
+    ourWork: "Nuestro trabajo",
+    featured: "Destacado",
+    story: "Nuestra historia",
+    storyBody: "Quiénes somos, y por qué primero va la operación.",
+    howWeWork: "Cómo trabajamos",
+    howWeWorkBody: "Estrategia. Operación. Después IA.",
+    leadership: "Liderazgo",
+    leadershipBody: "Operadores que han corrido delivery y producción.",
+    whyAgentBiz: "Por qué AgentBiz",
+    whyAgentBizBody: "Un estudio operativo chico. No un banco de heads.",
+    openRoles: "Roles abiertos",
+    openRolesBody: "Dos asientos. Remoto. Trabajo real.",
+    howWeHire: "Cómo contratamos",
+    howWeHireBody: "Muéstrenos una operación que haya corrido.",
+    contactUs: "Contáctenos",
     engagementModelsLabel: "PAQUETES DE TRANSFORMACIÓN",
     aiDevelopment: "DESARROLLO IA",
     softwareDevelopment: "DESARROLLO DE SOFTWARE",
@@ -257,8 +278,126 @@ export const messages = {
     visitSite: "Visitar sitio →",
   },
   trustedBy: {
-    eyebrow: "Equipos que confían en nosotros para IA en producción",
-    disclaimer: "Nombres de clientes anonimizados · engagements representativos",
+    eyebrow: "Empresas con las que hemos operado",
+    disclaimer: "Clientes y partners seleccionados",
+  },
+  home: {
+    eyebrow: "NUESTRA OFERTA",
+    productLabel: "Operaciones empresariales AI-Native",
+    title: "Empiece por el Assessment.",
+    titleHighlight: "Después Build. Después Pod.",
+    lead:
+      "La transformación operativa empieza con arquitectura empresarial — no con otro piloto de IA. Mapeamos el modelo operativo, nombramos dueños y solo entonces ponemos IA en trabajo que sobrevive un lunes sin nosotros en la sala.",
+    ctaPrimary: "Empezar por Assessment",
+    ctaSecondary: "Ver los paquetes",
+    sequenceEyebrow: "POR DÓNDE EMPEZAR",
+    sequenceTitle: "Tres pasos. Una secuencia.",
+    sequenceLead:
+      "No tiene que hacer los tres. Entra donde duele — y solo avanzamos cuando la operación lo aguanta.",
+    sequenceAssessmentLabel: "Assessment",
+    sequenceAssessmentBody:
+      "Arquitectura empresarial en el piso: modelo operativo, dueños y mapas de proceso — antes de otro dólar en IA.",
+    sequenceBuildLabel: "Build",
+    sequenceBuildBody:
+      "Cambie cómo corre el trabajo. Instale dueños, cadencia y KPIs. Después ponga IA solo donde corresponde.",
+    sequencePodLabel: "Pod",
+    sequencePodBody:
+      "Cuando el proceso necesita un sistema, lo construimos. Usted posee el código. Fee fijo por resultado.",
+    journeyEyebrow: "CÓMO ENTREGAMOS",
+    journeyTitle: "Primero la operación.",
+    journeyTitleHighlight: "Después la IA.",
+    journeyLead:
+      "Primero fijamos qué está tratando de ganar. Después rediseñamos cómo corre el trabajo. Solo entonces automatizamos — con dueños, controles y auditoría.",
+    journeyNote:
+      "¿Ya tiene el mapa? No repetimos el trabajo hecho. Igual no pondremos IA en un proceso que nadie posee.",
+    bundlesEyebrow: "EL PLAN",
+    bundlesTitle: "Tres etapas. Empiece donde está.",
+    bundlesLead:
+      "Assessment abre el mapa operativo. Build cambia cómo corre el trabajo. Pod entrega el sistema — cuando lo necesite.",
+    caseEyebrow: "NUESTRO TRABAJO",
+    caseContext: "La situación",
+    caseWhatWeDid: "Qué cambió",
+    caseResults: "Lo que se ve",
+    caseRead: "Leer la historia",
+    caseFeatured: "Caso destacado",
+    industriesEyebrow: "INDUSTRIAS",
+    industriesTitle: "Hemos corrido el trabajo en estas salas.",
+    industriesLead:
+      "Tecnología. Medios. Deportes. Retail. No es un catálogo — los campos donde nos hemos sentado en la sala de delivery.",
+    workEyebrow: "CASOS",
+    workTitle: "Desde operaciones en vivo.",
+    workLead: "Una historia al frente. Dos más cuando quiera la sala.",
+    statsEyebrow: "DE UN VISTAZO",
+    statsIndustries: "Industrias",
+    statsPackages: "Paquetes",
+    statsCases: "Operaciones reconstruidas",
+    faqEyebrow: "ANTES DE LA LLAMADA",
+    faqTitle: "Lo que va a querer saber",
+    faqTitleHighlight: "antes de hablar.",
+    faqLead: "Respuestas directas. Sin teatro de precios. Sin intro de 40 slides.",
+    ctaTitle: "30 minutos. Una pregunta.",
+    ctaTitleHighlight: "La suya.",
+    ctaLead:
+      "¿Qué proceso le está costando crecimiento — y el Assessment es el primer paso correcto?",
+    ctaRequest: "Pedir la llamada de diagnóstico",
+    ctaEmail: "o escriba a jonathan@agentbiz.io",
+  },
+  offer: {
+    entry: "Entrada",
+    full: "Journey completo",
+    followOn: "Siguiente paso",
+    startHere: "Empiece aquí",
+    readScope: "Ver el alcance",
+    serviceLabel: "Servicio",
+    seePackages: "Ver paquetes de transformación",
+  },
+  contactPage: {
+    eyebrow: "LLAMADA DE DISCOVERY",
+    title: "30 minutos.",
+    titleHighlight: "Una pregunta operativa.",
+    lead:
+      "¿Qué proceso le está costando crecimiento? ¿El Assessment es el primer paso correcto?",
+    name: "Nombre completo",
+    email: "Email de trabajo",
+    company: "Empresa",
+    role: "Rol / cargo",
+    rolePlaceholder: "p. ej. VP de Operaciones, Head of Delivery",
+    context: "¿Qué problema operativo está tratando de resolver?",
+    contextPlaceholder:
+      "Unas frases bastan. Cuanto más claro el dolor, más útil la llamada.",
+    engagement: "¿Qué engagement se acerca más a lo que necesita?",
+    optional: "(opcional)",
+    consent:
+      "Al enviar, acepta que lo contactemos por esta consulta. No compartimos su información.",
+    submit: "Pedir la llamada de discovery",
+    submitting: "Enviando...",
+    error:
+      "No pudimos enviar el formulario. Escriba a jonathan@agentbiz.io y le respondemos directo.",
+    successTitle: "Gracias — respondemos en un día hábil.",
+    successBody: "Mientras tanto, mire cómo trabajamos y el Assessment.",
+    seeServices: "Ver los servicios",
+    readSprint: "Leer el Readiness Assessment",
+    preferEmail: "¿Prefiere email?",
+    afterTitle: "Qué pasa después de enviar",
+    after1Title: "Leemos su contexto",
+    after1Body:
+      "Revisión el mismo día. Si no somos el fit correcto, se lo decimos y lo referimos a otro lado.",
+    after2Title: "Proponemos un slot de 30 minutos",
+    after2Body: "Llega un link de calendario a su inbox. Sin deck. Sin secuencia de pitch.",
+    after3Title: "La llamada",
+    after3Body:
+      "Preguntamos por el proceso, el sponsor y el costo de dejarlo como está.",
+    after4Title: "La decisión es suya",
+    after4Body: "Si hay fit, recibe una propuesta de una página en 48 horas.",
+  },
+  caseStudyPage: {
+    context: "Contexto",
+    whatWeDid: "Qué hicimos",
+    results: "Resultados operativos",
+    methods: "Métodos aplicados",
+    applyTitle: "Aplique este modelo operativo a su organización de delivery",
+    applyBody: "Empiece por el Readiness Assessment si necesita el mapa antes del build.",
+    bookCall: "Agendar un diagnóstico de 30 minutos",
   },
   exitIntent: {
     eyebrow: "Antes de irse",
@@ -282,6 +421,9 @@ export const messages = {
   },
   legal: {
     updated: "Última actualización:",
+    questions: "¿Preguntas sobre esta página?",
+    seeTerms: "Ver Términos de uso →",
+    seePrivacy: "Ver Política de privacidad →",
   },
   sticky: {
     bookCall: "Agendar llamada",
@@ -289,7 +431,7 @@ export const messages = {
   },
   footer: {
     tagline:
-      "Ingeniería y entrega con IA nativa para la empresa. Construimos sistemas de IA en producción, flujos agentic y software que su organización puede poseer y escalar.",
+      "Excelencia operativa y transformación de procesos, impulsada por IA. Dejamos el trabajo listo para correrse — y después lo aceleramos.",
     company: "Empresa",
     capabilities: "Capacidades",
     connect: "Conectar",
@@ -390,39 +532,43 @@ export const messages = {
   },
   industriesPage: {
     eyebrow: "INDUSTRIAS",
-    title: "Entrega de IA para",
-    titleHighlight: "entornos regulados y complejos",
+    title: "Tecnología. Medios. Deportes. Retail.",
+    titleHighlight: "Hemos estado dentro.",
     subtitle:
-      "Construimos sistemas de IA en producción en industrias donde gobernanza, profundidad de integración y confiabilidad operativa son innegociables.",
-    ctaTitle: "¿No sabe por dónde empezar?",
+      "No es una lista genérica. Las salas donde hemos corrido delivery, producción, scoring y el mostrador.",
+    ctaTitle: "¿No está seguro de si este es su campo?",
     ctaBody:
-      "Mapee su flujo de mayor volumen a una hoja de ruta de IA en producción en una llamada estratégica de 30 minutos.",
+      "Traiga el proceso que le está costando crecimiento. En 30 minutos le decimos si conocemos esa sala.",
   },
   industryDetail: {
-    challenges: "Desafíos enterprise comunes",
-    useCases: "Casos de uso en producción",
-    startWorkflow: "Comience con un flujo en",
+    challenges: "Lo que suele doler",
+    useCases: "Cómo se ve el trabajo",
+    startWorkflow: "Empiece con un flujo en",
     startBody:
-      "Identifique un proceso de alto volumen con KPIs claros y despliegue un flujo gobernado de IA que su equipo de operaciones pueda ejecutar y escalar.",
+      "Traiga un proceso de alto volumen con un dueño real. Le decimos si está listo para arreglarse — y si la IA debería acercarse todavía.",
+    wayWeWork: "Cómo trabajamos",
+    wayWeWorkLead:
+      "No es otro catálogo para comprar. Prueba de oficio en esta sala — lo que nos sentamos a arreglar con su equipo.",
+    services: "Servicios",
   },
   engagementPage: {
-    eyebrow: "CÓMO TRABAJAMOS",
-    title: "Paquetes de",
-    titleHighlight: "transformación",
+    eyebrow: "EMPIECE AQUÍ",
+    title: "Tres paquetes.",
+    titleHighlight: "Usted elige.",
     subtitle:
-      "Tres paquetes orientados a outcomes — del primer flujo en producción a transferencia de capacidad y operaciones gestionadas continuas.",
-    ctaTitle: "¿No sabe por dónde empezar?",
+      "¿Necesita el mapa antes de gastar más en IA? Eso es el Assessment. ¿Listo para cambiar cómo corre el trabajo? Eso es el Build. ¿Necesita un sistema, no otro taller? Eso es el Pod.",
+    ctaTitle: "¿No sabe qué paquete le calza?",
     ctaBody:
-      "Una llamada estratégica de 30 minutos mapea su flujo de mayor volumen, KPIs y cronograma al paquete correcto.",
-    discuss: "Discutir su ruta",
-    readyDiscuss: "¿Listo para discutir",
+      "Traiga el proceso que le está costando crecimiento. En 30 minutos lo apuntamos al paquete correcto.",
+    discuss: "Hablemos",
+    readyDiscuss: "Listo para hablar",
     readyBody:
-      "Mapearemos su flujo, métricas de éxito y restricciones operativas a un plan de transformación concreto.",
+      "Mapeamos el proceso, qué significa mejor, y qué paquete le calza de verdad.",
     whatItIs: "Qué es",
-    howWeDeliver: "Cómo entregan los Agentiers",
-    howInside: "Cómo opera dentro de su organización",
-    theOutcome: "El resultado",
-    faq: "Preguntas frecuentes",
+    howWeDeliver: "Cómo lo entregamos",
+    howInside: "Cómo se sienta dentro de su organización",
+    theOutcome: "Con qué se queda",
+    faq: "Preguntas que igual va a hacer",
   },
   trainings: {
     hub: {
@@ -473,45 +619,43 @@ export const messages = {
   },
   insightsPage: {
     eyebrow: "INSIGHTS",
-    title: "Perspectivas de IA",
-    titleHighlight: "enterprise",
+    title: "Arregle la operación.",
+    titleHighlight: "Después hable de IA.",
     subtitle:
-      "Reflexión práctica sobre IA en producción, agentes gobernados y transformación operativa — desde el lado de ingeniería y entrega.",
-    ctaTitle: "Convertir el insight en un plan de producción",
-    ctaBody: "Mapee su flujo de mayor volumen a una hoja de ruta gobernada en producción.",
+      "Piezas cortas sobre procesos con dueño, agentes gobernados, y por qué el orden del trabajo es el producto.",
+    ctaTitle: "Traiga el proceso que le está costando crecimiento",
+    ctaBody: "Treinta minutos. Una pregunta. La suya.",
   },
   careers: {
     eyebrow: "CARRERAS",
-    title: "Conviértase en",
-    titleHighlight: "Agentier",
+    title: "Dos asientos.",
+    titleHighlight: "Trabajo real.",
     subtitle:
-      "Los Agentiers llevan operaciones AI-Native a producción para clientes enterprise — flujos gobernados, KPIs medibles y sistemas que el cliente posee.",
-    joinTitle: "Únase a los",
-    joinHighlight: "Agentiers",
+      "Un estudio operativo chico. Contratamos a quien ha corrido una operación o ha construido el sistema que los operadores sí usan.",
+    joinTitle: "Venga a hacer",
+    joinHighlight: "el trabajo",
     joinSubtitle:
-      "Buscamos personas que quieran poner operaciones críticas de negocio en producción con IA gobernada — no pilotos eternos ni headcount rentado.",
+      "No estamos armando un banco de heads. Dos asientos: alguien que ha corrido una operación, y alguien que ha entregado el sistema que los operadores corren.",
     all: "Todos",
     requirements: "Requisitos:",
     moreRequirements: "requisitos más",
     applyNow: "Aplicar ahora",
     applyFor: "Aplicar a",
-    noPositions: "No hay posiciones disponibles en",
-    checkBack: "Vuelva más tarde o explore otros departamentos.",
-    whyJoin: "¿Por qué ser",
-    cuttingEdge: "Trabajo de producción que importa",
+    noPositions: "No hay posiciones abiertas en",
+    checkBack: "Mire el otro asiento, o mándenos la operación que ha corrido.",
+    whyJoin: "Por qué",
+    cuttingEdge: "El piso, no el slide",
     cuttingEdgeBody:
-      "Entregue flujos reales dentro de operaciones enterprise — con gobernanza, integraciones y KPIs que el cliente puede medir.",
-    worldClass: "Una tribu de Agentiers",
+      "Se va a sentar con quien corre el trabajo. Delivery, producción, scoring, el mostrador. Después les deja un sistema que pueden sostener.",
+    worldClass: "Un estudio, no un banco",
     worldClassBody:
-      "Colabore con operadores, arquitectos y líderes de entrega que cuidan la transferencia de ownership — no el body shopping.",
-    competitive: "Paquete competitivo",
+      "Equipo chico. Usted posee el resultado. El cliente posee el repo, los mapas y la cadencia.",
+    competitive: "Cómo contratamos",
     competitiveBody:
-      "Salario competitivo, equity, beneficios integrales y opciones flexibles de trabajo remoto.",
+      "Muéstrenos una operación que haya corrido, o un sistema que los operadores todavía usan. No contratamos con una banda salarial de otra ciudad.",
     departments: {
+      operations: "Operaciones",
       engineering: "Ingeniería",
-      product: "Producto",
-      solutions: "Soluciones",
-      research: "Investigación",
     },
   },
   application: {
@@ -543,11 +687,16 @@ export const messages = {
     },
   },
   servicesPage: {
-    eyebrow: "SOLUCIONES",
-    title: "Nuestros",
-    titleHighlight: "servicios",
+    eyebrow: "LA SECUENCIA",
+    title: "Cuatro capacidades.",
+    titleHighlight: "Un orden que funciona.",
     subtitle:
-      "Servicios de desarrollo de IA e ingeniería de software para ayudar a su negocio a construir, integrar y escalar tecnología con confianza.",
+      "Usted no recorre un catálogo. Elige una entrada. Estas cuatro capacidades son cómo entregamos el trabajo: alinear, diagnosticar, implementar y después acelerar con IA.",
+    howClientsBuy: "LOS PAQUETES",
+    startWithBundle: "No empiece por un menú. Empiece por una decisión.",
+    notSure: "¿No sabe por dónde empezar?",
+    notSureBody:
+      "Empiece por el Assessment si necesita el mapa. En 30 minutos le decimos si ese es el primer paso correcto.",
     aiTab: "Desarrollo IA",
     softwareTab: "Desarrollo de software",
     viewDetails: "Ver detalles",

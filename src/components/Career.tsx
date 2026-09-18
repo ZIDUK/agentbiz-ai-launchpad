@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowRight, Briefcase, Clock, DollarSign, MapPin, Users } from "lucide-react";
+import { ArrowRight, Briefcase, Clock, MapPin, Users } from "lucide-react";
 import ApplicationForm from "./ApplicationForm";
 import { useTranslation } from "@/i18n/useTranslation";
 import { useJobPositions } from "@/i18n/hooks";
@@ -25,7 +25,10 @@ const Career = () => {
   return (
     <section id="career" className="section pt-8">
       <div className="container max-w-6xl">
-        <div className="mb-16 text-center">
+        <div id="why" className="mb-16 scroll-mt-28 text-center">
+          <p className="mb-3 text-sm font-semibold tracking-[0.18em] text-primary">
+            {t("careers.eyebrow")}
+          </p>
           <h2 className="text-headline mb-6">
             {t("careers.joinTitle")} <span className="gradient-text">{t("careers.joinHighlight")}</span>
           </h2>
@@ -45,7 +48,7 @@ const Career = () => {
           ))}
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div id="roles" className="grid scroll-mt-28 gap-6 sm:grid-cols-2">
           {filteredJobs.map((job) => (
             <article
               key={job.id}
@@ -78,10 +81,6 @@ const Career = () => {
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-3.5 w-3.5 text-primary" />
                   {job.type}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <DollarSign className="h-3.5 w-3.5 text-primary" />
-                  {job.salary}
                 </span>
               </div>
 
@@ -138,10 +137,10 @@ const Career = () => {
           </div>
         )}
 
-        <div className="mt-20 border-t border-border pt-16">
+        <div id="hire" className="mt-20 scroll-mt-28 border-t border-border pt-16">
           <div className="text-center">
             <h3 className="mb-6 text-2xl font-bold text-foreground">
-              {t("careers.whyJoin")} <span className="gradient-text">Agentier</span>?
+              {t("careers.whyJoin")} <span className="gradient-text">AgentBiz</span>
             </h3>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
@@ -160,7 +159,7 @@ const Career = () => {
               </div>
               <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
-                  <DollarSign className="text-primary" size={28} />
+                  <Briefcase className="text-primary" size={28} />
                 </div>
                 <h4 className="mb-2 font-semibold text-foreground">{t("careers.competitive")}</h4>
                 <p className="text-sm leading-relaxed text-secondary">{t("careers.competitiveBody")}</p>

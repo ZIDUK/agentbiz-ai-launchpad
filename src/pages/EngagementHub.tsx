@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useEngagementContent } from "@/i18n/hooks";
 import { useTranslation } from "@/i18n/useTranslation";
+import { packageMarkForSlug } from "@/components/icons/PackageMarks";
+import { isPublicBundle } from "@/data/site-content";
 
 const EngagementHub = () => {
   const { t } = useTranslation();
-  const engagementDetails = useEngagementContent();
+  const engagementDetails = useEngagementContent().filter((model) =>
+    isPublicBundle(model.slug),
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -32,9 +36,9 @@ const EngagementHub = () => {
         </section>
 
         <div className="container max-w-5xl pt-12 lg:pt-14">
-          <div className="grid gap-6 md:grid-cols-2 md:gap-7">
+          <div className="grid gap-6 md:grid-cols-2 md:gap-7 lg:grid-cols-3">
             {engagementDetails.map((model) => {
-              const Icon = model.icon;
+              const Mark = packageMarkForSlug(model.slug);
               return (
                 <Link
                   key={model.slug}
@@ -46,8 +50,8 @@ const EngagementHub = () => {
                     className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
                   />
                   <div className="mb-5 flex items-start justify-between gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                      <Icon className="text-primary" size={24} />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
+                      <Mark className="h-6 w-6" />
                     </div>
                     <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                       {model.eyebrow}
@@ -59,11 +63,7 @@ const EngagementHub = () => {
                   <p className="mb-5 flex-1 text-sm leading-relaxed text-secondary">
                     {model.shortDescription}
                   </p>
-                  <div className="flex items-center justify-between gap-3 border-t border-border pt-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Clock3 className="h-3.5 w-3.5" />
-                      <span className="line-clamp-1">{model.timeline}</span>
-                    </span>
+                  <div className="flex items-center justify-end border-t border-border pt-4">
                     <span className="inline-flex items-center text-sm font-semibold text-primary">
                       {t("common.learnMore")}
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -78,7 +78,7 @@ const EngagementHub = () => {
             <h2 className="mb-4 text-2xl font-bold">{t("engagementPage.ctaTitle")}</h2>
             <p className="mx-auto mb-6 max-w-xl text-secondary">{t("engagementPage.ctaBody")}</p>
             <Button asChild className="btn-primary">
-              <Link to="/#contact">{t("engagementPage.discuss")}</Link>
+              <Link to="/contact">{t("engagementPage.discuss")}</Link>
             </Button>
           </div>
         </div>

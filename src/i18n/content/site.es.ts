@@ -19,7 +19,6 @@ import {
 
 export type {
   CoreCapability,
-  EngagementModel,
   Industry,
   ResourceItem,
   ServiceItem,
@@ -28,7 +27,6 @@ export type {
 
 import type {
   CoreCapability,
-  EngagementModel,
   ResourceItem,
   ServiceItem,
   StrategicPillar,
@@ -212,33 +210,6 @@ export const softwareServicesEs: ServiceItem[] = [
   },
 ];
 
-export const engagementModelsEs: EngagementModel[] = [
-  {
-    slug: "ai-native-pods",
-    title: "AI-Native PODs",
-    description:
-      "Su motor de ejecución para llevar operaciones AI-Native a producción — con KPIs, gobernanza y ownership.",
-    icon: Rocket,
-    href: "/engagement/ai-native-pods",
-  },
-  {
-    slug: "ai-native-operating-system",
-    title: "AI-Native Operating System",
-    description:
-      "Patrones, estándares y enablement para que su equipo posea los siguientes flujos.",
-    icon: Layers,
-    href: "/engagement/ai-native-operating-system",
-  },
-  {
-    slug: "ai-native-stack-upgrade",
-    title: "AI-Native Stack Upgrade",
-    description:
-      "Reemplace tools alquiladas por un stack AI-Native de su propiedad — actualice sistemas y tools de la función.",
-    icon: Wrench,
-    href: "/engagement/ai-native-stack-upgrade",
-  },
-];
-
 export const enterpriseChallengesEs: string[] = [
   "Cómo los documentos se convierten en decisiones",
   "Cómo las solicitudes se convierten en acciones",
@@ -326,11 +297,11 @@ export const coreCapabilitiesEs: CoreCapability[] = [
     slug: "engagement-models",
     title: "Paquetes de transformación",
     shortDescription:
-      "Paquetes orientados a outcomes — AI-Native PODs, AI-Native Operating System y AI-Native Stack Upgrade — alineados a transformación operativa enterprise.",
+      "Tres entradas — Agentic Readiness Assessment, Agentic Operations Build y Custom Delivery Pod — alineadas a transformación operativa.",
     outcomes: [
-      "AI-Native PODs",
-      "AI-Native Operating System",
-      "AI-Native Stack Upgrade",
+      "Agentic Readiness Assessment",
+      "Agentic Operations Build",
+      "Custom Delivery Pod",
       "Handoff gobernado y ownership",
     ],
     icon: Users,
@@ -341,27 +312,39 @@ export const coreCapabilitiesEs: CoreCapability[] = [
 export const workflowPhasesEs = [
   {
     icon: Target,
-    title: "Identificar",
+    number: "01",
+    title: "Fundación Operativa",
+    duration: "4-6 semanas",
+    price: "",
     description:
-      "Evalúe procesos, flujos de datos, dependencias manuales y oportunidades de impacto medible.",
+      "Fijamos qué está tratando de ganar — y los pocos procesos que realmente lo mueven.",
   },
   {
     icon: Layers,
-    title: "Rediseñar",
+    number: "02",
+    title: "Diagnóstico de Procesos",
+    duration: "8 semanas",
+    price: "",
     description:
-      "Defina el estado futuro nativo en IA — qué hace la IA, qué controlan los humanos y cómo se mide el valor.",
+      "Mapeamos cómo corre el trabajo de verdad, cortamos el desperdicio y diseñamos la versión que su equipo puede operar.",
   },
   {
-    icon: Code2,
-    title: "Implementar",
+    icon: Wrench,
+    number: "03",
+    title: "Implementación de Procesos",
+    duration: "12-16 semanas",
+    price: "",
     description:
-      "Construya y despliegue flujos de producción, agentes, integraciones y controles en su entorno.",
+      "Instalamos la nueva forma de trabajar: dueños, sistemas, números en vivo.",
   },
   {
-    icon: Rocket,
-    title: "Escalar",
+    icon: Sparkles,
+    number: "04",
+    title: "Acelerador de IA",
+    duration: "8-12 semanas",
+    price: "",
     description:
-      "Establezca componentes reutilizables y estándares de entrega para expandir operaciones nativas en IA entre funciones.",
+      "Ponemos IA solo en el trabajo que está listo — con aprobación y una traza de auditoría.",
   },
 ];
 
@@ -425,3 +408,13 @@ export const resourcesEs: ResourceItem[] = [
     href: "/case-studies/logistics-exception-handling",
   },
 ];
+
+// New content — Spanish translations pending; fallback to English at runtime via i18n index
+export {
+  aboutEs,
+  bundlesEs,
+  buyerFaqsEs,
+  caseStudiesEs,
+  industriesEs,
+  servicesEs,
+} from "./offer.es";

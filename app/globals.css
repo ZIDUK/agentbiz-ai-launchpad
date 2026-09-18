@@ -134,3 +134,26 @@
     @apply max-w-7xl mx-auto px-6 lg:px-8;
   }
 }
+
+@keyframes trusted-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+.trusted-marquee-track {
+  animation: trusted-marquee 40s linear infinite;
+}
+
+.trusted-marquee:hover .trusted-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-marquee-track {
+    animation: none;
+  }
+}

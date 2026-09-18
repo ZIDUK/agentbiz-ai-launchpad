@@ -37,9 +37,9 @@ const pathsEn: VisitorPath[] = [
   {
     id: "talent",
     audience: "Candidates",
-    title: "Become an Agentier",
+    title: "Join the studio",
     description:
-      "Join Agentiers shipping AI-native operations to production — governed agents, integrations, and ownership transfer.",
+      "Two seats: someone who has run an operation, and someone who has shipped the system operators run.",
     cta: "View open roles",
     href: "/careers",
     secondaryCta: "About AgentBiz",
@@ -73,9 +73,9 @@ const pathsEs: VisitorPath[] = [
   {
     id: "talent",
     audience: "Candidatos",
-    title: "Conviértase en Agentier",
+    title: "Únase al estudio",
     description:
-      "Únase a los Agentiers que llevan operaciones AI-Native a producción — agentes gobernados, integraciones y transferencia de ownership.",
+      "Dos asientos: alguien que ha corrido una operación, y alguien que ha entregado el sistema que los operadores corren.",
     cta: "Ver vacantes",
     href: "/careers",
     secondaryCta: "Sobre AgentBiz",

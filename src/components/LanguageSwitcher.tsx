@@ -1,10 +1,12 @@
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { useTranslation } from "@/i18n/useTranslation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/types";
 
 const LanguageSwitcher = ({ className }: { className?: string }) => {
   const { locale, setLocale } = useLanguage();
+  const { t } = useTranslation();
 
   const options: { value: Locale; label: string }[] = [
     { value: "en", label: "EN" },
@@ -18,7 +20,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
         className,
       )}
       role="group"
-      aria-label="Language"
+      aria-label={t("nav.language")}
     >
       {options.map((option) => (
         <button

@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock3 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -67,28 +67,15 @@ const EngagementDetail = () => {
               </div>
 
               <aside className="rounded-2xl border border-border bg-card/90 p-6 shadow-[var(--shadow-card)] backdrop-blur-sm motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700">
-                <div className="mb-5 flex items-start gap-3 border-b border-border pb-5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                    <Clock3 className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {t("common.timeline")}
-                    </p>
-                    <p className="mt-1 text-sm font-medium leading-snug text-foreground">
-                      {model.timeline}
-                    </p>
-                  </div>
-                </div>
                 <p className="mb-4 text-sm text-secondary">{t("engagementPage.readyBody")}</p>
                 <div className="flex flex-col gap-3">
                   <Button asChild className="btn-primary w-full justify-center">
-                    <Link to="/#contact">
+                    <Link to="/contact">
                       {t("common.scheduleCall")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="w-full justify-center">
-                    <Link to="/ai-roi-calculator">{t("common.estimateRoi")}</Link>
+                    <Link to="/services">{t("nav.allServices")}</Link>
                   </Button>
                 </div>
               </aside>
@@ -285,7 +272,7 @@ const EngagementDetail = () => {
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Button asChild className="btn-primary">
-                  <Link to="/#contact">
+                  <Link to="/contact">
                     {t("common.scheduleCall")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

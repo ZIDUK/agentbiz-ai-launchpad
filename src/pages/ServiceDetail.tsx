@@ -21,8 +21,9 @@ const ServiceDetail = () => {
   }
 
   const Icon = service.icon;
-  const categoryLabel =
-    service.category === "ai" ? t("servicesPage.aiTab") : t("servicesPage.softwareTab");
+  const categoryLabel = service.number
+    ? `${t("offer.serviceLabel")} ${service.number}`
+    : service.tagline ?? t("servicesPage.eyebrow");
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,10 +64,10 @@ const ServiceDetail = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild className="btn-primary">
-              <Link to="/#contact">{t("serviceDetail.scheduleConsultation")}</Link>
+              <Link to="/contact">{t("serviceDetail.scheduleConsultation")}</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link to="/#career">{t("serviceDetail.joinTeam")}</Link>
+              <Link to="/engagement">{t("offer.seePackages")}</Link>
             </Button>
           </div>
         </div>

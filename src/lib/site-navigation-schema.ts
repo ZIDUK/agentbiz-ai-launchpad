@@ -12,7 +12,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Careers at AgentBiz",
       description:
-        "Explore AgentBiz roles and learn why Agentiers join us to ship AI-native operations for enterprise clients.",
+        "Explore AgentBiz roles. Two seats: someone who has run an operation, and someone who has shipped the system operators run.",
       path: "/careers",
     },
     {
@@ -24,19 +24,19 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "AI & Software Services",
       description:
-        "Enterprise AI development, agentic workflows, integrations, and software delivery — from code review to production applications.",
+        "Operating Foundation, Process Diagnostic, Process Implementation, and AI Accelerator — strategy to operations to AI.",
       path: "/services",
     },
     {
       name: "Transformation Packages",
       description:
-        "AI-Native PODs, AI-Native Operating System, and AI-Native Stack Upgrade — outcome-based packages for enterprise operational AI transformation.",
+        "Agentic Readiness Assessment, Agentic Operations Build, and Custom Delivery Pod — three packages to start the work.",
       path: "/engagement",
     },
     {
       name: "Industries",
       description:
-        "Production AI for FinTech, healthcare, logistics, SaaS, and energy — regulated environments with measurable outcomes.",
+        "Technology, Media, Sports, and Retail — rooms where we have run delivery, production, scoring, and the counter.",
       path: "/industries",
     },
     {
@@ -56,7 +56,7 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Carreras en AgentBiz",
       description:
-        "Explore vacantes en AgentBiz y conozca por qué los Agentiers se unen a nosotros para llevar operaciones AI-Native a producción.",
+        "Explore vacantes en AgentBiz. Dos asientos: alguien que ha corrido una operación, y alguien que ha entregado el sistema que los operadores corren.",
       path: "/careers",
     },
     {
@@ -68,19 +68,19 @@ const navigationByLocale: Record<Locale, SiteNavItem[]> = {
     {
       name: "Servicios de IA y software",
       description:
-        "Desarrollo de IA enterprise, flujos agénticos, integraciones y entrega de software — de code review a aplicaciones en producción.",
+        "Operating Foundation, Process Diagnostic, Process Implementation y AI Accelerator — de la estrategia a la operación y a la IA.",
       path: "/services",
     },
     {
       name: "Paquetes de transformación",
       description:
-        "AI-Native PODs, AI-Native Operating System y AI-Native Stack Upgrade — paquetes orientados a outcomes para transformación operativa con IA enterprise.",
+        "Tres paquetes: Agentic Readiness Assessment, Agentic Operations Build y Custom Delivery Pod — tres formas de empezar el trabajo.",
       path: "/engagement",
     },
     {
       name: "Industrias",
       description:
-        "IA en producción para FinTech, salud, logística, SaaS y energía — entornos regulados con resultados medibles.",
+        "Tecnología, Medios, Deportes y Retail — salas donde hemos corrido delivery, producción, scoring y el mostrador.",
       path: "/industries",
     },
     {

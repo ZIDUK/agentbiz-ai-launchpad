@@ -16,7 +16,6 @@ import {
   Map,
   Puzzle,
   Rocket,
-  Replace,
   Workflow,
   Wrench,
   type LucideIcon,
@@ -37,16 +36,15 @@ const menuLinkClass =
   "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground";
 
 const solutionIcons: Record<string, LucideIcon> = {
-  "ai-native-pods": Rocket,
-  "ai-native-operating-system": Layers,
-  "ai-native-stack-upgrade": Wrench,
+  "agentic-readiness-sprint": Rocket,
+  "agentic-operations-build": Layers,
+  "custom-delivery-pod": Wrench,
 };
 
-/** Icons for capability / highlight rows — ordered to match solutions-menu content */
 const detailItemIcons: Record<string, LucideIcon[]> = {
-  "ai-native-pods": [ClipboardList, LayoutTemplate, Code2, FlaskConical, GitPullRequest],
-  "ai-native-operating-system": [Puzzle, BookOpen, GraduationCap, Map],
-  "ai-native-stack-upgrade": [Replace, Workflow, Database, Building2],
+  "agentic-readiness-sprint": [ClipboardList, Map, LayoutTemplate, BookOpen],
+  "agentic-operations-build": [Puzzle, GraduationCap, Workflow, GitPullRequest],
+  "custom-delivery-pod": [Code2, Database, FlaskConical, Building2],
 };
 
 export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
@@ -224,7 +222,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
                 {selectedSolution.capabilities && (
                   <>
                     <p className="mb-3 text-[11px] font-semibold tracking-wider text-primary uppercase">
-                      {t("nav.howAgentiersDeliver")}
+                      {t("nav.howWeDeliver")}
                     </p>
                     <ul className="grid gap-2 sm:grid-cols-2">
                       {selectedSolution.capabilities.map((cap, index) => {

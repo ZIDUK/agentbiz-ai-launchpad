@@ -37,3 +37,6 @@ poc/**/dist
 
 playwright-report/
 test-results/
+
+.playwright-cli/
+services.yml

@@ -14,7 +14,7 @@ const faqEn: FaqItem[] = [
   {
     question: "Do you replace our internal engineering team?",
     answer:
-      "No. Staff augmentation adds people. An AI-Native POD of Agentiers embeds execution discipline to ship one workflow to production, transfer runbooks and patterns, and leave capability your organization owns — not rented headcount.",
+      "No. Staff augmentation adds people. We change how the work runs, then put AI only on what your operation can actually own — and we transfer runbooks and patterns so capability stays with your organization.",
   },
   {
     question: "How do you handle compliance and data boundaries?",
@@ -24,12 +24,12 @@ const faqEn: FaqItem[] = [
   {
     question: "What does a typical first engagement look like?",
     answer:
-      "AI-Native PODs: 6–10 weeks on one high-volume workflow with baseline KPIs, production deployment, and a roadmap to adjacent processes. Many clients start with document-to-decision or exception-handling workflows.",
+      "Most clients start with the Agentic Readiness Assessment: map the operation, cut the waste, and leave a clear path. When they are ready to change how the work runs, that is the Agentic Operations Build. If they need a system, not another workshop, that is the Custom Delivery Pod.",
   },
   {
     question: "How do you price enterprise AI work?",
     answer:
-      "Pricing is package-based — AI-Native PODs, AI-Native Operating System, or AI-Native Stack Upgrade. We scope against defined outcomes and timeline, not open-ended experimentation or staff hours.",
+      "Pricing is package-based — Assessment, Build, or Pod. We scope against defined outcomes and timeline, not open-ended experimentation or staff hours.",
   },
   {
     question: "Do we own the code and IP?",
@@ -47,7 +47,7 @@ const faqEs: FaqItem[] = [
   {
     question: "¿Reemplazan a nuestro equipo de ingeniería interno?",
     answer:
-      "No. Staff augmentation suma personas. Un AI-Native POD de Agentiers aporta disciplina de ejecución para llevar un flujo a producción, transferir runbooks y patrones, y dejar capacidad que su organización posee — no headcount rentado.",
+      "No. Staff augmentation suma personas. Nosotros cambiamos cómo corre el trabajo y ponemos IA solo en lo que su operación puede poseer — y transferimos runbooks y patrones para que la capacidad se quede en su organización.",
   },
   {
     question: "¿Cómo manejan cumplimiento y límites de datos?",
@@ -57,12 +57,12 @@ const faqEs: FaqItem[] = [
   {
     question: "¿Cómo es un primer engagement típico?",
     answer:
-      "AI-Native PODs: 6–10 semanas en un flujo de alto volumen con KPIs base, despliegue en producción y hoja de ruta a procesos adyacentes. Muchos clientes empiezan con flujos documento-a-decisión o manejo de excepciones.",
+      "La mayoría empieza con el Agentic Readiness Assessment: mapear la operación, cortar el desperdicio y dejar un camino claro. Cuando están listos para cambiar cómo corre el trabajo, eso es el Agentic Operations Build. Si necesitan un sistema, no otro taller, eso es el Custom Delivery Pod.",
   },
   {
     question: "¿Cómo precian el trabajo de IA enterprise?",
     answer:
-      "El precio es por paquete — AI-Native PODs, AI-Native Operating System o AI-Native Stack Upgrade. Cotizamos contra resultados y cronograma definidos, no experimentación abierta ni horas de staff.",
+      "El precio es por paquete — Assessment, Build o Pod. Cotizamos contra resultados y cronograma definidos, no experimentación abierta ni horas de staff.",
   },
   {
     question: "¿Poseemos el código y la IP?",

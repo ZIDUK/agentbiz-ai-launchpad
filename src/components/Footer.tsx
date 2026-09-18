@@ -1,24 +1,12 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github } from "lucide-react";
 import { useTranslation } from "@/i18n/useTranslation";
+import { useSiteContent } from "@/i18n/hooks";
 import { siteConfig } from "@/data/site-config";
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== "/") {
-      navigate(`/#${sectionId}`);
-      return;
-    }
-
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { services } = useSiteContent();
 
   return (
     <footer className="bg-muted border-t border-border py-16">
@@ -45,13 +33,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-secondary hover:text-primary transition-colors">
-                  {t("nav.resources")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/trainings" className="text-secondary hover:text-primary transition-colors">
-                  {t("nav.trainings")}
+                <Link to="/engagement" className="text-secondary hover:text-primary transition-colors">
+                  {t("nav.engagementModels")}
                 </Link>
               </li>
               <li>
@@ -60,13 +43,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/ai-roi-calculator" className="text-secondary hover:text-primary transition-colors">
-                  {t("nav.roiCalculator")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/engagement" className="text-secondary hover:text-primary transition-colors">
-                  {t("nav.engagementModels")}
+                <Link to="/#work" className="text-secondary hover:text-primary transition-colors">
+                  {t("nav.ourWork")}
                 </Link>
               </li>
               <li>
@@ -80,12 +58,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-secondary hover:text-primary transition-colors"
-                >
+                <Link to="/contact" className="text-secondary hover:text-primary transition-colors">
                   {t("nav.contact")}
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -93,30 +68,16 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-6">{t("footer.capabilities")}</h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                <button
-                  onClick={() => scrollToSection("capabilities")}
-                  className="text-secondary hover:text-primary transition-colors"
-                >
-                  {t("footer.aiOps")}
-                </button>
-              </li>
-              <li>
-                <Link
-                  to="/services/ai-assisted-software-development"
-                  className="text-secondary hover:text-primary transition-colors"
-                >
-                  {t("footer.aiAccelerated")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/ai-application-development"
-                  className="text-secondary hover:text-primary transition-colors"
-                >
-                  {t("footer.enterpriseApps")}
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="text-secondary hover:text-primary transition-colors"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

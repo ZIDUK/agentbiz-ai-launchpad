@@ -1,12 +1,12 @@
 export interface JobPosition {
   id: number;
   positionValue: string;
-  departmentKey: "engineering" | "product" | "solutions" | "research";
+  departmentKey: "operations" | "engineering";
   department: string;
   title: string;
   location: string;
   type: string;
-  salary: string;
+  salary?: string;
   experience: string;
   description: string;
   requirements: string[];
@@ -16,183 +16,85 @@ export interface JobPosition {
 export const jobPositionsEn: JobPosition[] = [
   {
     id: 1,
-    positionValue: "Senior AI Engineer",
-    departmentKey: "engineering",
-    department: "Engineering",
-    title: "Senior AI Engineer",
-    location: "Remote / San Francisco",
-    type: "Full-time",
-    salary: "$140k - $180k",
-    experience: "5+ years",
+    positionValue: "Operations Lead",
+    departmentKey: "operations",
+    department: "Operations",
+    title: "Operations Lead",
+    location: "Remote",
+    type: "Full-time or contract",
+    experience: "You have run an operation",
     description:
-      "Lead the development of next-generation AI agents and machine learning systems. Work with cutting-edge technologies to build scalable AI solutions for enterprise clients.",
+      "Sit with the client, map how the work actually runs, name owners, and leave a cadence the team can keep. This is not a slide job. You have run delivery, production, or store ops yourself.",
     requirements: [
-      "5+ years experience in AI/ML development",
-      "Proficiency in Python, TensorFlow, PyTorch",
-      "Experience with LLMs and neural networks",
-      "Strong background in distributed systems",
-      "Experience with cloud platforms (AWS, GCP, Azure)",
+      "You have owned a live operation — delivery, production, or store",
+      "You can map a process without turning it into a 40-page deck",
+      "Comfortable in the room with the people who run the work",
+      "You will not recommend AI on a process nobody owns",
     ],
-    posted: "2 days ago",
+    posted: "Open",
   },
   {
     id: 2,
-    positionValue: "AI Product Manager",
-    departmentKey: "product",
-    department: "Product",
-    title: "AI Product Manager",
-    location: "Remote / New York",
-    type: "Full-time",
-    salary: "$120k - $150k",
-    experience: "3+ years",
-    description:
-      "Drive product strategy for AI-powered solutions. Collaborate with engineering and design teams to deliver innovative AI products that solve real business problems.",
-    requirements: [
-      "3+ years in product management",
-      "Experience with AI/ML products",
-      "Strong analytical and communication skills",
-      "Background in B2B SaaS products",
-      "Understanding of AI technologies and limitations",
-    ],
-    posted: "1 week ago",
-  },
-  {
-    id: 3,
-    positionValue: "AI Solutions Architect",
-    departmentKey: "solutions",
-    department: "Solutions",
-    title: "AI Solutions Architect",
+    positionValue: "Delivery Engineer",
+    departmentKey: "engineering",
+    department: "Engineering",
+    title: "Delivery Engineer",
     location: "Remote",
-    type: "Full-time",
-    salary: "$130k - $170k",
-    experience: "4+ years",
+    type: "Full-time or contract",
+    experience: "You have shipped systems operators run",
     description:
-      "Design and implement AI solutions for enterprise clients. Work closely with clients to understand their needs and architect scalable AI systems.",
+      "Build the system the operators will actually use — scoring tables, store ops, delivery tooling — and hand it over. Client owns the repo. You stay until they can run it without you.",
     requirements: [
-      "4+ years in solutions architecture",
-      "Deep understanding of AI/ML technologies",
-      "Experience with enterprise integrations",
-      "Strong client-facing skills",
-      "Knowledge of cloud architecture patterns",
+      "You have shipped software that operators use under pressure",
+      "You write for handoff: the next person can run it",
+      "Comfortable sitting with the process, not only the ticket",
+      "You will not automate chaos",
     ],
-    posted: "3 days ago",
-  },
-  {
-    id: 4,
-    positionValue: "AI Research Scientist",
-    departmentKey: "research",
-    department: "Research",
-    title: "AI Research Scientist",
-    location: "Remote / Boston",
-    type: "Full-time",
-    salary: "$150k - $200k",
-    experience: "PhD preferred",
-    description:
-      "Conduct cutting-edge AI research to advance our agent capabilities. Publish research, prototype new algorithms, and push the boundaries of what's possible.",
-    requirements: [
-      "PhD in AI, ML, Computer Science or related field",
-      "Strong publication record in top-tier venues",
-      "Experience with transformer architectures",
-      "Proficiency in research methodologies",
-      "Experience with large-scale model training",
-    ],
-    posted: "5 days ago",
+    posted: "Open",
   },
 ];
 
 export const jobPositionsEs: JobPosition[] = [
   {
     id: 1,
-    positionValue: "Senior AI Engineer",
-    departmentKey: "engineering",
-    department: "Ingeniería",
-    title: "Ingeniero Senior de IA",
-    location: "Remoto / San Francisco",
-    type: "Tiempo completo",
-    salary: "$140k - $180k USD",
-    experience: "5+ años",
+    positionValue: "Operations Lead",
+    departmentKey: "operations",
+    department: "Operaciones",
+    title: "Lead de operaciones",
+    location: "Remoto",
+    type: "Tiempo completo o contrato",
+    experience: "Ha corrido una operación",
     description:
-      "Lidera el desarrollo de agentes de IA y sistemas de machine learning de próxima generación. Trabaja con tecnologías de punta para construir soluciones escalables de IA para clientes enterprise.",
+      "Siéntese con el cliente, mapee cómo corre el trabajo de verdad, nombre dueños y deje una cadencia que el equipo pueda sostener. Esto no es un trabajo de slides. Usted ha corrido delivery, producción o tienda.",
     requirements: [
-      "5+ años de experiencia en desarrollo de IA/ML",
-      "Dominio de Python, TensorFlow y PyTorch",
-      "Experiencia con LLMs y redes neuronales",
-      "Sólida experiencia en sistemas distribuidos",
-      "Experiencia en plataformas cloud (AWS, GCP, Azure)",
+      "Ha poseído una operación en vivo — delivery, producción o tienda",
+      "Puede mapear un proceso sin convertirlo en un deck de 40 páginas",
+      "Cómodo en la sala con quien corre el trabajo",
+      "No va a recomendar IA sobre un proceso que nadie posee",
     ],
-    posted: "Hace 2 días",
+    posted: "Abierta",
   },
   {
     id: 2,
-    positionValue: "AI Product Manager",
-    departmentKey: "product",
-    department: "Producto",
-    title: "Product Manager de IA",
-    location: "Remoto / Nueva York",
-    type: "Tiempo completo",
-    salary: "$120k - $150k USD",
-    experience: "3+ años",
-    description:
-      "Impulsa la estrategia de producto para soluciones con IA. Colabora con equipos de ingeniería y diseño para entregar productos innovadores que resuelvan problemas reales de negocio.",
-    requirements: [
-      "3+ años en gestión de producto",
-      "Experiencia con productos de IA/ML",
-      "Fuertes habilidades analíticas y de comunicación",
-      "Experiencia en productos B2B SaaS",
-      "Comprensión de tecnologías y limitaciones de IA",
-    ],
-    posted: "Hace 1 semana",
-  },
-  {
-    id: 3,
-    positionValue: "AI Solutions Architect",
-    departmentKey: "solutions",
-    department: "Soluciones",
-    title: "Arquitecto de Soluciones IA",
+    positionValue: "Delivery Engineer",
+    departmentKey: "engineering",
+    department: "Ingeniería",
+    title: "Ingeniero de delivery",
     location: "Remoto",
-    type: "Tiempo completo",
-    salary: "$130k - $170k USD",
-    experience: "4+ años",
+    type: "Tiempo completo o contrato",
+    experience: "Ha entregado sistemas que operan personas",
     description:
-      "Diseña e implementa soluciones de IA para clientes enterprise. Trabaja de cerca con clientes para entender sus necesidades y arquitectar sistemas escalables.",
+      "Construya el sistema que los operadores van a usar — mesas de scoring, ops de tienda, tooling de delivery — y transfiéralo. El cliente posee el repo. Usted se queda hasta que puedan operarlo sin usted.",
     requirements: [
-      "4+ años en arquitectura de soluciones",
-      "Profundo conocimiento de tecnologías IA/ML",
-      "Experiencia con integraciones enterprise",
-      "Fuertes habilidades con clientes",
-      "Conocimiento de patrones de arquitectura cloud",
+      "Ha entregado software que operadores usan bajo presión",
+      "Escribe para el handoff: la siguiente persona puede operarlo",
+      "Cómodo sentándose con el proceso, no solo con el ticket",
+      "No va a automatizar el caos",
     ],
-    posted: "Hace 3 días",
-  },
-  {
-    id: 4,
-    positionValue: "AI Research Scientist",
-    departmentKey: "research",
-    department: "Investigación",
-    title: "Científico de Investigación en IA",
-    location: "Remoto / Boston",
-    type: "Tiempo completo",
-    salary: "$150k - $200k USD",
-    experience: "PhD preferido",
-    description:
-      "Realiza investigación de vanguardia en IA para avanzar nuestras capacidades de agentes. Publica investigación, prototipa algoritmos y expande los límites de lo posible.",
-    requirements: [
-      "PhD en IA, ML, Ciencias de la Computación o campo relacionado",
-      "Historial sólido de publicaciones en venues de primer nivel",
-      "Experiencia con arquitecturas transformer",
-      "Dominio de metodologías de investigación",
-      "Experiencia en entrenamiento de modelos a gran escala",
-    ],
-    posted: "Hace 5 días",
+    posted: "Abierta",
   },
 ];
 
 export type DepartmentKey = "all" | JobPosition["departmentKey"];
 
-export const departmentKeys: DepartmentKey[] = [
-  "all",
-  "engineering",
-  "product",
-  "solutions",
-  "research",
-];
+export const departmentKeys: DepartmentKey[] = ["all", "operations", "engineering"];

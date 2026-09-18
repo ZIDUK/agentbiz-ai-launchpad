@@ -1,14 +1,14 @@
 export const messages = {
   meta: {
-    title: "AgentBiz | Operational AI for the Enterprise",
+    title: "AgentBiz | Operational Excellence, powered by AI",
     description:
-      "We help organizations redesign, implement, and scale critical business operations with governed AI — production workflows your team can run and own.",
+      "If a process is slowing you down, we make the work runnable — then we accelerate it with governed AI.",
   },
   seo: {
     about: {
-      title: "About AgentBiz | Enterprise AI Engineering",
+      title: "About AgentBiz | Operational excellence, powered by AI",
       description:
-        "Learn how AgentBiz delivers production AI systems, governed agent workflows, and enterprise engineering for regulated, high-volume organizations.",
+        "We fix the operation first, then give it AI. Meet the team behind AgentBiz.",
     },
     privacy: {
       title: "Privacy Policy | AgentBiz",
@@ -19,14 +19,14 @@ export const messages = {
       description: "Terms governing use of the AgentBiz website and services.",
     },
     careers: {
-      title: "Careers at AgentBiz | Become an Agentier",
+      title: "Careers at AgentBiz | Two seats. Real work.",
       description:
-        "Join AgentBiz as an Agentier and ship AI-native operations for enterprise organizations. Open roles in engineering, product, and solutions.",
+        "A small operating studio. Open roles for people who have run an operation or built systems operators actually use.",
     },
     services: {
-      title: "AI & Software Services | AgentBiz",
+      title: "How we work | AgentBiz",
       description:
-        "Enterprise AI development, agentic workflows, integrations, and software delivery — from code review to production applications.",
+        "Four capabilities in one order: align, diagnose, implement, then accelerate with AI.",
     },
     resources: {
       title: "Enterprise AI Resources | AgentBiz",
@@ -46,12 +46,12 @@ export const messages = {
     industries: {
       title: "Industries | AgentBiz",
       description:
-        "AI delivery for FinTech, healthcare, logistics, SaaS, and energy — regulated environments with measurable outcomes.",
+        "Technology and Media — the industries we've operated from the inside.",
     },
     engagement: {
-      title: "Transformation Packages | AgentBiz",
+      title: "Start here | AgentBiz",
       description:
-        "AI-Native PODs, AI-Native Operating System, and AI-Native Stack Upgrade — outcome-based packages for enterprise operational AI transformation.",
+        "Three packages: Agentic Readiness Assessment, Agentic Operations Build, and Custom Delivery Pod.",
     },
     insights: {
       title: "Insights | AgentBiz",
@@ -77,11 +77,12 @@ export const messages = {
     services: "Solutions",
     solutions: "Solutions",
     solutionsLabel: "SOLUTIONS",
-    howAgentiersDeliver: "How Agentiers deliver",
+    howWeDeliver: "How we deliver",
     exploreSolution: "Explore solution →",
     viewAllSolutions: "View all solutions →",
     industries: "Industries",
-    process: "Process",
+    process: "Journey",
+    language: "Language",
     resources: "Resources",
     insights: "Insights",
     engagement: "Solutions",
@@ -102,6 +103,26 @@ export const messages = {
     more: "More",
     viewAllIndustries: "View all industries →",
     viewAllServices: "View all services →",
+    viewAllWork: "See our work →",
+    viewAllInsights: "View all insights →",
+    offering: "Offering",
+    waysIn: "Packages",
+    capabilities: "Capabilities",
+    ourWork: "Our work",
+    featured: "Featured",
+    story: "Our story",
+    storyBody: "Who we are, and why the operation comes first.",
+    howWeWork: "How we work",
+    howWeWorkBody: "Strategy. Operations. Then AI.",
+    leadership: "Leadership",
+    leadershipBody: "Operators who have run delivery and production.",
+    whyAgentBiz: "Why AgentBiz",
+    whyAgentBizBody: "A small operating studio. Not a bench.",
+    openRoles: "Open roles",
+    openRolesBody: "Two seats. Remote. Real work.",
+    howWeHire: "How we hire",
+    howWeHireBody: "Show us an operation you have run.",
+    contactUs: "Contact us",
     engagementModelsLabel: "TRANSFORMATION PACKAGES",
     aiDevelopment: "AI DEVELOPMENT",
     softwareDevelopment: "SOFTWARE DEVELOPMENT",
@@ -257,8 +278,126 @@ export const messages = {
     visitSite: "Visit site →",
   },
   trustedBy: {
-    eyebrow: "Trusted by teams building production AI",
-    disclaimer: "Client names anonymized · representative engagements",
+    eyebrow: "Companies we've operated with",
+    disclaimer: "Selected clients and partners",
+  },
+  home: {
+    eyebrow: "OUR OFFERING",
+    productLabel: "AI-Native Enterprise Operations",
+    title: "Start with the Assessment.",
+    titleHighlight: "Then Build. Then Pod.",
+    lead:
+      "Operational transformation starts with enterprise architecture — not another AI pilot. We map the operating model, name the owners, and only then put AI on work that can survive a Monday without us in the room.",
+    ctaPrimary: "Start with Assessment",
+    ctaSecondary: "See all packages",
+    sequenceEyebrow: "WHERE TO START",
+    sequenceTitle: "Three steps. One sequence.",
+    sequenceLead:
+      "You do not have to do all three. Enter where the pain is — and we only move forward when the operation can take it.",
+    sequenceAssessmentLabel: "Assessment",
+    sequenceAssessmentBody:
+      "Enterprise architecture meets the floor: operating model, owners, and process maps — before another dollar on AI.",
+    sequenceBuildLabel: "Build",
+    sequenceBuildBody:
+      "Change how the work runs. Install owners, cadence, and KPIs. Then put AI only where it belongs.",
+    sequencePodLabel: "Pod",
+    sequencePodBody:
+      "When the process needs a system, we build it. You own the code. Fixed fee by outcome.",
+    journeyEyebrow: "HOW WE DELIVER",
+    journeyTitle: "Fix the operation first.",
+    journeyTitleHighlight: "Then give it AI.",
+    journeyLead:
+      "First we lock what you are trying to win. Then we redesign how the work actually runs. Only then do we automate — with owners, controls, and an audit trail.",
+    journeyNote:
+      "Already have the map? We skip the work you've already done. We still won't put AI on a process nobody owns.",
+    bundlesEyebrow: "THE PLAN",
+    bundlesTitle: "Three stages. Start where you are.",
+    bundlesLead:
+      "Assessment opens the operating map. Build changes how the work runs. Pod ships the system — when you need one.",
+    caseEyebrow: "OUR WORK",
+    caseContext: "The situation",
+    caseWhatWeDid: "What changed",
+    caseResults: "What you can see",
+    caseRead: "Read the story",
+    caseFeatured: "Featured case",
+    industriesEyebrow: "INDUSTRIES",
+    industriesTitle: "We've run the work in these rooms.",
+    industriesLead:
+      "Technology. Media. Sports. Retail. Not a catalog — the fields where we have sat in the delivery room.",
+    workEyebrow: "CASES",
+    workTitle: "From live operations.",
+    workLead: "One story up front. Two more when you want the room.",
+    statsEyebrow: "AT A GLANCE",
+    statsIndustries: "Industries",
+    statsPackages: "Packages",
+    statsCases: "Operations rebuilt",
+    faqEyebrow: "BEFORE THE CALL",
+    faqTitle: "What you'll want to know",
+    faqTitleHighlight: "before we talk.",
+    faqLead: "Straight answers. No pricing theater. No 40-slide intro.",
+    ctaTitle: "30 minutes. One question.",
+    ctaTitleHighlight: "Yours.",
+    ctaLead:
+      "Which process is costing you growth — and is the Assessment the right first move?",
+    ctaRequest: "Request the diagnostic call",
+    ctaEmail: "or write to jonathan@agentbiz.io",
+  },
+  offer: {
+    entry: "Entry",
+    full: "Full journey",
+    followOn: "Follow-on",
+    startHere: "Start here",
+    readScope: "Read full scope",
+    serviceLabel: "Service",
+    seePackages: "See transformation packages",
+  },
+  contactPage: {
+    eyebrow: "DISCOVERY CALL",
+    title: "30 minutes.",
+    titleHighlight: "One operating question.",
+    lead:
+      "What's the process that's costing you growth? Is the Assessment the right first move?",
+    name: "Full name",
+    email: "Work email",
+    company: "Company",
+    role: "Role / title",
+    rolePlaceholder: "e.g. VP Operations, Head of Delivery",
+    context: "What operation problem are you trying to solve?",
+    contextPlaceholder:
+      "A few sentences are enough. The clearer the pain, the more useful the call.",
+    engagement: "Which engagement is closest to what you need?",
+    optional: "(optional)",
+    consent:
+      "By submitting, you agree to be contacted about this inquiry. We do not share your information.",
+    submit: "Request the discovery call",
+    submitting: "Sending...",
+    error:
+      "We could not send the form. Email jonathan@agentbiz.io and we will reply directly.",
+    successTitle: "Thanks — we will reply within one business day.",
+    successBody: "In the meantime, look at how we work and the Assessment.",
+    seeServices: "See the services",
+    readSprint: "Read the Readiness Assessment",
+    preferEmail: "Prefer email?",
+    afterTitle: "What happens after you submit",
+    after1Title: "We read your context",
+    after1Body:
+      "Same-day review. If we are not the right fit, we will say so and point you elsewhere.",
+    after2Title: "We propose a 30-minute slot",
+    after2Body: "A calendar link arrives in your inbox. No deck. No pitch sequence.",
+    after3Title: "The call itself",
+    after3Body:
+      "We ask about the process, the sponsor, and the cost of leaving it as-is.",
+    after4Title: "The decision is yours",
+    after4Body: "If there is a fit, you receive a one-page proposal within 48 hours.",
+  },
+  caseStudyPage: {
+    context: "Context",
+    whatWeDid: "What we did",
+    results: "Operating results",
+    methods: "Methods applied",
+    applyTitle: "Apply this operating model to your delivery org",
+    applyBody: "Start with the Readiness Assessment if you need the map before the build.",
+    bookCall: "Book a 30-minute diagnostic",
   },
   exitIntent: {
     eyebrow: "Before you go",
@@ -282,6 +421,9 @@ export const messages = {
   },
   legal: {
     updated: "Last updated:",
+    questions: "Questions about this page?",
+    seeTerms: "See Terms of Use →",
+    seePrivacy: "See Privacy Policy →",
   },
   sticky: {
     bookCall: "Book a Call",
@@ -289,7 +431,7 @@ export const messages = {
   },
   footer: {
     tagline:
-      "AI-native engineering and delivery for the enterprise. We build production AI systems, agentic workflows, and software your organization can own and scale.",
+      "Operational excellence and process transformation, powered by AI. We make the work runnable — then we accelerate it.",
     company: "Company",
     capabilities: "Capabilities",
     connect: "Connect",
@@ -390,39 +532,43 @@ export const messages = {
   },
   industriesPage: {
     eyebrow: "INDUSTRIES",
-    title: "AI delivery for",
-    titleHighlight: "regulated, complex environments",
+    title: "Technology. Media. Sports. Retail.",
+    titleHighlight: "We've been inside.",
     subtitle:
-      "We build production AI systems inside industries where governance, integration depth, and operational reliability are non-negotiable.",
-    ctaTitle: "Not sure where to start?",
+      "Not a generic industry list. The rooms where we have run delivery, production, scoring, and the counter.",
+    ctaTitle: "Not sure if this is your field?",
     ctaBody:
-      "Map your highest-volume workflow to a production AI roadmap in a 30-minute engineering strategy call.",
+      "Bring the process that's costing you growth. In 30 minutes we'll tell you if we know this room.",
   },
   industryDetail: {
     challenges: "Common enterprise challenges",
     useCases: "Production use cases",
     startWorkflow: "Start with one workflow in",
     startBody:
-      "Identify a high-volume process with clear KPIs, then deploy a governed AI workflow your operations team can run and scale.",
+      "Bring a high-volume process with a real owner. We'll tell you if it's ready to fix — and whether AI belongs anywhere near it yet.",
+    wayWeWork: "The way we work",
+    wayWeWorkLead:
+      "Not another catalog to buy from. Proof of craft in this room — what we sit down to fix with your team.",
+    services: "Services",
   },
   engagementPage: {
-    eyebrow: "HOW WE WORK",
-    title: "Transformation",
-    titleHighlight: "packages",
+    eyebrow: "START HERE",
+    title: "Three packages.",
+    titleHighlight: "You pick.",
     subtitle:
-      "Three outcome-based packages — from first production workflow to capability transfer and ongoing managed operations.",
-    ctaTitle: "Not sure where to start?",
+      "Need the map before you spend more on AI? That's the Assessment. Ready to change how the work runs? That's the Build. Need a system, not another workshop? That's the Pod.",
+    ctaTitle: "Not sure which package fits?",
     ctaBody:
-      "A 30-minute strategy call maps your highest-volume workflow, KPIs, and timeline to the right package.",
-    discuss: "Discuss your path",
-    readyDiscuss: "Ready to discuss",
+      "Bring the process that's costing you growth. In 30 minutes we'll point you to the right package.",
+    discuss: "Talk it through",
+    readyDiscuss: "Ready to talk",
     readyBody:
-      "We'll map your workflow, success metrics, and operating constraints to a concrete transformation plan.",
+      "We'll map the process, what better looks like, and which package actually fits.",
     whatItIs: "What it is",
-    howWeDeliver: "How Agentiers deliver",
-    howInside: "How it works inside your organization",
-    theOutcome: "The outcome",
-    faq: "Frequently asked questions",
+    howWeDeliver: "How we deliver",
+    howInside: "How it sits inside your organization",
+    theOutcome: "What you walk away with",
+    faq: "Questions you'll ask anyway",
   },
   trainings: {
     hub: {
@@ -473,45 +619,43 @@ export const messages = {
   },
   insightsPage: {
     eyebrow: "INSIGHTS",
-    title: "Enterprise AI",
-    titleHighlight: "perspectives",
+    title: "Fix the operation.",
+    titleHighlight: "Then talk about AI.",
     subtitle:
-      "Practical thinking on production AI, governed agents, and operational transformation — from the engineering and delivery side.",
-    ctaTitle: "Turn insight into a production plan",
-    ctaBody: "Map your highest-volume workflow to a governed production roadmap.",
+      "Short pieces on owned processes, governed agents, and why the order of work is the product.",
+    ctaTitle: "Bring the process that is costing you growth",
+    ctaBody: "Thirty minutes. One question. Yours.",
   },
   careers: {
     eyebrow: "CAREERS",
-    title: "Become an",
-    titleHighlight: "Agentier",
+    title: "Two seats.",
+    titleHighlight: "Real work.",
     subtitle:
-      "Agentiers ship AI-native operations to production for enterprise clients — governed workflows, measurable KPIs, and systems the client owns.",
-    joinTitle: "Join the",
-    joinHighlight: "Agentiers",
+      "A small operating studio. We hire people who have run an operation or built a system operators will actually use.",
+    joinTitle: "Come do",
+    joinHighlight: "the work",
     joinSubtitle:
-      "We're looking for people who want to put critical business operations in production with governed AI — not endless pilots or rented headcount.",
+      "We are not hiring a bench. Two seats: someone who has run an operation, and someone who has shipped the system the operators run.",
     all: "All",
     requirements: "Requirements:",
     moreRequirements: "more requirements",
-    applyNow: "Apply Now",
+    applyNow: "Apply now",
     applyFor: "Apply for",
-    noPositions: "No positions available in",
-    checkBack: "Check back later or explore other departments.",
-    whyJoin: "Why become an",
-    cuttingEdge: "Production work that matters",
+    noPositions: "No positions open in",
+    checkBack: "Check the other seat, or send the operation you have run.",
+    whyJoin: "Why",
+    cuttingEdge: "The floor, not the slide",
     cuttingEdgeBody:
-      "Ship real workflows inside enterprise operations — with governance, integrations, and KPIs your clients can measure.",
-    worldClass: "A tribe of Agentiers",
+      "You will sit with the people who run the work. Delivery, production, scoring, the counter. Then you leave them a system they can keep.",
+    worldClass: "A studio, not a bench",
     worldClassBody:
-      "Collaborate with operators, architects, and delivery leads who care about ownership transfer — not body shopping.",
-    competitive: "Competitive Package",
+      "Small team. You own the outcome. The client owns the repo, the maps, and the cadence.",
+    competitive: "How we hire",
     competitiveBody:
-      "Competitive salary, equity, comprehensive benefits, and flexible remote work options.",
+      "Show us an operation you have run, or a system operators still use. We do not hire on a salary band from another city.",
     departments: {
+      operations: "Operations",
       engineering: "Engineering",
-      product: "Product",
-      solutions: "Solutions",
-      research: "Research",
     },
   },
   application: {
@@ -543,11 +687,16 @@ export const messages = {
     },
   },
   servicesPage: {
-    eyebrow: "SOLUTIONS",
-    title: "Our",
-    titleHighlight: "Services",
+    eyebrow: "THE SEQUENCE",
+    title: "Four capabilities.",
+    titleHighlight: "One order that works.",
     subtitle:
-      "AI development and software engineering services to help your business build, integrate, and scale technology with confidence.",
+      "You don't shop a catalog. You pick a way in. These four capabilities are how we deliver the work: align, diagnose, implement, then accelerate with AI.",
+    howClientsBuy: "THE PACKAGES",
+    startWithBundle: "Don't start with a menu. Start with a decision.",
+    notSure: "Not sure where to start?",
+    notSureBody:
+      "Start with the Assessment if you need the map. In 30 minutes we'll tell you if that's the right first move.",
     aiTab: "AI Development",
     softwareTab: "Software Development",
     viewDetails: "View details",

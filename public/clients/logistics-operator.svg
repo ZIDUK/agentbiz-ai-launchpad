@@ -1,17 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Logistics Operator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80" role="img" aria-label="Framehouse">
   <defs>
     <linearGradient id="lo-mark" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#EA580C"/>
       <stop offset="1" stop-color="#C2410C"/>
     </linearGradient>
   </defs>
-  <!-- Brand mark: arrow + circle (motion / delivery) -->
   <g transform="translate(10, 14)">
     <circle cx="22" cy="22" r="20" fill="none" stroke="url(#lo-mark)" stroke-width="3.5"/>
     <path d="M10 22 L30 22 M24 14 L34 22 L24 30"
       fill="none" stroke="url(#lo-mark)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <!-- Wordmark: condensed industrial sans -->
-  <text x="68" y="36" font-family="Inter, system-ui, sans-serif" font-size="19" font-weight="800" fill="currentColor" letter-spacing="-0.6">Logistics</text>
-  <text x="68" y="56" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="currentColor" opacity="0.6" letter-spacing="3.5">OPERATOR</text>
+  <text x="68" y="36" font-family="Inter, system-ui, sans-serif" font-size="19" font-weight="800" fill="currentColor" letter-spacing="-0.6">Framehouse</text>
+  <text x="68" y="56" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="currentColor" opacity="0.6" letter-spacing="3.5">PRODUCTION</text>
 </svg>

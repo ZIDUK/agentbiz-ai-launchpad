@@ -1,330 +1,334 @@
-import { Layers, Rocket, Wrench } from "lucide-react";
+import { Code2, Factory, Rocket } from "lucide-react";
+import type { EngagementDetail } from "@/data/engagement-content";
 
 export type { EngagementDetail } from "@/data/engagement-content";
 
-import type { EngagementDetail } from "@/data/engagement-content";
-
 export const engagementDetailsEs: EngagementDetail[] = [
   {
-    slug: "ai-native-pods",
-    title: "AI-Native PODs",
-    eyebrow: "Ejecución",
+    slug: "agentic-readiness-sprint",
+    title: "Agentic Readiness Assessment",
+    eyebrow: "Paquete de entrada",
     shortDescription:
-      "Su motor de ejecución para llevar operaciones AI-Native a producción — con KPIs, gobernanza y transferencia de ownership.",
+      "Arquitectura empresarial en el piso operativo — antes de otro dólar en IA.",
     icon: Rocket,
-    headline: "Su motor de ejecución para operaciones AI-Native en producción",
+    headline:
+      "La transformación operativa empieza aquí: arquitectura empresarial, mapas de proceso y una hoja de ruta firmada en 4–6 semanas.",
     description:
-      "Los AI-Native PODs son unidades de ejecución integradas por Agentiers — dedicadas a un propósito: llevar un flujo crítico de negocio a producción con IA gobernada — con ritmo enterprise predecible. Se integran a su entorno operativo, se adaptan a sus sistemas y prioridades, y transfieren ownership para que optimice costo y ciclo — no headcount.",
+      "El Agentic Readiness Assessment es cómo empezamos la transformación operativa. Arquitectura empresarial (TOGAF) se encuentra con BPMN y Lean en el piso — para que el liderazgo vea el modelo operativo con claridad antes de gastar en IA.",
     whatItIs:
-      "Un AI-Native POD es una unidad de ejecución cross-funcional integrada en su entorno. Los Agentiers aportan decisión humana, planning→review acelerado con IA, disciplina de entrega enterprise y los patrones de su modelo operativo — músculo de ejecución para la era de la IA, no headcount alquilado.",
-    principle: "Los humanos dirigen. La IA acelera. La entrega se convierte en capacidad que usted conserva.",
+      "Un engagement de 4–6 semanas que convierte la arquitectura empresarial en algo que el COO puede correr: alineación de stakeholders, un mapa operativo del estado actual y una hoja de ruta priorizada. El menor compromiso para empezar; el camino más claro para decidir qué construir después.",
+    principle:
+      "Transformación operativa = el resultado. Arquitectura empresarial = el método. La IA espera hasta que la operación lo aguante.",
     capabilities: [
       {
-        title: "Planning acelerado con IA",
+        title: "Arquitectura empresarial (TOGAF Fase A+B)",
         description:
-          "Requisitos interpretados, analizados y estructurados con asistencia de IA — ciclos de scoping más cortos sin perder gobernanza.",
+          "Mapa de stakeholders, drivers de negocio, Architecture Vision y arquitectura de negocio estado actual — firmados por C-level.",
       },
       {
-        title: "Diseño aumentado con IA",
+        title: "Diagnóstico operativo (BPMN 2.0)",
         description:
-          "Esqueletos de sistema, mapeos de datos y diagramas de arquitectura en minutos, validados con sus arquitectos.",
+          "3–5 procesos críticos mapeados en BPMN, AS-IS y TO-BE. Auditoría Lean de cuellos de botella y desperdicio.",
       },
       {
-        title: "Build potenciado con IA",
+        title: "Hoja de ruta de transformación",
         description:
-          "Código, APIs, infraestructura e implementaciones multi-archivo con velocidad, bajo sus estándares y gates de review.",
-      },
-      {
-        title: "Testing impulsado por IA",
-        description:
-          "Generación de tests, detección de edge cases y cobertura de regresión antes de producción.",
-      },
-      {
-        title: "Code review asistido por IA",
-        description:
-          "Primera pasada de review para consistencia y riesgo estructural — los humanos siguen dueños del merge y la accountability.",
+          "Quick wins de 30–60–90 días rankeados por impacto y esfuerzo. Hoja de ruta de 1 página para alineación de board.",
       },
     ],
     howInside: [
-      "Integrados directamente en su entorno operativo y tooling",
-      "Alineados con su roadmap estratégico y sponsors",
-      "Operando bajo estándares y KPIs compartidos",
-      "Soportados por una base de conocimiento viva de lo entregado",
-      "Ejecutando con cadencia predecible y quality gates",
+      "Un engagement de diagnóstico y diseño",
+      "Sesiones de trabajo con liderazgo al kickoff, mitad y cierre",
+      "Entrevistas con las personas que corren el proceso",
+      "Sin código ni cambios de plataforma — solo diagnóstico y diseño",
+      "Criterios de aceptación sobre la hoja de ruta y los artefactos de proceso",
     ],
     bestFor: [
-      "Necesita fuerza de ejecución ya — no otro piloto o deck de estrategia",
-      "Un proceso de alto volumen quema costo, tiempo o retrabajo cada semana",
-      "La contratación o capacidad interna no alcanza la demanda operativa",
-      "La dirección quiere outcomes medibles y ownership total de la IP",
-      "Está listo para modernizar una función con un flujo AI-Native en vivo",
+      "Empresas de servicios de 50-500 empleados",
+      "Creciendo, consolidando o sintiendo que la operación se rompe",
+      "COO, VP de Ops o Director de Transformación como sponsor",
+      "Presupuesto para un engagement de 2-3 meses, no una transformación de 12",
+      "Quieren validar el journey antes de comprometerse al programa completo",
     ],
     deliverables: [
-      "Un flujo crítico en producción con KPIs definidos",
-      "Agentes gobernados, integraciones y controles human-in-the-loop",
-      "Arquitectura, runbooks y documentación operativa de su propiedad",
-      "Transferencia 100% de IP — código, prompts, flujos de datos y playbooks",
-      "Métricas base y ruta hacia el siguiente flujo",
-      "Planificación y cadencia de entrega transparentes para sponsors",
+      "Mapa de stakeholders + drivers de negocio (visual)",
+      "Documento de Architecture Vision (TOGAF Fase A)",
+      "Arquitectura de negocio estado actual (TOGAF Fase B)",
+      "Mapas AS-IS en BPMN 2.0 (1-3 procesos críticos)",
+      "Informe Lean con cuellos de botella y desperdicio",
+      "Diseños TO-BE (estado futuro)",
+      "Quick wins priorizados en horizontes 30-60-90 días",
+      "Hoja de ruta ejecutiva de 1 página firmada por C-level",
+      "Informe ejecutivo consolidado (Fundación + Diagnóstico)",
+      "2 presentaciones a liderazgo (mitad + final)",
+      "Siguientes pasos recomendados",
     ],
     outcomes: [
-      "Un motor de ejecución fiable para el siguiente flujo",
-      "Velocidad de entrega estable que sponsors pueden proyectar",
-      "Calidad de sistema consistente con controles auditables",
-      "Patrones unificados que su equipo puede reutilizar",
-      "Transparencia en planning y entrega",
-      "Capacidad que se acumula dentro de su organización",
+      "Una foto clara de cuáles 3-5 procesos importan más",
+      "Un mapa visual de cómo corre la operación hoy",
+      "Una hoja de ruta firmada por liderazgo para los próximos 90 días",
+      "Justificación lista para board de la siguiente inversión",
     ],
-    timeline: "6–10 semanas típicas para el primer flujo en producción",
+    timeline: "4-6 semanas",
+    includesServices: ["Fundación Operativa", "Diagnóstico de Procesos"],
     engagementSteps: [
       {
-        title: "Integrar y alinear",
+        title: "Discovery",
         description:
-          "Los Agentiers se integran a su entorno, mapean el flujo objetivo, sistemas, restricciones y métricas de éxito con sus líderes de ops e ingeniería.",
+          "Entrevistas con stakeholders para mapear drivers, dolores y el proceso que frena el crecimiento.",
       },
       {
-        title: "Diseñar con gobernanza",
+        title: "Architecture Vision",
         description:
-          "Defina el estado futuro AI-Native — qué hace la IA, qué aprueban los humanos, integraciones, auditoría e hitos de entrega.",
+          "Borrador de artefactos TOGAF Fase A/B y alineación de liderazgo sobre los 1-3 procesos que importan primero.",
       },
       {
-        title: "Construir, probar y salir a vivo",
+        title: "Mapeo de procesos y auditoría Lean",
         description:
-          "Despliegue el flujo a producción con monitoreo, controles de calidad y rutas de escalamiento — no una demo en sandbox.",
+          "Mapear los procesos seleccionados en BPMN, AS-IS y TO-BE, y rankear el desperdicio.",
       },
       {
-        title: "Transferir ownership",
+        title: "Hoja de ruta y memo de decisión",
         description:
-          "Entregue runbooks, patrones y conocimiento operativo para que su equipo opere lo que construyeron los Agentiers — y el siguiente ciclo arranque más fuerte.",
+          "Hoja de ruta ejecutiva de 1 página, siguiente paso recomendado y sesión de trabajo con liderazgo.",
       },
     ],
     faqs: [
       {
-        question: "¿Qué es un AI-Native POD?",
+        question: "¿Es lo mismo que un diagnóstico típico de consultoría?",
         answer:
-          "Una unidad de ejecución integrada por Agentiers, construida para llevar un flujo AI-Native gobernado a producción con ritmo enterprise — y luego transferir ownership a su equipo.",
+          "No. La mayoría produce un PowerPoint. Este engagement produce artefactos de arquitectura empresarial que se pueden correr: Architecture Vision TOGAF, mapas BPMN y auditoría Lean — no una slide sobre transformación.",
       },
       {
-        question: "¿En qué se diferencia del staff augmentation?",
+        question: "¿Qué pasa después del Assessment?",
         answer:
-          "El staff aug agrega personas. Un POD integra una unidad operativa completa con gobernanza, tools, disciplina de entrega AI-Native y mandato de transferencia de ownership.",
+          "Tres caminos: (1) el cliente implementa solo con la hoja de ruta, (2) nos contrata para Implementación de Procesos (Servicio 03), o (3) pausa y retoma después.",
       },
       {
-        question: "¿Quién es dueño de la IP?",
+        question: "¿Esto es arquitectura empresarial o consultoría de IA?",
         answer:
-          "Usted. Posee el 100% del código, prompts, flujos de datos, runbooks y documentación. Construimos capacidad que se queda — no se la alquilamos.",
+          "Primero arquitectura empresarial y diseño operativo. IA solo cuando el proceso tiene dueño, baseline y camino a producción. Si quiere un piloto de IA sobre el caos, no somos el partner correcto.",
+      },
+      {
+        question: "¿Cómo se estructura el pago?",
+        answer:
+          "Por hitos ligados a outcome: si no entregamos los artefactos acordados, el último pago se ajusta.",
       },
     ],
   },
   {
-    slug: "ai-native-operating-system",
-    title: "AI-Native Operating System",
-    eyebrow: "Escala",
+    slug: "agentic-operations-build",
+    title: "Agentic Operations Build",
+    eyebrow: "Journey completo",
     shortDescription:
-      "Instale el sistema operativo para entrega AI-Native — patrones, estándares y rituales para que su equipo escale más allá del primer flujo.",
-    icon: Layers,
-    headline: "Escale operaciones con IA nativa sin otro ejército de contratistas",
+      "Cambie cómo corre el trabajo. Después póngale IA.",
+    icon: Factory,
+    headline:
+      "El journey completo: cuatro capacidades en secuencia, un equipo, un outcome.",
     description:
-      "Después del primer logro en producción, el cuello de botella suele ser capacidad — no más headcount. El AI-Native Operating System instala patrones reutilizables, estándares de entrega y rituales operativos para que su organización posea la siguiente ola de flujos.",
+      "El Agentic Operations Build es el journey completo: Fundación Operativa, Diagnóstico, Implementación y Acelerador de IA, entregados en secuencia como un solo programa. Un equipo, una propuesta, un outcome.",
     whatItIs:
-      "El AI-Native Operating System es la capa que convierte el primer win en producción en un motor enterprise repetible. Unifica priorización, gobernanza, patrones de entrega, estándares de arquitectura y conocimiento institucional para escalar sin reinventar cada ciclo.",
-    principle: "La velocidad sube. La calidad se estabiliza. El throughput escala.",
+      "El programa de transformación para empresas en cambio activo. Corremos las cuatro capacidades en secuencia, con una propuesta, un equipo y un outcome. El Build es el camino para transformación seria — no pilotos ni decks, cambio real en producción.",
+    principle:
+      "Primero estrategia. Después operación. Luego IA. Ligado a outcome en todo el camino.",
     capabilities: [
       {
-        title: "Estrategia y priorización",
+        title: "Fundación + Diagnóstico",
         description:
-          "Estructura transparente que alinea a liderazgo sobre qué construir después — con intake y mapeo de dependencias asistido por IA.",
+          "Alineación estratégica, mapeo de procesos y hoja de ruta priorizada — igual que el Readiness Assessment.",
       },
       {
-        title: "Gobernanza y decisión",
+        title: "Implementación de Procesos",
         description:
-          "Rutas de decisión claras, gates de aprobación y escalamientos que quitan ambigüedad y aceleran ejecución.",
+          "Ejecutar los quick wins. Configurar plataformas. Construir integraciones y dashboards cuando hace falta. Entrenar al equipo cliente.",
       },
       {
-        title: "Patrones de entrega",
+        title: "Acelerador de IA",
         description:
-          "Plantillas reutilizables de flujos y agentes que sus equipos (y PODs) operan con ritmo predecible.",
+          "Aplicar agentes a los procesos ya optimizados. Gobernanza, eval y checkpoints HITL.",
       },
       {
-        title: "Arquitectura y estándares",
+        title: "Handoff y sostenibilidad",
         description:
-          "Principios de diseño, patrones de integración y barras de calidad compartidos entre funciones.",
-      },
-      {
-        title: "Conocimiento y capacidad",
-        description:
-          "Runbooks, insights y aprendizaje institucional que se acumulan con cada flujo entregado.",
+          "Documentación, runbooks y plan de sostenibilidad. Retainer mensual de advisory opcional.",
       },
     ],
     howInside: [
-      "Opera junto a sus equipos existentes — no los reemplaza",
-      "Soporta múltiples PODs o squads internos en paralelo",
-      "Estandariza intake, diseño, build y review",
-      "Hace visibles las decisiones de priorización y sponsorship",
-      "Deja patrones y rituales que su organización puede operar sola",
+      "Las cuatro capacidades entregadas como un solo programa",
+      "Criterios de aceptación en cada etapa antes de pasar a la siguiente",
+      "Si una etapa no se acepta, la rehacemos antes de seguir",
+      "Un equipo de punta a punta — sin handoffs entre fases",
+      "Su equipo se entrena para sostener los cambios cuando nos vamos",
     ],
     bestFor: [
-      "Organizaciones listas para expandirse más allá de un solo flujo",
-      "Equipos internos que necesitan patrones compartidos y runbooks",
-      "Líderes que quieren ownership y anti lock-in",
-      "Programas que pasan de cultura de piloto a un sistema operativo",
+      "Empresas de 200-2.000 empleados",
+      "En transformación activa (escala, post-adquisición, presión de margen, disrupción de IA)",
+      "CEO, COO o Board como sponsor (compromiso C-level)",
+      "Listos para un programa de modelo operativo, no un workshop puntual",
+      "Quieren un equipo, un outcome, una propuesta — no 4 engagements sueltos",
     ],
     deliverables: [
-      "Patrones reutilizables de flujos y agentes",
-      "Estándares operativos, runbooks y rutas de escalamiento",
-      "Enablement interno y pairing con su equipo",
-      "Roadmap para los siguientes 2–3 flujos gobernados",
+      "Todo lo del Agentic Readiness Assessment",
+      "Implementación de los quick wins priorizados (3-5 procesos)",
+      "Framework de KPIs + dashboards en producción",
+      "Configuración de plataformas (BPM, ERP, CRM, dashboards) incluyendo desarrollo a medida",
+      "Coaching de 3-5 personas clave del equipo cliente",
+      "1-2 procesos de punta a punta automatizados con IA en producción",
+      "Framework de gobernanza: AI Control Tower, log de auditoría, checkpoints HITL",
+      "Framework de eval + runbooks operativos",
+      "Documentación completa (SOPs, runbooks, docs de gobernanza)",
+      "Plan de sostenibilidad",
     ],
     outcomes: [
-      "Alineación de liderazgo sobre qué se entrega después",
-      "Ciclos de decisión más rápidos con gobernanza clara",
-      "Entrega unificada entre equipos y funciones",
-      "Mayor throughput sin headcount proporcional",
-      "Mayor consistencia de arquitectura",
-      "Capacidad que escala con la demanda",
+      "Estrategia alineada con la operación",
+      "Procesos operando distinto en producción (no slides)",
+      "Dashboards de KPIs en vivo con cadencia de revisión",
+      "1-2 procesos automatizados con IA y gobernanza",
+      "Equipo interno capaz de sostener los cambios",
+      "Un programa, un outcome, una factura",
     ],
-    timeline: "8–16 semanas después del primer flujo en producción (o en paralelo)",
+    timeline: "9-12 meses",
+    includesServices: [
+      "Fundación Operativa",
+      "Diagnóstico de Procesos",
+      "Implementación de Procesos",
+      "Acelerador de IA",
+    ],
     engagementSteps: [
       {
-        title: "Línea base de capacidad",
-        description: "Evalúe skills, tooling y gaps operativos tras el primer logro.",
+        title: "Fundación + Diagnóstico",
+        description:
+          "Igual que el Readiness Assessment, corrido como Fase 1 del programa.",
       },
       {
-        title: "Biblioteca de patrones",
-        description: "Codifique diseños, controles y plantillas de integración reutilizables.",
+        title: "Implementación",
+        description:
+          "Ejecutar los quick wins. Desplegar dashboards. Entrenar al equipo.",
       },
       {
-        title: "Enablement",
-        description: "Capacite y haga pairing con su equipo en flujos reales de expansión.",
+        title: "Acelerador de IA",
+        description:
+          "Aplicar IA a los procesos ya optimizados. Construir gobernanza y eval.",
       },
       {
-        title: "Ritmo operativo",
-        description: "Instale revisiones, cadencia de KPIs y gobernanza de escala.",
+        title: "Handoff",
+        description:
+          "Documentación, runbooks y plan de sostenibilidad. El retainer opcional empieza aquí.",
       },
     ],
     faqs: [
       {
-        question: "¿Qué es el AI-Native Operating System?",
+        question: "¿Por qué no comprar los servicios por separado?",
         answer:
-          "El sistema para escalar entrega AI-Native: patrones, estándares, gobernanza y enablement para expandirse más allá del primer flujo en producción.",
+          "El Build incluye un equipo único en todo el journey (sin handoffs) e hitos ligados a outcome. Para quien está comprometido con una transformación real, esta es la forma correcta.",
       },
       {
-        question: "¿En qué se diferencia de un PMO?",
+        question: "¿Y si solo necesitamos parte del journey?",
         answer:
-          "Un PMO rastrea status. El AI-Native Operating System es una capa de ejecución y capacidad — acelera decisiones, impone estándares y deja patrones reutilizables.",
+          "Empiece por el Agentic Readiness Assessment. Si el resultado es positivo, el crédito del Assessment puede convertirse hacia un Build. No forzamos el compromiso completo al inicio.",
       },
       {
-        question: "¿Reemplaza a nuestros equipos actuales?",
+        question: "¿En qué se diferencia el Acelerador de IA de la consultoría típica de IA?",
         answer:
-          "No. Aporta la estructura y aceleración para que sus equipos (y PODs) entreguen flujos AI-Native de forma consistente.",
+          "Nunca aplicamos IA a procesos rotos. Cuando llegamos al Acelerador, los procesos ya están optimizados. Por eso hay más adopción y menos fallos que en los enfoques 'IA primero'.",
       },
     ],
   },
   {
-    slug: "ai-native-stack-upgrade",
-    title: "AI-Native Stack Upgrade",
-    eyebrow: "Stack",
+    slug: "custom-delivery-pod",
+    title: "Custom Delivery Pod",
+    eyebrow: "Siguiente paso",
     shortDescription:
-      "Reemplace tools alquiladas por un stack AI-Native de su propiedad — actualice cómo operan Ops, Finanzas y Soporte.",
-    icon: Wrench,
-    headline: "Reemplace tools alquiladas por un stack AI-Native de su propiedad.",
+      "Cuando el proceso necesita un sistema, lo construimos. Usted lo posee.",
+    icon: Code2,
+    headline:
+      "El pod de construcción para cuando la implementación requiere software a medida.",
     description:
-      "Actualice los sistemas y tools con los que corre su función. Los Agentiers diagnostican dónde el SaaS alquilado y los workarounds manuales lo frenan, y construyen un stack AI-Native gobernado sobre sistemas en los que ya confía — para actualizar cómo trabaja la función y conservar la IP.",
+      "Cuando la solución correcta a un problema de proceso es software a medida, lo construimos. Lideramos el engagement como PM y arquitectos. Nuestra red de partners entrega el código. Usted posee el resultado. Tarifa fija por proyecto, acotada por output, no por horas.",
     whatItIs:
-      "AI-Native Stack Upgrade es cómo refresca los sistemas y tools de una función sin comprar otro asiento SaaS genérico. Los Agentiers reconstruyen flujos de alta fricción en un stack AI-Native propio — sobre su ERP/CRM — para que los operadores dejen de parchear gaps entre tools alquiladas y pasen a operar sistemas hechos a cómo trabajan.",
-    principle: "Actualice el stack. Conserve la IP.",
+      "Un pod de delivery para software a medida, acotado por proyecto. Nosotros hacemos la arquitectura, el liderazgo de proyecto y el review de calidad. Nuestra red de partners entrega el código. Usted posee la IP, el source y el software en marcha.",
+    principle: "Construido, no staffeado. Usted posee el resultado.",
     capabilities: [
       {
-        title: "Stack de Ops y Finanzas",
+        title: "Arquitectura y liderazgo de proyecto",
         description:
-          "Reemplace toolchains frágiles de finance/ops por sistemas propios de reconciliación, facturas, excepciones y cash-ops.",
+          "Somos dueños de la arquitectura técnica, el plan y la barra de calidad. Lideramos el engagement de punta a punta.",
       },
       {
-        title: "Stack de soporte y servicio",
+        title: "Red de delivery de partners",
         description:
-          "Actualice triage, asistencia de resolución y detección para sus colas — no otra licencia de chatbot pegado.",
+          "Activamos partners de desarrollo vetados para el build. Usted no paga por nuestro bench.",
       },
       {
-        title: "Stack documental y de compliance",
+        title: "Alcance por output",
         description:
-          "Refresque intake, clasificación, extracción y ruteo auditable alrededor de sus filings y controles reales.",
+          "Acotamos por resultado, no por hora. Una integración, un dashboard, un módulo o un flujo automatizado — cada uno tiene un resultado definido.",
       },
       {
-        title: "Sobre sus sistemas de registro",
+        title: "Transferencia total de IP",
         description:
-          "ERP, CRM y tools core se quedan. Actualizamos la capa de trabajo — sin rip-and-replace de toda la plataforma.",
-      },
-      {
-        title: "Propio, no alquilado",
-        description:
-          "Usted posee el stack, prompts y playbooks. La capacidad escala con la demanda — no con lock-in por asiento.",
+          "Usted posee el código, la documentación y los runbooks. 100% de transferencia, sin vendor lock-in.",
       },
     ],
     howInside: [
-      "Mapear las tools alquiladas y puentes manuales que frenan la función",
-      "Diseñar el stack AI-Native que reemplaza esos gaps — de su propiedad",
-      "Los Agentiers construyen y despliegan a producción con gobernanza",
-      "Sus operadores corren e iteran el stack sin roadmap de un vendor",
-      "Expandir a flujos adyacentes cuando la línea base actualizada se sostenga",
+      "Acotado como un proyecto de software discreto",
+      "Definido por output, no por horas",
+      "Discovery, build, test, deploy, handoff",
+      "Nosotros lideramos; la red de partners entrega",
+      "Soporte post-lanzamiento incluido en el handoff",
     ],
     bestFor: [
-      "Funciones atrapadas en tools alquiladas que no encajan con cómo operan",
-      "Líderes listos para actualizar sistemas y tools — no agregar otra capa de automatización",
-      "Organizaciones que quieren poseer el stack, no alquilar asientos para siempre",
-      "Sponsors que quieren un upgrade en producción primero en una función",
+      "Clientes que ya completaron un Readiness Assessment o un Operations Build",
+      "Clientes que llegan con un requerimiento técnico claro",
+      "Necesitan una integración, dashboard, módulo o agente específico",
+      "Quieren tarifa fija y ownership total de la IP, no staff aug",
     ],
     deliverables: [
-      "Assessment del stack: tools alquiladas, gaps y objetivos de upgrade",
-      "Diseño del estado futuro AI-Native de los sistemas de la función",
-      "Sistemas a medida en producción con agentes gobernados y supervisión humana",
-      "Integraciones a sistemas de registro en los que ya confía",
-      "Línea base de KPIs y playbooks operativos que su equipo posee",
+      "Software funcionando en producción",
+      "Código fuente completo en su repositorio",
+      "Documentación técnica (arquitectura, despliegue, mantenimiento)",
+      "Suite de tests automatizados (unitarios + integración)",
+      "Sesión de handoff grabada + soporte post-lanzamiento",
     ],
     outcomes: [
-      "Un stack actualizado con el que la función realmente opera",
-      "Menos tools alquiladas y workarounds manuales",
-      "Ejecución más rápida en flujos de alto volumen",
-      "Usted posee los sistemas — evolucionan con su negocio",
-      "Una línea base medible desde la cual expandir",
+      "Problema de software específico resuelto",
+      "Ownership total de la IP, sin vendor lock-in",
+      "El equipo interno puede mantener el build",
+      "Base para expansiones adyacentes",
     ],
-    timeline: "8–16 semanas típicas para un stack upgrade enfocado",
+    timeline: "4-16 semanas según alcance",
     engagementSteps: [
       {
-        title: "Evaluar el stack",
+        title: "Alcance y propuesta",
         description:
-          "Inventarie tools alquiladas, puentes manuales y dónde se concentra costo, ciclo y retrabajo.",
+          "Definimos el output, los criterios de aceptación y la tarifa fija. Usted firma antes de que empecemos.",
       },
       {
-        title: "Diseñar el upgrade",
+        title: "Build",
         description:
-          "Defina el stack AI-Native: qué sistemas reemplazan qué tools, qué ejecuta la IA, qué aprueban los humanos.",
+          "La red de partners construye. Nosotros lideramos, revisamos y testeamos.",
       },
       {
-        title: "Construir y salir a vivo",
+        title: "Deploy y handoff",
         description:
-          "Los Agentiers construyen el stack propio y lo despliegan en su entorno operativo vivo con gobernanza.",
-      },
-      {
-        title: "Operar y expandir",
-        description:
-          "Confirme KPIs, fije runbooks y planifique el siguiente upgrade adyacente dentro de la misma función.",
+          "Deploy a producción. Sesión de handoff grabada. 1 semana de soporte.",
       },
     ],
     faqs: [
       {
-        question: "¿Qué es un AI-Native Stack Upgrade?",
+        question: "¿En qué se diferencia de staff aug?",
         answer:
-          "Un paquete para actualizar los sistemas y tools con los que corre una función de negocio — reemplazando tooling genérico alquilado por un stack AI-Native propio que encaja con cómo trabajan.",
+          "Staff aug le cobra por hora por personas. Nosotros cobramos por output (una integración funcionando, un dashboard desplegado, un proceso automatizado) a tarifa fija. Conoce el precio antes de empezar.",
       },
       {
-        question: "¿Es solo automatización encima de nuestras tools actuales?",
+        question: "¿Quién escribe el código?",
         answer:
-          "No. La automatización se pega a lo que ya alquila. Un stack upgrade reconstruye el trabajo en sistemas de su propiedad — con gobernanza — para que la función opere distinto, no solo más rápido en los mismos pasos rotos.",
+          "Nuestra red de partners de desarrollo vetados. Nosotros lideramos el engagement, fijamos la arquitectura y somos dueños de la barra de calidad.",
       },
       {
-        question: "¿Hay que reemplazar el ERP/CRM?",
+        question: "¿Poseemos la IP?",
         answer:
-          "Por lo general no. Actualizamos el stack de trabajo sobre sistemas de registro en los que ya confía, sin un rip-and-replace completo de plataforma.",
+          "Sí. 100%. El código, la documentación y los runbooks son suyos desde el día uno. Sin vendor lock-in ni frameworks propietarios que no pueda llevarse.",
       },
     ],
   },

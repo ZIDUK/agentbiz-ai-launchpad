@@ -5,7 +5,15 @@ import { ArrowLeft, ArrowRight, AlertTriangle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getIndustryBySlug } from "@/i18n/content";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { getCaseStudyBySlug, getIndustryBySlug } from "@/i18n/content";
+import { industryThumbnailSrc } from "@/components/IndustryCard";
+import { isPublicIndustry } from "@/data/site-content";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { useTranslation } from "@/i18n/useTranslation";
 import NotFound from "@/pages/NotFound";
@@ -16,12 +24,18 @@ const IndustryDetail = () => {
   const { t } = useTranslation();
   const industry = slug ? getIndustryBySlug(slug, locale) : undefined;
 
-  if (!industry) {
+  if (!industry || !isPublicIndustry(industry.slug)) {
     return <NotFound />;
   }
 
   const Icon = industry.icon;
   const shortName = industry.name.split(/[&/]/)[0]?.trim() ?? industry.name;
+  const challenges = industry.challenges ?? industry.painPoints ?? [];
+  const useCases = industry.useCases ?? [];
+  const metrics = industry.metrics ?? [];
+  const relatedCase = industry.caseStudySlug
+    ? getCaseStudyBySlug(industry.caseStudySlug, locale)
+    : undefined;
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,7 +64,7 @@ const IndustryDetail = () => {
               <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-500">
                 <div className="mb-6 flex flex-wrap items-center gap-4">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 shadow-[0_0_0_6px_hsl(212_100%_50%/0.06)]">
-                    <Icon className="text-primary" size={28} />
+                    {Icon && <Icon className="text-primary" size={28} />}
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -79,12 +93,20 @@ const IndustryDetail = () => {
                 )}
               </div>
 
-              <aside className="rounded-2xl border border-border bg-card/90 p-6 shadow-[var(--shadow-card)] backdrop-blur-sm motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700">
+              <aside className="overflow-hidden rounded-2xl border border-border bg-card/90 shadow-[var(--shadow-card)] backdrop-blur-sm motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700">
+                <img
+                  src={industryThumbnailSrc(industry.slug)}
+                  alt=""
+                  width={1280}
+                  height={800}
+                  className="h-40 w-full object-cover sm:h-48"
+                />
+                <div className="p-6">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   {t("common.typicalOutcomes")}
                 </p>
                 <ul className="mb-5 space-y-4 border-b border-border pb-5">
-                  {industry.metrics.map((metric) => (
+                  {(industry.metrics ?? []).map((metric) => (
                     <li key={metric.label} className="flex items-baseline justify-between gap-3">
                       <span className="text-sm text-secondary">{metric.label}</span>
                       <span className="text-lg font-bold tabular-nums text-primary">{metric.value}</span>
@@ -96,13 +118,21 @@ const IndustryDetail = () => {
                 </p>
                 <div className="flex flex-col gap-3">
                   <Button asChild className="btn-primary w-full justify-center">
-                    <Link to="/#contact">
+                    <Link to="/contact">
                       {t("common.talkToLead")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
+                  {relatedCase && (
+                    <Button asChild variant="outline" className="w-full justify-center">
+                      <Link to={relatedCase.href ?? `/case-studies/${relatedCase.slug}`}>
+                        {t("home.caseRead")}
+                      </Link>
+                    </Button>
+                  )}
                   <Button asChild variant="outline" className="w-full justify-center">
-                    <Link to="/ai-roi-calculator">{t("common.estimateRoi")}</Link>
+                    <Link to="/engagement">{t("nav.engagementModels")}</Link>
                   </Button>
+                </div>
                 </div>
               </aside>
             </div>
@@ -121,11 +151,11 @@ const IndustryDetail = () => {
                 </h2>
               </div>
               <span className="text-xs font-medium tabular-nums text-muted-foreground">
-                {industry.challenges.length}
+                {challenges.length}
               </span>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {industry.challenges.map((challenge, index) => (
+              {challenges.map((challenge, index) => (
                 <li
                   key={challenge}
                   className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-[var(--shadow-card)]"
@@ -149,23 +179,67 @@ const IndustryDetail = () => {
                 {shortName}
               </p>
               <h2 className="text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
-                {t("industryDetail.useCases")}
+                {t("industryDetail.wayWeWork")}
               </h2>
+              <p className="mt-3 text-base leading-relaxed text-secondary lg:text-lg">
+                {t("industryDetail.wayWeWorkLead")}
+              </p>
             </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {industry.useCases.map((useCase, index) => (
-                <div
-                  key={useCase.title}
-                  className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-primary/40"
-                >
-                  <span className="mb-4 text-2xl font-bold tabular-nums text-primary/35 transition-colors group-hover:text-primary/60">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">{useCase.title}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-secondary">{useCase.description}</p>
+            {industry.industryServices && industry.industryServices.length > 0 ? (
+              <div>
+                <div className="mb-4 flex items-center gap-3 border-b border-border pb-3">
+                  <p className="text-sm font-semibold tracking-wide text-foreground">
+                    {t("industryDetail.services")}
+                  </p>
+                  <span className="h-px flex-1 bg-border" />
                 </div>
-              ))}
-            </div>
+                <Accordion type="single" collapsible className="divide-y divide-border border-b border-border">
+                  {industry.industryServices.map((service, index) => {
+                    const ServiceIcon = service.icon;
+                    return (
+                      <AccordionItem
+                        key={service.title}
+                        value={`service-${index}`}
+                        className="border-0"
+                      >
+                        <AccordionTrigger className="gap-4 py-5 text-left font-semibold text-foreground hover:no-underline [&>svg]:rounded-full [&>svg]:border [&>svg]:border-border [&>svg]:p-1 [&>svg]:h-7 [&>svg]:w-7">
+                          <span className="flex min-w-0 items-center gap-4">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                              {ServiceIcon ? (
+                                <ServiceIcon className="h-5 w-5" />
+                              ) : (
+                                <span className="text-xs font-semibold tabular-nums">
+                                  {String(index + 1).padStart(2, "0")}
+                                </span>
+                              )}
+                            </span>
+                            <span className="text-base lg:text-lg">{service.title}</span>
+                          </span>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-5 pl-14 text-secondary leading-relaxed">
+                          {service.description}
+                        </AccordionContent>
+                      </AccordionItem>
+                    );
+                  })}
+                </Accordion>
+              </div>
+            ) : (
+              <div className="grid gap-5 md:grid-cols-3">
+                {useCases.map((useCase, index) => (
+                  <div
+                    key={useCase.title}
+                    className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
+                  >
+                    <span className="mb-4 text-2xl font-bold tabular-nums text-primary/35">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mb-2 text-lg font-semibold text-foreground">{useCase.title}</h3>
+                    <p className="flex-1 text-sm leading-relaxed text-secondary">{useCase.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
 
           <section className="mb-16 overflow-hidden rounded-2xl border border-border bg-card/60 p-6 lg:mb-20 lg:p-8">
@@ -176,7 +250,7 @@ const IndustryDetail = () => {
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
-              {industry.metrics.map((metric) => (
+              {metrics.map((metric) => (
                 <div
                   key={metric.label}
                   className="rounded-xl border border-border bg-background px-5 py-6 text-center"
@@ -204,7 +278,7 @@ const IndustryDetail = () => {
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Button asChild className="btn-primary">
-                  <Link to="/#contact">
+                  <Link to="/contact">
                     {t("common.talkToLead")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

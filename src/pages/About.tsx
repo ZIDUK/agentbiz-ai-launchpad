@@ -36,13 +36,13 @@ const About = () => {
             <p className="text-lead mx-auto mb-8 max-w-3xl">{content.subtitle}</p>
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild className="btn-primary">
-                <Link to="/#contact">
+                <Link to="/contact">
                   {t("common.talkToLead")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/engagement">{t("nav.solutions")}</Link>
+                <Link to="/#bundles">{t("nav.offering")}</Link>
               </Button>
             </div>
           </div>
@@ -56,6 +56,26 @@ const About = () => {
             <p className="max-w-3xl text-xl font-semibold leading-snug text-foreground md:text-2xl">
               {content.missionBody}
             </p>
+          </section>
+
+          <section id="how-we-work" className="mb-16 scroll-mt-28">
+            <div className="mb-8 text-center">
+              <h2 className="text-headline">{content.sequenceTitle}</h2>
+            </div>
+            <ol className="grid gap-6 md:grid-cols-3">
+              {content.sequence.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)]"
+                >
+                  <span className="text-xs font-semibold tabular-nums tracking-[0.18em] text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-3 mb-2 text-lg font-bold text-foreground">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-secondary">{step.description}</p>
+                </li>
+              ))}
+            </ol>
           </section>
 
           <section className="mb-16">
@@ -99,7 +119,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className="mb-16">
+          <section id="leadership" className="mb-16 scroll-mt-28">
             <div className="mb-8 text-center">
               <h2 className="mb-3 text-headline">{content.teamTitle}</h2>
               <p className="mx-auto max-w-2xl text-secondary">{content.teamSubtitle}</p>
@@ -132,7 +152,7 @@ const About = () => {
             <h2 className="mb-4 text-2xl font-bold">{content.ctaTitle}</h2>
             <p className="mx-auto mb-6 max-w-xl text-secondary">{content.ctaBody}</p>
             <Button asChild className="btn-primary">
-              <Link to="/#contact">
+              <Link to="/contact">
                 {t("common.talkToLead")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

@@ -14,6 +14,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: meta.title,
     description: meta.description,
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    },
     alternates: { canonical: buildCanonicalUrl(pathname, locale), languages: { en: alternate.en, es: alternate.es, "x-default": alternate.en } },
     robots: { index: !meta.noindex, follow: !meta.noindex },
     openGraph: { title: meta.title, description: meta.description, url: buildCanonicalUrl(pathname, locale), type: meta.ogType, siteName: "AgentBiz", images: [image], locale: locale === "es" ? "es_ES" : "en_US" },

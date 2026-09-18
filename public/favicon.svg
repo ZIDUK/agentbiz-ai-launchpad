@@ -1,14 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ABIZ">
-  <rect width="64" height="64" rx="14" fill="#000000"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ABiz">
+  <defs>
+    <linearGradient id="biz" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#007BFF"/>
+      <stop offset="100%" stop-color="#9333EA"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#000000"/>
+  <!-- Compact lockup tuned for 16–32px tab sizes -->
   <text
-    x="32"
-    y="43"
-    font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    font-size="21"
-    font-weight="800"
+    x="16"
+    y="21.2"
     text-anchor="middle"
-    letter-spacing="-0.5"
+    font-family="Arial Black, Helvetica Neue, Arial, sans-serif"
+    font-size="12"
+    font-weight="800"
+    letter-spacing="-0.85"
   >
-    <tspan fill="#ffffff">A</tspan><tspan fill="#0080ff">BIZ</tspan>
+    <tspan fill="#FFFFFF">A</tspan><tspan fill="url(#biz)">Biz</tspan>
   </text>
 </svg>

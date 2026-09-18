@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://agentbiz.io</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io?lang=en" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/about</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/about?lang=en" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/privacy</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/privacy?lang=en" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/terms</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/terms?lang=en" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/careers</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/careers?lang=en" />
@@ -47,8 +47,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/careers?lang=en" />
   </url>
   <url>
+    <loc>https://agentbiz.io/contact</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/contact?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/contact?lang=en" />
+  </url>
+  <url>
     <loc>https://agentbiz.io/services</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services?lang=en" />
@@ -57,7 +66,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/resources</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/resources?lang=en" />
@@ -66,7 +75,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/ai-roi-calculator</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/ai-roi-calculator?lang=en" />
@@ -75,7 +84,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/executive-briefing</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/executive-briefing?lang=en" />
@@ -84,7 +93,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/industries</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries?lang=en" />
@@ -93,7 +102,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/engagement</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement?lang=en" />
@@ -102,7 +111,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/insights</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights?lang=en" />
@@ -111,7 +120,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/trainings</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings?lang=en" />
@@ -119,143 +128,71 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/trainings?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/case-studies/enterprise-ops-automation</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/case-studies/avanto-operations</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/enterprise-ops-automation?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/enterprise-ops-automation?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/enterprise-ops-automation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/avanto-operations?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/avanto-operations?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/avanto-operations?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/case-studies/healthcare-prior-auth</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/case-studies/combat-sports-scoring</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/healthcare-prior-auth?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/healthcare-prior-auth?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/healthcare-prior-auth?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/combat-sports-scoring?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/combat-sports-scoring?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/combat-sports-scoring?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/case-studies/fintech-loan-documents</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/case-studies/specialty-retail-ops</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/fintech-loan-documents?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/fintech-loan-documents?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/fintech-loan-documents?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/specialty-retail-ops?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/specialty-retail-ops?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/specialty-retail-ops?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/case-studies/logistics-exception-handling</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/services/operating-foundation</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/case-studies/logistics-exception-handling?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/operating-foundation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/operating-foundation?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/operating-foundation?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/services/ai-code-review</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/services/process-diagnostic</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-code-review?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-code-review?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-code-review?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/process-diagnostic?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/process-diagnostic?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/process-diagnostic?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/services/ai-assisted-software-development</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/services/process-implementation</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-assisted-software-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-assisted-software-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-assisted-software-development?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/process-implementation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/process-implementation?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/process-implementation?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/services/ai-integration</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/services/ai-accelerator</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-integration?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-integration?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-integration?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/agentic-ai-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/agentic-ai-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/agentic-ai-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/agentic-ai-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/custom-ai-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/custom-ai-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/custom-ai-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/custom-ai-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/ai-mvp-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-mvp-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-mvp-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-mvp-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/ai-application-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-application-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-application-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-application-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/mobile-app-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/mobile-app-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/mobile-app-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/mobile-app-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/web-development</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/web-development?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/web-development?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/web-development?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/quality-assurance</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/quality-assurance?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/quality-assurance?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/quality-assurance?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/services/digital-transformation</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/digital-transformation?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/digital-transformation?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/digital-transformation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/services/ai-accelerator?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/services/ai-accelerator?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/services/ai-accelerator?lang=en" />
   </url>
   <url>
     <loc>https://agentbiz.io/resources/enterprise-ai-roadmap</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/resources/enterprise-ai-roadmap?lang=en" />
@@ -264,7 +201,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/resources/pilot-to-production-checklist</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/resources/pilot-to-production-checklist?lang=en" />
@@ -272,80 +209,71 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/resources/pilot-to-production-checklist?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/industries/fintech</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/industries/tech-services-latam</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/fintech?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/fintech?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/fintech?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/tech-services-latam?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/tech-services-latam?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/tech-services-latam?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/industries/healthcare</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/industries/media-entertainment</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/healthcare?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/healthcare?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/healthcare?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/media-entertainment?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/media-entertainment?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/media-entertainment?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/industries/logistics</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/industries/sports</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/logistics?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/logistics?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/logistics?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/sports?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/sports?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/sports?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/industries/saas-hitech</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/industries/retail</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/saas-hitech?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/saas-hitech?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/saas-hitech?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/retail?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/retail?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/retail?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/industries/energy</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/engagement/agentic-readiness-sprint</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/industries/energy?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/industries/energy?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/industries/energy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/agentic-readiness-sprint?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/agentic-readiness-sprint?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/agentic-readiness-sprint?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/engagement/ai-native-pods</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/engagement/agentic-operations-build</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/ai-native-pods?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/ai-native-pods?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/ai-native-pods?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/agentic-operations-build?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/agentic-operations-build?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/agentic-operations-build?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/engagement/agentops-factory</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://agentbiz.io/engagement/custom-delivery-pod</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/agentops-factory?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/agentops-factory?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/agentops-factory?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/engagement/function-modernization</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/function-modernization?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/function-modernization?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/function-modernization?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/engagement/custom-delivery-pod?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/engagement/custom-delivery-pod?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/engagement/custom-delivery-pod?lang=en" />
   </url>
   <url>
     <loc>https://agentbiz.io/insights/why-enterprise-ai-pilots-fail</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/why-enterprise-ai-pilots-fail?lang=en" />
@@ -353,8 +281,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/why-enterprise-ai-pilots-fail?lang=en" />
   </url>
   <url>
+    <loc>https://agentbiz.io/insights/strategy-operations-then-ai</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/strategy-operations-then-ai?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/strategy-operations-then-ai?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/strategy-operations-then-ai?lang=en" />
+  </url>
+  <url>
     <loc>https://agentbiz.io/insights/governed-agents-human-in-the-loop</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/governed-agents-human-in-the-loop?lang=en" />
@@ -362,44 +299,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/governed-agents-human-in-the-loop?lang=en" />
   </url>
   <url>
-    <loc>https://agentbiz.io/insights/document-workflows-highest-roi-ai</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/document-workflows-highest-roi-ai?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/document-workflows-highest-roi-ai?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/document-workflows-highest-roi-ai?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/insights/build-vs-buy-enterprise-ai</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/build-vs-buy-enterprise-ai?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/measuring-ai-roi-beyond-pilot?lang=en" />
-  </url>
-  <url>
-    <loc>https://agentbiz.io/insights/integration-patterns-enterprise-agents</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agentbiz.io/insights/integration-patterns-enterprise-agents?lang=en" />
-  </url>
-  <url>
     <loc>https://agentbiz.io/trainings/ai-for-operations-leaders</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings/ai-for-operations-leaders?lang=en" />
@@ -408,7 +309,7 @@
   </url>
   <url>
     <loc>https://agentbiz.io/trainings/ai-for-operations-leaders/enroll</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://agentbiz.io/trainings/ai-for-operations-leaders/enroll?lang=en" />

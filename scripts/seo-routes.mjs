@@ -1,45 +1,39 @@
-/** Public routes for sitemap generation — keep in sync with App.tsx routes. */
+/** Public routes for sitemap generation — keep in sync with SiteRoutes.tsx. */
 
 export const siteUrl = "https://agentbiz.io";
 
 export const serviceSlugs = [
-  "ai-code-review",
-  "ai-assisted-software-development",
-  "ai-integration",
-  "agentic-ai-development",
-  "custom-ai-development",
-  "ai-mvp-development",
-  "ai-application-development",
-  "mobile-app-development",
-  "web-development",
-  "quality-assurance",
-  "digital-transformation",
+  "operating-foundation",
+  "process-diagnostic",
+  "process-implementation",
+  "ai-accelerator",
 ];
 
-export const industrySlugs = ["fintech", "healthcare", "logistics", "saas-hitech", "energy"];
+export const industrySlugs = [
+  "tech-services-latam",
+  "media-entertainment",
+  "sports",
+  "retail",
+];
 
 export const engagementSlugs = [
-  "ai-native-pods",
-  "agentops-factory",
-  "function-modernization",
+  "agentic-readiness-sprint",
+  "agentic-operations-build",
+  "custom-delivery-pod",
 ];
 
 export const insightSlugs = [
   "why-enterprise-ai-pilots-fail",
+  "strategy-operations-then-ai",
   "governed-agents-human-in-the-loop",
-  "document-workflows-highest-roi-ai",
-  "build-vs-buy-enterprise-ai",
-  "measuring-ai-roi-beyond-pilot",
-  "integration-patterns-enterprise-agents",
 ];
 
 export const resourceGuideSlugs = ["enterprise-ai-roadmap", "pilot-to-production-checklist"];
 
 export const caseStudyPaths = [
-  "/case-studies/enterprise-ops-automation",
-  "/case-studies/healthcare-prior-auth",
-  "/case-studies/fintech-loan-documents",
-  "/case-studies/logistics-exception-handling",
+  "/case-studies/avanto-operations",
+  "/case-studies/combat-sports-scoring",
+  "/case-studies/specialty-retail-ops",
 ];
 
 export const trainingSlugs = ["ai-for-operations-leaders"];
@@ -51,6 +45,7 @@ export function getPublicPaths() {
     "/privacy",
     "/terms",
     "/careers",
+    "/contact",
     "/services",
     "/resources",
     "/ai-roi-calculator",
