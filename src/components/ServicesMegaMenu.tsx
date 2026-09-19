@@ -301,7 +301,7 @@ export function ServicesMegaMenu({ onNavigate }: ServicesMegaMenuProps) {
             <div className="solutions-mega-panel mx-auto max-w-5xl overflow-hidden rounded-xl border border-border p-3 md:p-4">
               <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {industryDetails.map((industry) => {
-                  const Icon = industry.icon;
+                  const Icon: LucideIcon = industry.icon ?? Building2;
                   return (
                     <li key={industry.slug}>
                       <Link
