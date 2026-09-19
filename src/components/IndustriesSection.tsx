@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Building2, type LucideIcon } from "lucide-react";
 import { useIndustriesContent } from "@/i18n/hooks";
 import { useTranslation } from "@/i18n/useTranslation";
 
@@ -22,7 +23,7 @@ const IndustriesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industryDetails.map((industry) => {
-            const Icon = industry.icon;
+            const Icon: LucideIcon = industry.icon ?? Building2;
             return (
               <Link
                 key={industry.slug}
